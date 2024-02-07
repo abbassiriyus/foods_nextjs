@@ -1,0 +1,16 @@
+
+.for_cooks{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+flex-wrap:wrap;
+}
+.for_cooks .text{
+    width: 45%;
+}
+.for_cooks .image{
+    width: 45%;
+    display: block;
+    background-color: red;
+    text-align: center;
+}
