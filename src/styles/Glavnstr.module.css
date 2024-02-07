@@ -1,0 +1,116 @@
+
+.header{
+width: 80%;
+margin: auto;
+}
+.head{
+width: 100%;
+display: flex;
+justify-content: space-between;
+margin: auto;
+}
+.h_soz{
+width: 50%;
+}
+.h_swip_img{
+width: 50%;
+}
+.swiper{
+width: 70%;
+height: max-content;
+padding: 0.9%;
+background-color: #00db6a1a;
+margin: auto;
+border-radius: 50px;
+}
+.swiper_img{
+width: 150px;
+}
+.s_i{
+width: 100%;
+display: flex;
+justify-content: right;
+}
+.s_profil{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.prifil_foto{
+width: 80px;
+height: 80px;
+border-radius: 50%;
+transition: 0.2s;
+}
+.prifil_foto:hover{
+border: 1px solid rgba(0, 188, 0, 0.936);
+}
+.nazvanie_bluda{
+font-size: 20px;
+}
+.sotuvchi{
+font-size: 20px;
+color: #06c160;
+}
+.bal{
+width: 100%;
+height: min-content;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.star{
+font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
