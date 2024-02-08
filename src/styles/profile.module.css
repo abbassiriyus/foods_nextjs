@@ -1,0 +1,112 @@
+.line{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.line01 {
+    /* --btn-border-radius: 18px;
+  --btn-height: 69px;
+  --btn-color: #111;
+  --btn-bg-color: #fff;
+  --btn-border-color: transparent;
+  --btn-hover-bg-color: #06c160;
+  --btn-hover-border-color: transparent;
+  --btn-hover-color: #fff;
+  font-size: var(--fs24);
+  font-weight: 700;
+  --btn-color: #fff;
+  --btn-bg-color: #06c160;
+  pointer-events: none; */
+
+}
+.line01 a{
+    --btn-border-radius: 18px;
+  --btn-height: 69px;
+  --btn-color: #111;
+  --btn-bg-color: #fff;
+  --btn-border-color: transparent;
+  --btn-hover-bg-color: #06c160;
+  --btn-hover-border-color: transparent;
+  --btn-hover-color: #fff;
+  font-size: var(--fs24);
+  font-weight: 700;
+  --btn-color: #fff;
+  --btn-bg-color: #06c160;
+  pointer-events: none;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #06c160;
+  color: #fff;
+  width: 170px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.line1 a{
+    color: #111;
+    text-decoration: none;
+    --btn-border-radius: 18px;
+    --btn-height: 69px;
+    --btn-color: #111;
+    --btn-bg-color: #fff;
+    --btn-border-color: transparent;
+    --btn-hover-bg-color: #06c160;
+    --btn-hover-border-color: transparent;
+    --btn-hover-color: #fff;
+    font-size: var(--fs24);
+    font-weight: 700;
+    --btn-color: #fff;
+    --btn-bg-color: #06c160;
+    background-color: whitesmoke;
+    color: #111;
+    width: 170px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.line1 a:hover{
+    background-color: #06c160;
+    color: #fff;
+}
+.line2 a{
+    color: #111;
+    text-decoration: none;
+    --btn-border-radius: 18px;
+    --btn-height: 69px;
+    --btn-color: #111;
+    --btn-bg-color: #fff;
+    --btn-border-color: transparent;
+    --btn-hover-bg-color: #06c160;
+    --btn-hover-border-color: transparent;
+    --btn-hover-color: #fff;
+    font-size: var(--fs24);
+    font-weight: 700;
+    --btn-color: #fff;
+    --btn-bg-color: #06c160;
+    font-size: 20px;
+    background-color: whitesmoke;
+    color: #111;
+    width: 300px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.line2 a:hover{
+    background-color: #06c160;
+    color: #fff;
+}
+/* reg uchun */
+.reg1{
+    display: flex;
+}
