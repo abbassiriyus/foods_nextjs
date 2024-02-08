@@ -1,16 +1,125 @@
-
-.for_cooks{
+.header_0{
+    width: 80%;
+    margin: auto;
+}
+.header_1{
     display: flex;
     justify-content: space-around;
-    align-items: center;
-flex-wrap:wrap;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+    margin-top: 43px;
 }
-.for_cooks .text{
-    width: 45%;
+.header_text{
+    width: 50%;
+    min-width: 300px;
 }
-.for_cooks .image{
-    width: 45%;
-    display: block;
-    background-color: red;
-    text-align: center;
+.header_text span{
+    color: rgba(128, 128, 128, 0.668);
+    font-size: 22px;
+    font-family: 'Manrope', sans-serif;
+}
+.header_text h1{
+    font-family: 'Protest Strike', sans-serif;
+    font-size: 95px;
+    margin-top: 23px;
+    margin-bottom: 33px;
+    width: 130%;
+    font-weight: 900;
+    letter-spacing: -2px;
+    min-width: 210px;
+
+}
+.header_text h3{
+    font-size: 25px;
+    font-family: 'Manrope', sans-serif;
+    color:#06c160 ;
+    font-weight: 900;
+    margin-bottom: 73px;
+
+}
+.header_text p{
+    width: 90%;
+    font-family:'Manrope', sans-serif ;
+    font-weight: 100;
+    font-size: 21px;
+    margin-bottom: 33px;
+}
+#dispa{
+    display: none;
+}
+@media(max-width:910px){
+    #dispa{
+        display: block;
+        height: 70vh;
+    }
+    .header_img{
+        display: none;
+    }
+    .header_text h1{
+    font-size: 44px;
+    
+    }
+}
+.header_text button{
+    margin-bottom: 33px;
+    padding: 13px 30px;
+    background-color: #06c160;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+.header_text button:hover{
+    color: #06c160;
+    background-color: white;
+    border: 1px solid #06c160;
+}
+.header_p{
+    font-size: 16px;
+    color: grey;
+    font-family:'Manrope', sans-serif ;
+    font-weight: 100;
+}
+.header_img{
+    width: 40%;
+    min-width: 300px;
+    position: relative;
+    top: 2%;
+    right: 2%;
+    z-index: -1;
+}
+.img_header{
+    border-radius: 100%;
+    background-color:#06c1601a;
+    height:60vh ;
+    width: 30vw;
+    margin-top: 33px;
+    min-width: 300px;
+}
+@media(max-width:1140px) {
+    .rocket{
+        width: 81%;
+    }  
+    #dispa{
+        height: 70vw;
+    }
+}
+.header_img img{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transform: translateZ(20px);
+
+    
+}
+.logo{
+    position: relative;
+    left: 121px;
+    top: -61px;
+    width: 55%;
+}
+.rocket{
+    position: relative;
+    right: 153px;
+    top: -133px;
 }
