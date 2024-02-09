@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: auto;
     flex-wrap: wrap;
     margin-top: 43px;
@@ -16,23 +16,23 @@
     min-width: 300px;
 }
 .header_text span{
-    color: rgba(128, 128, 128, 0.668);
+    color: #909090;
     font-size: 22px;
     font-family: 'Manrope', sans-serif;
 }
 .header_text h1{
     font-family: 'Protest Strike', sans-serif;
-    font-size: 95px;
+    font-size: 45px;
     margin-top: 23px;
     margin-bottom: 33px;
-    width: 130%;
+    width: 100%;
     font-weight: 900;
     letter-spacing: -2px;
-    min-width: 210px;
+    /* min-width: 210px; */
 
 }
 .header_text h3{
-    font-size: 25px;
+    font-size: 24px;
     font-family: 'Manrope', sans-serif;
     color:#06c160 ;
     font-weight: 900;
@@ -41,33 +41,23 @@
 }
 .header_text p{
     width: 90%;
-    font-family:'Manrope', sans-serif ;
-    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    font-weight:100;
     font-size: 21px;
     margin-bottom: 33px;
+    min-width: 300px;
+    line-height: 44px;
 }
 #dispa{
     display: none;
 }
-@media(max-width:910px){
-    #dispa{
-        display: block;
-        height: 70vh;
-    }
-    .header_img{
-        display: none;
-    }
-    .header_text h1{
-    font-size: 44px;
-    
-    }
-}
+
 .header_text button{
     margin-bottom: 33px;
     padding: 13px 30px;
     background-color: #06c160;
     color: white;
-    font-size: 17px;
+    font-size: 19px;
     border: none;
     border-radius: 10px;
 }
@@ -78,7 +68,7 @@
 }
 .header_p{
     font-size: 16px;
-    color: grey;
+    color: #909090;
     font-family:'Manrope', sans-serif ;
     font-weight: 100;
 }
@@ -95,32 +85,346 @@
     background-color:#06c1601a;
     height:60vh ;
     width: 30vw;
-    margin-top: 33px;
-    min-width: 300px;
+    align-items: center;
+    margin-top: 53px;
+    min-width: 250px;
+    /* min-height: 100px; */
+    position: relative;
+    max-width: 500px;
 }
-@media(max-width:1140px) {
-    .rocket{
-        width: 81%;
-    }  
-    #dispa{
-        height: 70vw;
-    }
-}
+
 .header_img img{
     transform-style: preserve-3d;
     transform: perspective(1000px);
     transform: translateZ(20px);
-
-    
 }
 .logo{
-    position: relative;
-    left: 121px;
-    top: -61px;
-    width: 55%;
+    position: absolute;
+    top: -100px;
+    left: 180px;
+    width: 50%;
+    min-width: 100px;
 }
 .rocket{
+    position: absolute;
+    top: 150px;
+    right: 300px;
+    width: 70%;
+    height: auto;
+    /* min-width: 300px; */
+}
+
+
+
+
+@media(max-width:910px){
+    .header_text{
+    width: 80%;
+    
+    }
+    .header_1{
+        margin-right: 200px;
+    }
+    .img_header{
+        width: 300px;
+        margin: auto;
+        height: 300px;
+    }
+    #dispa{
+        display: block;
+        height: 100px !important ;       ;
+        /* width: 60vw; */
+        margin-bottom: 300px;
+    }
+    .logo{
+        width: 100px;
+    }
+    .rocket{
+        width: 200px;
     position: relative;
-    right: 153px;
-    top: -133px;
+    left: 5%;
+        height: auto !important;
+    }
+    .header_img{
+        display: none;
+        position: relative;
+        top: 0px !important;
+        right: 0px ;
+        margin: auto;
+        /* height: 200px !important; */
+    }
+    .header_1{
+        display: flex;
+        justify-content: start;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        margin-top: 43px;
+    }
+    .header_text h1{
+        font-family: 'Protest Strike', sans-serif;
+        font-size: 25px;
+        margin-top: 23px;
+        margin-bottom: 33px;
+        width: 130%;
+        font-weight: 900;
+        letter-spacing: -2px;
+        min-width: 210px;
+    }
+    .header_text h3{
+        font-size: 13px;
+        font-family: 'Manrope', sans-serif;
+        color:#06c160 ;
+        font-weight: 900;
+        margin-bottom: 73px;
+        width: 100%;
+
+    }
+    .header_text p{
+        width: 140%;
+        font-family:'Manrope', sans-serif ;
+        font-weight: 100;
+        font-size: 21px;
+        margin-bottom: 33px;
+
+    }
+    
+.header_text button{
+    margin-bottom: 33px;
+    padding: 10px 20px;
+    background-color: #06c160;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+}
+
+@media(max-width:1140px){
+    .header_text{
+    width: 80%;
+    
+    }
+    .header_1{
+        margin-right: 200px;
+    }
+    .img_header{
+        width: 300px;
+        margin: auto;
+        height: 300px;
+    }
+    #dispa{
+        display: block;
+        height: 100px !important ;
+        /* width: 60vw; */
+        margin-bottom: 300px;
+    }
+    .logo{
+        width: 100px;
+    }
+    .rocket{
+        width: 200px;
+    position: relative;
+    left: 5%;
+        height: auto !important;
+    }
+    .header_img{
+        display: none;
+        position: relative;
+        top: 0px !important;
+        right: 0px ;
+        margin: auto;
+        /* height: 200px !important; */
+    }
+    .header_1{
+        display: flex;
+        justify-content: start;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        margin-top: 43px;
+    }
+    .header_text h1{
+        font-family: 'Protest Strike', sans-serif;
+        font-size: 25px;
+        margin-top: 23px;
+        margin-bottom: 33px;
+        width: 130%;
+        font-weight: 900;
+        letter-spacing: -2px;
+        min-width: 210px;
+    }
+    .header_text h3{
+        font-size: 13px;
+        font-family: 'Manrope', sans-serif;
+        color:#06c160 ;
+        font-weight: 900;
+        margin-bottom: 73px;
+        width: 100%;
+
+    }
+    .header_text p{
+        width: 140%;
+        font-family:'Manrope', sans-serif ;
+        font-weight: 100;
+        font-size: 21px;
+        margin-bottom: 33px;
+
+    }
+    
+.header_text button{
+    margin-bottom: 33px;
+    padding: 10px 20px;
+    background-color: #06c160;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+}
+
+
+
+
+
+
+
+
+
+.servis{
+    width: 87%;
+    margin: auto;
+    margin-top: 4%;
+}
+.servis h2{
+    font-size: 43px;
+    font-weight: 900;
+}
+.servis p{
+    font-size: 17px;
+    margin-top: 11px;
+    min-width: 300px;
+    line-height: 27px;
+    color: #909090;
+}
+.zakaz1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5%;
+    width: 80%;
+
+}
+.menu{
+    font-family: 'Manrope', sans-serif;
+    width: 60%;
+    min-width: 300px;
+
+}
+.menu h2{
+    color: #06c160;
+    font-size: 25px;
+}
+.menu p{
+    width: 50%;
+    /* min-width: 210px; */
+    /* font-family: 'Manrope', sans-serif; */ 
+    min-width: 300px;
+    line-height: 27px;
+}
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e6f9ef;
+    margin-top: 7%;
+    margin-bottom: 7%;
+   
+}
+
+.number p{
+    color: black;
+    font-size: 33px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 900;
+    margin-top: -5px;
+    width: 50%;
+}
+.price_2 h2{
+    color: #06c160;
+    font-size: 25px;
+}
+.price_2{
+    font-family: 'Manrope', sans-serif;
+    width: 50%;
+    min-width: 300px;
+}
+.price_2 button{
+    margin-bottom: 33px;
+    padding: 13px 30px;
+    background-color: #06c160;
+    color: white;
+    font-size: 19px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 150px;
+    min-width: 300px;
+}
+.price_2 button:hover{
+    color: #06c160;
+    background-color: white;
+    border: 1px solid #06c160;
+}
+
+
+
+.otziv1{
+    background-color: #e6f9ef;
+    /* width: 90%; */
+    margin-bottom:11% ;
+    border-radius: 31px;
+    min-height: 100px;
+    min-width: 300px;
+    padding-bottom: 5%;
+    margin-top: 5%;
+}
+.otziv{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+}
+.otziv1 h1{
+    font-size: 28px;
+    font-weight: 900;
+    padding-top: 4%;
+    margin-left: 6%;
+    font-family: 'Manrope', sans-serif;
+
+}
+.grafik {
+    width: 30%;
+    min-width: 300px;
+    margin-top: -100px;
+}
+.grafik h2{
+    color: #06c160;
+    margin-top: -120px;
+    font-size: 21px;
+    font-weight: 900;
+}
+.grafik p{
+    width: 100%;
+    min-width: 300px;
+    font-family: 'Manrope', sans-serif;
+    line-height: 25px;
+    color: #909090;
+    margin-top: 11px;
+}
+.otziv_img{
+    width: 15%;
 }
