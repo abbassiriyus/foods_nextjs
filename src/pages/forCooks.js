@@ -1,4 +1,5 @@
-import React, { useEffect,useState } from 'react'
+
+import React, { useEffect,useState, useRef  } from 'react'
 import { FaArrowRight,FaArrowLeftLong  } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
@@ -8,14 +9,14 @@ import img2 from "../images/1.png"
 import img3 from "../images/sushi.webp"
 import img4 from "../images/donut.png"
 import img5 from "../images/taco.png"
-
 import Script from 'next/script'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { imageConfigDefault } from 'next/dist/shared/lib/image-config'
+import VanillaTilt from 'vanilla-tilt';
 
 
 export default function forCooks() {
+    const tiltRef = useRef(null);
     var [data,setData]=useState(
         [
           {
@@ -49,10 +50,23 @@ export default function forCooks() {
             setPage(page-1)
             }
         }
-        useEffect(()=>{
-          Aos.init();
-        },[])
- 
+
+    useEffect(() => {
+      // VanillaTilt.js'i bileşenin montajı sırasında etkinleştirin
+      if (tiltRef.current) {
+        VanillaTilt.init(tiltRef.current, {
+          max: 25,
+          speed: 400,
+          glare: true,
+          'max-glare': 0.5,
+        });
+      }
+      // AOS kutubxonasini boshlash
+    }, []);
+  useEffect(()=>{
+    Aos.init();
+  })
+
   return (
     <div>
         <header>
@@ -63,8 +77,8 @@ export default function forCooks() {
         <span>Привет!</span>
     
         <h1>ЛЮБИШЬ ГОТОВИТЬ?</h1>
-        <div className={s.header_img} data-tilt id={s.dispa}>
-            <div className={s.img_header} data-tilt>
+        <div className={s.header_img} ref={tiltRef} id={s.dispa}>
+            <div className={s.img_header} >
              <Image className={s.logo} src={img} alt="" />
              <Image className={s.rocket} src={img1} alt="" />
             </div>
@@ -75,8 +89,8 @@ export default function forCooks() {
         <button>Регистрация в сервисе</button>
         <h4 className={s.header_p}>Займёт всего 3 минуты</h4>
     </div>
-    <div className={s.header_img} data-tilt>
-   <div className={s.img_header} data-tilt>
+    <div className={s.header_img} ref={tiltRef}>
+   <div className={s.img_header}>
     <Image className={s.logo} src={img} alt="" />
     <Image className={s.rocket} src={img1}  alt="" />
    </div>

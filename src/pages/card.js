@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import s from "../styles/card.module.css"
 import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
-import Script from 'next/script';
+
+import VanillaTilt from 'vanilla-tilt';
 export default function card() {
-    
+    const tiltRef = useRef(null);
+
+    useEffect(() => {
+      // VanillaTilt.js'i bileşenin montajı sırasında etkinleştirin
+      if (tiltRef.current) {
+        VanillaTilt.init(tiltRef.current, {
+          max: 25,
+          speed: 400,
+          glare: true,
+          'max-glare': 0.5,
+        });
+      }
+    }, []);
+  
   return (
   
-<div  className={s.cards} data-tilt >
-    <div className={s.card} data-tilt > 
+<div  className={s.cards}  ref={tiltRef} >
+    <div className={s.card}  > 
         <div className={s.card_img}>
             <h3>Заказ за 24 часа</h3>
         </div>
@@ -46,7 +60,7 @@ export default function card() {
     </div>
         </div>
     </div>
-    <Script src="../path/to/script.js" />
+    {/* <Script src="../path/to/script.js" /> */}
    </div>
 
   )
