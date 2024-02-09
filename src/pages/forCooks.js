@@ -77,7 +77,7 @@ export default function forCooks() {
         <span>Привет!</span>
     
         <h1>ЛЮБИШЬ ГОТОВИТЬ?</h1>
-        <div className={s.header_img} ref={tiltRef} id={s.dispa}>
+        <div ref={tiltRef}  className={s.header_img} id={s.dispa}>
             <div className={s.img_header} >
              <Image className={s.logo} src={img} alt="" />
              <Image className={s.rocket} src={img1} alt="" />
@@ -89,10 +89,10 @@ export default function forCooks() {
         <button>Регистрация в сервисе</button>
         <h4 className={s.header_p}>Займёт всего 3 минуты</h4>
     </div>
-    <div className={s.header_img} ref={tiltRef}>
-   <div className={s.img_header}>
-    <Image className={s.logo} src={img} alt="" />
-    <Image className={s.rocket} src={img1}  alt="" />
+    <div  className={s.header_img} >
+   <div  className={s.img_header}>
+    <Image ref={tiltRef}  className={s.logo} src={img} alt="" />
+    <Image ref={tiltRef}  className={s.rocket} src={img1}  alt="" />
    </div>
     </div>
 </div>
@@ -140,7 +140,7 @@ export default function forCooks() {
               
                    
         </div> 
-        <Image data-aos="fade-up"
+        <Image ref={tiltRef}  data-aos="fade-up"
      data-aos-duration="3000"  className={s.sushi_rotate}  src={img3} alt="" />
         <Image data-aos="fade-up"
      data-aos-duration="3000"  className={s.sushi_rotate1} src={img3} alt="" />
@@ -155,7 +155,8 @@ export default function forCooks() {
 <div data-aos="fade-up"
      data-aos-duration="3000" className={s.otziv1}>
    <h1>КЛЮЧЕВЫЕ  ФИШКИ СЕРВИСА</h1>
-    <Image className={s.cupcake} src={img2} alt="" />
+
+    <Image ref={tiltRef}  className={s.cupcake}  src={img2} alt="" />
 
 <div className={s.otziv}>
  
@@ -213,11 +214,11 @@ export default function forCooks() {
 
 <div  data-aos="fade-up"
      data-aos-duration="3000" className={s.registration}>
-        <Image className={s.taco} src={img5} alt="" />
+        <Image  className={s.taco} src={img5} alt="" />
         <Image className={s.donut} src={img4} alt="" />
 
     <h1>РЕГИСТРАЦИЯ В СЕРВИСЕ</h1>
-    <div className={s.servis_inp}>
+    <div  className={s.servis_inp}>
     <div className={s.phone_inp}>
     <input type="text" name="" id="" placeholder='Телефон' />
         </div>
