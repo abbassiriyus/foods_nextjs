@@ -1,0 +1,379 @@
+
+.cards_menu{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 25px;
+    line-height: var(--lh32);
+    font-family: 'Montserrat',Arial,serif,-apple-system;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.cards{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cards_flex{
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card{
+    width: 300px;
+    height: auto;
+    font: 700 var(--fs24)/var(--lh24) 'Manrope',Arial,sans-serif,-apple-system;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.df{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.card img{
+    width: 300px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.d{
+    width: 130px;
+}
+.card h2{
+    padding-left: 13px;
+    font-family: 700 var(--fs24)/var(--lh24) 'Manrope',Arial,sans-serif,-apple-system;
+}
+.dff button{
+    width: 130px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #06c160;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+}
+.pakazat_btn{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.pakazat_btn button{
+    width: 250px;
+    height: 45px;
+    border: 1px solid #06c160;
+    background-color: white;
+    color: #06c160;
+    border-radius: 15px;
+    font-size: 18px;
+}
+.otziv{
+    width: 100%;
+    max-width: 1200px;
+    /* min-width: 300px; */
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: white;
+}
+.otzivipakupateley{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+.img img{
+    border-radius: 50% !important;
+    min-width: 60px;
+}
+.img{
+    gap: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+.nname{
+    /* width: 50%; */
+    /* min-width: 300px; */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.otzivipakupateley{
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.anastasiya{
+   width: 90%;
+   min-width: 300px;
+   margin: auto;
+   margin-bottom: 50px;
+}
+
+/* .sttar{
+    width: 90%;
+    min-width: 300px;
+} */
+
+
+.otziv_btn{
+    width: 300px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.otziv_btn button{
+    width: 250px;
+    height: 45px;
+    border: 1px solid #555;
+    background-color: whitesmoke;
+    color: #111;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+
+.app{
+    display: flex;
+    width: 95%;
+    min-width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.app1 img{
+width: 200px;
+}
+.app2 img{
+    width: 200px;
+}
+
+.povar{
+    width: 66%;
+    min-width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+
+.povar1{
+    width: 55%;
+    min-width: 300px;
+}
+.povar1 p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    min-width: 300px;
+}
+.povar2{
+    min-width: 300px;
+}
+.povar2 p{
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@media(max-width:1338px){
+    .povar1{
+        width: 100%;
+    }
+}
+.footer{
+    width: 70%;
+    min-width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.foot{
+    width: 30%;
+    min-width: 300px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.foot2{
+    width: 45%;
+    min-width: 300px;
+    line-height: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.foot2 a{
+    text-decoration:none;
+    color: #06c160;
+    
+}
+
+.boshi{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boshi2_line{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+@media(max-width:510px){
+    .app1 img{
+        width: 150px;
+        }
+        .app2 img{
+            width: 150px;
+        } 
+
+        .foot2{
+            width: 45%;
+            min-width: 300px;
+            line-height: 23px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .otzivipakupateley h2{
+            font-size: 20px;
+        }
+}
+
+
+.qiz{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-wrap: wrap;
+}
+.qiz1{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-wrap: wrap;
+}
+.rasm{
+    width: 50%;
+    min-width: 300px;
+    /* background-color: red; */
+    line-height: 80px;
+}
+.rasm img{
+    border-radius: 50%;
+}
+.rasm button{
+    width: 250px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    background-color: #F5DF4D;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.osebe{
+    width: 50%;
+    min-width: 300px;
+    /* background-color: green; */
+}
+.bir{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.ikki{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 8px;
+}
+.bir h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.ikki button{
+    background-color: white;
+    height: 40px;
+    border: 1px solid #06c160;
+    border-radius: 10px;
+    color: #06c160;
+
+}
+.uch h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.uch p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.qiz2{
+    width: 50%;
+    min-width: 300px;
+}
+.sms{
+    display: flex;
+    justify-content: space-around;
+}
+.sakkiz_btn button{
+    width: 180px;
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #06c160;
+    background-color: white;
+    color: #06c160;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+.adress{
+    width: 70%;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    
+}
+.ad1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ad1 p{
+    font-family: 'Manrope',Arial,sans-serif,-apple-system;
+color: black;
+font-size: 12px;
+line-height: 25px;
+}
+.ad1 span{
+    font-family: 'Manrope',Arial,sans-serif,-apple-system;
+color: #909090;
+font-size: 12px;
+line-height: 25px;
+}
