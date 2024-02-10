@@ -14,7 +14,14 @@ import Script from 'next/script'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// import required modules
+import { Pagination } from 'swiper/modules';
 
 export default function forCooks() {
     const tiltRef = useRef(null);
@@ -173,10 +180,30 @@ export default function forCooks() {
 
 <div data-aos="fade-up"
      data-aos-duration="3000" className={s.otziv1}>
-   <h1>КЛЮЧЕВЫЕ  ФИШКИ СЕРВИСА</h1>
+   <h1>КЛЮЧЕВЫЕ ФИШКИ СЕРВИСА</h1>
 
-    <Image   className={s.cupcake}  src={img2} alt="" />
+    <Image className={s.cupcake}  src={img2} alt="" />
 
+   <Swiper
+        pagination={{
+          dynamicBullets: true,}}  modules={[Pagination]} className="mySwiper" >
+        <SwiperSlide className={s.slide_swip}>   <div className={s.grafik}>
+    <Image className={s.otziv_img} src={img} alt="" />
+    <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
+    <p>Покупатель сможет оставлять отзыв только после получения заказа. <br />Хороший рейтинг позволит привлекать ещё больше клиентов!</p>
+    </div></SwiperSlide>
+        <SwiperSlide className={s.slide_swip}>
+    <div className={s.grafik}>
+    <Image className={s.otziv_img} src={img} alt="" />
+    <h2>ВCЕ КЛИЕНТЫ — <br /> В ОДНОМ МЕСТЕ</h2>
+    <p>Переписки в чатах только с теми, кто хочет оформить заказ на твоё блюдо.</p>
+    </div></SwiperSlide>
+        <SwiperSlide className={s.slide_swip}>  <div className={s.grafik}>
+    <Image className={s.otziv_img} src={img} alt="" />
+    <h2>ДОХОД И ГРАФИК ЗАВИСЯТ ОТ ТЕБЯ</h2>
+    <p>Готовь заказы когда тебе удобно, предлагай продукцию знакомым и получай новых клиентов от нас. <br />Заработок не ограничен зарплатой!</p>
+    </div></SwiperSlide>
+  </Swiper>
 <div className={s.otziv}>
 
     <div className={s.grafik}>
