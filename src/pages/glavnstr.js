@@ -129,7 +129,7 @@ plus();
 <div className={s.s_profil}>
 <img
 className={s.prifil_foto}
-src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136-wc200.jpeg"
+src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d37c0db7585d7fbbbfcad7b6c4c91359fa3e6158/d37c0db7585d7fbbbfcad7b6c4c91359fa3e6158-wc200.jpeg"
 alt=""
 />
 <div className={s.s_p_g_s}>
@@ -305,7 +305,6 @@ alt=""
 </div>
 </div>
 </div>
-
 <div className={s.cardlar}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
@@ -343,18 +342,32 @@ alt=""
 </div>
 </div> */}
 
-<div className={s.q}>
+
 <div className={s.qoshilish}>
 <div className={s.q_soz}>
 <h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
-<p>— Максимально просто и прозрачно, честное слово!</p>
-<p>Вы повар, кондитер или фермер?
+<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
+<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
 — регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
 <button>Зарегистрироватся</button>
 </div>
 <div className={s.q_img}>
 <Image src={img1} alt="" />
 </div>
+</div>
+
+<div className={s.qoshilish2}>
+<div className={s.q_soz}>
+<h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
+<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
+<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
+— регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
+<div className={s.q_soz_b}>
+<button>Зарегистрироватся</button>
+</div>
+</div>
+<div className={s.q_img}>
+<Image src={img1} alt="" />
 </div>
 </div>
 
