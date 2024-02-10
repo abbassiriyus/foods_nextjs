@@ -9,6 +9,7 @@ import img2 from "../images/1.png"
 import img3 from "../images/sushi.webp"
 import img4 from "../images/donut.png"
 import img5 from "../images/taco.png"
+import img6 from "../images/pizza.png"
 import Script from 'next/script'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -71,13 +72,14 @@ export default function forCooks() {
     <div>
         <header>
           {/* bir */}
+<div className={s.body1}>
 <div className={s.header_0}>
 <div className={s.header_1}>
     <div className={s.header_text}>
         <span>Привет!</span>
     
         <h1>ЛЮБИШЬ ГОТОВИТЬ?</h1>
-        <div ref={tiltRef}  className={s.header_img} id={s.dispa}>
+        <div   className={s.header_img} id={s.dispa}>
             <div className={s.img_header} >
              <Image className={s.logo} src={img} alt="" />
              <Image className={s.rocket} src={img1} alt="" />
@@ -91,8 +93,8 @@ export default function forCooks() {
     </div>
     <div  className={s.header_img} >
    <div  className={s.img_header}>
-    <Image ref={tiltRef}  className={s.logo} src={img} alt="" />
-    <Image ref={tiltRef}  className={s.rocket} src={img1}  alt="" />
+    <Image   className={s.logo} src={img} alt="" />
+    <Image   className={s.rocket} src={img1}  alt="" />
    </div>
     </div>
 </div>
@@ -109,11 +111,27 @@ export default function forCooks() {
             <h2>ПРОХОДИ РЕГИСТРАЦИЮ</h2>
             <p>Напиши подробно о себе, выбери категории меню, загрузи аватарку и укажи адрес своей кухни!</p>
             <div className={s.number}>
-                <div className={s.circle}></div>
-                <div className={s.circle1}></div>
                 <p>01</p>
             </div>
         </div>
+
+
+        <div data-aos="fade-up"
+     data-aos-duration="3000"  className={s.price_2}>
+           <div id={s.none} className={s.price_sushi}>
+           <h2>СОЗДАВАЙ СВОЕ  МЕНЮ</h2>
+            <p>Ты лучше всех готовишь плов?
+                Или у тебя самые красивые десерты?
+                Создай блюдо в личном кабинете, добавь описание, назови цену и прикрепи качественную фотографию</p>
+                <div className={s.number}>
+                  
+                    <p>02</p>
+                </div>
+                <button className={s.btn_block}>Регистрация в сервисе</button>
+           </div>
+              
+                   
+        </div> 
 
         <div data-aos="fade-up"
      data-aos-duration="3000" className={s.zakaz}>
@@ -122,6 +140,7 @@ export default function forCooks() {
             <div className={s.number}>
                 <p>03</p>
             </div>
+            <button className={s.btn_none}>Регистрация в сервисе</button>
         </div>
         </div>
         <div data-aos="fade-up"
@@ -140,7 +159,7 @@ export default function forCooks() {
               
                    
         </div> 
-        <Image ref={tiltRef}  data-aos="fade-up"
+        <Image   data-aos="fade-up"
      data-aos-duration="3000"  className={s.sushi_rotate}  src={img3} alt="" />
         <Image data-aos="fade-up"
      data-aos-duration="3000"  className={s.sushi_rotate1} src={img3} alt="" />
@@ -156,10 +175,10 @@ export default function forCooks() {
      data-aos-duration="3000" className={s.otziv1}>
    <h1>КЛЮЧЕВЫЕ  ФИШКИ СЕРВИСА</h1>
 
-    <Image ref={tiltRef}  className={s.cupcake}  src={img2} alt="" />
+    <Image   className={s.cupcake}  src={img2} alt="" />
 
 <div className={s.otziv}>
- 
+
     <div className={s.grafik}>
     <Image className={s.otziv_img} src={img} alt="" />
     <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
@@ -185,7 +204,8 @@ export default function forCooks() {
 
 
 
-<main className={s.main}>
+<main  data-aos="fade-up"
+     data-aos-duration="3000" className={s.main}>
     <h3>
     Отзывы
     участников
@@ -193,12 +213,13 @@ export default function forCooks() {
     </h3>
 <div className={s.image}>
 
-<div className={s.img3} style={{background:`url(${data[page].img})`,backgroundSize: 'auto 100%'}}>
+<div  data-aos="fade-up"
+     data-aos-duration="3000" className={s.img3} style={{background:`url(${data[page].img})`,backgroundSize: 'auto 100%'}}>
 <div className={s.img4}></div>
 </div>
 </div>
-<div  className={s.text}>
-<Image className={s.name}  src={img} alt="" />
+<div   className={s.text}>
+<Image className={s.name1}  src={img} alt="" />
 <p>{data[page].desk}</p>
 <h2>{data[page].name}</h2>
 <h5>{data[page].kasb}</h5>
@@ -209,6 +230,43 @@ export default function forCooks() {
 
 </div>
     </main>
+
+
+
+
+{/* pizza */}
+
+<div data-aos="fade-up"
+     data-aos-duration="3000"  className={s.pizza}>
+      <div className={s.circle}></div>
+      <Image className={s.pizza_6} src={img6} alt="" />
+  <h1>ПОДДЕРЖКА УЧАСТНИКОВ</h1>
+  <div className={s.pizza_div}>
+    <div className={s.sostav}>
+      <h2>ПРОДВИЖЕНИЕ</h2>
+      <p>
+Активно рекламируем участников сервиса, а так же их блюда и продукты.
+Если захочешь — поможем стать популярным и зарабатывать больше на любимом деле.</p>
+
+
+<h2>СОСТАВ</h2>
+<p>Поможем тебе создать привлекательное меню, предоставим советы по ценообразованию и гайд для расчёта КБЖУ блюд.
+
+</p>
+    </div>
+    <div className={s.svyaz}>
+      <h2>ПРОЦЕСС</h2>
+      <p>Берём на себя вопрос с привлечением покупателей, платежами и всей ИТ составляющей.
+Мы хотим, чтобы твои доходы выросли благодаря сервису!</p>
+
+<h2>НА СВЯЗИ</h2>
+<p>Служба поддержки работает ежедневно с 8:00 до 22:00 (Мск).</p>
+    </div>
+  </div>
+</div>
+
+
+
 {/* 4 */}
 
 
@@ -234,6 +292,7 @@ export default function forCooks() {
 </div>
 
 
+</div>
 </div>
 <Script src='../path/to/script.js' />
     </header>
