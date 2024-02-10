@@ -890,3 +890,31 @@
     background-color: #06c160;
     
 }
+
+
+
+
+.slide_swip{
+
+    display: none;
+    min-height: 400px;
+    /* background-color: red; */
+    width: 100%;
+    display: none !important; 
+    justify-content: center;
+    align-items: center;
+}
+.grafik{
+    /* background-color: green; */
+}
+@media(max-width:991px){
+    .grafik{
+        width: 80%;
+    }
+    .otziv{
+        display: none;
+    }
+    .slide_swip{
+        display: flex !important;
+    }
+}
