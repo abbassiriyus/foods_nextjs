@@ -11,6 +11,7 @@ import img4 from "../images/donut.png"
 import img5 from "../images/taco.png"
 import img6 from "../images/pizza.png"
 import Script from 'next/script'
+import { FaPlus } from "react-icons/fa";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
@@ -321,6 +322,43 @@ export default function forCooks() {
 
 </div>
 </div>
+
+
+<div className={s.vopros}>
+
+<div className={s.accordion}>
+  <h1>ВОПРОСЫ <br />
+И ОТВЕТЫ</h1>
+<div className={s.accordion_item}>
+<div className={s.accordion_title}><h2>О сервисе</h2><FaPlus /></div>
+  <div className={s.accordion_p}>
+Мы объединяем домашних кондитеров, частных и профессиональных поваров, фермеров, а также тех, кто просто умеет и любит готовить.
+
+Сервис позволяет зарабатывать, находясь на своей кухне, с помощью выездного обслуживания или продажи своей продукции, а также заказывать любимые блюда и десерты, которые будут приготовлены индивидуально под ваш заказ.
+
+Мы поможем сэкономить время на заказ блюда, или поиск специалиста, поскольку каждый сможет найти подходящего специалиста на карте своего города, просмотрев его меню, фотографии кухни и отзыв.</div>
+</div>
+</div>
+
+<div className={s.page_image}>
+  <div className={s.min_circle1}></div>
+  <div className={s.circle1}></div>
+  <img ref={tiltRef}  src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
+  <div className={s.max_circle}>
+   <div><h4>— Не нашли ответа на свой вопрос?</h4>
+    <p>Задайте его нам!</p></div>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
 <Script src='../path/to/script.js' />
     </header>
     </div>

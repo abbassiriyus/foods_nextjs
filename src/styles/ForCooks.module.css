@@ -918,3 +918,82 @@
         display: flex !important;
     }
 }
+
+.vopros{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 100PX;
+    flex-wrap: wrap;
+
+}
+.accordion_title{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    width: 99%;
+    margin: auto;
+}
+.accordion{
+    width: 45%;
+}
+.accordion h1{
+    margin-bottom: 60px;
+}
+.accordion_item{
+border-bottom: 2px solid gray;
+padding-bottom: 0px;
+}
+.page_image{
+  
+    position: relative;
+}
+.min_circle1{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -40px;
+    border-radius: 50%;
+    background-color: #06c1608a;
+}
+.page_image img{
+    width: 60%;
+    margin: auto;
+    margin-left: 20%;
+    position: relative;
+    z-index: 1;
+}
+.circle1{
+width: 100px;
+height:100px;
+border-radius: 50%;
+background-color: #06c1608a;
+position: absolute;
+top: 50px;
+left: 50px;
+}
+.accordion_p{
+    height: 0px;
+    overflow: hidden;
+}
+.max_circle{
+min-width: 300px;
+width: 25vw;
+margin: auto;
+height: 25vw;
+min-height: 300px;
+margin-top: -150px;
+border-radius: 50%;
+background-color: #06c1608a;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+@media(max-width:991px){
+    .accordion{
+        width: 100%;
+    }
+}
