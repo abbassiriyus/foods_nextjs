@@ -98,11 +98,8 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
         {/* bir */}
         <div className={s.body1}>
           <div className={s.header_0}>
-        
-        
-        
-        
-            <div className={s.header_1}>
+
+         <div className={s.header_1}>
               <div className={s.header_text}>
                 <span>Привет!</span>
 
@@ -126,7 +123,6 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
                 </div>
               </div>
             </div>
-
             {/* ikki */}
 
             <div className={s.servis}>

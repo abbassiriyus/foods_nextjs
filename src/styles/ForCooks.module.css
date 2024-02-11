@@ -397,7 +397,7 @@ top: 90px;
         font-size: 28px;
         margin-top: 23px;
         margin-bottom: 33px;
-        width: 130%;
+        /* width: 130%; */
         font-weight: 900;
         letter-spacing: -2px;
         min-width: 210px;
@@ -1156,6 +1156,15 @@ margin-left: 5%;
     width: 45%;
 
 }
+.accordion_title h2{
+    color: grey;
+    font-size: 28px;
+    font-weight: 500;
+} 
+.accordion_p{
+    color: rgba(128, 128, 128, 0.374);
+    font-weight: 200;
+}
 .accordion h1{
     margin-bottom: 60px;
 }
@@ -1190,9 +1199,6 @@ background-color: #06c1608a;
 position: absolute;
 top: 50px;
 left: 50px;
-}
-.accordion_p{
-   
 }
 .max_circle{
 min-width: 300px;
