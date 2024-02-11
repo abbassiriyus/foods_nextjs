@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
-import img from "../images/logo.svg"
+import img from "../images/logo.png"
 import img1 from "../images/rocket.png"
 import img2 from "../images/1.png"
 import img3 from "../images/sushi.webp"
@@ -82,6 +82,10 @@ export default function forCooks() {
         {/* bir */}
         <div className={s.body1}>
           <div className={s.header_0}>
+        
+        
+        
+        
             <div className={s.header_1}>
               <div className={s.header_text}>
                 <span>Привет!</span>
@@ -186,37 +190,39 @@ export default function forCooks() {
               <Image ref={tiltRef} className={s.cupcake} src={img2} alt="" />
 
               <Swiper
+              centeredSlides="true"
                 pagination={{
                   dynamicBullets: true,
-                }} modules={[Pagination]} className="mySwiper" >
+                }}
+                 modules={[Pagination]} className="mySwiper" >
                 <SwiperSlide className={s.slide_swip}>
                   <div className={s.grafik}>
-                    <Image className={s.otziv_img} src={img} alt="" />
+                    <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                     <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
                     <p>Покупатель сможет оставлять отзыв только после получения заказа. <br />Хороший рейтинг позволит привлекать ещё больше клиентов!</p>
                   </div></SwiperSlide>
                 <SwiperSlide className={s.slide_swip}>
                   <div className={s.grafik}>
-                    <Image className={s.otziv_img} src={img} alt="" />
+                    <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                     <h2>ВCЕ КЛИЕНТЫ — <br /> В ОДНОМ МЕСТЕ</h2>
                     <p>Переписки в чатах только с теми, кто хочет оформить заказ на твоё блюдо.</p>
                   </div></SwiperSlide>
                 <SwiperSlide className={s.slide_swip}>  <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image style={{height:'70px',width:"auto"}}  className={s.otziv_img} src={img} alt="" />
                   <h2>ДОХОД И ГРАФИК ЗАВИСЯТ ОТ ТЕБЯ</h2>
                   <p>Готовь заказы когда тебе удобно, предлагай продукцию знакомым и получай новых клиентов от нас. <br />Заработок не ограничен зарплатой!</p>
                 </div></SwiperSlide>
               </Swiper>
               <div className={s.otziv}>
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}} src={img} alt="" />
                   <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
                   <p>Покупатель сможет оставлять отзыв только после получения заказа. <br />Хороший рейтинг позволит привлекать ещё больше клиентов!</p>
                 </div>
 
 
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                   <h2>ВCЕ КЛИЕНТЫ — <br /> В ОДНОМ МЕСТЕ</h2>
                   <p>Переписки в чатах только с теми, кто хочет оформить заказ на твоё блюдо.</p>
                 </div>
@@ -224,7 +230,7 @@ export default function forCooks() {
 
 
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                   <h2>ДОХОД И ГРАФИК ЗАВИСЯТ ОТ ТЕБЯ</h2>
                   <p>Готовь заказы когда тебе удобно, предлагай продукцию знакомым и получай новых клиентов от нас. <br />Заработок не ограничен зарплатой!</p>
                 </div>
@@ -248,7 +254,7 @@ export default function forCooks() {
                 </div>
               </div>
               <div className={s.text}>
-                <Image className={s.name1} src={img} alt="" />
+                <Image className={s.name1} style={{width:'100px',height:'auto'}} src={img} alt="" />
                 <p>{data[page].desk}</p>
                 <h2>{data[page].name}</h2>
                 <h5>{data[page].kasb}</h5>
@@ -271,10 +277,12 @@ export default function forCooks() {
 
               <h1>ПОДДЕРЖКА УЧАСТНИКОВ</h1>
               <Swiper
+              // centeredSlides="true"
               breakpoints={{
                 499: {
                   width: 499,
                   slidesPerView: 1,
+                  centeredSlides:true,
                 },
                 576: {
                   width: 576,

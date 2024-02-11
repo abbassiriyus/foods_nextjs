@@ -6,7 +6,7 @@
 .header_1{
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
     max-width: 1600px;
     margin: auto;
     /* flex-wrap: wrap; */
@@ -287,7 +287,7 @@ height: 300px;
 }
 @media(max-width:1022px){
   .header_text{
-    width: 40%;
+    width: 100%;
   }
 
   .rocket{
@@ -317,7 +317,6 @@ top: 90px;
         font-size: 33px;
         margin-top: 23px;
         margin-bottom: 33px;
-        width: 130%;
         font-weight: 900;
         letter-spacing: -2px;
         min-width: 210px;
@@ -351,13 +350,13 @@ top: 90px;
 }
 }
 @media(max-width:878px){
-    .header_text{
+    /* .header_text{
     width: 30%;
     
-    }
-    .header_1{
+    } */
+    /* .header_1{
         margin-right: 200px;
-    }
+    } */
     .img_header{
         width: 200px;
         margin: auto;
@@ -374,7 +373,10 @@ top: 90px;
         
     /* } */
     .logo{
-        width: 100px;
+        width: 100px !important;
+        height: auto;
+        top: 0px;
+        left:30%;
     }
     .rocket{
         width: 200px;
@@ -460,10 +462,15 @@ top: 90px;
     font-size: 43px;
     font-weight: 900;
 }
+@media(max-width:600px){
+    .servis h2{
+        font-size: 28px;
+    }
+}
 .servis p{
     font-size: 17px;
     margin-top: 11px;
-    min-width: 300px;
+    min-width: 280px;
     line-height: 27px;
     color: #909090;
 }
@@ -472,7 +479,6 @@ top: 90px;
     align-items: center;
     justify-content: space-around;
     margin-top: 5%;
-    width: 80%;
 
 }
 .menu{
@@ -554,6 +560,7 @@ top: 90px;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        flex-wrap: wrap;
         margin-top: 5%;
         width: 100%;
     
@@ -577,41 +584,18 @@ top: 90px;
     }
 }
 @media(max-width:614px){
-    .zakaz1{
-      margin-left:16%;
-    
-    }
     .servis h2{
         width: 100%;
     }
 }
-@media(max-width:504px){
-    .zakaz1{
-      margin-left:20%;
-    
-    }
-}
+
 @media(max-width:478px){
-    .zakaz1{
-      margin-left:26%;
-    
-    }
+  
     .otziv1{
         width: 100%;
     }
 }
-@media(max-width:460px){
-    .zakaz1{
-      margin-left:34%;
-    
-    }
-}
-@media(max-width:377px){
-    .zakaz1{
-      margin-left:70%;
-    
-    }
-}
+
 
 
 
@@ -668,13 +652,13 @@ top: 90px;
 }
 .otziv1{
     background-color: #e6f9ef;
-    /* width: 90%; */
     margin-bottom:11% ;
     border-radius: 31px;
     min-height: 100px;
     min-width: 300px;
     padding-bottom: 5%;
     margin-top: 5%;
+    padding-top: 20px;
 }
 .otziv{
     width: 90%;
@@ -682,24 +666,30 @@ top: 90px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    /* align-items: center; */
+   
    
 }
 .otziv1 h1{
     font-size: 28px;
     font-weight: 900;
     padding-top: 4%;
-    margin-left: 6%;
+    margin-bottom: 30px;
     font-family: 'Manrope', sans-serif;
-
+margin-left: 5%;
+}
+@media(max-width:600px){
+    .otziv1 h1{
+        font-size: 20px;
+    }
 }
 .grafik {
     width: 30%;
     min-width: 300px;
-    margin-top: -100px;
+
 }
 .grafik h2{
     color: #06c160;
-    margin-top: -120px;
     font-size: 21px;
     font-weight: 900;
 }
@@ -711,9 +701,7 @@ top: 90px;
     color: #909090;
     margin-top: 11px;
 }
-.otziv_img{
-    width: 15%;
-}
+
 .cupcake{
     width: 40%;
     height: 300px;
@@ -776,6 +764,16 @@ top: 90px;
   }
   .text{
     width: 40%;
+  }
+  .name1{
+    width: 50px;
+    height: auto;
+  }
+  @media(max-width:500px){
+.text p{
+    font-size:13px;
+}
+
   }
   .img4{
     width: 100%;
@@ -1008,6 +1006,15 @@ top: 90px;
     z-index: -1;
     transform: rotate(60deg);
 }
+@media(max-width:991px){
+    .registration .taco{
+        display: none;
+    }
+    .registration .donut{
+        display: none;
+    }
+
+}
 .registration .donut{
     width: 40%;
     height: 300px;
@@ -1053,7 +1060,6 @@ top: 90px;
 
 .Swiper_id{
     background-color: #06c160;
-    
 }
 
 
@@ -1062,7 +1068,7 @@ top: 90px;
 .slide_swip{
 
     display: none;
-    min-height: 400px;
+    /* min-height: 400px; */
     /* background-color: red; */
     width: 100%;
     display: none !important; 
