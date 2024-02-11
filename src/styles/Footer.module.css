@@ -1,0 +1,338 @@
+.footer{
+width: 1450px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+}
+.f_gap{
+width: 49%;
+}
+
+.f_gap h1{
+width: 90%;
+font-size: 23px;
+font-weight: 600;
+}
+.f_gap h1 span{
+font-weight: 300;
+}
+.f_p1{
+font-size: 23px;
+font-weight: 300;
+}
+.f_p2{
+font-size: 23px;
+font-weight: 300;
+}
+
+.f_img{
+width: 45%;
+}
+.pol{
+width: 65%;
+margin: auto;
+font-size: 20px;
+text-align: center;
+}
+.vp{
+font-weight: 600;
+}
+.reklama{
+width: 65%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+margin-top: 30px;
+}
+
+.app_store{
+width: 170px;
+height: 54px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.app_store:hover{
+color: #06c160;
+border: #06c160 1px solid;
+}
+.ap_i{
+width: 30%;
+text-align: center;
+}
+.apple{
+font-size: 33px;
+}
+.ap_soz{
+width: 80%;
+text-align: center;
+}
+.ap_p1{
+font-size: 11px;
+font-weight: 500;
+}
+.ap_p2{
+font-size: 18px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
+
+.google_play{
+width: 170px;
+height: 54px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.google_play:hover{
+color:#06c160;
+border: 1px solid #00db6aeb;
+}
+.gp_i{
+width: 32%;
+text-align: center;
+font-size: 15px;
+}
+.google{
+font-size: 28px;
+}
+.gp_soz{
+width: 74%;
+text-align: center;
+}
+.gp_p1{
+font-size: 11px;
+font-weight: 500;
+}
+.gp_p2{
+font-size: 18px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
+.prilojenie{
+width: max-content;
+margin-left: 74%;
+margin-top: 30px;
+}
+.f_i{
+font-size: 30px;
+cursor: pointer;
+}
+.f_i:hover{
+color: rgb(46, 46, 46);
+}
+
+@media(max-width:1510px){
+.footer{
+width: 90%;
+display: flex;
+justify-content:space-between;
+align-items: center;
+margin: auto;
+}
+.f_gap h1{
+width: 90%;
+font-size: 22px;
+font-weight: 600;
+}
+.f_gap h1 span{
+font-weight: 300;
+}
+.f_p1{
+font-size: 22px;
+font-weight: 300;
+}
+.f_p2{
+font-size: 22px;
+font-weight: 300;
+}
+.reklama{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+margin-top: 30px;
+}
+.f_img{
+width: 34%;
+}
+.pol{
+width: 100%;
+margin: auto;
+font-size: 20px;
+text-align: center;
+}
+.vp{
+font-weight: 600;
+}
+}
+@media(max-width:1153px){
+.f_gap{
+width: 53%;
+}
+.f_gap h1{
+width: 100%;
+font-size: 21px;
+font-weight: 600;
+}
+.f_gap h1 span{
+font-weight: 300;
+}
+.f_p1{
+width: 100%;
+font-size: 21px;
+font-weight: 300;
+}
+.f_p2{
+width: 100%;
+font-size: 21px;
+font-weight: 300;
+}
+.f_img{
+width: 38%;
+}
+}
+@media(max-width:1039px){
+.f_img{
+width: 42%;
+}
+}
+@media(max-width:935px){
+.footer{
+width: 90%;
+display: block;
+margin: auto;
+}
+.f_img{
+width: 60%;
+margin: auto;
+margin-top: 40px;
+}
+.f_gap{
+width: 90%;
+margin: auto;
+}
+}
+@media(max-width:670px){
+.f_img{
+width: 70%;
+margin: auto;
+margin-top: 40px;
+}
+}
+@media(max-width:585px){
+.f_img{
+width: 80%;
+margin: auto;
+margin-top: 40px;
+}
+}
+@media(max-width:498px){
+.footer{
+width: 90%;
+display: block;
+margin: auto;
+}
+.f_img{
+width: 90%;
+margin: auto;
+margin-top: 40px;
+}
+.f_gap h1{
+width: 100%;
+font-size: 19px;
+font-weight: 600;
+}
+.f_gap h1 span{
+font-weight: 300;
+}
+.f_p1{
+width: 100%;
+font-size: 19px;
+font-weight: 300;
+}
+.f_p2{
+width: 100%;
+font-size: 19px;
+font-weight: 300;
+}
+.pol{
+width: 100%;
+margin: auto;
+font-size: 18px;
+text-align: center;
+}
+}
+@media(max-width:438px){
+.f_gap{
+width: 100%;
+}
+.f_img{
+width: 100%;
+margin: auto;
+margin-top: 40px;
+}
+
+}
+@media(max-width:390px){
+.app_store{
+width: 140px;
+height: 54px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.google_play{
+width: 140px;
+height: 54px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.gp_p1{
+font-size: 10px;
+font-weight: 500;
+}
+.gp_p2{
+font-size: 14px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
+.google{
+font-size: 25px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
