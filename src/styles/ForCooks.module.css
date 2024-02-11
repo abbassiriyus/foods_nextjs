@@ -259,14 +259,14 @@
     border-radius: 30px;
 height: 300px;
   }
-  .main h3{
+  /* .main h3{
     font-size: 3vw;
     line-height: 5vw;
     width: 5%;
     position: relative;
     right: 400px;
     z-index: 10;
-  }
+  } */
   .text img{
     width: 60px;
   }
