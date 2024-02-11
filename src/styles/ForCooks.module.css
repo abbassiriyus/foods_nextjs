@@ -447,6 +447,9 @@ top: 90px;
         font-size: 23px;
         font-weight: 900;
     }
+    .header_text{
+        width: 100%;
+    }
 }
 
 
@@ -473,6 +476,7 @@ top: 90px;
     min-width: 280px;
     line-height: 27px;
     color: #909090;
+    width:50%;
 }
 .zakaz1{
     display: flex;
@@ -875,12 +879,8 @@ margin-left: 5%;
     /* background-color: red; */
 }
 .pizza_6{
-    /* position: absolute;
-    top: 80px;
-    left: 350px; */
     width: 20vw;
     height: 30vw;
-    /* height: 400px; */
     z-index: -1;
 }
 .circle{
@@ -1096,7 +1096,44 @@ margin-left: 5%;
         display: none;
     }
 }
+@media(max-width:1026px){
+    .circle{
+        width: 500px;
+        height: 500px;
+        min-height: 300px;
+        border-radius: 50%;
+        min-width: 300px;
+        position: absolute;
+        left: 230px;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+        background-color:#e6f9ef ;
+    }
+    .pizza_6{
+        width: 20vw;
+        height: 30vw;
+        z-index: -1;
+    }
+   
+}
+@media(max-width:991px){
+    .circle{
+        display: none;
+    }
 
+    .sostav{
+        margin-top: 8%;
+    }
+    .pizza h1{
+        font-size: 21px;
+    }
+    .sostav{
+        width: 100%;
+    }  
+}
 .vopros{
     display: flex;
     justify-content: center;
