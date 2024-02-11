@@ -23,6 +23,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import accordion_data from './data/accaordion_data';
 
 export default function forCooks() {
   const tiltRef = useRef(null);
@@ -47,12 +48,27 @@ export default function forCooks() {
         desk: 'Повар на связи — сервис, облегчающий жизнь и кондитерам и заказчикам. После блокировки известной соц.сети, все разбежались по разным местам и стало сложнее найти своих клиентов или своего изготовителя. Это максимально актуальная и своевременная платформа для комфортного взаимодействия.'
       }
     ])
+    
   var [page, setPage] = useState(0)
   function plus() {
     if (page < data.length - 1) {
       setPage(page + 1)
     }
 
+  }
+  function SelectAc(key){
+    console.log(key);
+for (let i = 0; i < accordion_data.length; i++) {
+if(key==i){
+document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
+document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06c160;"
+document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
+}else{
+  document.querySelectorAll(".accordion_p")[i].style="height:0px;padding-bottom:0px;overflow: hidden"
+  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: black;"
+  document.querySelectorAll(".title_accordion")[i].style="color: black;"
+}
+}
   }
   function minus() {
     if (page > 0) {
@@ -390,15 +406,14 @@ export default function forCooks() {
           <div className={s.accordion}>
             <h1>ВОПРОСЫ <br />
               И ОТВЕТЫ</h1>
-            <div className={s.accordion_item}>
-              <div className={s.accordion_title}><h2>О сервисе</h2><FaPlus /></div>
-              <div className={s.accordion_p}>
-                Мы объединяем домашних кондитеров, частных и профессиональных поваров, фермеров, а также тех, кто просто умеет и любит готовить.
-
-                Сервис позволяет зарабатывать, находясь на своей кухне, с помощью выездного обслуживания или продажи своей продукции, а также заказывать любимые блюда и десерты, которые будут приготовлены индивидуально под ваш заказ.
-
-                Мы поможем сэкономить время на заказ блюда, или поиск специалиста, поскольку каждый сможет найти подходящего специалиста на карте своего города, просмотрев его меню, фотографии кухни и отзыв.</div>
+              {accordion_data.map((item,key)=>{
+  return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
+              <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' /></div>
+              <div className="accordion_p" style={{height:'0px',overflow: 'hidden'}}>
+               {item.desc}</div>
             </div>
+              })}
+           
           </div>
 
           <div className={s.page_image}>
