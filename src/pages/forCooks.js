@@ -385,8 +385,16 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
                   <input type="email" name="" id="" placeholder='Email' />
                 </div>
                 <div className={s.phone_inp}>
-                  <input type="password" name="" id="" placeholder='Пароль' /><IoEyeOutline className={s.eye1} /> 
-                  <IoEyeOffOutline />
+                  <input type="password" name="" id="password" placeholder='Пароль' /><IoEyeOutline onClick={()=>{
+document.querySelector("#password").type="text"
+document.querySelector("#eyes1").style="display:none"
+document.querySelector("#eyes2").style="display:block"
+                  }} id='eyes1' className={s.eye1} /> 
+                  <IoEyeOffOutline className={s.eye1}  style={{display:"none"}} id='eyes2' onClick={()=>{
+document.querySelector("#password").type="password"
+document.querySelector("#eyes2").style="display:none"
+document.querySelector("#eyes1").style="display:block"
+                  }}  />
                 </div>
                 <p>Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных <br /> в соответствии с <a href="">политикой информационной безопасности.</a> Мы не используем данные и не присылаем рассылки</p>
                 <center><button>Зарегистрироваться</button></center>
