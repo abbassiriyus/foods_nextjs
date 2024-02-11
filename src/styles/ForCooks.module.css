@@ -251,7 +251,7 @@
     border-radius: 10px;
 }
 .image{
-    width: 80%;
+    /* width: 80%; */
     gap: 0px;
   }
   .image .img3{
@@ -819,7 +819,7 @@ margin-left: 5%;
     border: none;
     color: white;
   }
-  @media(max-width:991px){
+  @media(max-width:1151px){
     .text{
       width: 100%;
       text-align: center;
