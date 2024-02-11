@@ -332,7 +332,7 @@ top: 90px;
 
     }
     .header_text p{
-        width: 140%;
+        width: 100%;
         /* font-family:'Manrope', sans-serif ; */
         font-weight: 100;
         font-size: 21px;
@@ -410,7 +410,7 @@ top: 90px;
 
     }
     .header_text p{
-        width: 140%;
+        width: 100%;
         /* font-family:'Manrope', sans-serif ; */
         font-weight: 100;
         font-size: 21px;
@@ -559,7 +559,7 @@ top: 90px;
     
     }
     .menu p{
-        width: 150%;
+        width: 100%;
         min-width: 300px;
         line-height: 27px;
     }
@@ -573,7 +573,7 @@ top: 90px;
 
     }
     .menu h2{
-        width: 200%;
+        width: 100%;
     }
 }
 @media(max-width:614px){
@@ -582,7 +582,7 @@ top: 90px;
     
     }
     .servis h2{
-        width: 140%;
+        width: 100%;
     }
 }
 @media(max-width:504px){
