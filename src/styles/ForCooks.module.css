@@ -1,10 +1,7 @@
-/* .body1{
-    background-color: rgb(219, 216, 216);
-    
-} */
 .header_0{
-    width: 80%;
+    width: 95%;
     margin: auto;
+    max-width: 1200px;
 }
 .header_1{
     display: flex;
@@ -22,7 +19,6 @@
 .header_text span{
     color: #909090;
     font-size: 22px;
-    font-family: 'Manrope', sans-serif;
 }
 .header_text h1{
     font-family: 'Protest Strike', sans-serif;
@@ -40,17 +36,17 @@
     font-family: 'Manrope', sans-serif;
     color:#06c160 ;
     font-weight: 900;
-    margin-bottom: 73px;
+    margin-bottom: 53px;
 
 }
 .header_text p{
     width: 90%;
-    font-family: 'Roboto', sans-serif;
-    font-weight:100;
+    /* font-family: 'Roboto', sans-serif; */
+    font-weight:350;
     font-size: 21px;
     margin-bottom: 33px;
     min-width: 300px;
-    line-height: 44px;
+    line-height: 30px;
 }
 #dispa{
     display: none;
@@ -97,7 +93,7 @@
     max-width: 500px;
 }
 
-.header_img img{
+.img_header img{
     transform-style: preserve-3d;
     transform: perspective(1000px);
     transform: translateZ(20px);
@@ -121,6 +117,173 @@
 
 
 
+
+
+
+@media(max-width:1516px){
+    .img_header{
+        width: 400px;
+        margin: auto;
+        height: 400px;
+    }
+.header_img{
+    margin-top: 10%;
+}
+    .logo{
+        width: 150px;
+    }
+    .rocket{
+        width: 300px;
+    position: relative; 
+    right: 100px;
+    top: 40px;
+        height: auto !important;
+    }
+  
+    .header_1{
+        display: flex;
+        justify-content: start;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        margin-top: 43px;
+    }
+    .header_text h1{
+        font-family: 'Protest Strike', sans-serif;
+        font-size: 45px;
+        margin-top: 23px;
+        margin-bottom: 33px;
+        width: 100%;
+        font-weight: 900;
+        letter-spacing: -2px;
+        min-width: 210px;
+    }
+    .header_text h3{
+        font-size: 33px;
+        font-family: 'Manrope', sans-serif;
+        color:#06c160 ;
+        font-weight: 900;
+        margin-bottom: 73px;
+        width: 100%;
+
+    }
+    .header_text p{
+        width: 100%;
+        /* font-family:'Manrope', sans-serif ; */
+        font-weight: 100;
+        font-size: 21px;
+        margin-bottom: 33px;
+
+    }
+ 
+.header_text button{
+    margin-bottom: 33px;
+    padding: 10px 20px;
+    background-color: #06c160;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+}
+@media(max-width:1140px){
+    .img_header{
+        width: 400px;
+        margin: auto;
+        height: 400px;
+    }
+.header_img{
+    margin-top: 10%;
+}
+    .logo{
+        width: 150px;
+    }
+    .rocket{
+        width: 300px;
+    position: relative; 
+    right: 100px;
+    top: 40px;
+        height: auto !important;
+    }
+  
+    .header_1{
+        display: flex;
+        justify-content: start;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        margin-top: 43px;
+    }
+    .header_text h1{
+        font-family: 'Protest Strike', sans-serif;
+        font-size: 45px;
+        margin-top: 23px;
+        margin-bottom: 33px;
+        width: 100%;
+        font-weight: 900;
+        letter-spacing: -2px;
+        min-width: 210px;
+    }
+    .header_text h3{
+        font-size: 33px;
+        font-family: 'Manrope', sans-serif;
+        color:#06c160 ;
+        font-weight: 900;
+        margin-bottom: 73px;
+        width: 100%;
+
+    }
+    .header_text p{
+        width: 100%;
+        /* font-family:'Manrope', sans-serif ; */
+        font-weight: 100;
+        font-size: 21px;
+        margin-bottom: 33px;
+
+    }
+ 
+.header_text button{
+    margin-bottom: 33px;
+    padding: 10px 20px;
+    background-color: #06c160;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+.image{
+    width: 80%;
+    gap: 0px;
+  }
+  .image .img3{
+    width: 100%;
+    border-radius: 30px;
+height: 300px;
+  }
+  .main h3{
+    font-size: 3vw;
+    line-height: 5vw;
+    width: 5%;
+    position: relative;
+    right: 400px;
+    z-index: 10;
+  }
+  .text img{
+    width: 60px;
+  }
+  .text{
+    width: 40%;
+  }
+  .main{
+    display: flex;
+  /* max-width: 1500px; */
+  /* flex-wrap: wrap; */
+  width: 70%;
+  /* gap: 30px; */
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 73px;
+  }
+}
 @media(max-width:910px){
     .header_text{
     width: 80%;
@@ -136,9 +299,13 @@
     }
     #dispa{
         display: block;
-        height: 100px !important ;       ;
+        height: auto;
+        height: 400px ; 
+        margin: auto;
         /* width: 60vw; */
+        background-color: red;
         margin-bottom: 300px;
+        
     }
     .logo{
         width: 100px;
@@ -155,7 +322,7 @@
         top: 0px !important;
         right: 0px ;
         margin: auto;
-        /* height: 200px !important; */
+        height: 200px !important;
     }
     .header_1{
         display: flex;
@@ -185,7 +352,7 @@
     }
     .header_text p{
         width: 140%;
-        font-family:'Manrope', sans-serif ;
+        /* font-family:'Manrope', sans-serif ; */
         font-weight: 100;
         font-size: 21px;
         margin-bottom: 33px;
@@ -202,90 +369,6 @@
     border-radius: 10px;
 }
 }
-
-@media(max-width:1140px){
-    .header_text{
-    width: 80%;
-    
-    }
-    .header_1{
-        margin-right: 200px;
-    }
-    .img_header{
-        width: 300px;
-        margin: auto;
-        height: 300px;
-    }
-    #dispa{
-        display: block;
-        height: 100px !important ;
-        /* width: 60vw; */
-        margin-bottom: 300px;
-    }
-    .logo{
-        width: 100px;
-    }
-    .rocket{
-        width: 200px;
-    position: relative;
-    left: 5%;
-        height: auto !important;
-    }
-    .header_img{
-        display: none;
-        position: relative;
-        top: 0px !important;
-        right: 0px ;
-        margin: auto;
-        /* height: 200px !important; */
-    }
-    .header_1{
-        display: flex;
-        justify-content: start;
-        max-width: 1200px;
-        flex-wrap: wrap;
-        margin-top: 43px;
-    }
-    .header_text h1{
-        font-family: 'Protest Strike', sans-serif;
-        font-size: 25px;
-        margin-top: 23px;
-        margin-bottom: 33px;
-        width: 130%;
-        font-weight: 900;
-        letter-spacing: -2px;
-        min-width: 210px;
-    }
-    .header_text h3{
-        font-size: 13px;
-        font-family: 'Manrope', sans-serif;
-        color:#06c160 ;
-        font-weight: 900;
-        margin-bottom: 73px;
-        width: 100%;
-
-    }
-    .header_text p{
-        width: 140%;
-        font-family:'Manrope', sans-serif ;
-        font-weight: 100;
-        font-size: 21px;
-        margin-bottom: 33px;
-
-    }
-    
-.header_text button{
-    margin-bottom: 33px;
-    padding: 10px 20px;
-    background-color: #06c160;
-    color: white;
-    font-size: 17px;
-    border: none;
-    border-radius: 10px;
-}
-}
-
-
 
 
 
@@ -350,7 +433,7 @@
 .number p{
     color: black;
     font-size: 33px;
-    font-family: 'Manrope', sans-serif;
+    /* font-family: 'Manrope', sans-serif; */
     font-weight: 900;
     margin-top: -5px;
     width: 50%;
@@ -713,18 +796,19 @@
 
 .pizza{
     width: 100%;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     margin: auto;
     margin-top: 63px;
     position: relative;
     /* background-color: red; */
 }
 .pizza_6{
-    position: absolute;
+    /* position: absolute;
     top: 80px;
-    left: 350px;
-    width: 40%;
-    height: 400px;
+    left: 350px; */
+    width: 20vw;
+    height: 30vw;
+    /* height: 400px; */
     z-index: -1;
 }
 .circle{
@@ -736,17 +820,22 @@
     position: absolute;
     left: 230px;
     top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: -1;
     background-color:#e6f9ef ;
 }
 .pizza_div{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 10%;
     /* background-color: red; */
 }
-
+.sostav{
+    width:40%;
+}
 .sostav h2{
     color: #06c160;
     font-size: 21px;
@@ -754,7 +843,6 @@
     margin-bottom: 22px;
 }
 .sostav p{
-    width: 60%;
     font-size: 19px;
     min-width: 300px;
     line-height: 25px;
@@ -763,9 +851,7 @@
     margin-bottom: 33px;
     font-weight: 350;
 }
-.svyaz{
-    /* margin-left: 350px; */
-}
+
 .svyaz h2{
     color: #06c160;
     font-size: 21px;
@@ -875,10 +961,15 @@
     border-radius: 11px;
     margin-top: 32px;
     height: 43px;
+    align-items: center;
+    
+}
+.eye1{
+    font-size: 28px;
 }
 .servis_inp input{
     width: 90%;
-    min-width: 250px;
+    min-width: 220px;
     padding-left: 12px;
     outline: none;
     border-radius: 11px;
@@ -904,9 +995,7 @@
     justify-content: center;
     align-items: center;
 }
-.grafik{
-    /* background-color: green; */
-}
+
 @media(max-width:991px){
     .grafik{
         width: 80%;
@@ -916,6 +1005,15 @@
     }
     .slide_swip{
         display: flex !important;
+    }
+    .pizza_div{
+        display: none;
+    }
+    .pizza_6{
+        display: none;
+    }
+    .circle{
+        display: none;
     }
 }
 
