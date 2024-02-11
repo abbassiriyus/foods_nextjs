@@ -294,6 +294,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
               <h1>ПОДДЕРЖКА УЧАСТНИКОВ</h1>
               <Swiper
               // centeredSlides="true"
+              spaceBetween={30}
               breakpoints={{
                 499: {
                   width: 499,
@@ -302,11 +303,12 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
                 },
                 576: {
                   width: 576,
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                 },
                 768: {
                   width: 768,
-                  slidesPerView: 3,
+                  spaceBetween:10,
+                  slidesPerView: 2,
                 },
               }}
               slidesPerView={1}
