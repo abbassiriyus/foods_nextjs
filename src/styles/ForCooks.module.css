@@ -101,14 +101,15 @@
 .logo{
     position: absolute;
     top: -100px;
-    left: 180px;
-    width: 50%;
-    min-width: 100px;
+    right:1%;
+    width: 80%;
+    min-width: 250px;
+    height: auto;
 }
 .rocket{
     position: absolute;
     top: 150px;
-    right: 300px;
+    right: 200px;
     width: 70%;
     height: auto;
     /* min-width: 300px; */
@@ -129,7 +130,9 @@
 .header_img{
     margin-top: 10%;
 }
+
     .logo{
+        width: auto;
         width: 150px;
     }
     .rocket{
@@ -431,7 +434,7 @@ top: 90px;
 }
 }
 
-@media(max-width:720px){
+@media(max-width:920px){
     .header_img{
         display: none;
         position: relative;
@@ -872,11 +875,9 @@ margin-left: 5%;
 
 .pizza{
     width: 100%;
-    /* background-color: rebeccapurple; */
     margin: auto;
     margin-top: 63px;
     position: relative;
-    /* background-color: red; */
 }
 .pizza_6{
     width: 20vw;
@@ -884,8 +885,8 @@ margin-left: 5%;
     z-index: -1;
 }
 .circle{
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     min-height: 300px;
     border-radius: 50%;
     min-width: 300px;
@@ -944,13 +945,48 @@ margin-left: 5%;
   /* donut_taco */
 .registration{
     width: 90%;
+    margin-left: 5%;
     margin: auto;
     background-color: #06c160;
     min-height: 400px;
     min-width: 300px;
     border-radius: 31px;
+   /* margin: auto !important; */
     position: relative;
+   
     margin-top: 15%;
+
+}
+@media (max-width:790px) {
+    .registration{
+        width: 100%;
+        margin: auto;
+        border-radius: 0px;
+    }
+    .registration h1{
+        color: white;
+        padding-top: 2%;
+        padding-left: 6%;
+        font-weight: 900;
+        font-size: 24px;
+    }
+    .phone_inp{
+        /* background-color: white; */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 11px;
+        background-color: white;
+        border-radius: 11px;
+        margin-top: 32px;
+        height: 43px;
+        align-items: center;
+        
+    }
+    .servis_inp{
+        width: 100%;
+        /* margin: auto; */
+    }
 }
 .name1{
     height: 170px;
@@ -1043,7 +1079,7 @@ margin-left: 5%;
     margin-top: 32px;
     height: 43px;
     align-items: center;
-    
+    font-size: 23px;
 }
 .eye1{
     font-size: 28px;
@@ -1140,8 +1176,8 @@ margin-left: 5%;
     gap: 5%;
     max-width: 90%;
     margin: auto;
-    margin-top: 100PX;
     flex-wrap: wrap;
+    margin-top: 10%;
 
 }
 .accordion_title{
@@ -1150,7 +1186,11 @@ margin-left: 5%;
     height: 60px;
     align-items: center;
     width: 99%;
-    margin: auto;
+    margin: auto;    
+}
+#hidden{
+    font-weight: 300;
+    margin-top: 11px;
 }
 .accordion{
     width: 45%;
@@ -1161,16 +1201,15 @@ margin-left: 5%;
     font-size: 28px;
     font-weight: 500;
 } 
-.accordion_p{
-    color: rgba(128, 128, 128, 0.374);
-    font-weight: 200;
-}
+
 .accordion h1{
     margin-bottom: 60px;
 }
 .accordion_item{
 border-bottom: 2px solid gray;
-padding-bottom: 0px;
+padding-bottom: 21px;
+margin-top: 21px;
+
 }
 .page_image{
   

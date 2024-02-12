@@ -17,6 +17,7 @@ import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -65,8 +66,8 @@ document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06
 document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 }else{
   document.querySelectorAll(".accordion_p")[i].style="height:0px;padding-bottom:0px;overflow: hidden"
-  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: black;"
-  document.querySelectorAll(".title_accordion")[i].style="color: black;"
+  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: grey;"
+  document.querySelectorAll(".title_accordion")[i].style="color: grey;"
 }
 }
   }
@@ -371,7 +372,13 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
             {/* 4 */}
 
 
-            <div data-aos="fade-up"
+          
+
+
+          </div>
+        </div>
+
+  <div data-aos="fade-up"
               data-aos-duration="3000" className={s.registration}>
               <Image className={s.taco} src={img5} alt="" />
               <Image className={s.donut} src={img4} alt="" />
@@ -379,12 +386,13 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
               <h1>РЕГИСТРАЦИЯ В СЕРВИСЕ</h1>
               <div className={s.servis_inp}>
                 <div className={s.phone_inp}>
-                  <input type="text" name="" id="" placeholder='Телефон' />
+                  <input type="text" name="" id="" placeholder='Телефон' /><IoIosInformationCircleOutline />
                 </div>
                 <div className={s.phone_inp}>
-                  <input type="email" name="" id="" placeholder='Email' />
+                  <input type="email" name="" id="" placeholder='Email' /><IoIosInformationCircleOutline />
                 </div>
                 <div className={s.phone_inp}>
+
                   <input type="password" name="" id="password" placeholder='Пароль' /><IoEyeOutline onClick={()=>{
 document.querySelector("#password").type="text"
 document.querySelector("#eyes1").style="display:none"
@@ -395,17 +403,12 @@ document.querySelector("#password").type="password"
 document.querySelector("#eyes2").style="display:none"
 document.querySelector("#eyes1").style="display:block"
                   }}  />
+  <IoIosInformationCircleOutline />
                 </div>
                 <p>Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных <br /> в соответствии с <a href="">политикой информационной безопасности.</a> Мы не используем данные и не присылаем рассылки</p>
                 <center><button>Зарегистрироваться</button></center>
               </div>
             </div>
-
-
-          </div>
-        </div>
-
-
         <div  data-aos="fade-up"
                     data-aos-duration="3000" className={s.vopros}>
 
@@ -415,7 +418,7 @@ document.querySelector("#eyes1").style="display:block"
               {accordion_data.map((item,key)=>{
   return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
               <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' /></div>
-              <div className="accordion_p" style={{height:'0px',overflow: 'hidden'}}>
+              <div  className="accordion_p" id={s.hidden} style={{height:'0px',overflow: 'hidden'}}>
                {item.desc}</div>
             </div>
               })}
@@ -425,7 +428,7 @@ document.querySelector("#eyes1").style="display:block"
           <div className={s.page_image}>
             <div className={s.min_circle1}></div>
             <div className={s.circle1}></div>
-            <img ref={tiltRef} src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
+            <img  ref={tiltRef} src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
             <div className={s.max_circle}>
               <div><h4>— Не нашли ответа на свой вопрос?</h4>
                 <p>Задайте его нам!</p></div>
