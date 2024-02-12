@@ -5,9 +5,10 @@ import { FaPen } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import Input_error from './componet/input_error';
 import Input_error2 from './componet/input_error2';
+import img from "../images/info-image.png"
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import { IoExitOutline,IoCloseOutline } from "react-icons/io5";
+import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
@@ -27,7 +28,9 @@ export default function profil() {
           <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Полезные материалы</a>
         </div>
       </div>
-
+<div className={s.image_prosta}>
+  <Image src={img} alt="" />
+</div>
       <div className={s.main_profil}>
         <div className={s.storage_user}>
           <div className={s.edit_account}><FaPen />  <span>Редактировать</span></div>
@@ -71,16 +74,19 @@ export default function profil() {
   <div className={s.close_x} onClick={()=>{document.querySelector("#modal_page").style="display:none"}}><IoCloseOutline /></div>
   {formc?(<div className={s.modal_head}>
     <h3 style={{maxWidth:'200px'}}>Подтвердите номер телефона</h3>
-<div className={s.input_phone}>
+<div className={s.input_phone} id='border2'>
   <p>Телефон</p>
-  <input type="text"   onKeyUp={(e)=>{
+  <input type="number"  onKeyUp={(e)=>{
   if((e.target.value).length<1){
     document.querySelector('#error_parol2').style="z-index:1;position:relative"
+    document.querySelector('#border2').style="border:1px solid rgba(255, 0, 0, 0.77)"
   }else{
     document.querySelector('#error_parol2').style="z-index:-1;position:relative"
+    document.querySelector('#border2').style="border:1px solid gray"
   }
   }}  />
-  <div id='error_parol2' style={{position:"relative"}}>
+   
+  <div id='error_parol2' style={{position:"relative",zIndex:-1}}>
     <Input_error message="Заполните поле" />
   <MdErrorOutline title='' className={s.icon_error} />
 </div>
@@ -88,30 +94,54 @@ export default function profil() {
     <button>Подтвердить</button>
   </div>):(<div className={s.modal_head}>
     <h3 style={{maxWidth:'200px'}}>Изменить пароль</h3>
-<div className={s.input_phone}>
+<div className={s.input_phone} id='border1'>
   
-  <input type="text"  onKeyUp={(e)=>{
+  <input type="password" id='password2' onKeyUp={(e)=>{
   if((e.target.value).length<1){
     document.querySelector('#error_parol1').style="z-index:1;position:relative"
+    document.querySelector('#border1').style="border:1px solid  rgba(255, 0, 0, 0.77)"
   }else{
     document.querySelector('#error_parol1').style="z-index:-1;position:relative"
+    document.querySelector('#border1').style="border:1px solid gray"
   }
   }} placeholder='Текущий пароль' />
-   <div id='error_parol1' style={{position:"relative"}}>
+      <IoEyeOutline onClick={()=>{
+document.querySelector("#password2").type="text"
+document.querySelector("#eyes12").style="display:none"
+document.querySelector("#eyes22").style="display:block"
+                  }} id='eyes12' className={s.eye1} /> 
+                  <IoEyeOffOutline className={s.eye1}  style={{display:"none"}} id='eyes22' onClick={()=>{
+document.querySelector("#password2").type="password"
+document.querySelector("#eyes22").style="display:none"
+document.querySelector("#eyes12").style="display:block"
+                  }}  />
+   <div id='error_parol1' style={{position:"relative",zIndex:-1}}>
     <Input_error message="Заполните поле" />
   <MdErrorOutline title='' className={s.icon_error} />
 </div>
 </div>
-<div className={s.input_phone}>
+<div className={s.input_phone} id='border'>
   
-  <input type="text" onKeyUp={(e)=>{
+  <input type="password" id='password1' onKeyUp={(e)=>{
   if((e.target.value).length<1){
     document.querySelector('#error_parol').style="z-index:1;position:relative"
+    document.querySelector('#border').style="border:1px solid  rgba(255, 0, 0, 0.77)"
   }else{
     document.querySelector('#error_parol').style="z-index:-1;position:relative"
+    document.querySelector('#border').style="border:1px solid gray"
   }
   }} placeholder='Новый пароль' /> 
-  <div id='error_parol'  style={{position:"relative"}}>
+   <IoEyeOutline onClick={()=>{
+document.querySelector("#password1").type="text"
+document.querySelector("#eyes1").style="display:none"
+document.querySelector("#eyes2").style="display:block"
+                  }} id='eyes1' className={s.eye1} /> 
+                  <IoEyeOffOutline className={s.eye1}  style={{display:"none"}} id='eyes2' onClick={()=>{
+document.querySelector("#password1").type="password"
+document.querySelector("#eyes2").style="display:none"
+document.querySelector("#eyes1").style="display:block"
+                  }}  />
+  <div id='error_parol'  style={{position:"relative",zIndex:-1}}>
     <Input_error2 message="Заполните поле" />
   <MdErrorOutline title='' className={s.icon_error} />
 </div>

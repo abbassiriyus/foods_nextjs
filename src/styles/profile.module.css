@@ -156,7 +156,10 @@ left: 10px;
 font-size: 12px;
 }
 .conntact_input .pageinput .icon_error{
-    color: rgba(255, 0, 0, 0.37);
+    color: rgba(255, 0, 0, 0.77);
+}
+.icon_error{
+    color: rgba(255, 0, 0, 0.77);
 }
 .openmodal_button{
     display: flex;
@@ -186,6 +189,13 @@ margin-bottom: 10px;
     cursor: pointer;
 }
 
+.image_prosta{
+    position: absolute;
+    right:-5vw;
+    height: 25vw;
+    width: 25vw;
+    background-color: #06c160;
+}
 
 
 @media(max-width:829px){
