@@ -7,8 +7,18 @@ Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 body{
 width: 100vw;
 overflow-x: hidden;
-}
+    background-color: rgb(248, 248, 248);}
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+::-webkit-scrollbar{
+    width: 4px;
+}
+::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #06c160;
+}

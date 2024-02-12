@@ -1,0 +1,735 @@
+.glava{
+    width:1200px;
+    height: auto;
+    margin:auto;
+background-color: rgb(248, 248, 248);
+}
+.gap{
+    width: 100%;
+    font-size:37px;
+    font-weight: 800;
+}
+.gap_2{
+    color: #909090;
+    font-weight: 400;
+    font-size:22px;
+    margin-left:-10px;
+}
+@media(max-width:1000px){
+    .gap{
+        font-size:40px;
+        font-weight: 800;
+    }
+    .gap_2{
+        color: #909090;
+        font-weight: 400;
+        font-size:24px;
+        margin-left:-10px;
+    }
+}
+@media(max-width:600px){
+    .gap{
+        font-size:35px;
+        font-weight: 800;
+    }
+}
+@media(max-width:500px){
+    .gap{
+        font-size:30px;
+        font-weight: 800;
+    }
+    .gap_2{
+        color: #909090;
+        font-weight: 400;
+        font-size:22px;
+        margin-left:-10px;
+    }
+}
+.plan{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    align-items: start;
+}
+.kategoriya{
+    width: 300px;
+    height: auto !important;
+    background: #ffffff;
+    border-radius: 20px;
+    padding-top: 20px   ;
+    padding-bottom: 20px;
+}
+
+.kota_kategoriya{   
+    width: 250px;
+    margin:auto;
+    font-size:19px;
+    font-weight: 500;
+    color: #06c160;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.kota_kategoriya1{   
+    width: 250px;
+    margin:auto;
+    font-size:19px;
+    font-weight: 500;
+    color: #06c160;
+display: flex;
+align-items: center;
+cursor: pointer;
+display: none;
+}
+.kota_kategoriya2{   
+    width: 250px;
+    margin:auto;
+    font-size:19px;
+    font-weight: 500;
+    color: #06c160;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.kota_kategoriya22{   
+    width: 250px;
+    margin:auto;
+    font-size:19px;
+    font-weight: 500;
+    color: #06c160;
+display: flex;
+align-items: center;
+justify-content: space-between;
+display: none;
+}
+.togri{
+    width:17px;
+    height:17px;
+    border:solid 1.5px #909090;
+}
+.kichkina_kategoriya{
+    width: 81%;
+    display: flex;
+    margin: auto;
+    margin-top: 15px;
+    gap: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.ukaz1{
+    font-size: 15px;
+    font-weight: 900;
+    margin-left: 8px;
+}
+.sp{
+     font-weight: 600;
+     margin-top: -5px;
+}
+.sp2{
+    margin-left: 7px;
+    color: #909090;
+}
+.povara{
+    width: 860px;
+    height: 300px;
+}
+.cards{
+    width: 100%;
+    height: 270px;
+    background: #fff;
+    margin: auto;
+    border-radius: 30px;
+    overflow:hidden;
+    overflow-x: hidden ;
+} 
+.cards:hover{
+    box-shadow: 0 0 10px rgb(234, 233, 233);
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.logo:hover{
+    border: solid 2px #06c160;
+}
+.logo_rasm{
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+}
+.b_card{
+    width: 90%;
+    margin: auto;
+    height: 100px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card1{
+    width: 110px;
+    margin-left: -30px;
+}
+.card2{
+    width: 500px;
+    margin-top: 10px;
+}
+.otenka{
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.kon{
+    color: #909090;
+    font-size: 14px;
+}
+.opa{
+    font-weight: 600;
+    font-size: 17px;
+    color: black;
+}
+.mina{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.zvezda{
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+}
+.zv{
+    font-size: 16px;
+    color: #f5df4d;
+}
+.comment{
+    width: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #06c160;
+}
+.com{
+    font-size: 12px;
+    color: #06c160;
+}
+.card3{
+    min-width: 140px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+.kasb{
+    width: auto;
+    height: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 1px #c6c3c3;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #06c160;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.a_card{
+    width: 100%;
+margin-top: 40px;
+}
+.ovqat_img{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bld_img{
+    width:130px;
+}
+.bld_img:hover{
+   cursor: pointer;
+  background-color: #90909065;
+}
+
+.liniya{
+width: 83%;
+height: 1px;
+margin: auto;
+background-color: #dcdcdc;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+
+
+.qidr{
+    width: 850px;
+    height: 230px;
+
+}
+.b_hov{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hover{
+    width: 87%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: solid 1px silver;
+    border-radius: 10px;
+}
+
+.alt{
+    width: 50px;
+    height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+color: #c4c4c4;
+}
+.input{
+    width: 90%;
+    height: 40px;
+    font-size: 17px;
+    outline: none;
+border: none
+}
+.yoq{
+width: 50px;
+height: 40px;
+}
+.hover2{
+    width: 80px;
+    height: 42px;
+    background-color: #06c160;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    transition: 0.2s;
+    border: solid 2px #06c160;
+}
+.hover2:hover{
+    color: #06c160;
+    background-color: #fff;
+}
+.kategoriya_button{
+width: 85%;
+height: 50px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: #eeeeee;
+border-radius: 10px;
+font-weight: 600;
+border: solid 1px #909090;
+font-size: 18px;
+transition: 0.2s;
+margin-left: 20px;
+}
+.perevarot{
+color: #06c160;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 18px;
+}
+.kategoriya_button:hover .perevarot{
+    color: white;
+}
+.kategoriya_button:hover{
+    background-color: #06c160;
+    border: solid 1px #06c160;
+    color: white;
+}
+.karta{
+    width: 200px;
+    height: 45px;
+    border: solid 1px #c6c3c3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 30px;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.lorem{
+    color: #06c160;
+    font-size: 22px;
+}
+.karta:hover .lorem{
+    color: white;
+}
+.karta:hover{
+    background-color: #06c160;
+    border: solid 1px #06c160;
+    color: #fff !important;
+}
+.a_hov{
+    width: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #06c160;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: none;
+}
+.ur{
+    width: 50px;
+    height: 50px;
+    background-color: #06c160;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+}
+.yoqot{
+    width: 95%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    display: none;
+}
+.yoq{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+background-color: #06c160;
+font-size: 20px;
+color: white;
+border-radius: 50%;
+}
+.fil{
+    color: #000000;
+    font-size: 33px;
+    font-weight: 800;
+}
+.primen{
+    width: 130px;
+    height: 45px;
+    background-color: #06c160;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    display: none;
+}
+.yopil_kateg{
+    overflow-x: hidden ;
+    transition: 90s ;
+}
+#kor1{
+    transition: 90s;
+}
+@media(max-width:1300px){
+    .glava{
+        width: 95%;
+    }
+    /* .kategoriya{
+        position: absolute;
+        left: -300px;
+    } */
+    .shef{
+        width: 80%;
+    }
+    .qidr{
+        width: 760px;
+        margin: auto;
+    }
+    .b_hov{
+        width: 100%;
+    }
+    .hover{
+        width: 87%;
+    }
+    .povara{
+        width: 850px;
+        height: 400px;
+        margin: auto;
+    }
+    .kategoriya{
+        height: 1580px;
+    }
+    .povara{
+        width: 760px;
+    }
+    .bld_img{
+        width: 115px;
+        height: 115px;
+        margin-top: 15px;
+    }
+    .kota_kategoriya{
+        width: 82%;
+    }
+    .kota_kategoriya2{
+        width: 82%;
+    }
+}
+@media(max-width:1225px){
+    .kategoriya{
+        height: 1530px;
+    }
+    .sp{
+        font-size: 15px;
+    }
+}
+@media(max-width:1145px){
+    .cards{
+        width: 95%;
+    }
+    .qidr{
+        width: 95%;
+    }
+    .povara{
+        height: 330px;
+    }
+    .bld_img{
+        width: 15%;
+        
+    }
+}
+@media(max-width:1100px){
+    .card1{
+        width: 110px;
+        margin-left: -20px;
+    }
+}   
+@media(max-width:1060px){
+    .primen{
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .yoqot{
+        display: block;
+        display: flex;
+    }
+    .kategoriya{
+        width: 100%;
+        height: 160vh;
+        position: absolute;
+        left: -120%;
+        top: 0;
+        transition: 0.3s;
+    }
+    .shef{
+        width: 100%;
+    }
+    .povara{
+        width: 100%;
+    }
+    .bld_img{
+        width: 15%;
+        
+    }
+.a_hov{
+    display: block;
+    display: flex ;
+}
+.kota_kategoriya{
+    width: 95%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.kota_kategoriya2{
+    width: 95%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.kichkina_kategoriya{
+    width: 95%;
+}
+.liniya{
+    width: 95%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.kategoriya_button{
+    width: 160px;
+    height: 45px;
+    font-size: 15px;
+}
+.perevarot{
+    font-size: 15px;
+}
+.loko{
+    width: 98%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 9px;
+    position: fixed;
+    top: 880px;
+    background-color: #fff;
+}
+}
+@media(max-width:840px){
+        .ovqat_img{
+        display: grid;
+        grid-template-columns: auto auto auto;
+
+    }
+    .povara{
+        width: 100%;
+        height: 630px;
+    }
+    .cards{
+        height: 570px;
+    }
+    .bld_img{
+width: 200px;
+height: 200px;
+    }
+    .b_hov{
+        width: 100%;
+    }
+    .hover{
+        width: 85%;
+    }
+}
+@media(max-width:730px){
+    .hover{
+        width: 82%;
+    }
+}
+@media(max-width:715px){
+    .bld_img{
+        width: 160px;
+        height: 160px;
+            }
+            .cards{
+                height: 490px;
+            }
+            .povara{
+                height: 530px;
+            }
+            .homr{
+                width: 220px;
+                font-size: 18px;
+            }
+}
+@media(max-width:625px){
+    .hover{
+        width: 78%;
+    }
+}
+@media(max-width:580px){
+    .bld_img{
+        width: 130px;
+        height: 130px;
+            }
+            .cards{
+                height: 430px;
+            }
+            .povara{
+                height: 470px;
+            }
+}
+@media(max-width:520px){
+    .card3{
+margin-top: 140px;
+margin-left: -40%;
+    }
+}
+@media(max-width:510px){
+    .hover{
+        width: 75%;
+    }
+}
+@media(max-width:490px){
+    .bld_img{
+        width: 110px;
+        height: 110px;
+            }
+            .cards{
+                height: 380px;
+            }
+            .povara{
+                height: 430px;
+            }
+}
+@media(max-width:440px){
+    .hover{
+        width: 70%;
+    }
+    .loko{
+        margin-left: 5px;
+    }
+}
+@media(max-width:410px){
+    .homr{
+        width: 100%;
+        font-size: 18px;
+    }
+    .card3{
+        margin-top: 180px;
+        margin-left: -60%;
+    }
+    .cards{
+        height: 400px;
+    }
+    .a_card{
+        margin-top: 70px;
+    }
+    .bld_img{
+        width: 100px;
+        height: 100px;
+            }
+            .logo{
+                width: 70px;
+                height: 70px;
+                margin-left: 20px;
+            }
+            .logo_rasm{
+                width: 70px;
+                height: 70px;
+            }
+            .card2{
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+}

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
-import img from "../images/logo.svg"
+import img from "../images/logo.png"
 import img1 from "../images/rocket.png"
 import img2 from "../images/1.png"
 import img3 from "../images/sushi.webp"
@@ -17,12 +17,14 @@ import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import accordion_data from './data/accaordion_data';
 
 export default function forCooks() {
   const tiltRef = useRef(null);
@@ -47,12 +49,27 @@ export default function forCooks() {
         desk: 'Повар на связи — сервис, облегчающий жизнь и кондитерам и заказчикам. После блокировки известной соц.сети, все разбежались по разным местам и стало сложнее найти своих клиентов или своего изготовителя. Это максимально актуальная и своевременная платформа для комфортного взаимодействия.'
       }
     ])
+    
   var [page, setPage] = useState(0)
   function plus() {
     if (page < data.length - 1) {
       setPage(page + 1)
     }
 
+  }
+  function SelectAc(key){
+    console.log(key);
+for (let i = 0; i < accordion_data.length; i++) {
+if(key==i){
+document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
+document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06c160;"
+document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
+}else{
+  document.querySelectorAll(".accordion_p")[i].style="height:0px;padding-bottom:0px;overflow: hidden"
+  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: grey;"
+  document.querySelectorAll(".title_accordion")[i].style="color: grey;"
+}
+}
   }
   function minus() {
     if (page > 0) {
@@ -82,7 +99,8 @@ export default function forCooks() {
         {/* bir */}
         <div className={s.body1}>
           <div className={s.header_0}>
-            <div className={s.header_1}>
+
+         <div className={s.header_1}>
               <div className={s.header_text}>
                 <span>Привет!</span>
 
@@ -106,7 +124,6 @@ export default function forCooks() {
                 </div>
               </div>
             </div>
-
             {/* ikki */}
 
             <div className={s.servis}>
@@ -186,37 +203,39 @@ export default function forCooks() {
               <Image ref={tiltRef} className={s.cupcake} src={img2} alt="" />
 
               <Swiper
+              centeredSlides="true"
                 pagination={{
                   dynamicBullets: true,
-                }} modules={[Pagination]} className="mySwiper" >
+                }}
+                 modules={[Pagination]} className="mySwiper" >
                 <SwiperSlide className={s.slide_swip}>
                   <div className={s.grafik}>
-                    <Image className={s.otziv_img} src={img} alt="" />
+                    <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                     <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
                     <p>Покупатель сможет оставлять отзыв только после получения заказа. <br />Хороший рейтинг позволит привлекать ещё больше клиентов!</p>
                   </div></SwiperSlide>
                 <SwiperSlide className={s.slide_swip}>
                   <div className={s.grafik}>
-                    <Image className={s.otziv_img} src={img} alt="" />
+                    <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                     <h2>ВCЕ КЛИЕНТЫ — <br /> В ОДНОМ МЕСТЕ</h2>
                     <p>Переписки в чатах только с теми, кто хочет оформить заказ на твоё блюдо.</p>
                   </div></SwiperSlide>
                 <SwiperSlide className={s.slide_swip}>  <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image style={{height:'70px',width:"auto"}}  className={s.otziv_img} src={img} alt="" />
                   <h2>ДОХОД И ГРАФИК ЗАВИСЯТ ОТ ТЕБЯ</h2>
                   <p>Готовь заказы когда тебе удобно, предлагай продукцию знакомым и получай новых клиентов от нас. <br />Заработок не ограничен зарплатой!</p>
                 </div></SwiperSlide>
               </Swiper>
               <div className={s.otziv}>
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}} src={img} alt="" />
                   <h2>ТОЛЬКО ДОСТОВЕРНЫЕ  <br /> ОТЗЫВЫ</h2>
                   <p>Покупатель сможет оставлять отзыв только после получения заказа. <br />Хороший рейтинг позволит привлекать ещё больше клиентов!</p>
                 </div>
 
 
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                   <h2>ВCЕ КЛИЕНТЫ — <br /> В ОДНОМ МЕСТЕ</h2>
                   <p>Переписки в чатах только с теми, кто хочет оформить заказ на твоё блюдо.</p>
                 </div>
@@ -224,7 +243,7 @@ export default function forCooks() {
 
 
                 <div className={s.grafik}>
-                  <Image className={s.otziv_img} src={img} alt="" />
+                  <Image className={s.otziv_img}  style={{height:'70px',width:"auto"}}  src={img} alt="" />
                   <h2>ДОХОД И ГРАФИК ЗАВИСЯТ ОТ ТЕБЯ</h2>
                   <p>Готовь заказы когда тебе удобно, предлагай продукцию знакомым и получай новых клиентов от нас. <br />Заработок не ограничен зарплатой!</p>
                 </div>
@@ -248,7 +267,7 @@ export default function forCooks() {
                 </div>
               </div>
               <div className={s.text}>
-                <Image className={s.name1} src={img} alt="" />
+                <Image className={s.name1} style={{width:'100px',height:'auto'}} src={img} alt="" />
                 <p>{data[page].desk}</p>
                 <h2>{data[page].name}</h2>
                 <h5>{data[page].kasb}</h5>
@@ -271,18 +290,22 @@ export default function forCooks() {
 
               <h1>ПОДДЕРЖКА УЧАСТНИКОВ</h1>
               <Swiper
+              // centeredSlides="true"
+              spaceBetween={30}
               breakpoints={{
                 499: {
                   width: 499,
                   slidesPerView: 1,
+                  centeredSlides:true,
                 },
                 576: {
                   width: 576,
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                 },
                 768: {
                   width: 768,
-                  slidesPerView: 3,
+                  spaceBetween:10,
+                  slidesPerView: 2,
                 },
               }}
               slidesPerView={1}
@@ -349,7 +372,13 @@ export default function forCooks() {
             {/* 4 */}
 
 
-            <div data-aos="fade-up"
+          
+
+
+          </div>
+        </div>
+
+  <div data-aos="fade-up"
               data-aos-duration="3000" className={s.registration}>
               <Image className={s.taco} src={img5} alt="" />
               <Image className={s.donut} src={img4} alt="" />
@@ -357,46 +386,49 @@ export default function forCooks() {
               <h1>РЕГИСТРАЦИЯ В СЕРВИСЕ</h1>
               <div className={s.servis_inp}>
                 <div className={s.phone_inp}>
-                  <input type="text" name="" id="" placeholder='Телефон' />
+                  <input type="text" name="" id="" placeholder='Телефон' /><IoIosInformationCircleOutline />
                 </div>
                 <div className={s.phone_inp}>
-                  <input type="email" name="" id="" placeholder='Email' />
+                  <input type="email" name="" id="" placeholder='Email' /><IoIosInformationCircleOutline />
                 </div>
                 <div className={s.phone_inp}>
-                  <input type="password" name="" id="" placeholder='Пароль' /><IoEyeOutline className={s.eye1} /> 
-                  <IoEyeOffOutline />
+
+                  <input type="password" name="" id="password" placeholder='Пароль' /><IoEyeOutline onClick={()=>{
+document.querySelector("#password").type="text"
+document.querySelector("#eyes1").style="display:none"
+document.querySelector("#eyes2").style="display:block"
+                  }} id='eyes1' className={s.eye1} /> 
+                  <IoEyeOffOutline className={s.eye1}  style={{display:"none"}} id='eyes2' onClick={()=>{
+document.querySelector("#password").type="password"
+document.querySelector("#eyes2").style="display:none"
+document.querySelector("#eyes1").style="display:block"
+                  }}  />
+  <IoIosInformationCircleOutline />
                 </div>
                 <p>Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных <br /> в соответствии с <a href="">политикой информационной безопасности.</a> Мы не используем данные и не присылаем рассылки</p>
                 <center><button>Зарегистрироваться</button></center>
               </div>
             </div>
-
-
-          </div>
-        </div>
-
-
         <div  data-aos="fade-up"
                     data-aos-duration="3000" className={s.vopros}>
 
           <div className={s.accordion}>
             <h1>ВОПРОСЫ <br />
               И ОТВЕТЫ</h1>
-            <div className={s.accordion_item}>
-              <div className={s.accordion_title}><h2>О сервисе</h2><FaPlus /></div>
-              <div className={s.accordion_p}>
-                Мы объединяем домашних кондитеров, частных и профессиональных поваров, фермеров, а также тех, кто просто умеет и любит готовить.
-
-                Сервис позволяет зарабатывать, находясь на своей кухне, с помощью выездного обслуживания или продажи своей продукции, а также заказывать любимые блюда и десерты, которые будут приготовлены индивидуально под ваш заказ.
-
-                Мы поможем сэкономить время на заказ блюда, или поиск специалиста, поскольку каждый сможет найти подходящего специалиста на карте своего города, просмотрев его меню, фотографии кухни и отзыв.</div>
+              {accordion_data.map((item,key)=>{
+  return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
+              <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' /></div>
+              <div  className="accordion_p" id={s.hidden} style={{height:'0px',overflow: 'hidden'}}>
+               {item.desc}</div>
             </div>
+              })}
+           
           </div>
 
           <div className={s.page_image}>
             <div className={s.min_circle1}></div>
             <div className={s.circle1}></div>
-            <img ref={tiltRef} src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
+            <img  ref={tiltRef} src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
             <div className={s.max_circle}>
               <div><h4>— Не нашли ответа на свой вопрос?</h4>
                 <p>Задайте его нам!</p></div>
