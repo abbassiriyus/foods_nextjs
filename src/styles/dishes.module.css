@@ -1,0 +1,43 @@
+.dishes{
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    margin-top: 30px;
+}
+.dishes_button{
+   max-width: 200px;
+   width: 80%;
+   /* height: 200px; */
+   border-radius: 10px;
+   padding-bottom: 20px;
+   background: #e6f9ef;
+   padding-top: 20px;
+   transition: 0.4s;
+   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+}
+.dishes_button:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.circle{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 0 var(--m20) 0;
+    background: #06c160;
+    font-size: 50px;
+    display: flex;
+    font-weight: ;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: auto;
+}
+.dishes_button h5{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #06c160;
+}

@@ -392,8 +392,8 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
                   <input type="email" name="" id="" placeholder='Email' /><IoIosInformationCircleOutline />
                 </div>
                 <div className={s.phone_inp}>
-
-                  <input type="password" name="" id="password" placeholder='Пароль' /><IoEyeOutline onClick={()=>{
+                  <input type="password" name="" id="password" placeholder='Пароль' />
+                  <IoEyeOutline onClick={()=>{
 document.querySelector("#password").type="text"
 document.querySelector("#eyes1").style="display:none"
 document.querySelector("#eyes2").style="display:block"
