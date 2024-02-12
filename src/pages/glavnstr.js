@@ -4,7 +4,6 @@ import { BiCommentDetail } from "react-icons/bi";
 import s from "../styles/Glavnstr.module.css";
 import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
-import Card from "./componet/card";
 import img1 from "../images/woman.png"
 import Image from "next/image";
 import Footer from "../pages/Footer.js"
@@ -372,25 +371,7 @@ alt=""
 </div>
 </div>
 
-
-
-
-
-
-
-<Footer/>
-
-
-
-
-
-
-
-
-
-
-
-
+<Footer></Footer>
 
 </div>
 );
