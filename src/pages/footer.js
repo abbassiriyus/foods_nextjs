@@ -3,8 +3,7 @@ import f from "../styles/Footer.module.css";
 import { BiLogoTelegram } from "react-icons/bi";
 import { IoLogoVk } from "react-icons/io";
 import { FaApple } from "react-icons/fa";
-import { FaGooglePlay } from "react-icons/fa";
-
+import { FaGooglePlay } from "react-icons/fa6";
 export default function footer() {
 return (
 <div>
@@ -23,7 +22,7 @@ return (
 <FaApple className={f.apple}/>
 </div>
 <div className={f.ap_soz}>
-<p className={f.ap_p1}>DOWNLOAD ON THE</p>
+<p className={f.ap_p1}>Download on the</p>
 <p className={f.ap_p2}>App Store</p>
 </div>
 </div>
@@ -39,9 +38,18 @@ return (
 </div>
 </div>
 <div className={f.prilojenie}>
-<BiLogoTelegram className={f.f_i} />
+<div><BiLogoTelegram className={f.f_i} /></div>
 <IoLogoVk className={f.f_i} />
 </div>
+</div>
+</div>
+<div className={f.footer2}>
+<div className={f.f2_p}>
+<p className={f.f2_ps}>©2024 <span className={f.p_spani}>Повар на связи</span></p>
+</div>
+<div className={f.f2_a}>
+<a className={f.a_href1} href="#">support@povarnasvyazi.ru</a> <br /> <br />
+<a className={f.a_href2} href="#">Условия использования сервиса и информация о компании</a>
 </div>
 </div>
 </div>

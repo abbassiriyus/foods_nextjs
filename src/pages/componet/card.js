@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import s from "../styles/card.module.css"
+// import s from "../styles/card.module.css"
 import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 export default function card() {

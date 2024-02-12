@@ -71,10 +71,10 @@ font-size: 33px;
 }
 .ap_soz{
 width: 80%;
-text-align: center;
+text-align: left;
 }
 .ap_p1{
-font-size: 11px;
+font-size: 12px;
 font-weight: 500;
 }
 .ap_p2{
@@ -109,7 +109,7 @@ font-size: 28px;
 }
 .gp_soz{
 width: 74%;
-text-align: center;
+text-align: left;
 }
 .gp_p1{
 font-size: 11px;
@@ -125,6 +125,7 @@ font-style: normal;
 width: max-content;
 margin-left: 74%;
 margin-top: 30px;
+display: flex;
 }
 .f_i{
 font-size: 30px;
@@ -225,6 +226,22 @@ margin-top: 40px;
 width: 90%;
 margin: auto;
 }
+.pol{
+width: 100%;
+margin: auto;
+font-size: 20px;
+text-align: center;
+}
+.prilojenie{
+width: 100%;
+margin: auto;
+margin-top: 30px;
+margin-left: 0%;
+display: flex;
+text-align: center;
+justify-content: center;
+gap: 20px;
+}
 }
 @media(max-width:670px){
 .f_img{
@@ -288,9 +305,17 @@ margin-top: 40px;
 
 }
 @media(max-width:390px){
+.reklama{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+margin-top: 30px;
+}
 .app_store{
-width: 140px;
-height: 54px;
+width: 150px;
+height: 45px;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -299,9 +324,26 @@ border-radius: 8px;
 transition: .3s;
 cursor: pointer;
 }
+.apple{
+font-size: 30px;
+}
+.ap_soz{
+width: 68%;
+text-align: left;
+}
+.ap_p1{
+font-size: 10px;
+font-weight: 500;
+}
+.ap_p2{
+font-size: 17px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
 .google_play{
-width: 140px;
-height: 54px;
+width: 150px;
+height: 45px;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -315,7 +357,7 @@ font-size: 10px;
 font-weight: 500;
 }
 .gp_p2{
-font-size: 14px;
+font-size: 15px;
 font-weight: 700;
 font-family: "PT Sans", sans-serif;
 font-style: normal;
@@ -324,6 +366,152 @@ font-style: normal;
 font-size: 25px;
 }
 }
+@media(max-width:350px){
+.app_store{
+width: 140px;
+height: 42px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.apple{
+font-size: 28px;
+}
+.ap_soz{
+width: 68%;
+text-align: left;
+}
+.ap_p1{
+font-size: 10px;
+font-weight: 500;
+}
+.ap_p2{
+font-size: 15.6px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
+.google_play{
+width: 140px;
+height: 42px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid black;
+border-radius: 8px;
+transition: .3s;
+cursor: pointer;
+}
+.google{
+font-size: 23px;
+}
+.gp_soz{
+width: 68%;
+text-align: left;
+}
+.gp_p1{
+font-size: 10px;
+font-weight: 500;
+}
+.gp_p2{
+font-size: 15px;
+font-weight: 700;
+font-family: "PT Sans", sans-serif;
+font-style: normal;
+}
+}
+
+.footer2{
+width: 1450px;
+display: flex;
+align-items: center;
+margin: auto;
+gap: 50px;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+.f2_p{
+position: relative;
+top: 8px;
+}
+.p_spani{
+font-weight: 600;
+}
+.a_href1{
+text-decoration: none;
+color: #06c160;
+font-weight: 500;
+}
+
+.a_href2{
+text-decoration: none;
+color: #06c160;
+}
+@media(max-width:1510px){
+.footer2{
+width: 90%;
+display: flex;
+align-items: center;
+margin: auto;
+gap: 50px;
+margin-top: 50px;
+}
+}
+@media(max-width:935px){
+.footer2{
+width: 90%;
+display: block !important;
+margin: auto;
+gap: 0px;
+margin-top: 50px;
+}
+.f2_p{
+width: 100%;
+margin: auto;
+text-align: center;
+position: relative;
+top: 0px;
+}
+.f2_a{
+width: 60%;
+margin: auto;
+margin-top: 15px;
+}
+}
+@media(max-width:670px){
+.f2_a{
+width: 70%;
+margin: auto;
+margin-top: 15px;
+}
+}
+@media(max-width:498px){
+.f2_a{
+width: 90%;
+margin: auto;
+margin-top: 15px;
+}
+}
+@media(max-width:438px){
+.f2_a{
+width: 100%;
+margin: auto;
+margin-top: 15px;
+}
+}
+
+
+
+
+
+
+
+
+
 
 
 
