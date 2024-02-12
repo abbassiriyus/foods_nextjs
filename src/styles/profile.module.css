@@ -1,112 +1,289 @@
 .line{
-    width: 60%;
-    margin: auto;
+ margin-left: 10%;
     display: flex;
-    justify-content: space-evenly;
+    gap: 20px;
     align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    
 }
-.line01 {
-    /* --btn-border-radius: 18px;
-  --btn-height: 69px;
-  --btn-color: #111;
-  --btn-bg-color: #fff;
-  --btn-border-color: transparent;
-  --btn-hover-bg-color: #06c160;
-  --btn-hover-border-color: transparent;
-  --btn-hover-color: #fff;
-  font-size: var(--fs24);
-  font-weight: 700;
-  --btn-color: #fff;
-  --btn-bg-color: #06c160;
-  pointer-events: none; */
 
-}
-.line01 a{
-    --btn-border-radius: 18px;
-  --btn-height: 69px;
-  --btn-color: #111;
-  --btn-bg-color: #fff;
-  --btn-border-color: transparent;
-  --btn-hover-bg-color: #06c160;
-  --btn-hover-border-color: transparent;
-  --btn-hover-color: #fff;
-  font-size: var(--fs24);
-  font-weight: 700;
-  --btn-color: #fff;
-  --btn-bg-color: #06c160;
-  pointer-events: none;
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
-  background-color: #06c160;
-  color: #fff;
-  width: 170px;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-}
 
 .line1 a{
     color: #111;
     text-decoration: none;
-    --btn-border-radius: 18px;
-    --btn-height: 69px;
-    --btn-color: #111;
-    --btn-bg-color: #fff;
-    --btn-border-color: transparent;
-    --btn-hover-bg-color: #06c160;
-    --btn-hover-border-color: transparent;
-    --btn-hover-color: #fff;
     font-size: var(--fs24);
     font-weight: 700;
-    --btn-color: #fff;
-    --btn-bg-color: #06c160;
-    background-color: whitesmoke;
+    background-color: rgb(224, 224, 224);
     color: #111;
-    width: 170px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 15px 40px;
     border-radius: 10px;
     font-size: 20px;
+    text-wrap: nowrap;
 }
 .line1 a:hover{
     background-color: #06c160;
     color: #fff;
 }
-.line2 a{
-    color: #111;
-    text-decoration: none;
-    --btn-border-radius: 18px;
-    --btn-height: 69px;
-    --btn-color: #111;
-    --btn-bg-color: #fff;
-    --btn-border-color: transparent;
-    --btn-hover-bg-color: #06c160;
-    --btn-hover-border-color: transparent;
-    --btn-hover-color: #fff;
-    font-size: var(--fs24);
-    font-weight: 700;
-    --btn-color: #fff;
-    --btn-bg-color: #06c160;
-    font-size: 20px;
-    background-color: whitesmoke;
-    color: #111;
-    width: 300px;
-    height: 55px;
+
+
+.main_profil{
+    box-sizing: border-box;
+    padding: var(--m30) var(--m30) var(--m60);
+    border-radius: 20px;
+    background: #fff;
+    margin-top: 40px;
+    max-width: 1200px;
+    width: 90%;
+    margin-left: 5%;
+    padding: 20px;
+}
+.storage_user{
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    gap: 30px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+    padding-bottom: 30px;
+    position: relative;
+    margin-bottom: 20px;
 }
-.line2 a:hover{
-    background-color: #06c160 ;
-    color: #fff;
+.account_img{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    background-color: red;
 }
-/* reg uchun */
-.reg1{
+.image_profil .p_user{
+ color: #111;
+ font-size: 15px;
+}
+.image_profil .p_user span{
+    color: gray;
+}
+.edit_account{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #06c160;
+    cursor: pointer;
+}
+.edit_account span{
+    border-bottom: 1px dashed ;
+    margin-left:  10px;
+    padding-bottom: 2px;
+}
+.edit_account:hover span{
+    border: none;
+}
+.p_user{
     display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+@media(max-width:991px){
+.line1 a{
+    padding: 5px 15px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+}
+@media(max-width:600px){
+    .account_img{
+        width: 120px;
+        height: 120px;
+    }
+    .edit_account{
+        font-size: 10px;
+    }
+    .storage_user h1{
+font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.danix_contact{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+}
+.conntact_input{
+    display: flex;gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.conntact_input input{
+    border: none;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0);
+    min-height: 40px;
+width: 300px;
+padding-left: 20px;
+border-radius: 5px;
+
+font-size: 20px;
+}
+.conntact_input .pageinput{
+    background-color: white;
+    background-color: rgba(128, 128, 128, 0.274);
+    display: flex;
+    margin-top: 20px;
+    padding-right: 10px;
+    position: relative;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 23px;
+    justify-content: space-between; 
+}
+.conntact_input .pageinput p{
+background-color: white;
+border-radius: 30px;
+position: absolute;
+color: gray;
+padding: 1px 6px;
+top: -12px;
+left: 10px;
+font-size: 12px;
+}
+.conntact_input .pageinput .icon_error{
+    color: rgba(255, 0, 0, 0.37);
+}
+.openmodal_button{
+    display: flex;
+    gap: 10%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.edit_account1{
+  
+    color: #06c160;
+    cursor: pointer; 
+    border-bottom: 1px dashed ;
+    margin-left:  10px;
+    padding-bottom: 2px;
+margin-bottom: 10px;
+
+}
+.chiqish_button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    color: #06c160;
+    font-size: 20px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+
+
+@media(max-width:829px){
+    .conntact_input .pageinput{
+        width: 100%;
+    }
+    .danix_contact h1{
+        font-size: 15px;
+    }
+   
+}
+@media(max-width:417px){
+    .conntact_input input{
+        width: 210px;
+        font-size: 15px;
+    }
+    .edit_account1{
+        font-size: 10px;
+    } 
+    .chiqish_button{
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+.modal_page{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #11111154;
+    display: none;
+    justify-content: center;align-items: center;
+}
+.modal_form{
+    width: 30%;
+    min-width: 300px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    border-radius: 30px;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.close_x{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+ .input_phone p{
+    background-color: white;
+    border-radius: 30px;
+    position: absolute;
+    color: gray;
+    padding: 1px 6px;
+    top: -10px;
+    left: 10px;
+    font-size: 16px;
+    }
+.input_phone{
+    border: 1px solid gray;
+width: 90%;
+margin: auto;
+display: flex;justify-content: space-between;
+height: 40px;
+align-items: center;
+padding-left: 10px;
+position: relative;
+padding-right: 10px;
+margin-top: 20px;
+margin-bottom: 20px;
+border-radius: 5px;
+}
+.input_phone input{
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+}
+.modal_form button{
+background-color: #06c160;
+border-radius: 5px;
+height: 40px;
+padding: 10px 30px;
+border: none;
+color: white;
 }
