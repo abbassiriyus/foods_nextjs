@@ -115,10 +115,20 @@ export default function navbar() {
   function adres(){
     document.querySelector('#openbtn_map').style=`display:flex`
     document.querySelector('#openbtn1').style=`display:none`
+    document.querySelector('#openbtn2_big').style=`display:none`
   }
   // function openbtn2_big(){
   //   document.querySelector('#openbtn2_big').style
   // }
+
+  function inpoch(){
+    const a=document.querySelector('#inpoch').value
+    if(a.length>0){
+      document.querySelector('#inpoch_btn').style=`background-color:#06c160`
+    }else{
+      document.querySelector('#inpoch_btn').style=`background-color:#efefef;`
+    }
+  }
   const [isOpen2, setIsOpen2] = useState(false)
   return (
     <div>
@@ -160,7 +170,7 @@ export default function navbar() {
       <div id='openbtn2' className={s.openbtn2}>
         <div className={s.obtn2}>
            <h3 onClick={()=> yy()}>Укажите адрес доставки</h3>
-        <button>Выбрать дом и улицу</button>
+        <button onClick={()=> adres()}>Выбрать дом и улицу</button>
         </div>
        
       </div>
@@ -176,8 +186,8 @@ export default function navbar() {
 }} /></span>
             </div>
             <div className={s.openbtn_map3_df2}>
-              <input placeholder='Введите адрес' type="text" />
-              <button>Ок</button>
+              <input id='inpoch' placeholder='Введите адрес' type="text" onKeyUp={()=> inpoch()} />
+              <button id='inpoch_btn'>Ок</button>
             </div>
             <div className={s.openbtn_map3_map}>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5994.922998991916!2d69.35282709072807!3d41.29882294560782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef594c08ad48d%3A0xb08a62f6608102ad!2z0KLRg9C30LXQu9GMLTEsINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1707746865702!5m2!1sru!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -314,6 +324,24 @@ export default function navbar() {
         </div>
       </div>
 </div>
+
+<div className={s.for_footer}>
+<div className={s.footerglv}>
+      <div className={s.footer_2}>
+        <p><strong>Повар на связи</strong> — это сервис заказа блюд от проверенных домашних поваров и кондитеров.</p><br />
+        <p>Все повара, представленные на сервисе, проходят проверку: наша команда дегустирует блюда, запрашивает фотографии кухни, изучает аккаунты в социальных сетях.</p><br />
+        <p>Кондитеры могут приготовить десерты с индивидуальным дизайном и начинкой - оформите заказ на понравившийся десерт и уточните пожелания в чате. Забрать заказ можно самостоятельно или оформить доставку.</p>
+      </div>
+      <div className={s.footer_3}>
+        <p>Cкачай мобильное приложение <strong>Повар на связи</strong></p>
+        <div className={s.images}>
+          <img src="https://www.tadviser.ru/images/thumb/8/83/Apple-app-store.jpg/840px-Apple-app-store.jpg" alt="img" />
+          <img src="https://www.tadviser.ru/images/thumb/8/83/Apple-app-store.jpg/840px-Apple-app-store.jpg" alt="img" />
+        </div>
+      </div>
+      </div>
+</div>
+
 
     </div>
   )
