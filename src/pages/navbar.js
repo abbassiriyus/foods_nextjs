@@ -340,6 +340,16 @@ export default function navbar() {
         </div>
       </div>
       </div>
+
+      <div className={s.footer_4}>
+        <div className={s.year}>
+          <p>©2024 <strong> Повар на связи</strong></p>
+        </div>
+        <div className={s.support}>
+          <a href="#">support@povarnasvyazi.ru</a><br />
+          <a style={{fontSize:'15px'}} href="#">Условия использования сервиса и информация о компании</a>
+        </div>
+      </div>
 </div>
 
 
