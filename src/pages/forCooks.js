@@ -25,31 +25,14 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import accordion_data from './data/accaordion_data';
+import axios from 'axios';
+import url from './host/config';
 
 export default function forCooks() {
   const tiltRef = useRef(null);
-  var [data, setData] = useState(
-    [
-      {
-        name: 'Эдуард Габайдуллин',
-        img: 'https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/33d3066f71313b3880233f25d267ae9f851f6e70/33d3066f71313b3880233f25d267ae9f851f6e70.jpg',
-        kasb: 'Фермер',
-        desk: 'Когда-нибудь жизнь даёт нам новые возможности, так и началась моя карьера пчеловода в 2020 году! А теперь и с сервисом «Повар на связи». Всегда есть момент для новых открытий, стартуйте! Здесь связь «покупатель-продавец» вышла на более удобный уровень, «прозрачный» и «прямой».'
-      },
-      {
-        name: 'Михаил Смирнов',
-        img: 'https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/369c623147260f2c4d78267b8267f4029f5cf015/369c623147260f2c4d78267b8267f4029f5cf015.JPEG',
-        kasb: 'Шеф-повар',
-        desk: 'Идея сервиса очень крутая! Я работаю шеф-поваром, и по роду деятельности часто сталкиваюсь с необычными продуктами и интересными блюдами! По сути, сервис даёт каждому возможность создать «ресторан у себя дома», не прибегая к дополнительным вложениям.'
-      },
-      {
-        name: 'Анна Мингалева',
-        img: 'https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/dce80a744236366da02deaa3aa099d493045777d/dce80a744236366da02deaa3aa099d493045777d.jpg',
-        kasb: 'Повар-кондитер',
-        desk: 'Повар на связи — сервис, облегчающий жизнь и кондитерам и заказчикам. После блокировки известной соц.сети, все разбежались по разным местам и стало сложнее найти своих клиентов или своего изготовителя. Это максимально актуальная и своевременная платформа для комфортного взаимодействия.'
-      }
-    ])
+  var [data, setData] = useState([{}])
     
+
   var [page, setPage] = useState(0)
   function plus() {
     if (page < data.length - 1) {
@@ -77,7 +60,16 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
     }
   }
 
+  function getData() {
+    axios.get(`${url}/api/carousel_forcooks`).then(res=>{
+      setData(res.data)
+    }).catch(err=>{
+      console.log("not geting");
+    })
+  }
+
   useEffect(() => {
+    getData()
     // VanillaTilt.js'i bileşenin montajı sırasında etkinleştirin
     if (tiltRef.current) {
       VanillaTilt.init(tiltRef.current, {
@@ -262,7 +254,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
               <div className={s.image}>
 
                 <div data-aos="fade-up"
-                  data-aos-duration="3000" className={s.img3} style={{ background: `url(${data[page].img})`, backgroundSize: 'auto 100%' }}>
+                  data-aos-duration="3000" className={s.img3} style={{ background: `url(${data[page].image})`, backgroundSize: 'auto 100%' }}>
                   <div className={s.img4}></div>
                 </div>
               </div>
