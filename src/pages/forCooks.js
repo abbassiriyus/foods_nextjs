@@ -33,7 +33,7 @@ import url from './host/config';
 export default function forCooks() {
   const tiltRef = useRef(null);
   var [data, setData] = useState([{}])
-    
+  var [accordion_data,setAccordion_data]=useState([])
 
   var [page, setPage] = useState(0)
   function plus() {
@@ -65,6 +65,11 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   function getData() {
     axios.get(`${url}/api/carousel_forcooks`).then(res=>{
       setData(res.data)
+      axios.get(`${url}/api/vopros_atvet`).then(res1=>{
+        setAccordion_data(res1.data)
+      }).catch(err1=>{
+        console.log("not geting");
+      })
     }).catch(err=>{
       console.log("not geting");
     })
@@ -407,7 +412,7 @@ document.querySelector("#eyes1").style="display:block"
   return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
               <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' id={s.plus_acc} /></div>
               <div  className="accordion_p" id={s.hidden} style={{height:'0px',overflow: 'hidden'}}>
-               {item.desc}</div>
+               {item.desk}</div>
             </div>
               })}
            
