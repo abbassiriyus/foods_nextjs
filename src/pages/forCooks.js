@@ -99,6 +99,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
         </div>
         <h3>Приглашаем <br /> к сотрудничеству </h3>
         <span>Мы объединяем всех, кто любит готовить,  а также кондитеров и фермеров, чтобы каждый  мог разместить свою продукцию и зарабатывать больше!</span>
+        <button className={s.btn_servis}>Регистрация в сервисе</button>
         <h5>Займёт всего 3 минуты</h5>
     </div>
     <div data-tilt className={s.circle12}>
