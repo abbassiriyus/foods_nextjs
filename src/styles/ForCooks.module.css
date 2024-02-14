@@ -1,30 +1,30 @@
 .header_0{
-    width: 95%;
-    margin: auto;
+    width: 90%;
     max-width: 1200px;
+    margin: auto
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-.header{
+.header12{
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1300px;
     margin: auto;
     flex-wrap: wrap;
     align-items: center;
 }
-.header .circle{
+.header12 .circle1{
     width: 25vw;
     height: 25vw;
     /* background-color: red; */
 }
-.header .text{
+.header12 .text1{
     width: 50%;
 }
-.header .text h1{
-  font-size: 100px;
+.header12 .text1 h1{
+  font-size: 90px;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
@@ -33,7 +33,7 @@
   position: relative;
   z-index: 23;
 }
-.header .text p{
+.header12 .text1 p{
   font-family: "Roboto", sans-serif;
   margin-bottom: var(--m30);
   color: #909090;
@@ -43,7 +43,7 @@
   z-index: 23;
 
 }
-.header .text h3{
+.header12 .text1 h3{
   font-family: "Roboto", sans-serif;
   color: #06c160;   
   font-size: 40px;
@@ -51,7 +51,7 @@
   position: relative;
   z-index: 23;
 } 
-.header .text span{
+.header12 .text1 span{
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     color: #111;
@@ -60,46 +60,46 @@
     z-index: 23;
 
 }
-.header .text h5{
+.header12 .text1 h5{
     color: #909090;
   font: 400 var(--fs14)/var(--lh14) 'Manrope',Arial,sans-serif,-apple-system;
   font-size: 17px;
 }
-.header .img2{
+.header12 .img22{
     position: relative;
     right: 200px;
 }
-.header .circle{
+.header12 .circle1{
 background-color:#06c16057;
 position: relative;
 border-radius: 60%;
 
 }
-.header .circle .img2{
+.header12 .circle1 .img22{
     width: 80%;
     position: absolute;
     bottom: -30%;
 }
-.header .circle .img1{
+.header12 .circle1 .img12{
 width: 50%; 
 right: 0px;
 position: absolute;
 top: -30%;
 
 } 
-.header #dd{
+.header12 #dd{
     display: none;
 }
 @media(max-width:991px){
-    .header .circle{
+    .header12 .circle1{
         display: none;
     }
-   .header #dd{
+   .header12 #dd{
         display: block;
         position: relative;
         left: 30%;
     }
-    .header .text h1{
+    .header12 .text h1{
       font-size: 100px;
       font-family: "Montserrat", sans-serif;
       font-weight: 900;
@@ -107,10 +107,10 @@ top: -30%;
       line-height: 100px;
       color: #111;
     }
-    .header .text{
+    .header12 .text{
         width: 90%;
     }
-    .header .circle{
+    .header12 .circle1{
         width: 55vw;
         height: 55vw;
         max-width: 300px;
@@ -120,7 +120,7 @@ top: -30%;
 }
 @media(max-width:791px){
    
-    .header .text h1{
+    .header12 .text h1{
       font-size: 40px;
       font-family: "Montserrat", sans-serif;
       font-weight: 900;
@@ -128,7 +128,7 @@ top: -30%;
       line-height: 40px;
       color: #111;
     }
-    .header .text{
+    .header12 .text{
         width: 90%;
     }
 }

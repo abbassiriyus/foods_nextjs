@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
+import img12 from "../images/logo.svg"
+
 import img from "../images/logo.png"
 import img1 from "../images/rocket.png"
 import img2 from "../images/1.png"
@@ -86,29 +88,29 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   })
 
   return (
-    <div>
-      <header>
-        {/* bir */}
-        <div className={s.body1}>
-          <div className={s.header_0}>
-
-          <header className={s.header}>
-    <div className={s.text}>
+    <div>       <header className={s.header12}>
+    <div className={s.text1}>
         <p>Привет!</p>
         <h1>Любишь <br /> готовить?</h1>
-        <div className={s.circle} data-tilt id={s.dd}>
-            <Image className={s.img1} src={img} alt="" />
-            <Image  className={s.img2} src={img1}alt="" />
+        <div className={s.circle1}  id={s.dd}>
+            <Image className={s.img12} src={img12} alt="" />
+            <Image  className={s.img22} src={img1}alt="" />
         </div>
         <h3>Приглашаем <br /> к сотрудничеству </h3>
         <span>Мы объединяем всех, кто любит готовить,  а также кондитеров и фермеров, чтобы каждый  мог разместить свою продукцию и зарабатывать больше!</span>
         <h5>Займёт всего 3 минуты</h5>
     </div>
-    <div data-tilt className={s.circle}>
-        <Image className={s.img1} data-tilt src={img} alt="" />
-        <Image  className={s.img2} src={img1} alt="" />
+    <div data-tilt className={s.circle1}>
+        <Image className={s.img12}  src={img} alt="" />
+        <Image  className={s.img22} src={img1} alt="" />
     </div>
 </header>
+      <header>
+        {/* bir */}
+   
+        <div className={s.body1}>
+          <div className={s.header_0}>
+
 
             {/* ikki */}
 
