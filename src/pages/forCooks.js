@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react'
 import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
@@ -12,6 +11,7 @@ import img5 from "../images/taco.png"
 import img6 from "../images/pizza.png"
 import Script from 'next/script'
 import { FaPlus } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
@@ -49,7 +49,7 @@ document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06
 document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 }else{
   document.querySelectorAll(".accordion_p")[i].style="height:0px;padding-bottom:0px;overflow: hidden"
-  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: grey;"
+  document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: #06c160;"
   document.querySelectorAll(".title_accordion")[i].style="color: grey;"
 }
 }
@@ -92,30 +92,24 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
         <div className={s.body1}>
           <div className={s.header_0}>
 
-         <div className={s.header_1}>
-              <div className={s.header_text}>
-                <span>Привет!</span>
+          <header className={s.header}>
+    <div className={s.text}>
+        <p>Привет!</p>
+        <h1>Любишь <br /> готовить?</h1>
+        <div className={s.circle} data-tilt id={s.dd}>
+            <Image className={s.img1} src={img} alt="" />
+            <Image  className={s.img2} src={img1}alt="" />
+        </div>
+        <h3>Приглашаем <br /> к сотрудничеству </h3>
+        <span>Мы объединяем всех, кто любит готовить,  а также кондитеров и фермеров, чтобы каждый  мог разместить свою продукцию и зарабатывать больше!</span>
+        <h5>Займёт всего 3 минуты</h5>
+    </div>
+    <div data-tilt className={s.circle}>
+        <Image className={s.img1} data-tilt src={img} alt="" />
+        <Image  className={s.img2} src={img1} alt="" />
+    </div>
+</header>
 
-                <h1>ЛЮБИШЬ ГОТОВИТЬ?</h1>
-                <div className={s.header_img} id={s.dispa}>
-                  <div className={s.img_header} >
-                    <Image  className={s.logo} src={img} alt="" />
-                    <Image   className={s.rocket} src={img1} alt="" />
-                  </div>
-                </div>
-
-                <h3>ПРИГЛАШАЕМ <br />  K СОТРУДНИЧЕСТВУ</h3>
-                <p>Мы объединяем всех, кто любит готовить, a также кондитеров и фермеров, чтобы каждый мог разместить свою продукцию и зарабатывать больше!</p>
-                <button>Регистрация в сервисе</button>
-                <h4 className={s.header_p}>Займёт всего 3 минуты</h4>
-              </div>
-              <div className={s.header_img} >
-                <div  className={s.img_header}>
-                  <Image  className={s.logo} src={img} alt="" />
-                  <Image  className={s.rocket} src={img1} alt="" />
-                </div>
-              </div>
-            </div>
             {/* ikki */}
 
             <div className={s.servis}>
@@ -131,8 +125,6 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
                       <p>01</p>
                     </div>
                   </div>
-
-
                   <div data-aos="fade-up"
                     data-aos-duration="3000" className={s.price_2}>
                     <div id={s.none} className={s.price_sushi}>
@@ -409,7 +401,7 @@ document.querySelector("#eyes1").style="display:block"
               И ОТВЕТЫ</h1>
               {accordion_data.map((item,key)=>{
   return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
-              <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' /></div>
+              <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' id={s.plus_acc} /></div>
               <div  className="accordion_p" id={s.hidden} style={{height:'0px',overflow: 'hidden'}}>
                {item.desc}</div>
             </div>
@@ -423,11 +415,17 @@ document.querySelector("#eyes1").style="display:block"
             <img  ref={tiltRef} src="https://cdn-icons-png.flaticon.com/512/7357/7357733.png" alt="" />
             <div className={s.max_circle}>
               <div><h4>— Не нашли ответа на свой вопрос?</h4>
-                <p>Задайте его нам!</p></div>
+                <p>Задайте его нам!</p>
+                <center><button>Задать вопрос</button></center>
+                </div>
             </div>
 
           </div>
 
+
+
+
+           
         </div>
 
 
@@ -437,7 +435,51 @@ document.querySelector("#eyes1").style="display:block"
 
 
         <Script src='../path/to/script.js' />
-      </header>
+      </header>  
+       {/* <div className={s.modal_vopros}>
+              <div className={s.modal1}>
+              <div className={s.closeline}>
+              <h2>Напишите нам</h2><AiOutlineClose className={s.closeline2} />
+              </div>
+              <div className={s.vopros_inp}>
+           <div className={s.text}>
+           <input type="text" placeholder='Имя' />
+           </div>
+              </div>
+              <div className={s.vopros_inp}>
+              <div className={s.text}>
+           <input type="text" placeholder='Телефон' />
+           </div>
+              </div>
+              <div className={s.vopros_inp}>
+              <div className={s.text}>
+           <input type="email" placeholder='Email' />
+           </div>
+              </div>
+           <center>   <select id={s.select_value}>
+                <option value="">
+                Личный кабинет
+                </option>
+                <option value="">
+                Личный кабинет
+                </option>
+                <option value="">
+                Личный кабинет
+                </option>
+                <option value="">
+                Личный кабинет
+                </option>
+              </select></center>
+              <div className={s.vopros1_inp}>
+              <div className={s.desc}>
+              <input type="text" placeholder='Ваш вопрос'/>
+              </div>
+              </div>
+              <p>Нажимая на кнопку «Отправить», я даю согласие на обработку моих персональных данных в соответствии <span>с политикой информационной безопасности.</span> Мы не используем данные и не присылаем рассылки</p>
+              <button>Отправить</button>
+              </div>
+
+              </div> */}
     </div>
   )
 }

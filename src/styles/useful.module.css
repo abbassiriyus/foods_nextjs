@@ -1,0 +1,31 @@
+.documents_big{
+    width: 80%;
+    margin: auto;
+}
+.documents_big h1{
+    margin-left: 10px;
+    font-weight: 900;
+}
+.documents{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-width: 300px;
+}
+.document{
+    display: flex;
+    align-items: center;
+    margin-top: 4%;
+    color: #06c160;
+    width: 30%;
+    min-width: 210px;
+}
+.document:hover{
+    color: black;
+    transition: 1s;
+}
+.doc{
+    font-size:36px;
+    margin-right: 11px;
+}
