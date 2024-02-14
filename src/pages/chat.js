@@ -1,5 +1,7 @@
 import React from 'react'
 import s from '../styles/chat.module.css'
+import { TbSend } from "react-icons/tb";
+
 export default function chat() {
 
     function send(){
@@ -25,7 +27,14 @@ export default function chat() {
         </div>
 
 
+
         <div className={s.chatting}>
+        <div className={s.chatting_media}>
+            <div className={s.chatting_media_df}>
+            <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/3f90752ef464162ca8d883022a73c13d03a3c077/3f90752ef464162ca8d883022a73c13d03a3c077-wc200.jpeg" alt="img" />
+                <h3><a href="#">Анна Казарцева</a></h3>
+            </div>
+        </div>
             <div className={s.big}>
 <div className={s.chatting1}>
                 <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/3f90752ef464162ca8d883022a73c13d03a3c077/3f90752ef464162ca8d883022a73c13d03a3c077-wc200.jpeg" alt="img" />
@@ -40,12 +49,12 @@ export default function chat() {
             
             <div className={s.chatting2}>
                 <div id='chat_space' className={s.chat_space}>
-<p id='chat_p'>dhbcjd</p>
+<p id='chat_p'>dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd</p>
 
                 </div>
                 <div className={s.chat_inp}>
                     <input id='chatsend_inp' placeholder='Введите ваше сообщение' type="text" />
-                    <button onClick={()=> send()}>Отправить</button>
+                    <button className={s.send_btn_dn} id='send_btn_dn' onClick={()=> send()}>Отправить</button> <span id='send_icon_dn'  onClick={()=> send()}><TbSend style={{fontSize:'30px',color:'#06c160'}} /></span>
                 </div>
             </div>
         </div>
