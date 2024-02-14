@@ -15,7 +15,7 @@
     flex-wrap: wrap;
     align-items: center;
 }
-.header12 .circle1{
+.header12 .circle5{
     width: 25vw;
     height: 25vw;
     /* background-color: red; */
@@ -69,18 +69,18 @@
     position: relative;
     right: 200px;
 }
-.header12 .circle1{
+.header12 .circle5{
 background-color:#06c16057;
 position: relative;
 border-radius: 60%;
 
 }
-.header12 .circle1 .img22{
+.header12 .circle5 .img22{
     width: 80%;
     position: absolute;
     bottom: -30%;
 }
-.header12 .circle1 .img12{
+.header12 .circle5 .img12{
 width: 50%; 
 right: 0px;
 position: absolute;
@@ -110,7 +110,7 @@ top: -30%;
     .header12 .text{
         width: 90%;
     }
-    .header12 .circle1{
+    .header12 .circle5{
         width: 55vw;
         height: 55vw;
         max-width: 300px;
@@ -897,7 +897,7 @@ margin-top: 21px;
   
     position: relative;
 }
-.min_circle1{
+.min_circle1{ 
     width: 40px;
     height: 40px;
     position: absolute;
@@ -940,6 +940,8 @@ align-items: center;
 .max_circle h4{
     font-size: 22px;
     font-weight: 500;
+    text-align: center;
+
 }
 .max_circle p{
     font-size: 21px;
