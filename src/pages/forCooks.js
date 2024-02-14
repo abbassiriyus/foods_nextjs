@@ -88,20 +88,21 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   })
 
   return (
-    <div>       <header className={s.header12}>
+    <div>
+    <header className={s.header12}>
     <div className={s.text1}>
         <p>Привет!</p>
         <h1>Любишь <br /> готовить?</h1>
-        <div className={s.circle1}  id={s.dd}>
+        <div className={s.circle12}  id={s.dd}>
             <Image className={s.img12} src={img12} alt="" />
-            <Image  className={s.img22} src={img1}alt="" />
+            <Image  className={s.img22} src={img1} alt="" />
         </div>
         <h3>Приглашаем <br /> к сотрудничеству </h3>
         <span>Мы объединяем всех, кто любит готовить,  а также кондитеров и фермеров, чтобы каждый  мог разместить свою продукцию и зарабатывать больше!</span>
         <h5>Займёт всего 3 минуты</h5>
     </div>
-    <div data-tilt className={s.circle1}>
-        <Image className={s.img12}  src={img} alt="" />
+    <div data-tilt className={s.circle12}>
+        <Image className={s.img12}  src={img12} alt="" />
         <Image  className={s.img22} src={img1} alt="" />
     </div>
 </header>
