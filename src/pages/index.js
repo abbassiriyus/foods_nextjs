@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight, FaArrowLeft, FaStar } from "react-icons/fa";
 import { BiCommentDetail } from "react-icons/bi";
 import s from "../styles/Glavnstr.module.css";
@@ -8,6 +8,7 @@ import img1 from "../images/woman.png"
 import Image from "next/image";
 import Footer from "../pages/footer.js"
 import Navbar from "./navbar";
+import axios from "axios";
 export default function index() {
 var [data, setData] = useState([
 {
@@ -63,6 +64,7 @@ narxi: "2 200₽",
 zakaz_b: "Заказть",
 },
 ]);
+var [sizUchun,setSizUchun]=useState([])
 var [swiper, setSwipper] = useState(0);
 function plus() {
 if (swiper + 1 === data.length) {
@@ -81,6 +83,15 @@ setSwipper(swiper - 1);
 console.log(swiper);
 }
 
+function getSizUchun() {
+  axios.get('https://foodbackent.onrender.com/api/siz_uchun').then(res=>{
+   setSizUchun(res.data)
+   console.log(res.data);
+  }).catch(err=>{
+
+  })
+}
+
 const [xopen, setXopen] = useState(false);
 
 function svgxopen() {
@@ -90,6 +101,9 @@ function svgxclose() {
 setXopen(false);
 }
 
+useEffect(()=>{
+  getSizUchun()
+},[])
 return (
 <div onClick={svgxclose}>
   <Navbar/>
@@ -187,42 +201,16 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9.png" alt="" />
+  {sizUchun.map((item,key)=>{
+    return <div className={s.c}>
+<img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
-<p>Поздравить любимых</p>
+<p>{item.title}</p>
 </div>
 </div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/f50f8d5d335448478cd45cbbe6888a08d15590df/f50f8d5d335448478cd45cbbe6888a08d15590df.jpg" alt="" />
-<div className={s.c_soz}>
-<p>Обед и ужин</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9.png" alt="" />
-<div className={s.c_soz}>
-<p>Хватит на всех</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2b881fff2138d01622475ab4b594ab4b5ffa70a7/2b881fff2138d01622475ab4b594ab4b5ffa70a7.png" alt="" />
-<div className={s.c_soz}>
-<p>Блюда и десерты</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/0989e7042e45cca52adda3588aa40be5ac6030f9/0989e7042e45cca52adda3588aa40be5ac6030f9.png" alt="" />
-<div className={s.c_soz}>
-<p>Приготовь сам</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/a4d06f7ed40a57602e464315f274fd160082d73c/a4d06f7ed40a57602e464315f274fd160082d73c.png" alt="" />
-<div className={s.c_soz}>
-<p>Быстрая доставка</p>
-</div>
-</div>
+
+  })}
+
 </div>
 </div>
 <div className={s.cardlar}>
