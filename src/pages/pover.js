@@ -13,9 +13,11 @@ import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import axios from 'axios';
 import { GoChevronUp } from "react-icons/go";
+ 
 export default function pover() {
 
 
+<<<<<<< Updated upstream
   var [Category,setCategory]=useState([])
   function getCategory() {
     axios.get('https://foodbackent.onrender.com/api/category').then(res=>{
@@ -28,6 +30,8 @@ export default function pover() {
   useEffect(()=>{
     getCategory
   })
+=======
+>>>>>>> Stashed changes
 function chiq1(){
  document.querySelector("#openModal").style=`left:0; top:0;`
  document.querySelector('#shef').style =`display:none;`
@@ -63,6 +67,7 @@ function jimm22(){
 
   return (
     <div id='glava'>
+      
     <div className={ss.glava}>
       {/* <button onClick={() =>push('/navbar')}>go home</button> */}
 <div className={ss.gap}>

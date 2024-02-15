@@ -61,7 +61,9 @@ background-color: rgb(248, 248, 248);
     padding-top: 20px   ;
     padding-bottom: 20px;
 }
-
+.som{
+    user-select: none;
+}
 .kota_kategoriya{   
     width: 250px;
     margin:auto;
