@@ -6,7 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
-import Footer from "../pages/footer.js"
+import Footer from "../pages/Footer.js"
 import Navbar from "./navbar";
 import axios from "axios";
 export default function index() {

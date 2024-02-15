@@ -498,7 +498,7 @@ font-size: 18px;
 @media(max-width:1328px){
 .main{
 width: 90%;
-margin: auto;  
+margin: auto;
 }
 .main h1{
 width: 100%;
@@ -568,7 +568,7 @@ height: 40px;
 @media(max-width:1000px){
 .main{
 width: 95%;
-margin: auto;  
+margin: auto;
 }
 .main h1{
 width: 100%;
@@ -728,6 +728,58 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 } */
+
+
+.siwper1{
+width: 1380px;
+margin: auto;
+margin-top: 30px;
+}
+.siwper1 h1{
+font-size: 50px;
+font-weight: 900;
+margin-bottom: 40px;
+}
+.siwper2{
+width: 1380px;
+margin: auto;
+margin-top: 30px;
+}
+.siwper2 h1{
+font-size: 50px;
+font-weight: 900;
+margin-bottom: 40px;
+}
+.siwper3{
+width: 1380px;
+margin: auto;
+margin-top: 30px;
+}
+.siwper3 h1{
+font-size: 50px;
+font-weight: 900;
+margin-bottom: 40px;
+}
+
+.swipergap{
+width: 1380px;
+margin: auto;
+margin-top: 30px;
+}
+.swipergap h1{
+font-size: 50px;
+font-weight: 900;
+margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+
+
 
 .qoshilish{
 width: 1380px;
@@ -1071,16 +1123,16 @@ margin-top: 30px;
 }
 }
 @media(max-width:340px){
-    .qoshilish2{
-        width: 100%;
-        height: 320px;
-        background-color: #e6f9ef;
-        border-radius: 45px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 300px;
-        }
+.qoshilish2{
+width: 100%;
+height: 320px;
+background-color: #e6f9ef;
+border-radius: 45px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+margin-bottom: 300px;
+}
 }
 
 

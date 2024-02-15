@@ -6,7 +6,9 @@ import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
-import Footer from "../pages/footer.js"
+import Footer from "../pages/Footer.js"
+import Swiper from "../pages/SwiperGl";
+import Swipergap from "../pages/Swipergap"
 export default function glavnstr() {
 var [data, setData] = useState([
 {
@@ -324,6 +326,31 @@ alt=""
 </div>
 </div>
 
+<div className={s.siwper1}>
+<h1>ПОПУЛЯРНЫЕ БЛЮДА</h1>
+<Swiper/>
+</div>
+
+<div className={s.siwper2}>
+<h1>ПОПУЛЯРНЫЕ ДЕСЕРТЫ</h1>
+<Swiper/>
+</div>
+
+<div className={s.siwper3}>
+<h1>ПОПУЛЯРНЫЕ ПРОДУКТЫ</h1>
+<Swiper/>
+</div>
+
+<div className={s.swipergap}>
+<h1>ОТЗЫВЫ</h1>
+<Swipergap/>
+</div>
+
+
+
+
+
+
 
 
 <div className={s.qoshilish}>
@@ -359,3 +386,110 @@ alt=""
 </div>
 );
 }
+
+
+
+{/* <div class={swip.slider}>
+<div class={swip.wrapper}>
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+<div class={swip.card}>
+<div class={swip.img}>
+<img src="card1.jpg" alt=""/>
+</div>
+<div class={swip.text}>
+<p>Card 1</p>
+</div>
+</div>
+
+
+
+
+
+
+
+</div>
+<button class={swip.slide_btn_prev}>Prev</button>
+<button class={swip.slide_btn_next}>Next</button>
+</div> */}
+
+
