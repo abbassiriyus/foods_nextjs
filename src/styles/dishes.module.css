@@ -42,7 +42,10 @@ text-align: center;
 font-size: 18px;
 color: #06c160;
 }
-
+.d_i{
+display: none;
+transition: .3s;
+}
 .d_i h1{
 font-size: 45px;
 font-weight: 900;
@@ -445,8 +448,137 @@ margin-left: 0px;
 }
 }
 
+.liniya3{
+width: 100%;
+height: 1px;
+background-color: gray;
+margin-bottom: 20px;
+}
 
-
+.d_chiqish_b{
+width: 65%;
+margin-top: 20px;
+}
+.b_a{
+width: 57%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.d_chiqish_b a{
+width: max-content;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #06c160;
+text-decoration: none;
+border-bottom: 2px dotted;
+padding-bottom: 2px;
+}
+.b_i{
+color: #06c160;
+font-size: 25px;
+}
+.d_b{
+width: 100%;
+display: flex;
+align-items: center;
+gap: 15px;
+margin-top: 15px;
+}
+.button1{
+width: 120px;
+height: 45px;
+border: none;
+border-radius: 9px;
+background-color: #06c160;
+color: white;
+font-size: 18px;
+transition: .3s;
+cursor: pointer;
+}
+.button1:hover{
+background-color: white;
+border: 1px solid #06c160;
+color: black;
+}
+.button2{
+width: 100px;
+height: 45px;
+border: none;
+border-radius: 9px;
+border: 1px solid #06c160;
+color: black;
+font-size: 18px;
+background-color: white;
+transition: .3s;
+cursor: pointer;
+}
+.button2:hover{
+border: none;
+background-color: #06c160;
+color: white;
+}
+@media(max-width:1326px){
+.d_chiqish_b{
+width: 90%;
+}
+.b_a{
+width: 100%;
+display: flex;
+justify-content: left;
+gap: 15px;
+align-items: center;
+}
+}
+@media(max-width:833px){
+.d_chiqish_b{
+width: 90%;
+margin: auto;
+margin-top: 15px;
+}
+}
+@media(max-width:567px){
+.b_a{
+width: 100%;
+display: flex;
+justify-content: left;
+gap: 10px;
+align-items: center;
+}
+.d_chiqish_b a{
+width: max-content;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #06c160;
+text-decoration: none;
+border-bottom: 2px dotted;
+padding-bottom: 2px;
+font-size: 13px;
+}
+.b_i{
+color: #06c160;
+font-size: 20px;
+}
+}
+@media(max-width:457px){
+.b_i{
+color: #06c160;
+font-size: 16px;
+}
+.d_chiqish_b a{
+width: max-content;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #06c160;
+text-decoration: none;
+border-bottom: 2px dotted;
+padding-bottom: 2px;
+font-size: 11px;
+}
+}
 
 
 
