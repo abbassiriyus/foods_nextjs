@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ss from '../styles/pover.module.css'
 import { IoIosStar } from "react-icons/io";
 import { FaRegCommentAlt } from "react-icons/fa";
@@ -11,11 +11,23 @@ import { VscSettings } from "react-icons/vsc";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
+import axios from 'axios';
 import { GoChevronUp } from "react-icons/go";
 export default function pover() {
 
 
-
+  var [Category,setCategory]=useState([])
+  function getCategory() {
+    axios.get('https://foodbackent.onrender.com/api/category').then(res=>{
+     setCategory(res.data)
+     console.log(res.data);
+    }).catch(err=>{
+  
+    })
+  }
+  useEffect(()=>{
+    getCategory
+  })
 function chiq1(){
  document.querySelector("#openModal").style=`left:0; top:0;`
  document.querySelector('#shef').style =`display:none;`
@@ -70,110 +82,16 @@ function jimm22(){
   </div>
 
     <div id='kor1' className={ss.yopil_kateg}>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Торты<sup className={ss.sp2}>123</sup></span>
+{Category.map(item=>{
+   return <div className={ss.kichkina_kategoriya}>
+        <input type="checkbox"   />
+        <span className={ss.sp}>{item.title}<sup className={ss.sp2}>123</sup></span>
     </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Бенто торты<sup className={ss.sp2}>71</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Пирожные<sup className={ss.sp2}>92</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Шоколад, конфеты, пряники<sup className={ss.sp2}>50</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Клубника в шоколаде<sup className={ss.sp2}>22</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Все десерты<sup className={ss.sp2}>40</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Закуски и гастробоксы<sup className={ss.sp2}>17</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Полезное и здоровое<sup className={ss.sp2}>34</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Все блюда<sup className={ss.sp2}>15</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Мясная гастрономия<sup className={ss.sp2}>10</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Мёд<sup className={ss.sp2}>3</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>На компанию<sup className={ss.sp2}>18</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Супы<sup className={ss.sp2}>5</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Салаты<sup className={ss.sp2}>5</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Азиатская кухня<sup className={ss.sp2}>9</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Русская кухня<sup className={ss.sp2}>15</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Пироги и выпечки<sup className={ss.sp2}>5</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Вторые блюда<sup className={ss.sp2}>17</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Что нового<sup className={ss.sp2}>13</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Приготовим сегодня<sup className={ss.sp2}>22</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Обед и ужин<sup className={ss.sp2}>14</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Вкусное и полезное<sup className={ss.sp2}>13</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Продукты от фермеров<sup className={ss.sp2}>2</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Продукты от изготовителей<sup className={ss.sp2}>2</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Заготовки и заморозки<sup className={ss.sp2}>6</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>14 февраля<sup className={ss.sp2}>6</sup></span>
-    </div>
+})}
+   
+
+ 
+
 </div>
 <div className={ss.liniya}></div>
 <div className={ss.som}>
