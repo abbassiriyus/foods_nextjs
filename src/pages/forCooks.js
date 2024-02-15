@@ -90,7 +90,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   }, []);
   useEffect(() => {
     Aos.init();
-  })
+  }, [])
 
   return (
     <div>

@@ -79,9 +79,6 @@ export default function first() {
         <h3><strong>Меню</strong></h3>
     </div>
     <div className={s.cards}>
-        <div className={s.cards_flex}>
-
-
             <div className={s.card}>
                 <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
                     alt="img"/>
@@ -113,7 +110,7 @@ export default function first() {
                 </div>
             </div>
             <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
+                <img  src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
                     alt="img"/>
                 <h2>Набор mini</h2>
                 <div className={s.df}>
@@ -141,134 +138,11 @@ export default function first() {
                         <button>В корзину</button>
                     </div>
                 </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-
-<div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-            <div className={s.card}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d504a089caeca175ac6bfe2eec34e7a3a6ea1065/d504a089caeca175ac6bfe2eec34e7a3a6ea1065-wc800.jpeg"
-                    alt="img"/>
-                <h2>Набор mini</h2>
-                <div className={s.df}>
-                    <div className={s.d}>
-                        <h4>1 300 ₽</h4>
-                        <p>300</p>
-                    </div>
-
-                    <div className={s.dff}>
-                        <button>В корзину</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className={s.pakazat_btn}>
+            </div>  
+    </div>
+   <div className={s.pakazat_btn}>
             <button>Показать все</button>
         </div>
-    </div>
-
 
 <div className={s.otziv}>
         <div className={s.otzivipakupateley}>
