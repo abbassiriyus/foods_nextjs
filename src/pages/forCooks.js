@@ -415,9 +415,7 @@ document.querySelector("#eyes1").style="display:block"
                {item.desk}</div>
             </div>
               })}
-           
           </div>
-
           <div className={s.page_image}>
             <div className={s.min_circle1}></div>
             <div className={s.circle1}></div>
