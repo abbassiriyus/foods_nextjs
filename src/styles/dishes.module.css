@@ -1,43 +1,397 @@
 .dishes{
-    width: 90%;
-    margin: auto;
-    max-width: 1200px;
-    margin-top: 30px;
+width: 90%;
+margin: auto;
+max-width: 1200px;
+margin-top: 30px;
+margin-bottom: 80px;
 }
 .dishes_button{
-   max-width: 200px;
-   width: 80%;
-   /* height: 200px; */
-   border-radius: 10px;
-   padding-bottom: 20px;
-   background: #e6f9ef;
-   padding-top: 20px;
-   transition: 0.4s;
-   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+max-width: 200px;
+width: 80%;
+/* height: 200px; */
+border-radius: 10px;
+padding-bottom: 20px;
+background: #e6f9ef;
+padding-top: 20px;
+transition: 0.4s;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
 }
 .dishes_button:hover{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .circle{
-    width: 60px;
-    height: 60px;
-    position: relative;
-    border-radius: 50%;
-    margin: 0 0 var(--m20) 0;
-    background: #06c160;
-    font-size: 50px;
-    display: flex;
-    /* font-weight: ; */
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin: auto;
+width: 60px;
+height: 60px;
+position: relative;
+border-radius: 50%;
+margin: 0 0 var(--m20) 0;
+background: #06c160;
+font-size: 50px;
+display: flex;
+/* font-weight: ; */
+justify-content: center;
+align-items: center;
+color: white;
+margin: auto;
 }
 .dishes_button h5{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: #06c160;
+margin-top: 20px;
+margin-bottom: 20px;
+text-align: center;
+font-size: 18px;
+color: #06c160;
 }
+
+.d_i h1{
+font-size: 45px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+.dishes_inp{
+width: 65%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+
+
+.inputlar1{
+width: 50%;
+}
+
+.inputlar2{
+width: 50%;
+text-align: right;
+}
+.liniya{
+width: 1px;
+background-color: gray;
+height: 578px;
+}
+
+
+
+.in{
+width: 92%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid gray;
+border-radius: 8px;
+background-color: white;
+}
+.inputlar_0{
+width: 85%;
+height: 40px;
+border-radius: 8px;
+border: 1px solid gray;
+margin-bottom: 0px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_1{
+width: 90%;
+height: 40px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_11{
+width: 90%;
+height: 40px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+margin-top: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_2{
+width: 90%;
+height: 105px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+
+.inp2_sozlari{
+width: 100%;
+display: flex;
+justify-content: space-between !important;
+margin: auto;
+}
+
+.input_s_dobavkoy{
+width: 100%;
+}
+
+.inp1_sozlari{
+width: 100%;
+height: 220px;
+overflow-y: scroll;
+overflow-x: hidden;
+display: none;
+}
+.inp1_sozlari p{
+width: 100%;
+height: 45px;
+font-size: 20px;
+padding-left: 20px;
+display: flex;
+align-items: center;
+overflow: hidden;
+}
+.inp1_sozlari p:hover{
+background-color: #06c16047;
+cursor: pointer;
+}
+.arrow_u{
+display: none;
+color: #06c160;
+font-size: 12px;
+}
+.arrow_d{
+color: #06c160;
+font-size: 12px;
+}
+.input_a{
+width: 85%;
+display: flex;
+justify-content: left;
+text-align: left;
+margin: auto;
+margin-bottom: 25px;
+}
+.inp_a {
+text-decoration: none;
+color: #06c160;
+}
+.s_p1{
+width: max-content;
+height: max-content;
+background-color: #e6f9ef;
+border-radius: 8px;
+text-align: left;
+padding: 4px;
+margin-left: 25px;
+}
+.inp2_s_p1{
+width: 48%;
+}
+.inp2_s_p3{
+width: 50%;
+display: flex;
+gap: 15px;
+flex-wrap: wrap;
+}
+.inp2_s_p12{
+width: max-content;
+height: max-content;
+padding: 3px;
+background-color: #06c160;
+color: white;
+border-radius: 15px;
+display: flex;
+justify-self: center;
+font-size: 13px;
+}
+.inp2_s_p2{
+width: max-content;
+height: max-content;
+padding: 3px;
+border: 1px solid gray;
+border-radius: 15px;
+display: flex;
+justify-self: center;
+font-size: 13px;
+}
+.liniya2{
+width: 93%;
+height: 1px;
+background-color: rgb(159, 159, 159);
+margin-bottom: 25px;
+margin-left: 25px;
+}
+@media(max-width:1326px){
+.dishes_inp{
+width: 70%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+}
+@media(max-width:1193px){
+.dishes_inp{
+width: 80%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+}
+@media(max-width:1038px){
+.dishes_inp{
+width: 85%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+.d_i h1{
+font-size: 35px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+}
+@media(max-width:1003px){
+.dishes_inp{
+width: 90%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+}
+@media(max-width:946px){
+.dishes_inp{
+width: 100%;
+height: max-content;
+display: flex;
+justify-content: space-between;
+}
+}
+@media(max-width:833px){
+.dishes_inp{
+width: 100%;
+height: max-content;
+display: block;
+justify-content: space-between;
+}
+.liniya{
+display: none;
+}
+.inputlar1{
+width: 90%;
+margin: auto;
+}
+.inputlar2{
+width: 100%;
+text-align: center;
+}
+.inp2_sozlari{
+width: 90%;
+display: flex;
+justify-content: space-between !important;
+margin: auto;
+}
+.inp2_s_p1{
+width: 48%;
+}
+.inp2_s_p3{
+width: 50%;
+display: flex;
+gap: 15px;
+flex-wrap: wrap;
+}
+.input_a{
+width: 90%;
+display: flex;
+justify-content: left;
+text-align: left;
+margin: auto;
+margin-bottom: 25px;
+}
+.inputlar_0{
+width: 90%;
+height: 40px;
+border-radius: 8px;
+border: 1px solid gray;
+margin-bottom: 0px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_1{
+width: 90%;
+height: 40px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_11{
+width: 90%;
+height: 40px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+margin-top: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+.inputlar_2{
+width: 90%;
+height: 105px;
+border-radius: 8px;
+border: none;
+border: 1px solid gray;
+margin-bottom: 25px;
+padding-left: 10px;
+background-color: #00000000;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

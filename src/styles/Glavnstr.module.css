@@ -384,6 +384,7 @@ display: flex;
 align-items: center;
 border: 1px solid gray;
 border-radius: 8px;
+background-color: white;
 }
 .m_search{
 width: 4%;
@@ -409,6 +410,7 @@ width: 92%;
 height: 40px;
 outline: none;
 border: none;
+background-color: #06c16000;
 font-size: 18px;
 }
 .m_button{
@@ -624,9 +626,9 @@ margin: auto;
 .cards{
 width: 100%;
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
-gap: 30px;
+/* gap: 30px; */
 flex-wrap: wrap;
 }
 .c{
@@ -658,6 +660,7 @@ margin: auto;
 margin-top: 10px;
 }
 .jison{
+width:100%;
 font-size: 45px;
 margin-top: 20px;
 margin-bottom: 20px;

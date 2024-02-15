@@ -324,23 +324,6 @@ alt=""
 </div>
 </div>
 
-{/* <div className={s.cardlar_katta}>
-<h1>ПОПУЛЯРНЫЕ БЛЮДА</h1>
-<div className={s.c_k}>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-</div>
-</div> */}
 
 
 <div className={s.qoshilish}>
