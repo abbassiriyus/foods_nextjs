@@ -26,9 +26,9 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
-import accordion_data from './data/accaordion_data';
 import axios from 'axios';
 import url from './host/config';
+
 
 export default function forCooks() {
   const tiltRef = useRef(null);

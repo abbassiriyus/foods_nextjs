@@ -7,6 +7,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
 import Footer from "../pages/footer.js"
+import Navbar from "./navbar";
 export default function index() {
 var [data, setData] = useState([
 {
@@ -91,13 +92,14 @@ setXopen(false);
 
 return (
 <div onClick={svgxclose}>
-<div className={s.header}>
-<div className={s.h_h1}>
+  <Navbar/>
+<div className={s.header} >
+<div className={s.h_h1} >
 <h1>Привет!</h1>
 </div>
-<div className={s.head}>
-<div className={s.h_soz}>
-<h1 className={s.h_h2}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
+<div className={s.head} >
+<div className={s.h_soz} >
+<h1 className={s.h_h2} style={{paddingTop:'30px'}}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
 <p className={s.h_p1}>Тебе не нужно покупать продукты, готовить и мыть посуду. Наслаждайся вкусной едой без лишних забот!
 </p>
 <button className={s.h_button}>Выбрать блюда</button>

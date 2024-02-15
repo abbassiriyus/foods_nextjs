@@ -1,64 +1,4 @@
-// import React, { Component } from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Button from 'react-bootstrap/Button';
-// import Container from 'react-bootstrap/Container';
-// import Form from 'react-bootstrap/Form';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-
-// export default class navbar extends Component {
-//   render() {
-//     return (
-//       <div>
-//     <Navbar expand="lg" className="bg-body-tertiary">
-//       <Container fluid>
-//         <Navbar.Brand href="#">
-//           <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="image" /></Navbar.Brand>
-//         <Navbar.Toggle aria-controls="navbarScroll" />
-//         <Navbar.Collapse id="navbarScroll">
-//           <Nav
-//             className="me-auto my-2 my-lg-0"
-//             style={{ maxHeight: '100px' }}
-//             navbarScroll
-//           >
-//                         <Nav.Link href="#action1">Home</Nav.Link>
-//             <Nav.Link href="#action2">Link</Nav.Link>
-//             <NavDropdown title="Link" id="navbarScrollingDropdown">
-//             <NavDropdown.Item href="#action3">Все блюда
-// </NavDropdown.Item>
-//               <NavDropdown.Item href="#action4">
-//               Блюда и десерты
-//               </NavDropdown.Item>
-
-//             </NavDropdown>
-//             <Nav.Link href="#" disabled>
-//               Link
-//             </Nav.Link>
-//           </Nav>
-//           <Form className="d-flex">
-//             <Form.Control
-//               type="search"
-//               placeholder="Search"
-//               className="me-2"
-//               aria-label="Search"
-//             />
-//             <Button variant="outline-success">Search</Button>
-//           </Form>
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar>
-
-
-//       </div>
-//     )
-//   }
-// }
-
-
-
-
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from '../styles/Navbar.module.css'
 import { SlMenu } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -69,11 +9,27 @@ import { FiSend } from "react-icons/fi";
 import { IoMdExit } from "react-icons/io";
 import { MdClose } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import axios from 'axios';
+import url from './host/config';
 
-export default function navbar() {
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+   var [data,setData]=useState([])
 
-  function openmenu(){
+  function getData() {
+    axios.get(`${url}/api/category`).then(res=>{
+      setData(res.data) 
+      console.log(res.data)
+    }).catch(err=>{
+      console.log("not geting");
+    })
+  }
+
+  useEffect(()=>{getData()},[])
+
+
+function openmenu(){
     document.querySelector('#navbar_mobile_menu').style=``
   }
 
@@ -201,29 +157,11 @@ export default function navbar() {
 
       <div id='onmouse' className={s.onmous} onMouseLeave={()=> onmous1()} >
         <ul>
-          <li><a href="#">Торты</a></li>
-          <li><a href="#">Бенто торты</a></li>
-          <li><a href="#">Пирожные</a></li>
-          <li><a href="#">Шоколад, конфеты, пряники</a></li>
-          <li><a href="#">Клубника в шоколаде</a></li>
-          <li><a href="#">Все десерты</a></li>
-          <li><a href="#">Закуски и гастробоксы</a></li>
-          <li><a href="#">Полезное и здоровое</a></li>
-          <li><a href="#">Все блюда</a></li>
-          <li><a href="#">Мясная гастрономия</a></li>
-          <li><a href="#">Мёд</a></li>
-          <li><a href="#">На компанию</a></li>
-          <li><a href="#">Супы</a></li>
-          <li><a href="#">Салаты</a></li>
-          <li><a href="#">Пироги и выпечкаАзиатская кухня</a></li>
-          <li><a href="#">Вторые блюда</a></li>
-          <li><a href="#">Приготовим сегодня</a></li>
-          <li><a href="#">Обед и ужин</a></li>
-          <li><a href="#">Вкусное и полезное</a></li>
-          <li><a href="#">Продукты от фермеров</a></li>
-          <li><a href="#">Продукты от изготовителей</a></li>
-          <li><a href="#">Заготовки и заморозка</a></li>
-          <li><a href="#">14 февраля</a></li>
+{data.map((item,key)=>{
+ return <li><a href="#">{item.title}</a></li>
+})}  
+        
+
         </ul>
       </div>
  
@@ -247,44 +185,6 @@ export default function navbar() {
         
       </div>) : (<div >
       </div>)}
-
-
-        {/* <div id='navbar_modalbig' className={s.navbar_modalbig}>
-      <div className={s.navbar_modal2}>
-        <div className={s.nav_modal2}>
-          <div className={s.vxdod_df}>
-            <h2>Вход на сайт</h2><span onClick={()=> yop()}><MdClose style={{fontSize:'35px'}}  /></span>
-          </div>
-          <div className={s.phone_df}>
-            <p>По телефону</p><p onClick={()=>setIsOpen2(true)}>По паролю</p>
-          </div>
-          
-          {isOpen2 ? (<div className={s.parol}>
-        <div onClick={()=>{setIsOpen2(false)}} className={s.close}>x</div>
-        <div className={s.open2}>
-          <span>oxshamadi</span>
-          <div className={s.modal_inp}>
-            <input placeholder='Телефон' type="text" value="" />
-            <input placeholder='Парол' type="text" value="" />
-          </div>
-          <div className={s.modal_btn}>
-            <button>Отправить код</button>
-          </div>
-        </div>
-        
-      </div>) : (<div >
-       tel
-      </div>)}
-          <div className={s.modal_inp}>
-            <input placeholder='Телефон' type="text" value="" />
-          </div>
-          <div className={s.modal_btn}>
-            <button>Отправить код</button>
-          </div>
-          
-        </div>
-      </div>
-</div> */}
    <div id='navbar_modalbig' className={s.navbar_modalbig}>
       <div className={s.navbar_modal2}>
         <div className={s.nav_modal2}>
@@ -325,32 +225,7 @@ export default function navbar() {
       </div>
 </div>
 
-<div className={s.for_footer}>
-<div className={s.footerglv}>
-      <div className={s.footer_2}>
-        <p><strong>Повар на связи</strong> — это сервис заказа блюд от проверенных домашних поваров и кондитеров.</p><br />
-        <p>Все повара, представленные на сервисе, проходят проверку: наша команда дегустирует блюда, запрашивает фотографии кухни, изучает аккаунты в социальных сетях.</p><br />
-        <p>Кондитеры могут приготовить десерты с индивидуальным дизайном и начинкой - оформите заказ на понравившийся десерт и уточните пожелания в чате. Забрать заказ можно самостоятельно или оформить доставку.</p>
-      </div>
-      <div className={s.footer_3}>
-        <p>Cкачай мобильное приложение <strong>Повар на связи</strong></p>
-        <div className={s.images}>
-          <img src="https://www.tadviser.ru/images/thumb/8/83/Apple-app-store.jpg/840px-Apple-app-store.jpg" alt="img" />
-          <img src="https://www.tadviser.ru/images/thumb/8/83/Apple-app-store.jpg/840px-Apple-app-store.jpg" alt="img" />
-        </div>
-      </div>
-      </div>
 
-      <div className={s.footer_4}>
-        <div className={s.year}>
-          <p>©2024 <strong> Повар на связи</strong></p>
-        </div>
-        <div className={s.support}>
-          <a href="#">support@povarnasvyazi.ru</a><br />
-          <a style={{fontSize:'15px'}} href="#">Условия использования сервиса и информация о компании</a>
-        </div>
-      </div>
-</div>
 
 
     </div>

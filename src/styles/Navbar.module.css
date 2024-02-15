@@ -264,6 +264,7 @@ line-height: 28px;
     font-size: 20px;
 }
 .onmous{
+    
     width: 200px;
     display: none;
     border-radius: 20px;
@@ -271,6 +272,7 @@ line-height: 28px;
     top: 70px;
     left: 18%;
     line-height: 35px;
+    z-index: 12123;
     font-size: 18px;
     background-color: white;
     border-top-left-radius: 20px;
