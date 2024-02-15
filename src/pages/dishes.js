@@ -67,7 +67,7 @@ return (
 <input placeholder='Время приготовления' className={s.inputlar_1} type="text" /><br />
 <textarea placeholder='Условия хранения' className={s.inputlar_2} type="text" /><br />
 </div>
-<div className={s.liniya}></div> <br />
+<div className={s.liniya}></div>
 <div className={s.inputlar2}>
 <input placeholder='Калорийность' className={s.inputlar_1} type="text" /><br />
 <input placeholder='Белки, г' className={s.inputlar_1} type="text" /><br />
