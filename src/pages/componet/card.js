@@ -20,7 +20,7 @@ export default function card() {
   
   return (
   
-<div  className={s.cards}  ref={tiltRef} >
+<div  className={s.cards}  >
     <div className={s.card}  > 
         <div className={s.card_img}>
             <h3>Заказ за 24 часа</h3>
