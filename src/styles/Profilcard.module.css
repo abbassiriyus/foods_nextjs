@@ -1,0 +1,199 @@
+.cards{
+width: 1380;
+margin: auto;
+display: flex;
+justify-content: center;
+}
+.card{
+width: 320px;
+min-height: 450px;
+border-radius: 18px;
+/* border: 1px solid #000; */
+padding: 1%;
+}
+.card:hover{
+box-shadow: 0px 0px 5px gray;
+}
+.profil{
+width: 90%;
+margin: auto;
+display: flex;
+align-items: center;
+gap: 30px;
+margin-top: 10px;
+}
+.profil img{
+width: 80px;
+height: 80px;
+border-radius: 50%;
+transition: .2s;
+cursor: pointer;
+}
+.profil img:hover{
+border: 2px solid #06c160;
+}
+
+
+.bal{
+width: 80%;
+}
+
+.p1 span{
+color: #06c160;
+}
+.comment{
+font-size: 12px;
+}
+
+.star{
+color: rgb(255, 255, 11);
+}
+.p3{
+width: 100%;
+display: flex;
+gap: 8px;
+align-items: center;
+}
+
+.location{
+color: #06c160;
+}
+
+
+.p_ism{
+width: 90%;
+margin: auto;
+margin-bottom: 25px;
+}
+
+.p_ism h1{
+font-size: 20px;
+}
+
+.p_ism p{
+font-size: 13px;
+color: gray;
+}
+
+.vbr_blyud{
+width: 90%;
+display: flex;
+align-items: center;
+gap: 8px;
+flex-wrap: wrap;
+margin: auto;
+}
+
+.vbr_blyud p{
+width: max-content;
+height: max-content;
+background-color: #06c160;
+border-radius: 15px;
+padding: 2%;
+color: white;
+font-size: 12px;
+transition: .3s;
+cursor: pointer;
+}
+.vbr_blyud p:hover{
+background-color: #009749;
+}
+
+.p_b{
+width: 90%;
+height: 250px;
+display: flex;
+justify-content: left;
+align-items: end;
+margin: auto;
+}
+
+.p_b button{
+width: 100%;
+height: 50px;
+border: none;
+border-radius: 8px;
+background-color: #06c160;
+color: white;
+font-size: 18px;
+font-weight: 500;
+transition: .3s;
+cursor: pointer;
+margin-bottom: 20px;
+}
+.p_b button:hover{
+background-color: white;
+border: 1px solid #06c160;
+color: #06c160;
+font-weight:500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

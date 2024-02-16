@@ -45,7 +45,7 @@
     min-height: 180px;
     border-bottom-left-radius: 21px;
     border-bottom-right-radius: 21px;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
     min-width: 300px;
     position: relative;
 }

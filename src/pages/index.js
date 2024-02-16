@@ -12,6 +12,7 @@ import axios from "axios";
 import url from "./host/config";
 import Swiper from "../pages/SwiperGl.js";
 import Swipergap from "../pages/Swipergap.js"
+import Swiperprofil from "../pages/Profilswiper.js"
 export default function index() {
 var [data, setData] = useState([{}]);
 var [sizUchun,setSizUchun]=useState([])
@@ -237,11 +238,34 @@ return <div className={s.c}>
 </div>
 </div>
 
-<Swiper/>
-<Swiper/>
-<Swiper/>
 
+<div className={s.swiper1}>
+<h1>ПОПУЛЯРНЫЕ БЛЮДА</h1>
+<Swiper/>
+</div>
+
+<div className={s.swiper2}>
+<h1>ПОПУЛЯРНЫЕ ДЕСЕРТЫ</h1>
+<Swiper/>
+</div>
+
+<div className={s.swiper3}>
+<h1>ПОПУЛЯРНЫЕ ПРОДУКТЫ</h1>
+<Swiper/>
+</div>
+
+
+<div className={s.swipergap}>
+<h1>ОТЗЫВЫ</h1>
 <Swipergap/>
+</div>
+
+<div className={s.swiperprofil}>
+<h1>ПОПУЛЯРНЫЕ ПОВАРА И КОНДИТЕРЫ</h1>
+<Swiperprofil/>
+</div>
+
+
 
 
 <div className={s.qoshilish}>

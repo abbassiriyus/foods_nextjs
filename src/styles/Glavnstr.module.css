@@ -719,6 +719,66 @@ justify-content: space-between;
 align-items: center;
 } */
 
+.swiper1{
+width: 1380px;
+margin: auto;
+margin-top: 40px;
+}
+.swiper1 h1{
+font-size: 40px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+.swiper2{
+width: 1380px;
+margin: auto;
+margin-top: 40px;
+}
+.swiper2 h1{
+font-size: 40px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+.swiper3{
+width: 1380px;
+margin: auto;
+margin-top: 40px;
+}
+.swiper3 h1{
+font-size: 40px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+
+.swipergap{
+width: 1380px;
+margin: auto;
+margin-top: 40px;
+}
+.swipergap h1{
+font-size: 40px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+
+.swiperprofil{
+width: 1380px;
+margin: auto;
+margin-top: 40px;
+}
+.swiperprofil h1{
+font-size: 35px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+
+
+
+
 .qoshilish{
 width: 1380px;
 height: 410px;
