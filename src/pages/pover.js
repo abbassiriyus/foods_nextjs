@@ -12,6 +12,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import axios from 'axios';
+import Navbar from './componet/navbar';
 import { GoChevronUp } from "react-icons/go";
 export default function pover() {
 
@@ -63,6 +64,7 @@ function jimm22(){
 
   return (
     <div id='glava'>
+      <Navbar/>
     <div className={ss.glava}>
       {/* <button onClick={() =>push('/navbar')}>go home</button> */}
 <div className={ss.gap}>

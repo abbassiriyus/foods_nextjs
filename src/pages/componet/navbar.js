@@ -225,7 +225,7 @@ function openmenu(){
 </div>
 
 
-{/* 
+
 <div className={s.modal_gl}>
 
 <div className={s.form_gl}>
@@ -251,7 +251,7 @@ function openmenu(){
 
 </div>
 </div>
-</div> */}
+</div>
     </div>
   )
 }
