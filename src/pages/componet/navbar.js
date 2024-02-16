@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import s from '../styles/Navbar.module.css'
+import s from '../../styles/Navbar.module.css'
 import { SlMenu } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
-import { IoMdExit } from "react-icons/io";
+import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
 import { MdClose } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';
-import url from './host/config';
-
+import { FaArrowLeftLong } from "react-icons/fa6";
+import url from '../host/config';
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -96,13 +97,13 @@ function openmenu(){
         </div>
 
         <div className={s.navbar_logo}>
-          <a href="#"><img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
+          <a href="/"><img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
         </div>
         <div className={s.navbar_line}>
          <span id='aaa'><a href="#" onMouseEnter={()=> onmousenter1()}>Все блюда
           </a><HiChevronDown style={{fontSize:'14px'}} /></span> 
-           <a href="#">Все повара</a>
-          <a href="#">Регистрация поваров</a> 
+           <a href="/pover">Все повара</a>
+          <a href="/forCooks">Регистрация поваров</a> 
           <a style={{ color: '#06c160' }} href="#">Стать поваром</a>
         </div>
         <div className={s.navbar_btn}>
@@ -160,8 +161,6 @@ function openmenu(){
 {data.map((item,key)=>{
  return <li><a href="#">{item.title}</a></li>
 })}  
-        
-
         </ul>
       </div>
  
@@ -226,8 +225,33 @@ function openmenu(){
 </div>
 
 
+{/* 
+<div className={s.modal_gl}>
 
+<div className={s.form_gl}>
+  <div className={s.button_close_gl}><AiOutlineClose /></div>
+<div className={s.form_body_gl}>
+<h3>Регистрация</h3>
+<div className={s.back_gl}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<br />
+<div className={s.input_phone_gl}>
+<input type="text" /><IoIosInformationCircleOutline />
+</div>
+<div className={s.input_phone_gl}>
+  <input placeholder='Email' type="text" /><IoIosInformationCircleOutline />
+</div>
+<div className={s.input_phone_gl}>
+  <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
+</div>
+<div className={s.line_gl}></div>
+<p>
+Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
 
+</p>
+
+</div>
+</div>
+</div> */}
     </div>
   )
 }
