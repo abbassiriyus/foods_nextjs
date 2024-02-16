@@ -1,5 +1,5 @@
 import React from 'react'
-import f from '../../styles/Footer.module.css';
+import f from "../styles/Footer.module.css";
 import { BiLogoTelegram } from "react-icons/bi";
 import { IoLogoVk } from "react-icons/io";
 import { FaApple } from "react-icons/fa";

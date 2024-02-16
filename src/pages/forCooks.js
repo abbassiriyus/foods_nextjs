@@ -3,7 +3,7 @@ import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
 import img12 from "../images/logo.svg"
-import Navbar from './componet/navbar';
+
 import img from "../images/logo.png"
 import img1 from "../images/rocket.png"
 import img2 from "../images/1.png"
@@ -20,7 +20,6 @@ import VanillaTilt from 'vanilla-tilt';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import Footer from "./componet/footer"
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -44,7 +43,7 @@ export default function forCooks() {
 
   }
   function SelectAc(key){
- 
+    console.log(key);
 for (let i = 0; i < accordion_data.length; i++) {
 if(key==i){
 document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
@@ -91,13 +90,11 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   }, []);
   useEffect(() => {
     Aos.init();
-  }, [])
+  })
 
   return (
     <div>
-      <Navbar/>
-    <header style={{marginTop:'30px'}} className={s.header12}>
-
+    <header className={s.header12}>
     <div className={s.text1}>
         <p>Привет!</p>
         <h1>Любишь <br /> готовить?</h1>
@@ -446,8 +443,6 @@ document.querySelector("#eyes1").style="display:block"
 
         <Script src='../path/to/script.js' />
       </header>  
-      <div style={{marginTop:'30px'}}></div>
-      <Footer/>
        {/* <div className={s.modal_vopros}>
               <div className={s.modal1}>
               <div className={s.closeline}>

@@ -13,7 +13,6 @@ import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import axios from 'axios';
 import { GoChevronUp } from "react-icons/go";
- import Navbar from "./componet/navbar"
 export default function pover() {
 
 
@@ -27,7 +26,7 @@ export default function pover() {
     })
   }
   useEffect(()=>{
-    getCategory()
+    getCategory
   })
 function chiq1(){
  document.querySelector("#openModal").style=`left:0; top:0;`
@@ -64,10 +63,9 @@ function jimm22(){
 
   return (
     <div id='glava'>
-     <Navbar/> 
-    <div className={ss.glava} >
+    <div className={ss.glava}>
       {/* <button onClick={() =>push('/navbar')}>go home</button> */}
-<div style={{marginTop:"30px"}} className={ss.gap}>
+<div className={ss.gap}>
     <span className={ss.gap_1}>ВСЕ ПОВАРА <sup className={ss.gap_2}>200</sup></span>
 </div>
 <div className={ss.plan}>
