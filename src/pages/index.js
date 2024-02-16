@@ -66,9 +66,6 @@ zakaz_b: "Заказть",
 ]);
 var [sizUchun,setSizUchun]=useState([])
 var [swiper, setSwipper] = useState(0);
-var [oshpazdanTaom, setOshpazdanTaom] = useState([])
-var [shirinliklar, setShirinliklar] = useState([])
-var [soglom, setSoglom] = useState([])
 function plus() {
 if (swiper + 1 === data.length) {
 setSwipper(0);
@@ -85,35 +82,10 @@ setSwipper(swiper - 1);
 }
 console.log(swiper);
 }
+
 function getSizUchun() {
   axios.get('https://foodbackent.onrender.com/api/siz_uchun').then(res=>{
    setSizUchun(res.data)
-   console.log(res.data);
-  }).catch(err=>{
-
-  })
-}
-function getOshpazdanTaom() {
-  axios.get('https://foodbackent.onrender.com/api/oshpazdan_taom').then(res=>{
-    setOshpazdanTaom(res.data)
-   console.log(res.data);
-  }).catch(err=>{
-
-  })
-}
-
-function getShirinliklar() {
-  axios.get('https://foodbackent.onrender.com/api/shirinliklar').then(res=>{
-    setshirinliklar(res.data)
-   console.log(res.data);
-  }).catch(err=>{
-
-  })
-}
-
-function getSoglom() {
-  axios.get('https://foodbackent.onrender.com/api/shirinliklar').then(res=>{
-    setSoglom(res.data)
    console.log(res.data);
   }).catch(err=>{
 
@@ -131,15 +103,6 @@ setXopen(false);
 
 useEffect(()=>{
   getSizUchun()
-},[])
-useEffect(()=>{
-  getOshpazdanTaom()
-},[])
-useEffect(()=>{
-  getShirinliklar()
-},[])
-useEffect(()=>{
-  getSoglom()
 },[])
 return (
 <div onClick={svgxclose}>
@@ -238,7 +201,7 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
-{sizUchun.map((item,key)=>{
+  {sizUchun.map((item,key)=>{
     return <div className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
@@ -253,17 +216,7 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Блюда от поваров</h1>
 <div className={s.cards}>
-{oshpazdanTaom.map((item,key)=>{
-    return <div className={s.c}>
-<img className={s.card_img} src={item.image} alt="" />
-<div className={s.c_soz}>
-<p>{item.title}</p>
-</div>
-</div>
-
-  })}
-
-{/* <div className={s.c}>
+<div className={s.c}>
 <img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b77ff6a04d10c1b8d1249dc60da936fb5ff81e0a/b77ff6a04d10c1b8d1249dc60da936fb5ff81e0a.jpg " alt="" />
 <div className={s.c_soz}>
 <p>Поздравить любимых</p>
@@ -298,23 +251,13 @@ alt=""
 <div className={s.c_soz}>
 <p>Быстрая доставка</p>
 </div>
-</div> */}
+</div>
 </div>
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
-
-{shirinliklar.map((item,key)=>{
-    return <div className={s.c}>
-<img className={s.card_img} src={item.image} alt="" />
-<div className={s.c_soz}>
-<p>{item.title}</p>
-</div>
-</div>
-
-  })}
-{/* <div className={s.c}>
+<div className={s.c}>
 <img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d3c61ecf6a924d2d2350d59f1135a15624663ff5/d3c61ecf6a924d2d2350d59f1135a15624663ff5.png" alt="" />
 <div className={s.c_soz}>
 <p>Поздравить любимых</p>
@@ -349,24 +292,13 @@ alt=""
 <div className={s.c_soz}>
 <p>Быстрая доставка</p>
 </div>
-</div> */}
+</div>
 </div>
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
-
-{soglom.map((item,key)=>{
-    return <div className={s.c}>
-<img className={s.card_img} src={item.image} alt="" />
-<div className={s.c_soz}>
-<p>{item.title}</p>
-</div>
-</div>
-
-  })}
-  
-{/* <div className={s.c}>
+<div className={s.c}>
 <img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/dd3f833cf4d66bcb802959720bda31fa6eafcb49/dd3f833cf4d66bcb802959720bda31fa6eafcb49.jpg" alt="" />
 <div className={s.c_soz}>
 <p>Продукты от производителей</p>
@@ -377,7 +309,7 @@ alt=""
 <div className={s.c_soz}>
 <p>Продукты от фермеров</p>
 </div>
-</div> */}
+</div>
 
 </div>
 </div>
