@@ -226,7 +226,7 @@ function openmenu(){
 
 
 
-{/* <div className={s.modal_gl}>
+<div className={s.modal_gl}>
 
 <div className={s.form_gl}>
   <div className={s.button_close_gl}><AiOutlineClose /></div>
@@ -248,10 +248,10 @@ function openmenu(){
 Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
 
 </p>
-
+<button>Зарегистрироваться</button>
 </div>
 </div>
-</div> */}
+</div>
     </div>
   )
 }
