@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useState } from "react";
 import Card from "./componet/card";
 import swip from "../styles/Swipers.module.css";
@@ -108,3 +109,5 @@ return (
 }
 
 export default SwiperGl
+=======
+>>>>>>> Stashed changes
