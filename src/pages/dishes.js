@@ -3,6 +3,7 @@ import s from "../styles/dishes.module.css"
 import Footer from "../pages/Footer.js"
 import { FiPlus } from "react-icons/fi";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { HiOutlinePaperClip } from "react-icons/hi";
 export default function dishes() {
 function och(){
 document.querySelector("#werwe").style = "display: block;"
@@ -14,15 +15,21 @@ document.querySelector("#werwe").style = "display: none;"
 document.querySelector("#arrow_d").style = "display:block"
 document.querySelector("#arrow_u").style = "display: none"
 }
+function ochadi(){
+document.querySelector("#d_i").style = "display:block"
+}
+function yopadi(){
+document.querySelector("#d_i").style = "display:none"
+}
 return (
 <div>
 
 <div className={s.dishes}>
-<div className={s.dishes_button}>
+<div className={s.dishes_button}  onClick={()=>ochadi()} >
 <div className={s.circle}><FiPlus /></div>
 <h5>Добавить блюдо</h5>
 </div>
-<div className={s.d_i}>
+<div className={s.d_i} id='d_i'>
 <h1>РЕДАКТИРОВАТЬ БЛЮДО</h1>
 <div className={s.dishes_inp}>
 <div className={s.inputlar1}>
@@ -94,9 +101,21 @@ return (
 </div>
 </div>
 </div>
+<div className={s.d_chiqish_b}>
+<div className={s.liniya3}>
+</div>
+<div className={s.b_a}>
+<HiOutlinePaperClip className={s.b_i} /> <a href="#">Рекомендуем форматы: jpeg, png, не более 10 файлов</a> <br />
+</div>
+<div className={s.d_b}>
+<button className={s.button1}>Добавить</button>
+<button className={s.button2} onClick={()=>yopadi()}>Назад</button>
+</div>
 </div>
 </div>
 
+
+</div>
 <Footer></Footer>
 </div>
 )
