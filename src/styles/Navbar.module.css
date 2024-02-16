@@ -688,6 +688,31 @@ left: 5%;
     padding-left: 10px;
 
 }
+.form_body_gl p{
+    position: relative;
+    left: 5%;
+    margin: auto;
+    margin-top: 20px;
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 90%;
+    margin-bottom: 20px;
+
+}
+.form_body_gl p a{
+    color: #06c160;
+    list-style: none;
+}
+.form_body_gl button{
+    width: 80%;
+    height: 40px;
+    margin-left: 7%;
+    background-color: #06c160;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+}
 .line_gl{
     width: 100%;
     height: 2px ;
