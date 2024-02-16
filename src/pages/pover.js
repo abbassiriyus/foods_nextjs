@@ -14,21 +14,31 @@ import glavnstr from './glavnstr';
 import axios from 'axios';
 import Navbar from './componet/navbar';
 import { GoChevronUp } from "react-icons/go";
+import url from './host/config';
 export default function pover() {
 
-
+  var [data,setData]=useState([])
   var [Category,setCategory]=useState([])
   function getCategory() {
-    axios.get('https://foodbackent.onrender.com/api/category').then(res=>{
+    axios.get(`${url}/api/category`).then(res=>{
      setCategory(res.data)
      console.log(res.data);
     }).catch(err=>{
   
     })
   }
+  var getPover=()=>{
+axios.get(`${url}/api/getpover`).then(res=>{
+setData(res.data)
+console.log(res.data);
+}).catch(err=>{
+
+})
+  }
   useEffect(()=>{
-    getCategory
-  })
+    getCategory()
+    getPover()
+  },[])
 function chiq1(){
  document.querySelector("#openModal").style=`left:0; top:0;`
  document.querySelector('#shef').style =`display:none;`
@@ -163,21 +173,21 @@ function jimm22(){
   <span>Показать на карте</span>
   </div>
     </div>
- 
-<div className={ss.povara}>
+ {data.map((item,key)=>{
+return <div className={ss.povara}>
 <div className={ss.cards}>
   <div className={ss.b_card}>
 <div className={ss.card1}>
   <div className={ss.logo}>
-    <img className={ss.logo_rasm} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/9a07f0427459b82fc9538e161bc764b9178b30a5/9a07f0427459b82fc9538e161bc764b9178b30a5-wc200.jpeg" alt="" />
+    <img className={ss.logo_rasm} src={item.image} alt="" />
   </div>
 </div>
 <div className={ss.card2}>
-  <h2 className={ss.homr}>Чмиль Софья Сергеевна</h2>
+  <h2 className={ss.homr}>{item.name} {item.lastname} {item.firstname}</h2>
   <span className={ss.kon}>Кондитер</span>
   <div className={ss.otenka}>
     <div className={ss.mina}>
-     <span className={ss.opa}>4.9</span>
+     <span className={ss.opa}>{item.mark}</span>
 <div className={ss.zvezda}>
 <IoIosStar className={ss.zv}/>
 <IoIosStar className={ss.zv}/>
@@ -204,166 +214,19 @@ function jimm22(){
 </div>
 <div className={ss.a_card}>
   <div className={ss.ovqat_img}>
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b8456795007d6b533200e5610784f9a3a36479da/b8456795007d6b533200e5610784f9a3a36479da-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b38069ceff00c63f21deac782b0c0c3a9eae8ee0/b38069ceff00c63f21deac782b0c0c3a9eae8ee0-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e757a53fbf1e0d295909c1539d97f7f328848909/e757a53fbf1e0d295909c1539d97f7f328848909-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2789cc4f87075311f83893486c67d1b6c47150d9/2789cc4f87075311f83893486c67d1b6c47150d9-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/769157541cfe30443b2e16537bdf9a281abc7da8/769157541cfe30443b2e16537bdf9a281abc7da8-wc200.jpeg" alt="" />
-  </div>
-</div>
-</div>
-</div>
-<div className={ss.povara}>
-<div className={ss.cards}>
-  <div className={ss.b_card}>
-<div className={ss.card1}>
-  <div className={ss.logo}>
-    <img className={ss.logo_rasm} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/9a07f0427459b82fc9538e161bc764b9178b30a5/9a07f0427459b82fc9538e161bc764b9178b30a5-wc200.jpeg" alt="" />
-  </div>
-</div>
-<div className={ss.card2}>
-  <h2 className={ss.homr}>Чмиль Софья Сергеевна</h2>
-  <span className={ss.kon}>Кондитер</span>
-  <div className={ss.otenka}>
-    <div className={ss.mina}>
-     <span className={ss.opa}>4.9</span>
-<div className={ss.zvezda}>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-</div> 
+    {item.foods.map((item2,key2)=>{
+    return <div> <img className={ss.bld_img} src={item.image} alt="" />
+    <p>{item2.price}</p>
     </div>
+    })}
+   
+  </div>
+</div>
+</div>
+</div>
 
-<div className={ss.comment}>
-<FaRegCommentAlt className={ss.com} />
-<span>3</span>
-</div>
-  </div>
-</div>
-<div className={ss.card3}>
-  <div className={ss.kasb}>
-  <span>Торты</span>
-  </div>
-  <div className={ss.kasb}>
- <span>Торты</span>  
-  </div>
-</div>
-</div>
-<div className={ss.a_card}>
-  <div className={ss.ovqat_img}>
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b8456795007d6b533200e5610784f9a3a36479da/b8456795007d6b533200e5610784f9a3a36479da-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b38069ceff00c63f21deac782b0c0c3a9eae8ee0/b38069ceff00c63f21deac782b0c0c3a9eae8ee0-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e757a53fbf1e0d295909c1539d97f7f328848909/e757a53fbf1e0d295909c1539d97f7f328848909-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2789cc4f87075311f83893486c67d1b6c47150d9/2789cc4f87075311f83893486c67d1b6c47150d9-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/769157541cfe30443b2e16537bdf9a281abc7da8/769157541cfe30443b2e16537bdf9a281abc7da8-wc200.jpeg" alt="" />
-  </div>
-</div>
-</div>
-</div>
-<div className={ss.povara}>
-<div className={ss.cards}>
-  <div className={ss.b_card}>
-<div className={ss.card1}>
-  <div className={ss.logo}>
-    <img className={ss.logo_rasm} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/9a07f0427459b82fc9538e161bc764b9178b30a5/9a07f0427459b82fc9538e161bc764b9178b30a5-wc200.jpeg" alt="" />
-  </div>
-</div>
-<div className={ss.card2}>
-  <h2 className={ss.homr}>Чмиль Софья Сергеевна</h2>
-  <span className={ss.kon}>Кондитер</span>
-  <div className={ss.otenka}>
-    <div className={ss.mina}>
-     <span className={ss.opa}>4.9</span>
-<div className={ss.zvezda}>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-</div> 
-    </div>
+ })}
 
-<div className={ss.comment}>
-<FaRegCommentAlt className={ss.com} />
-<span>3</span>
-</div>
-  </div>
-</div>
-<div className={ss.card3}>
-  <div className={ss.kasb}>
-  <span>Торты</span>
-  </div>
-  <div className={ss.kasb}>
- <span>Торты</span>  
-  </div>
-</div>
-</div>
-<div className={ss.a_card}>
-  <div className={ss.ovqat_img}>
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b8456795007d6b533200e5610784f9a3a36479da/b8456795007d6b533200e5610784f9a3a36479da-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b38069ceff00c63f21deac782b0c0c3a9eae8ee0/b38069ceff00c63f21deac782b0c0c3a9eae8ee0-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e757a53fbf1e0d295909c1539d97f7f328848909/e757a53fbf1e0d295909c1539d97f7f328848909-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2789cc4f87075311f83893486c67d1b6c47150d9/2789cc4f87075311f83893486c67d1b6c47150d9-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/769157541cfe30443b2e16537bdf9a281abc7da8/769157541cfe30443b2e16537bdf9a281abc7da8-wc200.jpeg" alt="" />
-  </div>
-</div>
-</div>
-</div>
-<div className={ss.povara}>
-<div className={ss.cards}>
-  <div className={ss.b_card}>
-<div className={ss.card1}>
-  <div className={ss.logo}>
-    <img className={ss.logo_rasm} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/9a07f0427459b82fc9538e161bc764b9178b30a5/9a07f0427459b82fc9538e161bc764b9178b30a5-wc200.jpeg" alt="" />
-  </div>
-</div>
-<div className={ss.card2}>
-  <h2 className={ss.homr}>Чмиль Софья Сергеевна</h2>
-  <span className={ss.kon}>Кондитер</span>
-  <div className={ss.otenka}>
-    <div className={ss.mina}>
-     <span className={ss.opa}>4.9</span>
-<div className={ss.zvezda}>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-<IoIosStar className={ss.zv}/>
-</div> 
-    </div>
-
-<div className={ss.comment}>
-<FaRegCommentAlt className={ss.com} />
-<span>3</span>
-</div>
-  </div>
-</div>
-<div className={ss.card3}>
-  <div className={ss.kasb}>
-  <span>Торты</span>
-  </div>
-  <div className={ss.kasb}>
- <span>Торты</span>  
-  </div>
-</div>
-</div>
-<div className={ss.a_card}>
-  <div className={ss.ovqat_img}>
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b8456795007d6b533200e5610784f9a3a36479da/b8456795007d6b533200e5610784f9a3a36479da-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b38069ceff00c63f21deac782b0c0c3a9eae8ee0/b38069ceff00c63f21deac782b0c0c3a9eae8ee0-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018/e1c741ac9c9d4e8aeaa8ffe6e5a1dbdec4e4f018-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e757a53fbf1e0d295909c1539d97f7f328848909/e757a53fbf1e0d295909c1539d97f7f328848909-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2789cc4f87075311f83893486c67d1b6c47150d9/2789cc4f87075311f83893486c67d1b6c47150d9-wc200.jpeg" alt="" />
-    <img className={ss.bld_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/769157541cfe30443b2e16537bdf9a281abc7da8/769157541cfe30443b2e16537bdf9a281abc7da8-wc200.jpeg" alt="" />
-  </div>
-</div>
-</div>
-</div>
 
 
 

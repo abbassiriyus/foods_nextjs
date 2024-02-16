@@ -17,6 +17,7 @@ import { AiOutlineClose } from "react-icons/ai";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
    var [data,setData]=useState([])
+   var [page,setPage]=useState(0)
 
   function getData() {
     axios.get(`${url}/api/category`).then(res=>{
@@ -104,13 +105,13 @@ function openmenu(){
           </a><HiChevronDown style={{fontSize:'14px'}} /></span> 
            <a href="/pover">Все повара</a>
           <a href="/forCooks">Регистрация поваров</a> 
-          <a style={{ color: '#06c160' }} href="#">Стать поваром</a>
+          <a style={{ color: '#06c160' }} onClick={()=>{document.querySelector("#modal_gl").style="display:flex";setPage(2)}}>Стать поваром</a>
         </div>
         <div className={s.navbar_btn}>
           <button onClick={()=> openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
         </div>
         <div className={s.navbar_vxod}>
-          <span onClick={()=> och()}><IoMdExit style={{fontSize:'25px'}}/>Войти</span>
+          <span onClick={()=>{document.querySelector("#modal_gl").style="display:flex";setPage(0)}}><IoMdExit style={{fontSize:'25px'}} />Войти</span>
         </div>
       </div>
       </div>
@@ -226,13 +227,34 @@ function openmenu(){
 
 
 
-<div className={s.modal_gl}>
+<div style={{display:'none'}} className={s.modal_gl} id="modal_gl">
 
 <div className={s.form_gl}>
-  <div className={s.button_close_gl}><AiOutlineClose /></div>
-<div className={s.form_body_gl}>
+  <div className={s.button_close_gl} onClick={()=>{document.querySelector('#modal_gl').style="display:none"}}><AiOutlineClose /></div>
+  {page==0?(<div className={s.form_body_gl}>
 <h3>Регистрация</h3>
 <div className={s.back_gl}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<br />
+<div className={s.input_phone_gl}>
+<input type="text" /><IoIosInformationCircleOutline />
+</div>
+
+
+<button>Зарегистрироваться</button>
+</div>):(page==1?(<div className={s.form_body_gl}>
+<h3>Регистрация</h3>
+<div className={s.back_gl}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<br />
+<div className={s.input_phone_gl}>
+<input type="text" /><IoIosInformationCircleOutline />
+</div>
+<div className={s.input_phone_gl}>
+  <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
+</div>
+<button>Зарегистрироваться</button>
+</div>):(<div className={s.form_body_gl}>
+<h3 >Регистрация</h3>
+<div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
 <br />
 <div className={s.input_phone_gl}>
 <input type="text" /><IoIosInformationCircleOutline />
@@ -249,7 +271,9 @@ function openmenu(){
 
 </p>
 <button>Зарегистрироваться</button>
-</div>
+</div>))}
+
+
 </div>
 </div>
     </div>
