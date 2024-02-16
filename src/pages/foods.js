@@ -3,6 +3,7 @@ import ss from '../styles/pover.module.css'
 import { IoIosStar } from "react-icons/io";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Card from "../pages/componet/card"
 import { GrUpdate } from "react-icons/gr";
 import { HiChevronDown } from "react-icons/hi";
 import { IoIosSearch } from "react-icons/io";
@@ -12,7 +13,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import { GoChevronUp } from "react-icons/go";
-import Card from './componet/card';
 export default function pover() {
 
 function chiq1(){
@@ -68,7 +68,8 @@ function jimm22(){
         <div id='kota11' onClick={() => jimm11()} className={ss.kota_kategoriya1}><span>Все категории</span><HiChevronDown className={ss.ukaz1}/></div>
   </div>
 
-    <div id='kor1' className={ss.yopil_kateg}>
+    
+<div id='kor1' className={ss.yopil_kateg}>
     <div className={ss.kichkina_kategoriya}>
         <div className={ss.togri}></div>
         <span className={ss.sp}>Торты<sup className={ss.sp2}>123</sup></span>
@@ -174,6 +175,19 @@ function jimm22(){
         <span className={ss.sp}>14 февраля<sup className={ss.sp2}>6</sup></span>
     </div>
 </div>
+
+
+
+</div>
+<div className={ss.cards1}>
+<Card />
+<Card/>
+<Card/>
+
+</div>
+
+</div>
+</div>
 <div className={ss.liniya}></div>
 <div className={ss.som}>
   <div id='kichkina1' onClick={() => jimm2()}  className={ss.kota_kategoriya2}><p>Специализация <GoChevronUp className={ss.ukaz1}/></p></div> 
@@ -181,11 +195,5 @@ function jimm22(){
 </div>
    </div>
    
-   <Card/>
-   <Card/>
-   </div>
-
-   </div>
-   </div>
   )
 }

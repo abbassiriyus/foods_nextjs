@@ -1,15 +1,33 @@
 .not_found{
     display: flex;
     justify-content: space-around;
-
+    align-items: center;
+    width: 60%;
+    margin: auto;
 }
 .found_text a{
     color: #06c160;
-    
+
+}
+.found_text a:hover{
+    text-decoration: none;
+}
+.found_text{
+    width: 40%;
+    font-size: 19px;
+    font-weight: 350;
+}
+.found_text p{
+    width: 100%;
+}
+.found_img img{
+    position: relative;
+    right: 100px;
 }
 .found_img{
-    width: 40%;
-    height: 500px;
+    width:49%;
+    height: 40%;
     border-radius: 50%;
     background-color: #e6f9ef;
+    /* background-color: red; */
 }
