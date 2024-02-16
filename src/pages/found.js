@@ -11,7 +11,7 @@ export default function found() {
 
             </div>
             <div className={s.found_img}>
-                <img src="https://povarnasvyazi.ru/images/empty-chat/potato.png" alt="" />
+            <img src="https://povarnasvyazi.ru/images/empty-chat/potato.png" alt="" />
             </div>
         </div>
         
