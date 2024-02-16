@@ -6,66 +6,18 @@ import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
-import Footer from "../pages/Footer.js"
-import Navbar from "./navbar";
+import Footer from "./componet/footer.js"
+import Navbar from "./componet/navbar";
 import axios from "axios";
+import url from "./host/config";
 export default function index() {
-var [data, setData] = useState([
-{
-img: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/af944830ed2445956672f8103d2f0a78e8b3b185/af944830ed2445956672f8103d2f0a78e8b3b185-wc800.png",
-img_profil:
-"https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136-wc200.jpeg",
-title: "1Шах-плов",
-name: "Хатира Мамедова",
-star: "star",
-star_bal: "5.0",
-kommment: "komentariy",
-yonalish: "Домашний повар",
-narxi: "2 200₽",
-zakaz_b: "Заказть",
-},
-{
-img: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/af944830ed2445956672f8103d2f0a78e8b3b185/af944830ed2445956672f8103d2f0a78e8b3b185-wc800.png",
-img_profil:
-"https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136-wc200.jpeg",
-title: "2Шах-плов",
-name: "Хатира Мамедова",
-star: "star",
-star_bal: "5.0",
-kommment: "komentariy",
-yonalish: "Домашний повар",
-narxi: "2 200₽",
-zakaz_b: "Заказть",
-},
-{
-img: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/af944830ed2445956672f8103d2f0a78e8b3b185/af944830ed2445956672f8103d2f0a78e8b3b185-wc800.png",
-img_profil:
-"https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136-wc200.jpeg",
-title: "3Шах-плов",
-name: "Хатира Мамедова",
-star: "star",
-star_bal: "5.0",
-kommment: "komentariy",
-yonalish: "Домашний повар",
-narxi: "2 200₽",
-zakaz_b: "Заказть",
-},
-{
-img: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/af944830ed2445956672f8103d2f0a78e8b3b185/af944830ed2445956672f8103d2f0a78e8b3b185-wc800.png",
-img_profil:
-"https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136/7a565d18ccc65dbd82f4d4e7cb45ecf25d259136-wc200.jpeg",
-title: "4Шах-плов",
-name: "Хатира Мамедова",
-star: "star",
-star_bal: "5.0",
-kommment: "komentariy",
-yonalish: "Домашний повар",
-narxi: "2 200₽",
-zakaz_b: "Заказть",
-},
-]);
+var [data, setData] = useState([{}]);
 var [sizUchun,setSizUchun]=useState([])
 var [swiper, setSwipper] = useState(0);
+var [oshpazdanTaom,setOshpazdanTaom]=useState([])
+var [shirinliklar,setShirinliklar]=useState([])
+var [soglom,setSoglom]=useState([])
+
 function plus() {
 if (swiper + 1 === data.length) {
 setSwipper(0);
@@ -84,11 +36,30 @@ console.log(swiper);
 }
 
 function getSizUchun() {
-  axios.get('https://foodbackent.onrender.com/api/siz_uchun').then(res=>{
+  axios.get(`${url}/api/siz_uchun`).then(res=>{
    setSizUchun(res.data)
+   axios.get(`${url}/api/oshpazdan_taom`).then(res1=>{
+    setOshpazdanTaom(res1.data)
+    axios.get(`${url}/api/shirinliklar`).then(res2=>{
+     setShirinliklar(res2.data)
+      axios.get(`${url}/api/soglom`).then(res3=>{
+      setSoglom(res3.data)
+      })
+    })
+   })
    console.log(res.data);
   }).catch(err=>{
 
+  })
+}
+function getheaderCarousel(params) {
+  axios.get(`${url}/api/userprog/header`).then(res=>{
+setData(res.data)
+console.log(res.data);
+
+  })
+  .catch(err=>{
+    console.log(err);
   })
 }
 
@@ -102,7 +73,8 @@ setXopen(false);
 }
 
 useEffect(()=>{
-  getSizUchun()
+  getSizUchun();
+  getheaderCarousel()
 },[])
 return (
 <div onClick={svgxclose}>
@@ -125,7 +97,7 @@ return (
 <div className={s.swiper}>
 <img
 className={s.swiper_img}
-src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/af944830ed2445956672f8103d2f0a78e8b3b185/af944830ed2445956672f8103d2f0a78e8b3b185-wc800.png"
+src={data[swiper].image}
 alt=""
 />
 <div className={s.s_i}>
@@ -145,30 +117,33 @@ plus();
 <div className={s.s_profil}>
 <img
 className={s.prifil_foto}
-src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d37c0db7585d7fbbbfcad7b6c4c91359fa3e6158/d37c0db7585d7fbbbfcad7b6c4c91359fa3e6158-wc200.jpeg"
+src={data[swiper].user_image}
 alt=""
 />
 <div className={s.s_p_g_s}>
 <div className={s.nomi}>
-<p className={s.nazvanie_bluda}>{data[swiper].title}</p>
-<p className={s.stoimost}>{data[swiper].narxi}</p>
+<p className={s.nazvanie_bluda}>{data[swiper].food_name}</p>
+<p className={s.stoimost}>{data[swiper].price} ₽</p>
 </div>
 <div className={s.s_p_i_s1}>
 <div className={s.s_infa}>
 <p className={s.sotuvchi}>{data[swiper].name}</p>
 <div className={s.bal}>
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<p className={s.bal2}>{data[swiper].star_bal}</p>
+  {['','','','',''].map((item,key)=>{
+    if(key<data[swiper].mark){
+    return <FaStar className={s.star} /> 
+    }else{
+    return <FaStar className={s.star1} /> 
+    }
+  })}
+<p className={s.bal2}>{data[swiper].mark}</p>
 <BiCommentDetail className={s.kometariy} />
+<p className={s.tets_123}>{data[swiper].mark_org}</p>
 </div>
-<p className={s.kakoypovar}>{data[swiper].yonalish}</p>
+<p className={s.kakoypovar}>{data[swiper].ish_yonalishi_title}</p>
 </div>
 <div className={s.s_button}>
-<button>{data[swiper].zakaz_b}</button>
+<button>Заказать</button>
 </div>
 </div>
 </div>
@@ -205,7 +180,7 @@ alt=""
     return <div className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
-<p>{item.title}</p>
+<p >{item.title}</p>
 </div>
 </div>
 
@@ -216,100 +191,46 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Блюда от поваров</h1>
 <div className={s.cards}>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b77ff6a04d10c1b8d1249dc60da936fb5ff81e0a/b77ff6a04d10c1b8d1249dc60da936fb5ff81e0a.jpg " alt="" />
-<div className={s.c_soz}>
-<p>Поздравить любимых</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/2649fdc8eb56e80bcf523218048bb0affabb4020/2649fdc8eb56e80bcf523218048bb0affabb4020.jpg" alt="" />
-<div className={s.c_soz}>
-<p>Обед и ужин</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e14e527bc3f09db87338dbbecfe33c994cb795f5/e14e527bc3f09db87338dbbecfe33c994cb795f5.jpg" alt="" />
-<div className={s.c_soz}>
-<p>Хватит на всех</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/16f150985ea7cf4d43ec517a76b4c35dd79d27f6/16f150985ea7cf4d43ec517a76b4c35dd79d27f6.jpg" alt="" />
-<div className={s.c_soz}>
-<p>Блюда и десерты</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/e2c3a105e28ddaa95f34e3697f6fef36f51614b5/e2c3a105e28ddaa95f34e3697f6fef36f51614b5.jpg" alt="" />
-<div className={s.c_soz}>
-<p>Приготовь сам</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/97b88a8a5979f6b643b98cd863511d5ef62b992f/97b88a8a5979f6b643b98cd863511d5ef62b992f.png" alt="" />
-<div className={s.c_soz}>
-<p>Быстрая доставка</p>
-</div>
-</div>
+  {oshpazdanTaom.map((item,key)=>{
+  return <div key={key} className={s.c}>
+  <img className={s.card_img} src={item.image} alt="" />
+  <div className={s.c_soz}>
+  <p>{item.title}</p>
+  </div>
+  </div>
+  })}
+
+
 </div>
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d3c61ecf6a924d2d2350d59f1135a15624663ff5/d3c61ecf6a924d2d2350d59f1135a15624663ff5.png" alt="" />
+{shirinliklar.map((item,key)=>{
+  return <div className={s.c}>
+<img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
-<p>Поздравить любимых</p>
+<p>{item.title}</p>
 </div>
 </div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d82a5900f749addeb331f33344ad58cfbbd3231e/d82a5900f749addeb331f33344ad58cfbbd3231e.png" alt="" />
-<div className={s.c_soz}>
-<p>Обед и ужин</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/19f54320dfa7b08c4fdb3243ec959c2804a73657/19f54320dfa7b08c4fdb3243ec959c2804a73657.png" alt="" />
-<div className={s.c_soz}>
-<p>Хватит на всех</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/792fc30f5d19c573afdb94a929ec7ba1e5c5c926/792fc30f5d19c573afdb94a929ec7ba1e5c5c926.png" alt="" />
-<div className={s.c_soz}>
-<p>Блюда и десерты</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/0ed1a3f5c8964e69e52493498722a729db2a7f82/0ed1a3f5c8964e69e52493498722a729db2a7f82.png" alt="" />
-<div className={s.c_soz}>
-<p>Приготовь сам</p>
-</div>
-</div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/d5b7c7133f1529324be79f43af2354ecb13e116d/d5b7c7133f1529324be79f43af2354ecb13e116d.png" alt="" />
-<div className={s.c_soz}>
-<p>Быстрая доставка</p>
-</div>
-</div>
+})}
+
+
 </div>
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/dd3f833cf4d66bcb802959720bda31fa6eafcb49/dd3f833cf4d66bcb802959720bda31fa6eafcb49.jpg" alt="" />
+  {soglom.map((item,key)=>{
+    return <div className={s.c}>
+<img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
-<p>Продукты от производителей</p>
+<p>{item.title}</p>
 </div>
 </div>
-<div className={s.c}>
-<img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/58d4bd30689df4da54e15e1d1f3a1c66001e3b2a/58d4bd30689df4da54e15e1d1f3a1c66001e3b2a.png" alt="" />
-<div className={s.c_soz}>
-<p>Продукты от фермеров</p>
-</div>
-</div>
+  })}
+
+
 
 </div>
 </div>

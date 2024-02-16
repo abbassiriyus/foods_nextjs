@@ -26,29 +26,58 @@
 .card{
     width: 24%;
     min-width: 150px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: white;
 }
 .card img{
     width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-
+.df{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.dff button{
+    background-color: #06c160;
+    height: 40px;
+    width: 120px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
 
 
 .d{
     width: 130px;
 }
-/* .card h2{
+.card h2{
     padding-left: 13px;
     font-family: 700 var(--fs24)/var(--lh24) 'Manrope',Arial,sans-serif,-apple-system;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
-.dff button{
+@media(max-width:800px){
+    .card h2{
+        font-size: 20px;
+    }
+}
+/* .dff button{
    padding: 10px;
     border-radius: 10px;
     background-color: #06c160;
     color: #fff;
     border: none;
     font-size: 18px;
-} */
+}  */
 .pakazat_btn{
     width: 100%;
     margin: auto;
@@ -69,6 +98,7 @@
 }
 .otziv{
     width: 100%;
+    margin: auto;
     max-width: 1200px;
     /* min-width: 300px; */
     margin: auto;
@@ -85,7 +115,7 @@
 }
 .img img{
     border-radius: 50% !important;
-    min-width: 60px;
+    width: 60px;
 }
 .img{
     gap: 15px;
