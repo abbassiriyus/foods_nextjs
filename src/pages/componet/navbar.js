@@ -226,7 +226,7 @@ function openmenu(){
 
 
 
-<div className={s.modal_gl}>
+{/* <div className={s.modal_gl}>
 
 <div className={s.form_gl}>
   <div className={s.button_close_gl}><AiOutlineClose /></div>
@@ -251,7 +251,7 @@ function openmenu(){
 
 </div>
 </div>
-</div>
+</div> */}
     </div>
   )
 }
