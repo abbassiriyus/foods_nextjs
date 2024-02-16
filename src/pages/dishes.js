@@ -1,6 +1,7 @@
 import React from 'react'
 import s from "../styles/dishes.module.css"
-import Footer from "../pages/Footer.js"
+import Footer from "../pages/componet/footer"
+import Navbar from '../pages/componet/navbar';
 import { FiPlus } from "react-icons/fi";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 export default function dishes() {
@@ -16,7 +17,7 @@ document.querySelector("#arrow_u").style = "display: none"
 }
 return (
 <div>
-
+<Navbar/>
 <div className={s.dishes}>
 <div className={s.dishes_button}>
 <div className={s.circle}><FiPlus /></div>

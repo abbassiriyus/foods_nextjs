@@ -3,7 +3,6 @@ import { FaArrowRight, FaArrowLeftLong } from "react-icons/fa6";
 import s from "../styles/ForCooks.module.css"
 import Image from 'next/image'
 import img12 from "../images/logo.svg"
-
 import img from "../images/logo.png"
 import img1 from "../images/rocket.png"
 import img2 from "../images/1.png"
@@ -23,7 +22,8 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import Navbar from '../pages/componet/navbar';
+import Footer from '../pages/componet/footer';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import axios from 'axios';
@@ -94,6 +94,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 
   return (
     <div>
+      <Navbar/>
     <header className={s.header12}>
     <div className={s.text1}>
         <p>Привет!</p>
@@ -487,6 +488,7 @@ document.querySelector("#eyes1").style="display:block"
               </div>
 
               </div> */}
+              <Footer/>
     </div>
   )
 }

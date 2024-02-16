@@ -4,7 +4,7 @@
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 50px;
     
 }
 
@@ -37,6 +37,7 @@
     width: 90%;
     margin-left: 5%;
     padding: 20px;
+    margin-bottom: 50px;
 }
 .storage_user{
     display: flex;

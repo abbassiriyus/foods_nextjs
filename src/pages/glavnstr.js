@@ -8,7 +8,8 @@ import img1 from "../images/woman.png"
 import Image from "next/image";
 import Swiper from "../pages/SwiperGl";
 import Swipergap from "../pages/Swipergap"
-import Footer from "./componet/footer.js"
+import Footer from "../pages/componet/footer"
+import Navbar from "../pages/componet/navbar";
 export default function glavnstr() {
 var [data, setData] = useState([
 {
@@ -93,6 +94,7 @@ setXopen(false);
 
 return (
 <div onClick={svgxclose}>
+    <Navbar/>
 <div className={s.header}>
 <div className={s.h_h1}>
 <h1>Привет!</h1>
@@ -356,7 +358,7 @@ alt=""
 </div>
 </div>
 
-<Footer></Footer>
+<Footer/>
 
 </div>
 );

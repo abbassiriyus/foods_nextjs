@@ -168,8 +168,9 @@ function openmenu(){
       {isOpen ? (<div className={s.navbar_mobile_menu}>
         <div onClick={()=>{setIsOpen(false)}} className={s.close}>x</div>
         <div className={s.openmenu}>
-       <p ><a href="#">Все блюда</a></p> <p><a href="#">Все повара</a></p>
-          <p><a href="#">Регистрация поваров</a> </p> <p  ><a style={{color:'#06c160'}} href="#">Стать поваром</a></p>
+       <p ><a href="/glavnstr">Все блюда</a></p> 
+       <p><a href="/pover">Все повара</a></p>
+          <p><a href="/forCooks">Регистрация поваров</a> </p> <p  ><a style={{color:'#06c160'}} href="#">Стать поваром</a></p>
 
           <div className={s.app}>
             <div className={s.tg}>
@@ -209,7 +210,7 @@ function openmenu(){
         </div>
         
       </div> 
-      <div className="bbbb" id='dddddd' style={{display:'block'}} >
+      <div className={s.bbbb} id='dddddd' style={{display:'block'}} >
       <div >
       
       </div>

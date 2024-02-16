@@ -11,6 +11,7 @@
     font-weight: 900;
     margin-bottom: 20px;
 }
+
 .cards{
     width: 100%;
     display: flex;
@@ -92,6 +93,7 @@
     margin: auto;
     background-color: #fff;
     border-radius: 20px;
+    margin-bottom: 40px;
     padding: 15px;
     background-color: white;
 }
@@ -273,6 +275,7 @@ width: 200px;
     justify-content: space-around;
     align-items: start;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 .qiz1{
     width: 50%;

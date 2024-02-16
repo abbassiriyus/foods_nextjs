@@ -13,6 +13,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import { GoChevronUp } from "react-icons/go";
+import Navbar from './componet/navbar';
+import Footer from '../pages/componet/footer';
 export default function pover() {
 
 function chiq1(){
@@ -50,6 +52,7 @@ function jimm22(){
 
   return (
     <div id='glava'>
+        <Navbar/>
     <div className={ss.glava}>
       {/* <button onClick={() =>push('/navbar')}>go home</button> */}
 <div className={ss.gap}>
@@ -193,6 +196,7 @@ function jimm22(){
   <div id='kichkina1' onClick={() => jimm2()}  className={ss.kota_kategoriya2}><p>Специализация <GoChevronUp className={ss.ukaz1}/></p></div> 
   <div id='kichkina2'  onClick={() => jimm22()}  className={ss.kota_kategoriya22}><p>Специализация <HiChevronDown className={ss.ukaz1}/></p></div>
 </div>
+<Footer/>
    </div>
    
   )

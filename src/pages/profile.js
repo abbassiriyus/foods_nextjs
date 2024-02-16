@@ -5,8 +5,9 @@ import { FaPen } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import Input_error from './componet/input_error';
 import Input_error2 from './componet/input_error2';
-import img from "../images/info-image.png"
-
+import img from "../images/info-image.png";
+import Navbar from '../pages/componet/navbar';
+import Footer from "../pages/componet/footer";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 export default function profil() {
@@ -14,6 +15,7 @@ export default function profil() {
   var [formc,setFormc]=useState(0)
   return (
     <div>
+      <Navbar/>
       <div className={s.line}>
         <div onClick={() => setPage(0)} className={s.line1}>
           <a style={page == 0 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Профиль</a>
@@ -154,7 +156,7 @@ document.querySelector("#eyes1").style="display:block"
 </div>
 </div>
 
-
+<Footer/>
 
 
     </div>

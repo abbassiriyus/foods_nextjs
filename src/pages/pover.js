@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import glavnstr from './glavnstr';
 import axios from 'axios';
 import Navbar from './componet/navbar';
+import Footer from '../pages/componet/footer';
 import { GoChevronUp } from "react-icons/go";
 import url from './host/config';
 export default function pover() {
@@ -237,6 +238,8 @@ return <div className={ss.povara}>
 
 </div>
 
-    </div></div>
+    </div>
+    <Footer/>
+    </div>
   )
 }
