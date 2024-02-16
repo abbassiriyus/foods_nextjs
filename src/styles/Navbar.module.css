@@ -64,6 +64,7 @@
     justify-content: center;
     box-shadow: 0px 0px 6px 0px gray;
     position: fixed;
+    z-index: 3132;
     left: 63%;
     display: none;
 }
@@ -227,6 +228,7 @@
 position: relative;
 top: 0px;
 left: 0px;
+z-index: 12312;
 z-index: 324234;
 padding-left: 15px;
 line-height: 28px;
@@ -264,63 +266,49 @@ line-height: 28px;
     font-size: 20px;
 }
 .onmous{
-    
-    width: 200px;
+    width: 210px;
     display: none;
     border-radius: 20px;
     position: absolute;
     top: 70px;
     left: 18%;
-    line-height: 35px;
     z-index: 12123;
     font-size: 18px;
     background-color: white;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    box-shadow: 0px 0px 3px 0px gray;
+    box-shadow: 0px 0px 1px 0px gray;
 }
 .onmous ul{
     width: 200px;
-    height: 400px;
-    padding: 15px;
+    max-height: 400px;
     list-style: none;
     overflow: scroll;
     overflow-x: hidden;
     color: black !important;
     text-decoration: none;
-    background-color: white;
+
+}
+.onmous ul li{
+    padding: 10px 10px;
+}
+.onmous ul li:hover{
+    scale: 1.01;
+    box-shadow: 0px 0px 1px gray;
 }
 .onmous ul li a{
-    /* text-decoration: none;
-    font-size: inherit;
-    color: black;
-    font-family: inherit;
-    line-height: inherit;
-    text-align: inherit; */
-
-
-    --link-color: currentColor;
-    --link-icon-color: var(--link-color);
-    --link-gap: 10px;
-    --link-hover-color: #06c160;
-    --link-hover-icon-color: var(--link-hover-color);
-    --link-selected-color: #06c160;
-    --link-selected-icon-color: var(--link-selected-color);
     padding: 0;
     border: 0;
     font-family: inherit;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 370;
-    line-height: inherit;
-    text-align: inherit;
-    background-color: transparent;
-    color: var(--link-color);
-    outline: 0!important;
+    color: rgb(54, 54, 54);
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
     -webkit-text-decoration-skip: objects;
     transition-property: opacity,border-bottom-color,color;
     cursor: pointer;
+   
 }
 .onmous a:hover{
     color: #06c160;
@@ -331,6 +319,7 @@ line-height: 28px;
     height: 100vh;
     display: flex;
     justify-content: center;
+    z-index: 123;
     align-items: center;
     background-color: #0000008b;
     position: absolute;
@@ -437,6 +426,7 @@ line-height: 28px;
     width: 100%;
     height: 100vh;
     position: absolute;
+    z-index: 312312;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.313);
@@ -611,4 +601,102 @@ line-height: 28px;
     .support a{
         line-height: 28px;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal_gl{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    background-color: rgba(0, 0, 0, 0.329);
+    z-index: 3244342;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_gl{
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+.button_close_gl{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.form_body_gl{
+    width: 90%;
+}
+.button_close_gl:hover{
+    animation-name: animatiob;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+.back_gl{
+    display:flex;
+    align-items: center;
+    color: #06c160;
+    gap: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.back_gl a{
+text-decoration: none;
+color: #06c160;
+border-bottom: 1px dashed;
+} 
+.input_phone_gl{
+    width: 100%;
+display: flex;
+align-items: center;
+border: 1px solid gray;
+justify-content: space-around;
+border-radius: 10px;
+margin-top: 15px;
+position: relative;
+left: 5%;
+}
+.input_phone_gl input{
+    width: 90%;
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 10px;
+
+}
+.line_gl{
+    width: 100%;
+    height: 2px ;
+    background-color: rgba(128, 128, 128, 0.534);
+    position: relative;
+    left: 5%;
+    margin-top: 20px;
+}
+@keyframes animatiob{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(180deg);}
 }

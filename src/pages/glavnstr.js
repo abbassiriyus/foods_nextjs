@@ -6,7 +6,9 @@ import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
-import Footer from "../pages/footer.js"
+import Swiper from "../pages/SwiperGl";
+import Swipergap from "../pages/Swipergap"
+import Footer from "./componet/footer.js"
 export default function glavnstr() {
 var [data, setData] = useState([
 {
