@@ -10,6 +10,8 @@ import Footer from "./componet/footer.js"
 import Navbar from "./componet/navbar";
 import axios from "axios";
 import url from "./host/config";
+import Swiper from "../pages/SwiperGl.js";
+import Swipergap from "../pages/Swipergap.js"
 export default function index() {
 var [data, setData] = useState([{}]);
 var [sizUchun,setSizUchun]=useState([])
@@ -36,31 +38,31 @@ console.log(swiper);
 }
 
 function getSizUchun() {
-  axios.get(`${url}/api/siz_uchun`).then(res=>{
-   setSizUchun(res.data)
-   axios.get(`${url}/api/oshpazdan_taom`).then(res1=>{
-    setOshpazdanTaom(res1.data)
-    axios.get(`${url}/api/shirinliklar`).then(res2=>{
-     setShirinliklar(res2.data)
-      axios.get(`${url}/api/soglom`).then(res3=>{
-      setSoglom(res3.data)
-      })
-    })
-   })
-   console.log(res.data);
-  }).catch(err=>{
+axios.get(`${url}/api/siz_uchun`).then(res=>{
+setSizUchun(res.data)
+axios.get(`${url}/api/oshpazdan_taom`).then(res1=>{
+setOshpazdanTaom(res1.data)
+axios.get(`${url}/api/shirinliklar`).then(res2=>{
+setShirinliklar(res2.data)
+axios.get(`${url}/api/soglom`).then(res3=>{
+setSoglom(res3.data)
+})
+})
+})
+console.log(res.data);
+}).catch(err=>{
 
-  })
+})
 }
 function getheaderCarousel(params) {
-  axios.get(`${url}/api/userprog/header`).then(res=>{
+axios.get(`${url}/api/userprog/header`).then(res=>{
 setData(res.data)
 console.log(res.data);
 
-  })
-  .catch(err=>{
-    console.log(err);
-  })
+})
+.catch(err=>{
+console.log(err);
+})
 }
 
 const [xopen, setXopen] = useState(false);
@@ -73,12 +75,12 @@ setXopen(false);
 }
 
 useEffect(()=>{
-  getSizUchun();
-  getheaderCarousel()
+getSizUchun();
+getheaderCarousel()
 },[])
 return (
 <div onClick={svgxclose}>
-  <Navbar/>
+<Navbar/>
 <div className={s.header} >
 <div className={s.h_h1} >
 <h1>Привет!</h1>
@@ -129,13 +131,13 @@ alt=""
 <div className={s.s_infa}>
 <p className={s.sotuvchi}>{data[swiper].name}</p>
 <div className={s.bal}>
-  {['','','','',''].map((item,key)=>{
-    if(key<data[swiper].mark){
-    return <FaStar className={s.star} /> 
-    }else{
-    return <FaStar className={s.star1} /> 
-    }
-  })}
+{['','','','',''].map((item,key)=>{
+if(key<data[swiper].mark){
+return <FaStar className={s.star} /> 
+}else{
+return <FaStar className={s.star1} /> 
+}
+})}
 <p className={s.bal2}>{data[swiper].mark}</p>
 <BiCommentDetail className={s.kometariy} />
 <p className={s.tets_123}>{data[swiper].mark_org}</p>
@@ -176,29 +178,29 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
-  {sizUchun.map((item,key)=>{
-    return <div className={s.c}>
+{sizUchun.map((item,key)=>{
+return <div className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p >{item.title}</p>
 </div>
 </div>
 
-  })}
+})}
 
 </div>
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Блюда от поваров</h1>
 <div className={s.cards}>
-  {oshpazdanTaom.map((item,key)=>{
-  return <div key={key} className={s.c}>
-  <img className={s.card_img} src={item.image} alt="" />
-  <div className={s.c_soz}>
-  <p>{item.title}</p>
-  </div>
-  </div>
-  })}
+{oshpazdanTaom.map((item,key)=>{
+return <div key={key} className={s.c}>
+<img className={s.card_img} src={item.image} alt="" />
+<div className={s.c_soz}>
+<p>{item.title}</p>
+</div>
+</div>
+})}
 
 
 </div>
@@ -207,7 +209,7 @@ alt=""
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
 {shirinliklar.map((item,key)=>{
-  return <div className={s.c}>
+return <div className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -221,37 +223,25 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
-  {soglom.map((item,key)=>{
-    return <div className={s.c}>
+{soglom.map((item,key)=>{
+return <div className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
 </div>
 </div>
-  })}
+})}
 
 
 
 </div>
 </div>
 
-{/* <div className={s.cardlar_katta}>
-<h1>ПОПУЛЯРНЫЕ БЛЮДА</h1>
-<div className={s.c_k}>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
-</div>
-</div> */}
+<Swiper/>
+<Swiper/>
+<Swiper/>
+
+<Swipergap/>
 
 
 <div className={s.qoshilish}>
