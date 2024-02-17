@@ -5,18 +5,63 @@ import { FaPen } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import Input_error from './componet/input_error';
 import Input_error2 from './componet/input_error2';
-import img from "../images/info-image.png";
-import Navbar from '../pages/componet/navbar';
-import Footer from "../pages/componet/footer";
+import img from "../images/info-image.png"
+import { BsPlusLg } from "react-icons/bs";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { IoDocumentOutline } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
+import { TbLocation } from "react-icons/tb";
+import { CiShare2 } from "react-icons/ci";
+import { GrClose } from "react-icons/gr";
+import { SlSocialVkontakte } from "react-icons/sl";
+import { FaOdnoklassniki } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { SlArrowDown } from "react-icons/sl";
+import { CiLocationArrow1 } from "react-icons/ci";
+import { CiCircleInfo } from "react-icons/ci";
+
+
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
+
+
+
+function jin1(){
+document.querySelector('#po').style =`top:0;`
+}
+function close(){
+  document.querySelector('#po').style =`top:-1110vh;  transition: .5s;`
+  }
+
+function ozgar(){
+  document.querySelector('#korm').style=`display:none;`
+  document.querySelector('#kok2').style=`display:block;`
+}
+function ozgar2(){
+  document.querySelector('#kok2').style=`display:none;`
+  document.querySelector('#korm').style=`display:block;`
+}
+
+function ikkj1(){
+  document.querySelector('#id1').style = `display: none;`
+  document.querySelector('#id2').style = `display: block;`
+}
+
+
   return (
-    <div>
-      <Navbar/>
-      <div className={s.line}>
+    <div className={s.kota}>
+      
+<div className={s.image_prosta}>
+  <Image src={img} alt="" />
+</div>
+<div className={s.l}>
+  <div className={s.lines}>
+<div className={s.line}>
         <div onClick={() => setPage(0)} className={s.line1}>
           <a style={page == 0 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Профиль</a>
         </div>
@@ -30,18 +75,20 @@ export default function profil() {
           <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Полезные материалы</a>
         </div>
       </div>
-<div className={s.image_prosta}>
-  <Image src={img} alt="" />
-</div>
+  </div>
+  
       <div className={s.main_profil}>
+        <div id='id1' className={s.li}>
+
+        
         <div className={s.storage_user}>
-          <div className={s.edit_account}><FaPen />  <span>Редактировать</span></div>
+          <div onClick={() => ikkj1()} className={s.edit_account}><FaPen />  <span>Редактировать</span></div>
           <div className={s.image_profil} >
-            <div className={s.account_img} style={{ background: 'url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png")', backgroundSize: 'cover' }} />
+            <div className={s.account_img} style={{ background: 'url("https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b.png")', backgroundSize: 'cover' }} />
             <div className={s.p_user}><span>Дата регистрации</span>
               <div>08 февраля 2024</div></div>
           </div>
-          <h1>
+          <h1 className={s.ht}>
             ABBAS</h1>
         </div>
         <div className={s.danix_contact}>
@@ -60,15 +107,36 @@ export default function profil() {
          </div>
          <div className={s.openmodal_button}>
        <div className={s.edit_account1}  onClick={()=>{setFormc(1);document.querySelector("#modal_page").style="display:flex"}}> Подтвердить номер телефона</div> 
-       <div className={s.edit_account1}  onClick={()=>{setFormc(0);document.querySelector("#modal_page").style="display:flex"}}>Изменить пароль</div> 
+       <div className={s.edit_account12}  onClick={()=>{setFormc(0);document.querySelector("#modal_page").style="display:flex"}}>Изменить пароль</div> 
          </div>
         </div>
 
-<div className={s.chiqish_button}><IoExitOutline  style={{paddingRight:'10px',fontSize:'40px'}} />
-<div>Выйти</div>
+<div className={s.chiqish_button}><IoExitOutline  style={{paddingRight:'10px',fontSize:'30px'}} />
+<div className={s.chiqish_gap}>Выйти</div>
+</div>
+</div>
+<div id='id2' className={s.li2}>
+<div className={s.hj}>
+<div className={s.hom1}>
+  <img src='https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b.png' alt="" />
+<div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
+</div>
+<div className={s.hom2}>
+  <h2>Как вас зовут ?</h2>
+  <div className={s.moi}>
+    <input className={s.in} type="text" placeholder='Фамилия и имя' />
+  </div>
+</div>
+<div className={s.hom3}>
+  <FaPen/>
+  <span>Отменить</span>
+</div>
+</div>
 </div>
 
       </div>
+</div>
+      
 
 
 <div className={s.modal_page} id='modal_page' >
@@ -156,8 +224,399 @@ document.querySelector("#eyes1").style="display:block"
 </div>
 </div>
 
-<Footer/>
+<div className={s.o_povere}>
+ 
+  <div id='korm' className={s.kok1}>
+ <div onClick={() => ozgar()} className={s.hamer}><h1 className={s.hammer2}>ДАННЫЕ ПОВАРА</h1> 
+ <div className={s.pon}>
+ <FaPen />
+   <span className={s.link}>Редактировать</span>
+ </div>
 
+ </div> 
+  <div className={s.daniy}>
+<div className={s.daniy1}>
+  <div className={s.ovqat}>
+ <span>На компанию</span>
+  </div>
+  <div className={s.ovqat}>
+ <span>На компанию</span>
+  </div>
+  <div className={s.ovqat}>
+ <span>На компанию</span>
+  </div>
+  <div className={s.ovqat}>
+ <span>На компанию</span>
+  </div>
+    <div className={s.ovqat}>
+ <span>На компанию</span>
+  </div>
+</div>
+<div className={s.daniy2}>
+  <div className={s.keof}>
+    <span className={s.ad}>Адрес</span>
+    <span> <TbLocation className={s.location}/> Тюмень, жилой комплекс Москва</span>
+  </div>
+  <div className={s.keof}>
+    <span className={s.ad}>Специализация</span>
+    <span> 
+        Домашний повар
+       </span>
+  </div>
+  <div className={s.keof}>
+    <span className={s.ad}>Сколько лет в деле</span>
+    <span>5 лет</span>
+  </div>
+  <div className={s.keof}>
+    <span className={s.ad}>Дата регистрации</span>
+    <span>13-02-2024</span>
+  </div>
+</div>
+  </div>
+  <div className={s.daniy3}>
+    <h1 className={s.g1}>О СЕБЕ</h1>
+    <div className={s.g2}>
+                  <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque nisi minima impedit earum odio officia, sequi asperiores quibusdam, deleniti veritatis illo quas distinctio repellendus ut adipisci facere! Id debitis cupiditate, quae ea magnam fuga eius. Illo totam nihil officia pariatur dolor cum perferendis quod, aut quia autem debitis, sapiente eaque.</span>
+    </div>
+    <div onClick={() => jin1()} className={s.g3}>
+    <CiShare2 className={s.share}/>
+    <h4 className={s.h4}>Поделиться</h4>
+    </div>
+    </div>
+  </div>
+<div id='kok2' className={s.kok2}>
+<div className={s.poni}>
+  <h1 className={s.su}>ДАННЫЕ ПОВАРА</h1>
+  <div onClick={() =>ozgar2()} className={s.do}> 
+  <FaPen/>
+      <span className={s.do1}> Отменить</span>
+  </div>
+</div>
+<div className={s.poni2}>
+  <div className={s.lom1}>
+    <span className={s.lom2}>Специализация</span>
+<div className={s.lom3}>
+  <span>qeveg</span>
+<div className={s.lom4}>
+<SlArrowDown />
+</div>
+</div>
+
+  </div>
+</div>
+<div className={s.poni3}>
+  <div className={s.miya1}>
+    <span>Категории блюд</span>
+  </div>
+  <div className={s.miya2}>
+    <div className={s.jin1}>
+
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Торты</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Пирожные</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Клубника в шоколаде</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Закуски и гастробоксы</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Все блюда</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Мёд</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>23 Февраля</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Заготовки и заморозка</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Продукты от фермеров</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Обед и ужин</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Что нового</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Пироги и выпечка</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Азиатская кухня</span>
+      </div>
+    </div>
+    <div className={s.jin1}>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Бенто торты</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Шоколад, конфеты, пряники</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Все десерты</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Полезное и здоровое</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Мясная гастрономия</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>На компанию</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Вторые блюда</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Продукты от изготовителей</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Вкусное и полезное</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Приготовим сегодня</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Салаты</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Русская кухня</span>
+      </div>
+      <div className={s.kateg}>
+        <input type="checkbox" className={s.talan}/> 
+        <span className={s.ssss}>Супы</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div className={s.poni4}>
+  <h1 className={s.o_sebe}>
+  О СЕБЕ
+  </h1>
+  <div className={s.inp_osebe}>
+    {/* <textarea className={s.inp} type="text" placeholder='Расскажите о себе*'/> */}
+    <textarea  className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
+  </div>
+  <div className={s.bus1}>
+    <div className={s.ponit}><span>Город</span></div>
+
+<div className={s.mb}>
+  <span>Абаза</span>
+  <SlArrowDown className={s.lom4}/>
+</div>
+  </div>
+  <div className={s.bus2}>
+    <div className={s.lime1}>
+    <CiLocationArrow1  className={s.arrow}/>
+    <input className={s.jiy} type="text" placeholder='Где Вы готовите*' />
+    <CiCircleInfo className={s.info}/>
+
+    </div>
+  </div>
+  <div className={s.bus3}>
+    <div className={s.nome}>
+      <input className={s.nome2} type="number" placeholder='С какого года в деле' />
+    </div>
+  </div>
+  <div className={s.bus4}>
+    <div className={s.car1}>
+      <p>Дата регистрации</p>
+      <p>13-02-2024</p>
+      <button>Сохранить данные</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id='po' className={s.podel}>
+  <div className={s.podelista}>
+    <div className={s.alfa}>
+      <span>Поделиться</span>
+      <GrClose onClick={() => close()} className={s.clone} />
+    </div>
+    <div className={s.betta}>
+      <div className={s.vk}><SlSocialVkontakte /></div>
+      <div className={s.odk}><FaOdnoklassniki /></div>
+      <div className={s.teleg}><FaTelegramPlane /></div>
+      <div className={s.wh}><FaWhatsapp /></div>
+    </div>
+    <div className={s.delta}></div>
+    <div className={s.gamma}>
+    <span className={s.spa}>Ссылка на изготовителя</span>
+    <div className={s.d}>
+      <div className={s.dom}>
+        <span>Lorem, ipsum dolor. </span>
+      </div>
+    </div>
+  </div>
+  <div className={s.eta}>
+    <span>Копировать ссылку</span>
+  </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div className={s.moya_kuxnya}>
+<h1 className={s.moy}>МОЯ КУХНЯ</h1>
+<div className={s.ramka}>
+  <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    <div className={s.mens}>
+    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+    </div>
+    
+  <div className={s.dob}>
+    <div className={s.plus}>
+    <BsPlusLg />
+    </div>
+    <h2 className={s.som111}>Добавить фото</h2>
+  </div>
+</div>
+</div>
+
+<div className={s.obshiy}>
+<div className={s.document}>
+  <h1 className={s.dock}>ДОКУМЕНТЫ</h1>
+  <div className={s.rem}>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+
+
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+  </div>
+  <div className={s.sas}>
+<span>Добавить</span>
+  </div>
+</div>
+<div className={s.lin}></div>
+<div className={s.document}>
+  <h1 className={s.dock}>ДИПЛОМЫ И СЕРТИФИКАТЫ</h1>
+  <div className={s.rem}>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+
+
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, similique provident velit saepe voluptatem nisi blanditiis reiciendis assumenda nobis voluptates!!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+    <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <IoMdClose className={s.close}/>
+    </div>
+
+  </div>
+  <div className={s.sas}>
+<span>Добавить</span>
+  </div>
+</div>
+</div>
 
     </div>
   );
