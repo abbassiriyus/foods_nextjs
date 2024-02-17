@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsFillBalloonHeartFill } from "react-icons/bs";
 import s from "../styles/foods.module.css"
 import { BsSortDown } from "react-icons/bs";
@@ -6,8 +6,23 @@ import Navbar from './componet/navbar';
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 import Card from "./componet/card"
+import url from './host/config';
+import axios from 'axios';
+import { IoMdClose } from "react-icons/io";
 export default function foods() {
+ var [data,setData]=useState([])
  
+function getData() {
+    axios.get(`${url}/api/category`).then(res=>{
+        setData(res.data)
+        console.log(res.data);
+    })
+}
+useEffect(()=>{
+getData()
+},[])
+
+
   return (
   
     <div>
@@ -16,12 +31,17 @@ export default function foods() {
    <div className={s.food_body}>
     <h1>ВСЕ БЛЮДА <sup>1000</sup></h1>
 <div className={s.actoon_page}>
-<ul className={s.actiocheck}>
+<ul id='filter' className={s.actiocheck}>
+    <div className={s.close} onClick={()=>{
+        document.querySelector('#filter').style="left:-100%"
+    }}><IoMdClose /></div>
 <h3>Все категории</h3>
 <div className={s.line}></div>
-<li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
-<li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
-<li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
+{data.map((item,key)=>{
+    return <li><input type="checkbox" name="" id="" /> {item.title} <sup>{item.count}</sup></li>
+})}
+
+
 </ul>
 <div className={s.body_card}>
     <div className={s.action_search}>

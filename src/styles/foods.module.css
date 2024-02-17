@@ -125,6 +125,22 @@ margin-bottom: 30px;
 .reyting h4{
     color: black;
 }
+.close{
+    position: absolute;
+    top:20px;
+    right:50px;
+    /* border: 1px solid; */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 23px;
+    background-color: #06c160;
+}
 @media(max-width:991px){
     .body_card{
         width: 100%;
@@ -132,8 +148,18 @@ margin-bottom: 30px;
     .actiocheck{
         width: 100%;
         border: none;
+        transition: 0.5s;
+        position: absolute;
+top: 0px;
+left: 0px;
+border-radius: 0px;
+min-height: 400px;
+    }
+    .close{
+        display: flex;
     }
 }
+
 .line{
     border-bottom: 1px solid rgba(0, 0, 0, 0.108);
     margin-right: 52px;
