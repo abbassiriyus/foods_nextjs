@@ -1,5 +1,5 @@
 .footer{
-width: 100%;
+width: 1380px;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -426,13 +426,12 @@ font-style: normal;
 }
 
 .footer2{
-width: 1450px;
+width: 1380px;
 display: flex;
 align-items: center;
 margin: auto;
 gap: 50px;
 margin-top: 50px;
-margin-bottom: 50px;
 }
 .f2_p{
 position: relative;
@@ -446,7 +445,6 @@ text-decoration: none;
 color: #06c160;
 font-weight: 500;
 }
-
 .a_href2{
 text-decoration: none;
 color: #06c160;
@@ -502,5 +500,4 @@ width: 100%;
 margin: auto;
 margin-top: 15px;
 }
-
 }

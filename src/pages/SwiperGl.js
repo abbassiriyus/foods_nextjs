@@ -94,7 +94,6 @@ return (
 <div className={swip.slider}>
 <div className={swip.wrapper} ref={wrapperRef}>
 {manga.map((mangaItem) => (
-
 <Card/>
 ))}
 </div>

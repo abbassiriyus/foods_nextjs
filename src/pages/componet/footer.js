@@ -6,7 +6,7 @@ import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa6";
 export default function footer() {
 return (
-<div>
+<div style={{marginBottom:'60px'}}>
 <div className={f.footer}>
 <div className={f.f_gap}>
 <h1>Повар на связи <span>— это сервис заказа блюд от проверенных домашних поваров и кондитеров.</span></h1><br />

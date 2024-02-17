@@ -722,7 +722,8 @@ align-items: center;
 } */
 
 .swiper1{
-width: 1380px;
+max-width: 1380px;
+width: 90%;
 margin: auto;
 margin-top: 40px;
 }
@@ -733,7 +734,8 @@ margin-bottom: 30px;
 }
 
 .swiper2{
-width: 1380px;
+max-width: 1380px;
+width: 90%;
 margin: auto;
 margin-top: 40px;
 }
@@ -744,7 +746,8 @@ margin-bottom: 30px;
 }
 
 .swiper3{
-width: 1380px;
+max-width: 1380px;
+width: 90%;
 margin: auto;
 margin-top: 40px;
 }
@@ -756,7 +759,8 @@ margin-bottom: 30px;
 
 
 .swipergap{
-width: 1380px;
+max-width: 1380px;
+width: 90%;
 margin: auto;
 margin-top: 40px;
 }
@@ -768,15 +772,112 @@ margin-bottom: 30px;
 
 
 .swiperprofil{
-width: 1380px;
+max-width: 1380px;
+width: 90%;
 margin: auto;
 margin-top: 40px;
+margin-bottom: 100px;
 }
 .swiperprofil h1{
 font-size: 35px;
 font-weight: 900;
+/* margin-bottom: 30px; */
+}
+
+@media(max-width:890px){
+.swiper1 h1{
+font-size: 30px;
+font-weight: 900;
 margin-bottom: 30px;
 }
+.swiper2 h1{
+font-size: 30px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiper3 h1{
+font-size: 30px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swipergap h1{
+font-size: 30px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiperprofil h1{
+font-size: 28px;
+font-weight: 900;
+/* margin-bottom: 30px; */
+}
+}
+@media(max-width:501px){
+.swiper1 h1{
+font-size: 25px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiper2 h1{
+font-size: 25px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiper3 h1{
+font-size: 25px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swipergap h1{
+font-size: 25px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiperprofil h1{
+font-size: 23px;
+font-weight: 900;
+/* margin-bottom: 30px; */
+}
+}
+@media(max-width:365px){
+.swiper1 h1{
+width: 90%;
+margin: auto;
+font-size: 22px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiper2 h1{
+width: 90%;
+margin: auto;
+font-size: 22px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiper3 h1{
+width: 90%;
+margin: auto;
+font-size: 22px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swipergap h1{
+width: 90%;
+margin: auto;
+font-size: 22px;
+font-weight: 900;
+margin-bottom: 30px;
+}
+.swiperprofil h1{
+width: 90%;
+margin: auto;
+font-size: 20px;
+font-weight: 900;
+/* margin-bottom: 30px; */
+}
+}
+
+
+
 
 
 
