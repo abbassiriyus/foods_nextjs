@@ -232,7 +232,8 @@ function openmenu(){
 
 <div className={s.form_gl}>
   <div className={s.button_close_gl} onClick={()=>{document.querySelector('#modal_gl').style="display:none"}}><AiOutlineClose /></div>
-  {page==0?(<div className={s.form_body_gl}>
+  {page==0?(
+  <div className={s.form_body_gl}>
 <h3>Вход на сайт</h3>
 <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
 <br />
@@ -260,7 +261,8 @@ function openmenu(){
 </div>
 </div>
 </div>
-):(<div className={s.form_body_gl}>
+):(pege==2?(
+<div className={s.form_body_gl}>
 <h3 >Регистрация</h3>
 <div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
 <br />
@@ -279,7 +281,33 @@ function openmenu(){
 
 </p>
 <button>Зарегистрироваться</button>
-</div>))}
+</div>
+
+):(page==3?(
+  <div className={s.form_body_gl}>
+  <h3>Вход на сайт</h3>
+  <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
+  <br />
+  <div className={s.input_phone_gl}>
+  <input value="+7" type="text" /><IoIosInformationCircleOutline />
+  </div>
+  
+  
+  <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
+  </div>
+):(
+  <div className={s.form_body_gl}>
+  <h3>Вход на сайт</h3>
+  <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
+  <br />
+  <div className={s.input_phone_gl}>
+  <input value="+7" type="text" /><IoIosInformationCircleOutline />
+  </div>
+  
+  
+  <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
+  </div>
+))))}
 
 
 </div>
