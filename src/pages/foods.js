@@ -28,10 +28,7 @@ export default function foods() {
     </div>
 <div className={s.link}>opa</div>
 <div className={s.cards}>
-<Card/>
-<Card/>
-<Card/>
-<Card/>
+
 
 </div>
 </div>

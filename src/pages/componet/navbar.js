@@ -239,7 +239,7 @@ function openmenu(){
 
 <div data-aos="fade-down"
      data-aos-easing="linear"
-     data-aos-duration="1500" className={s.form_gl}>
+     data-aos-duration="1500"  className={s.form_gl}>
 
   <div className={s.button_close_gl} onClick={()=>{document.querySelector('#modal_gl').style="display:none"}}><AiOutlineClose /></div>
   {page==0?(
