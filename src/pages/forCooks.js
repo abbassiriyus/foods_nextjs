@@ -32,7 +32,11 @@ import url from './host/config';
 
 export default function forCooks() {
   const tiltRef = useRef(null);
-  var [data, setData] = useState([{}])
+  var [data, setData] = useState([{
+    id: 1,
+image: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/dd3f833cf4d66bcb802959720bda31fa6eafcb49/dd3f833cf4d66bcb802959720bda31fa6eafcb49.jpg",
+title: "Ishlab chiqaruvchilarning mahsulotlari"
+  }])
   var [accordion_data,setAccordion_data]=useState([])
 
   var [page, setPage] = useState(0)
@@ -64,8 +68,10 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 
   function getData() {
     axios.get(`${url}/api/carousel_forcooks`).then(res=>{
+      console.log(res.data,"ADad");
       setData(res.data)
       axios.get(`${url}/api/vopros_atvet`).then(res1=>{
+        console.log(res1.data);
         setAccordion_data(res1.data)
       }).catch(err1=>{
         console.log("not geting");
