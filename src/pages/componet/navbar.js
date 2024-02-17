@@ -63,7 +63,7 @@ function openmenu(){
   function openbtn(){
     document.querySelector('#openbtn1').style=`display:flex`
   }
-  function yy(){
+  function close_modal(){
     document.querySelector('#openbtn1').style=`display:none`
     document.querySelector('#openbtn2_big').style=`display:none`
   }
@@ -116,9 +116,9 @@ function openmenu(){
       </div>
       </div>
 
-      <div id='openbtn1' className={s.openbtn1}>
+      <div id='openbtn1' style={{display:"none"}} className={s.openbtn1}>
         <div className={s.obtn}>
-           <h3 onClick={()=> yy()}>Укажите адрес доставки</h3>
+           <h3 onClick={()=> close_modal()}>Укажите адрес доставки</h3>
         <button onClick={()=> adres()}>Выбрать дом и улицу</button>
         </div>
        
@@ -127,7 +127,7 @@ function openmenu(){
       <div id='openbtn2_big' className={s.openbtn2_big} onClick={()=> openbtn2_big()}>
       <div id='openbtn2' className={s.openbtn2}>
         <div className={s.obtn2}>
-           <h3 onClick={()=> yy()}>Укажите адрес доставки</h3>
+           <h3 onClick={()=> close_modal()}>Укажите адрес доставки</h3>
         <button onClick={()=> adres()}>Выбрать дом и улицу</button>
         </div>
        

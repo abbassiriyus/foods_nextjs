@@ -1,0 +1,67 @@
+.router{
+    margin-left: 10%;
+    margin-top: 30px;
+    display: flex;
+}
+.router a{
+    padding-right: 20px;
+    display: flex;align-items: center;
+    align-items: center;
+    color: #06c160;
+}
+.router a:hover{
+    text-decoration: none;
+}
+.arrow{
+margin-right: 30px;
+}
+.food_body h1{
+margin-left: 10%;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+.actoon_page{
+    display: flex;
+    width: 98%;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    justify-content: center;
+    margin-top: 30px;
+    margin: auto;
+   
+}
+.actiocheck{
+    width: 25%;
+    min-width: 300px;
+    background-color: white;
+}
+.food_body h1 sup{
+    font-size: 20px;
+    color: grey;
+    font-weight: 300;
+}
+.body_card{
+    width: 70%;
+}
+.action_search{
+    display: grid;
+    grid-template-columns: 3fr auto;
+    background-color: #06c160;
+
+}
+.card_input{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 4fr;
+}
+.card_input input{
+    width: 90%;
+}
+@media(max-width:991px){
+    .body_card{
+        width: 100%;
+    } 
+    .actiocheck{
+        width: 100%;
+    }
+}
