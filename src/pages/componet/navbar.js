@@ -237,12 +237,13 @@ function openmenu(){
 <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
 <br />
 <div className={s.input_phone_gl}>
-<input type="text" /><IoIosInformationCircleOutline />
+<input value="+7" type="text" /><IoIosInformationCircleOutline />
 </div>
 
 
 <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
-</div>):(page==1?(<div className={s.form_body_gl}>
+</div>):(page==1?(
+<div className={s.form_body_gl}>
 <h3>Вход на сайт</h3>
 <div className={s.back_gl1}><span onClick={()=>setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
 <br />
@@ -258,7 +259,8 @@ function openmenu(){
 <RiKey2Fill className={s.fill_key}/><span>Напомнить пароль</span>
 </div>
 </div>
-</div>):(<div className={s.form_body_gl}>
+</div>
+):(<div className={s.form_body_gl}>
 <h3 >Регистрация</h3>
 <div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
 <br />
