@@ -20,7 +20,6 @@ var [swiper, setSwipper] = useState(0);
 var [oshpazdanTaom,setOshpazdanTaom]=useState([])
 var [shirinliklar,setShirinliklar]=useState([])
 var [soglom,setSoglom]=useState([])
-
 function plus() {
 if (swiper + 1 === data.length) {
 setSwipper(0);

@@ -13,7 +13,7 @@ import axios from 'axios';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import url from '../host/config';
 import { AiOutlineClose } from "react-icons/ai";
-
+import { RiKey2Fill } from "react-icons/ri";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
    var [data,setData]=useState([])
@@ -233,18 +233,18 @@ function openmenu(){
 <div className={s.form_gl}>
   <div className={s.button_close_gl} onClick={()=>{document.querySelector('#modal_gl').style="display:none"}}><AiOutlineClose /></div>
   {page==0?(<div className={s.form_body_gl}>
-<h3>Регистрация</h3>
-<div className={s.back_gl}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<h3>Вход на сайт</h3>
+<div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
 <br />
 <div className={s.input_phone_gl}>
 <input type="text" /><IoIosInformationCircleOutline />
 </div>
 
 
-<button>Зарегистрироваться</button>
+<button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
 </div>):(page==1?(<div className={s.form_body_gl}>
-<h3>Регистрация</h3>
-<div className={s.back_gl}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<h3>Вход на сайт</h3>
+<div className={s.back_gl1}><span onClick={()=>setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
 <br />
 <div className={s.input_phone_gl}>
 <input type="text" /><IoIosInformationCircleOutline />
@@ -252,10 +252,15 @@ function openmenu(){
 <div className={s.input_phone_gl}>
   <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
 </div>
-<button>Зарегистрироваться</button>
+<div className={s.key_btn}>
+<button style={{width:'30%'}} >Войти</button>
+<div className={s.rikey}>
+<RiKey2Fill className={s.fill_key}/><span>Напомнить пароль</span>
+</div>
+</div>
 </div>):(<div className={s.form_body_gl}>
 <h3 >Регистрация</h3>
-<div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><a > Я уже зарегистрирован</a></div>
+<div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
 <br />
 <div className={s.input_phone_gl}>
 <input type="text" /><IoIosInformationCircleOutline />
