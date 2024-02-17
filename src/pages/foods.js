@@ -3,6 +3,7 @@ import s from "../styles/foods.module.css"
 import Navbar from './componet/navbar'
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
+import Card from "./componet/card"
 export default function foods() {
   return (
     <div>
@@ -25,7 +26,14 @@ export default function foods() {
     </div>
     <button>Найти</button>
     </div>
+<div className={s.link}>opa</div>
+<div className={s.cards}>
+<Card/>
+<Card/>
+<Card/>
+<Card/>
 
+</div>
 </div>
 </div>
 
