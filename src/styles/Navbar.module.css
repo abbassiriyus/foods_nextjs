@@ -662,17 +662,38 @@ line-height: 28px;
     margin-top: 30px;
     cursor: pointer;
 }
-.back_gl a{
+.back_gl span{
 text-decoration: none;
 color: #06c160;
 border-bottom: 1px dashed;
 transition: 0.6s !important;
 
 } 
-.back_gl a:hover{
+.back_gl span:hover{
     border-bottom: 1px solid white;
     
 }
+.back_gl1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #06c160;
+    margin-top: 20px;
+    cursor: pointer;
+    position: relative;
+    left: 5%;
+}
+.back_gl1 span{
+    text-decoration: none;
+    color: #06c160;
+    border-bottom: 1px dashed;
+    transition: 0.6s !important;
+    
+    } 
+    .back_gl1 span:hover{
+        border-bottom: 1px solid white;
+        
+    }
 .input_phone_gl{
     width: 100%;
 display: flex;
@@ -693,6 +714,13 @@ left: 5%;
     outline: none;
     padding-left: 10px;
 
+}
+#phone_1{
+    border-bottom: 1px solid white;
+
+}
+#phone_1:hover{
+    color:#06c1609b;
 }
 .form_body_gl p{
     position: relative;
@@ -719,6 +747,9 @@ left: 5%;
     border-radius: 5px;
     font-size: 18px;
 }
+.form_body_gl h3{
+    margin-left: 5%;
+}
 .form_body_gl button:hover{
 background-color: white;
 color: #06c160;
@@ -726,7 +757,7 @@ border: 1px solid #06c160;
 }
 .line_gl{
     width: 100%;
-    height: 2px ;
+    height: 1px ;
     background-color: rgba(128, 128, 128, 0.534);
     position: relative;
     left: 5%;
@@ -735,4 +766,26 @@ border: 1px solid #06c160;
 @keyframes animatiob{
     0%{transform: rotate(0deg);}
     100%{transform: rotate(180deg);}
+}
+.key_btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+.fill_key{
+    font-size: 21px;
+    color: #06c160;
+}
+.rikey{
+    align-items: center;
+}
+.rikey span{
+    color: #06c160;
+    border-bottom: 1px dashed #06c160;
+    transition: 0.5s;
+}
+.rikey span:hover{
+    border-bottom: 1px solid white;
+    color: #06c16067;
 }
