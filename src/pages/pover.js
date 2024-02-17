@@ -23,22 +23,23 @@ export default function pover() {
   function getCategory() {
     axios.get(`${url}/api/category`).then(res=>{
      setCategory(res.data)
+     getPover()
      console.log(res.data);
     }).catch(err=>{
   
     })
   }
   var getPover=()=>{
-axios.get(`${url}/api/getpover`).then(res=>{
+axios.get(`${url}/api/getpovar`).then(res=>{
 setData(res.data)
-console.log(res.data);
+console.log(res.data,"Dad");
 }).catch(err=>{
 
 })
   }
   useEffect(()=>{
     getCategory()
-    getPover()
+   
   },[])
 function chiq1(){
  document.querySelector("#openModal").style=`left:0; top:0;`

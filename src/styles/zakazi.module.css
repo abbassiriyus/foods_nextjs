@@ -1,0 +1,87 @@
+.table{
+    width: 70%;
+    margin: auto;
+    height: auto;
+    box-shadow: 0px 0px 8px 0px gray;
+    line-height: 30px;
+    border-radius: 20px;
+}
+.table table .tr1{
+    width: 60%;
+    background-color: #0683421e;
+    height: 30px;
+    color: #777;
+}
+.table table tr th{ 
+   
+}
+.th_btn{
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    color: red;
+}
+.table table .tr2{
+    background-color: white;
+}
+.border{
+    border-top-left-radius: 10px;
+}
+.border1{
+    border-bottom-left-radius: 10px;
+}
+.borderRight{
+    border-top-right-radius: 10px;
+}
+.borderRight1{
+    border-bottom-right-radius: 10px;
+}
+
+/* for table2 */
+.table2{
+    width: 60%;
+    margin: auto;
+    line-height: 40px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+.table2_ichi{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.table2_ichi2{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    background-color: #0683421e;
+}
+.table2_ichi2 img{
+    height: 50px;
+    border-radius: 30px
+}
+.table2_ichi3{
+    width: 100%;
+    margin-top: 15px;
+    
+}
+.table2_ichi4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media(max-width:1353px){
+    .table{
+        display: none;
+    }
+    .table2{
+        display: block;
+    }
+    .table2_ichi3{
+        line-height: 20px;
+    }
+}
