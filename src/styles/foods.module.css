@@ -26,6 +26,7 @@ margin-bottom: 30px;
     flex-wrap: wrap;
     max-width: 1350px;
     justify-content: center;
+    align-items: start;
     margin-top: 30px;
     margin: auto;
    
@@ -38,6 +39,7 @@ margin-bottom: 30px;
     border-radius: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    align-items: center;
 }
 .food_body h1 sup{
     font-size: 20px;
@@ -50,16 +52,41 @@ margin-bottom: 30px;
 .action_search{
     display: grid;
     grid-template-columns: 3fr auto;
-    background-color: #06c160;
+    align-items: center;
 
 }
 .card_input{
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    height: 40px;
     display: grid;
+    background-color: white;
     grid-template-columns: auto 4fr;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    padding-left: 8px;
 }
 .card_input input{
     width: 90%;
+    border: none;
+    outline: none;
+    padding-left: 8px;
+}
+.action_search button{
+    padding: 10px 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #06c160;
+    transition: 2s;
+    font-weight: 900;
+}
+.action_search button:hover{
+    background-color: white;
+    color: #06c160;
+    border: 1px solid #06c160;
 }
 .cards{
     display: flex;
@@ -75,4 +102,21 @@ margin-bottom: 30px;
         width: 100%;
         border: none;
     }
+}
+.line{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.108);
+    margin-right: 52px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.actiocheck h3{
+    margin-top: 17px;
+}
+.actiocheck li{
+    list-style: none;
+}
+.actiocheck input{
+    width: 20px;
+    margin-right: 10px;
+    height:20px;
 }

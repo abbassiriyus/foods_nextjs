@@ -13,7 +13,8 @@ export default function foods() {
     <h1>ВСЕ БЛЮДА <sup>1000</sup></h1>
 <div className={s.actoon_page}>
 <ul className={s.actiocheck}>
-<h3>ВСЕ БЛЮДА1000</h3>
+<h3>Все категории</h3>
+<div className={s.line}></div>
 <li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
 <li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
 <li><input type="checkbox" name="" id="" /> torti <sup>1</sup></li>
@@ -22,12 +23,17 @@ export default function foods() {
     <div className={s.action_search}>
     <div className={s.card_input}>
      <CiSearch />
-    <input type="text" />
+    <input placeholder="Поиск по названию блюда" type="text" />
     </div>
     <button>Найти</button>
     </div>
-<div className={s.link}>opa</div>
+<div className={s.link}>
+  
+</div>
 <div className={s.cards}>
+<Card/>
+<Card/>
+<Card/>
 
 
 </div>
