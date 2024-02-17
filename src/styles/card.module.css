@@ -6,7 +6,7 @@
 }
 .card{
     /* background: red; */
-    width: 100%;
+    width: 80%;
     max-width: 400px;
     margin-bottom: 21px;
     
@@ -14,8 +14,8 @@
 .card_img{
     background: url(https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/128cb23f135a04ec85d8da6a7dbb1a1c01d09644/128cb23f135a04ec85d8da6a7dbb1a1c01d09644-wc800.jpeg);
     background-size: cover;
-    width: 100%;
-    min-height: 350px;
+    width: 80%;
+    min-height: 300px;
     border-top-left-radius: 21px;
     border-top-right-radius: 21px;
     align-items: center;
@@ -40,7 +40,7 @@
      padding-top: 7px;
 }
 .card_text{
-    width: 100%;
+    width: 80%;
     /* padding: 8px; */
     min-height: 180px;
     border-bottom-left-radius: 21px;

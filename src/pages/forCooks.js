@@ -494,7 +494,10 @@ document.querySelector("#eyes1").style="display:block"
               </div>
 
               </div> */}
-              <Footer/>
+<div className={s.footer_}>
+<Footer/>
+
+</div>
     </div>
   )
 }

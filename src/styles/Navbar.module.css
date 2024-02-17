@@ -666,7 +666,13 @@ line-height: 28px;
 text-decoration: none;
 color: #06c160;
 border-bottom: 1px dashed;
+transition: 0.6s !important;
+
 } 
+.back_gl a:hover{
+    border-bottom: 1px solid white;
+    
+}
 .input_phone_gl{
     width: 100%;
 display: flex;
@@ -715,7 +721,7 @@ left: 5%;
 }
 .form_body_gl button:hover{
 background-color: white;
-color: black;
+color: #06c160;
 border: 1px solid #06c160;
 }
 .line_gl{

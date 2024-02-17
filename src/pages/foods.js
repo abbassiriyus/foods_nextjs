@@ -182,7 +182,7 @@ function jimm22(){
 
 
 </div>
-<div className={ss.cards1}>
+<div className={ss.cards}>
 <Card />
 <Card/>
 <Card/>

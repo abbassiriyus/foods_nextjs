@@ -62,5 +62,6 @@ export default function card() {
     {/* <Script src="../path/to/script.js" /> */}
    </div>
 
+
   )
 }
