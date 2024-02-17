@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
 import { SlMenu } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane, FaWeight } from "react-icons/fa";
 import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
@@ -14,6 +14,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import url from '../host/config';
 import { AiOutlineClose } from "react-icons/ai";
 import { RiKey2Fill } from "react-icons/ri";
+import Aos from 'aos';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
    var [data,setData]=useState([])
@@ -30,6 +31,9 @@ export default function Navbar() {
 
   useEffect(()=>{getData()},[])
 
+  useEffect(() => {
+    Aos.init();
+  })
 
 function openmenu(){
     document.querySelector('#navbar_mobile_menu').style=``
@@ -228,9 +232,13 @@ function openmenu(){
 
 
 
-<div style={{display:'none'}} className={s.modal_gl} id="modal_gl">
+<div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500" style={{display:'none'}} className={s.modal_gl} id="modal_gl">
 
-<div className={s.form_gl}>
+<div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500" className={s.form_gl}>
   <div className={s.button_close_gl} onClick={()=>{document.querySelector('#modal_gl').style="display:none"}}><AiOutlineClose /></div>
   {page==0?(
   <div className={s.form_body_gl}>
@@ -256,12 +264,12 @@ function openmenu(){
 </div>
 <div className={s.key_btn}>
 <button style={{width:'30%'}} >Войти</button>
-<div className={s.rikey}>
-<RiKey2Fill className={s.fill_key}/><span>Напомнить пароль</span>
+<div onClick={()=>setPage(3)} className={s.rikey}>
+<RiKey2Fill className={s.fill_key}/><span style={{cursor:'pointer'}} >Напомнить пароль</span>
 </div>
 </div>
 </div>
-):(pege==2?(
+):(page==2?(
 <div className={s.form_body_gl}>
 <h3 >Регистрация</h3>
 <div className={s.back_gl}  onClick={()=>setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
@@ -285,8 +293,9 @@ function openmenu(){
 
 ):(page==3?(
   <div className={s.form_body_gl}>
-  <h3>Вход на сайт</h3>
-  <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
+  <h3>Напомнить пароль</h3>
+  <div onClick={()=>setPage(1)} style={{marginTop:'40px',marginLeft:'5%'}} className={s.back_gl}><FaArrowLeftLong /><span>Вернуться к авторизации</span> </div>
+  <p className={s.p_style}>Введите email, указанный при регистрации. Мы пришлем ссылку на изменение пароля</p>
   <br />
   <div className={s.input_phone_gl}>
   <input value="+7" type="text" /><IoIosInformationCircleOutline />

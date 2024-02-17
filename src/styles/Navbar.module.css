@@ -733,6 +733,15 @@ left: 5%;
     margin-bottom: 20px;
 
 }
+.p_style{
+    margin-right:50%;
+    color:black;
+    font-weight:100 !important;
+    margin-top:30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    
+}
 .form_body_gl p a{
     color: #06c160;
     list-style: none;
@@ -787,5 +796,4 @@ border: 1px solid #06c160;
 }
 .rikey span:hover{
     border-bottom: 1px solid white;
-    color: #06c16067;
 }
