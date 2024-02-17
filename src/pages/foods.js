@@ -4,11 +4,13 @@ import s from "../styles/foods.module.css"
 import { BsSortDown } from "react-icons/bs";
 import Navbar from './componet/navbar';
 import { CiSearch } from "react-icons/ci";
+import { LuArrowDownUp } from "react-icons/lu";
 import { IoIosArrowForward } from "react-icons/io";
 import Card from "./componet/card"
 import url from './host/config';
 import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
+import { BsSliders2 } from "react-icons/bs";
 export default function foods() {
  var [data,setData]=useState([])
  
@@ -30,10 +32,24 @@ getData()
     <div className={s.router}><a href="/">Главная <IoIosArrowForward className={s.arrow} /></a>Все блюда</div>    
    <div className={s.food_body}>
     <h1>ВСЕ БЛЮДА <sup>1000</sup></h1>
+    <div  className={s.filter_} onClick={()=>{
+        document.querySelector('#filter').style="left:0px"
+    }}>
+      <div className={s.oq}>
+      <button>По рейтингу</button>
+    <button></button>
+      </div>
+<div className={s.t_filter}>
+<div  className={s.bs_slider}><BsSliders2  /></div><h3>Фильтр</h3>
+</div>
+<div className={s.search_w}>
+<LuArrowDownUp /><h3>По новизне</h3>
+</div>
+    </div>
 <div className={s.actoon_page}>
 <ul id='filter' className={s.actiocheck}>
     <div className={s.close} onClick={()=>{
-        document.querySelector('#filter').style="left:-100%"
+        document.querySelector('#filter').style="left:-130%"
     }}><IoMdClose /></div>
 <h3>Все категории</h3>
 <div className={s.line}></div>
