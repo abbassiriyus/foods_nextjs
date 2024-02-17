@@ -874,6 +874,7 @@ margin-left: 5%;
 .accordion_title #plus_acc{
     font-size: 23px;
     color: #06c160 !important;
+    transition: 0.4s;
 }
 .accordion_title{
     display: flex;
@@ -886,6 +887,7 @@ margin-left: 5%;
 #hidden{
     font-weight: 300;
     margin-top: 11px;
+    transition: 0.5s;
 }
 .accordion{
     width: 45%;

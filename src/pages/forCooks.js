@@ -32,6 +32,7 @@ import url from './host/config';
 
 export default function forCooks() {
   const tiltRef = useRef(null);
+  var [accor_gr,setAccor_gl]=useState(-1)
   var [data, setData] = useState([{
     id: 1,
 image: "https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/dd3f833cf4d66bcb802959720bda31fa6eafcb49/dd3f833cf4d66bcb802959720bda31fa6eafcb49.jpg",
@@ -49,11 +50,15 @@ title: "Ishlab chiqaruvchilarning mahsulotlari"
   function SelectAc(key){
     console.log(key);
 for (let i = 0; i < accordion_data.length; i++) {
-if(key==i){
+if(key==i && key!=accor_gr){
+  setAccor_gl(i)
 document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
 document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06c160;"
 document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 }else{
+  if(key==accor_gr){
+    setAccor_gl(-1)
+  }
   document.querySelectorAll(".accordion_p")[i].style="height:0px;padding-bottom:0px;overflow: hidden"
   document.querySelectorAll(".plus")[i].style="transform: rotate(0deg);color: #06c160;"
   document.querySelectorAll(".title_accordion")[i].style="color: grey;"
