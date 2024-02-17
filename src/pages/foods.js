@@ -1,11 +1,15 @@
 import React from 'react'
+import { BsFillBalloonHeartFill } from "react-icons/bs";
 import s from "../styles/foods.module.css"
-import Navbar from './componet/navbar'
+import { BsSortDown } from "react-icons/bs";
+import Navbar from './componet/navbar';
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 import Card from "./componet/card"
 export default function foods() {
+ 
   return (
+  
     <div>
         <Navbar/>
     <div className={s.router}><a href="/">Главная <IoIosArrowForward className={s.arrow} /></a>Все блюда</div>    
@@ -28,7 +32,12 @@ export default function foods() {
     <button>Найти</button>
     </div>
 <div className={s.link}>
-  
+<div className={s.reyting}>
+<BsSortDown  className={s.toggle_fill} /><h4>По рейтингу</h4>
+</div>
+<h4>По возрастанию цены</h4>
+<h4>По убыванию цены</h4>
+<h4>По новизне</h4>
 </div>
 <div className={s.cards}>
 <Card/>
