@@ -3,9 +3,11 @@ import s from "../../styles/card.module.css"
 import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
-export default function card() {
+import axios from 'axios';
+import url from '../host/config';
+export default function card(props) {
+    
     const tiltRef = useRef(null);
-
     useEffect(() => {
       // VanillaTilt.js'i bileşenin montajı sırasında etkinleştirin
       if (tiltRef.current) {
@@ -17,7 +19,7 @@ export default function card() {
         });
       }
     }, []);
-  
+
   return (
   
 <div  className={s.cards}  >
@@ -27,7 +29,7 @@ export default function card() {
         </div>
         <div className={s.card_text}>
     <div class={s.card_text2}>
-        <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/3f90752ef464162ca8d883022a73c13d03a3c077/3f90752ef464162ca8d883022a73c13d03a3c077-wc200.jpeg" alt="" />
+        <img src={props.data.image} alt="" />
         <h3>Анна Казарцева</h3>
      <div class={s.comment}>
         <div class={s.star}>
@@ -43,11 +45,11 @@ export default function card() {
             <p>16</p>
         </div>
      </div>
-        <a href=""><h2>Гнезда с грибами</h2></a>
+        <a href=""><h2>{props.data.food_name}</h2></a>
         <div class={s.korzina}>
             <div class={s.price}>
-                <span>720 ₽</span>
-                <p>0,7 кг.</p>
+                <span>{props.data.price} ₽</span>
+                <p>{props.data.portion} кг.</p>
             </div>
             <button>В корзину</button>
         </div>
