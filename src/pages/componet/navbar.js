@@ -8,6 +8,7 @@ import { HiChevronDown } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
 import { MdClose } from "react-icons/md";
+import { IoCloseOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -65,7 +66,11 @@ function openmenu(){
     document.querySelector('#ikki').style=`color: #06c160;    `
   }
   function openbtn(){
+
     document.querySelector('#openbtn1').style=`display:flex`
+    document.querySelector('#openbtn2_big').style=`display:flex`
+
+  
   }
   function close_modal(){
     document.querySelector('#openbtn1').style=`display:none`
@@ -105,8 +110,9 @@ function openmenu(){
           <a href="/"><img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
         </div>
         <div className={s.navbar_line}>
-         <span id='aaa'><a href="/foods" onMouseEnter={()=> onmousenter1()}>Все блюда
-          </a><HiChevronDown style={{fontSize:'14px'}} /></span> 
+          <span id='aaa'><a href="/foods" onMouseEnter={()=> onmousenter1()}>Все блюда
+          </a>
+          <HiChevronDown style={{fontSize:'14px'}} /></span> 
            <a href="/pover">Все повара</a>
           <a href="/forCooks">Регистрация поваров</a> 
           <a style={{ color: '#06c160' }} onClick={()=>{document.querySelector("#modal_gl").style="display:flex";setPage(2)}}>Стать поваром</a>
@@ -120,23 +126,19 @@ function openmenu(){
       </div>
       </div>
 
+<div className={s.openbtn2_big} id='openbtn2_big' style={{display:"none"}} >
       <div id='openbtn1' style={{display:"none"}} className={s.openbtn1}>
+        <div className={s.button_close_gl1} onClick={()=>{
+          document.querySelector('#openbtn2_big').style="display:none"
+          document.querySelector('#openbtn1').style="display:none"
+
+        }} ><MdClose style={{fontSize:'30px'}} /></div>
         <div className={s.obtn}>
            <h3 onClick={()=> close_modal()}>Укажите адрес доставки</h3>
         <button onClick={()=> adres()}>Выбрать дом и улицу</button>
         </div>
-       
       </div>
-
-      <div id='openbtn2_big' className={s.openbtn2_big} onClick={()=> openbtn2_big()}>
-      <div id='openbtn2' className={s.openbtn2}>
-        <div className={s.obtn2}>
-           <h3 onClick={()=> close_modal()}>Укажите адрес доставки</h3>
-        <button onClick={()=> adres()}>Выбрать дом и улицу</button>
-        </div>
-       
-      </div>
-      </div>
+</div>
 
 
       <div id='openbtn_map' className={s.openbtn_map}>
@@ -170,12 +172,13 @@ function openmenu(){
       </div>
  
       {isOpen ? (<div className={s.navbar_mobile_menu}>
-        <div onClick={()=>{setIsOpen(false)}} className={s.close}>x</div>
+        <div onClick={()=>{setIsOpen(false)}} className={s.close}>
+        <MdClose style={{fontSize:'35px'}} />
+        </div>
         <div className={s.openmenu}>
        <p ><a href="/glavnstr">Все блюда</a></p> 
        <p><a href="/pover">Все повара</a></p>
           <p><a href="/forCooks">Регистрация поваров</a> </p> <p  ><a style={{color:'#06c160'}} href="#">Стать поваром</a></p>
-
           <div className={s.app}>
             <div className={s.tg}>
            <a href="#"><FaTelegramPlane /></a> 
