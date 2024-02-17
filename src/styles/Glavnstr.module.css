@@ -108,9 +108,12 @@ width: 80px;
 height: 80px;
 border-radius: 50%;
 cursor: pointer;
+border: 2px solid #e6f9ef;
+transition: .4s;
 }
 .prifil_foto:hover{
 border: 2px solid rgba(0, 188, 0, 0.936);
+scale: 1.01;
 }
 .nomi{
 width: 100%;
