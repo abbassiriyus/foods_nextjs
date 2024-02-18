@@ -255,7 +255,7 @@ function openmenu(){
 </div>
 
 
-<button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
+<button onClick={()=>setPage(5)} style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
 </div>):(page==1?(
 <div className={s.form_body_gl}>
 <h3>Вход на сайт</h3>
@@ -297,30 +297,43 @@ function openmenu(){
 </div>
 
 ):(page==3?(
-  <div className={s.form_body_gl}>
+  <div  className={s.form_body_gl2}>
   <h3>Напомнить пароль</h3>
-  <div onClick={()=>setPage(1)} style={{marginTop:'40px',marginLeft:'5%'}} className={s.back_gl}><FaArrowLeftLong /><span>Вернуться к авторизации</span> </div>
-  <p className={s.p_style}>Введите email, указанный при регистрации. Мы пришлем ссылку на изменение пароля</p>
+  <div onClick={()=>setPage(1)} style={{marginTop:'40px', marginBottom:'30px'}} className={s.back_gl}><FaArrowLeftLong /><span>Вернуться к авторизации</span> </div>
+ <p style={{textAlign:'center', textDecoration:'none',}}> Введите email, указанный при регистрации. Мы пришлем ссылку на изменение пароля</p>
   <br />
-  <div className={s.input_phone_gl}>
-  <input value="+7" type="text" /><IoIosInformationCircleOutline />
+  <div className={s.input_phone_gl2}>
+  <input placeholder='Email' type="text" /><IoIosInformationCircleOutline />
   </div>
   
   
-  <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
+  <button className={s.kod_o} onClick={()=>setPage(4)} >Отправить код</button>
+  </div>
+):(page==4?(
+  <div className={s.form_body_gl}>
+  <h3 style={{textAlign:'center'}}>Письмо отправлено</h3>
+  <div style={{marginTop:'10px',textAlign:'center'}} className={s.back_gl2}> На указанный email было отправлено письмо со ссылкой для смены пароля. </div>
+  <br />
+<center>  <button  onClick={()=>{document.querySelector('#modal_gl').style="display:none"}} style={{marginTop:'10px',width:'30%',height:'45px'}}>Ок</button></center>
   </div>
 ):(
-  <div className={s.form_body_gl}>
+  <div  className={s.form_body_gl}>
   <h3>Вход на сайт</h3>
   <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
   <br />
   <div className={s.input_phone_gl}>
   <input value="+7" type="text" /><IoIosInformationCircleOutline />
   </div>
-  
-  
+  <p style={{color:'black',width:'100%'}} className={s.strong_p}>На указанный номер поступит звонок. Введите последние <strong style={{color:'black'}}>4 цифры номера телефона</strong> , с которого был звонок</p>
+  <div className={s.input_phone_gl}>
+  <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
+</div>
   <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
+  <span>Отправить СМС на указанный номер</span>
+  
   </div>
+)
+
 ))))}
 
 

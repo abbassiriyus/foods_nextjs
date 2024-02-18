@@ -727,6 +727,16 @@ border-radius: 10px;
 margin-top: 15px;
 position: relative;
 left: 5%;
+padding-right: 20px;
+}
+.input_phone_gl2{
+    width: 100%;
+display: flex;
+align-items: center;
+border: 1px solid gray;
+justify-content: space-around;
+border-radius: 10px;
+margin-top: 15px;
 }
 .input_phone_gl input{
     width: 90%;
@@ -738,6 +748,18 @@ left: 5%;
     padding-left: 10px;
 
 }
+
+.input_phone_gl2 input{
+    width: 90%;
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 10px;
+
+}
+
 #phone_1{
     border-bottom: 1px solid white;
 
@@ -758,14 +780,24 @@ left: 5%;
 }
 .p_style{
     margin-right:50%;
-    color:black;
-    font-weight:100 !important;
-    margin-top:30px;
-
+    color:rgba(0, 0, 0, 0.651) !important;
+    margin-top:40px;
+font-weight:200 !important;
 }
 .form_body_gl p a{
     color: #06c160;
     list-style: none;
+}
+.kod_o{
+    width: 35%;
+    margin-top: 20px;
+    height: 40px;
+    margin-left: 7%;
+    background-color: #06c160;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
 }
 .form_body_gl button{
     width: 80%;
