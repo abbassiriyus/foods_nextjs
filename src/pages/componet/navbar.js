@@ -36,9 +36,6 @@ export default function Navbar() {
     Aos.init();
   })
 
-function openmenu(){
-    document.querySelector('#navbar_mobile_menu').style=``
-  }
 
   function onmousenter1(){
     document.querySelector('#onmouse').style=`display:block;`
@@ -50,9 +47,7 @@ function openmenu(){
   function yop(){
     document.querySelector('#navbar_modalbig').style=`display:none;`
   }
-  function och(){
-    document.querySelector('#navbar_modalbig').style=`display:flex;`
-  }
+ 
   function openModla (){ 
     document.querySelector("#none").style=`display:block`
     document.querySelector("#dddddd").style=`display:none`
@@ -84,11 +79,7 @@ function openmenu(){
     document.querySelector('#openbtn1').style=`display:none`
     document.querySelector('#openbtn2_big').style=`display:none`
   }
-  // function openbtn2_big(){
-  //   document.querySelector('#openbtn2_big').style
-  // }
-
-  function inpoch(){
+ function inpoch(){
     const a=document.querySelector('#inpoch').value
     if(a.length>0){
       document.querySelector('#inpoch_btn').style=`background-color:#06c160`
@@ -96,7 +87,40 @@ function openmenu(){
       document.querySelector('#inpoch_btn').style=`background-color:#efefef;`
     }
   }
-  const [isOpen2, setIsOpen2] = useState(false)
+
+  function crateNewUser() {
+    
+  }
+var [error_phone,setErrorphone]=useState("")
+function openPagePhone() {
+    var phone=document.querySelector('#openUserpage_phone')
+    var phone_error=document.querySelector('#error_phone')
+    if((phone.value).length<3){
+phone.style="border:1px solid red"
+phone_error.style="display:block"
+setErrorphone("номер телефона слишком маленький")
+  }else{
+    var data_send={
+      phone:phone.value
+    }
+    axios.post(`${url}/api/verify2`,data_send).then(res=>{
+axios.post(`${url}/api/verify`).then(res=>{
+console.log(res.data);
+setPage(5)
+}).catch(err=>{
+console.log(error);
+phone.style="border:1px solid red"
+phone_error.style="display:block"
+setErrorphone("Номер был введен неверно")
+})
+ }).catch(err=>{
+      phone.style="border:1px solid red"
+      phone_error.style="display:block"
+      setErrorphone("Вы не зарегистрированы")
+    })
+  }
+  }
+
   return (
     <div>
       <div className={s.navbar_big}>
@@ -251,7 +275,11 @@ function openmenu(){
 <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={()=>setPage(1)}>По паролю</span> </div>
 <br />
 <div className={s.input_phone_gl}>
-<input value="+7" type="text" /><IoIosInformationCircleOutline />
+<input id='openUserpage_phone' value="+7" type="text" />
+<div id='error_phone' style={{display:"none"}}>
+<Input_error/>
+<IoIosInformationCircleOutline  />
+</div>
 </div>
 
 
@@ -305,6 +333,7 @@ function openmenu(){
   <div className={s.input_phone_gl2}>
   <input placeholder='Email' type="text" /><IoIosInformationCircleOutline />
   </div>
+
   
   
   <button className={s.kod_o} onClick={()=>setPage(4)} >Отправить код</button>
@@ -315,6 +344,7 @@ function openmenu(){
   <div style={{marginTop:'10px',textAlign:'center'}} className={s.back_gl2}> На указанный email было отправлено письмо со ссылкой для смены пароля. </div>
   <br />
 <center>  <button  onClick={()=>{document.querySelector('#modal_gl').style="display:none"}} style={{marginTop:'10px',width:'30%',height:'45px'}}>Ок</button></center>
+
   </div>
 ):(
   <div  className={s.form_body_gl}>
@@ -324,10 +354,12 @@ function openmenu(){
   <div className={s.input_phone_gl}>
   <input value="+7" type="text" /><IoIosInformationCircleOutline />
   </div>
+
   <p style={{color:'black',width:'100%'}} className={s.strong_p}>На указанный номер поступит звонок. Введите последние <strong style={{color:'black'}}>4 цифры номера телефона</strong> , с которого был звонок</p>
   <div className={s.input_phone_gl}>
   <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
 </div>
+ashed changes
   <button style={{marginTop:'40px',width:'40%',height:'45px'}}>Отправить код</button>
   <span>Отправить СМС на указанный номер</span>
   

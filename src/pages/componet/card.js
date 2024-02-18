@@ -9,7 +9,6 @@ export default function card(props) {
     
     const tiltRef = useRef(null);
     useEffect(() => {
-      // VanillaTilt.js'i bileşenin montajı sırasında etkinleştirin
       if (tiltRef.current) {
         VanillaTilt.init(tiltRef.current, {
           max: 25,
