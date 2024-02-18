@@ -55,11 +55,15 @@ function ikkj1(){
 }
 
 useEffect(()=>{
-  setUser(JSON.parse(localStorage.getItem("user")))
+  var all_data=JSON.parse(localStorage.getItem("user"))
+  var date = new Date(all_data[0].time_update)
+  var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
+  all_data[0].date=formattedDate
+  setUser(all_data)
 },[])
-  return (<><Navbar/>
-    <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>
-      
+  return (<>
+  <Navbar/>
+    <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>  
 <div className={s.image_prosta}>
   <Image src={img} alt="" />
 </div>
@@ -88,15 +92,15 @@ useEffect(()=>{
 <>
 <div className={s.main_profil}>
         <div id='id1' className={s.li}>
-
-        
         <div className={s.storage_user}>
-          <div onClick={() => ikkj1()} className={s.edit_account}><FaPen />  <span>Редактировать</span></div>
+          <div onClick={() => ikkj1()} className={s.edit_account}><FaPen /> 
+           <span>Редактировать</span></div>
           <div className={s.image_profil} >
-            <div className={s.account_img} style={{background:`url(${user[0].image})`,backgroundSize: 'cover !important',
-    backgroundPosition: 'center !important'}} />
+            <div className={s.account_img} 
+            style={{background:`url(${user[0].image})`,backgroundSize:'cover !important',
+                  backgroundPosition:'center !important'}} />
             <div className={s.p_user}><span>Дата регистрации</span>
-              <div>08 февраля 2024</div></div>
+              <div>{user[0].date}</div></div>
           </div>
           <h1 className={s.ht}>
             {user[0].name?(user[0].name):(user[0].email)}</h1>
@@ -128,13 +132,15 @@ useEffect(()=>{
 <div id='id2' className={s.li2}>
 <div className={s.hj}>
 <div className={s.hom1}>
+  <div style={{position:'relative'}}>
+    <input type="file" name="" className={s.profil_img} id="" />
   <img src='https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b.png' alt="" />
-<div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
+</div><div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
 </div>
 <div className={s.hom2}>
   <h2>Как вас зовут ?</h2>
-  <div className={s.moi}>
-    <input className={s.in} type="text" placeholder='Фамилия и имя' />
+  <div onClick={()=>{document.querySelector('#id2').style="display:none"}} className={s.moi}>
+    <input className={s.in} defaultValue={user[0].name} type="text" placeholder='Фамилия и имя' />
   </div>
 </div>
 <div className={s.hom3}>
@@ -142,12 +148,25 @@ useEffect(()=>{
   <span>Отменить</span>
 </div>
 </div>
+<div className={s.line2}></div>
+
+<div className={s.registe_post}>
+<div className={s.profile_input1}>
+<h3>Телефон</h3>
+<input type="text" defaultValue={user[0].phone} />
+</div>
+<div className={s.profile_input1}>
+<h3>email</h3>
+<input placeholder='email' defaultValue={user[0].email} type="text" />
+</div>
+</div>
 </div>
 
       </div>
 <div className={s.modal_page} id='modal_page' >
 <div className={s.modal_form}>
-  <div className={s.close_x} onClick={()=>{document.querySelector("#modal_page").style="display:none"}}><IoCloseOutline /></div>
+  <div className={s.close_x}
+   onClick={()=>{document.querySelector("#modal_page").style="display:none"}}><IoCloseOutline /></div>
   {formc?(<div className={s.modal_head}>
     <h3 style={{maxWidth:'200px'}}>Подтвердите номер телефона</h3>
 <div className={s.input_phone} id='border2'>
