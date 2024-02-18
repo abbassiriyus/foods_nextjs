@@ -12,7 +12,8 @@ import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
 import { BsSliders2 } from "react-icons/bs";
 export default function foods() {
- var [data,setData]=useState([])
+var [data,setData]=useState([])
+var [glFoods,setGlFoods]=useState([])
  
 function getData() {
     axios.get(`${url}/api/category`).then(res=>{
@@ -22,9 +23,14 @@ function getData() {
 }
 useEffect(()=>{
 getData()
+getgeFoods()
 },[])
 
-
+function getgeFoods(){
+    axios.get(`${url}/api/foods`).then(res=>{
+    setGlFoods(res.data)
+    })
+    }
   return (
   
     <div>
@@ -76,9 +82,13 @@ getData()
 <h4>По новизне</h4>
 </div>
 <div className={s.cards}>
+{/* <Card/>
 <Card/>
-<Card/>
-<Card/>
+<Card/> */}
+{glFoods.map((mangaItem) => (
+  <Card data={mangaItem}/>
+))}
+
 
 
 </div>

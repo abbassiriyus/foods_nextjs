@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./componet/card";
 import swip from "../styles/SwiperGl.module.css";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
-const SwiperGl = () => {
+import axios from "axios";
+import url from "./host/config";
+const SwiperGl = (props)=> {
 const [currentSlide, setCurrentSlide] = useState(0);
+var [glFoods,setGlFoods]=useState([])
 const slidesToShow = 2;
 const manga = [
 {
@@ -86,17 +89,77 @@ if (currentSlide > 0) {
 showSlide(currentSlide - 1);
 }
 };
+function getgeFoods(){
+axios.get(`${url}/api/gl_foods`).then(res=>{
+setGlFoods(res.data)
+})
+}
+function getgeDesert(){
+axios.get(`${url}/api/gl_desert`).then(res=>{
+setGlFoods(res.data)
+})
+}
+function getgeProduct(){
+axios.get(`${url}/api/gl_product`).then(res=>{
+setGlFoods(res.data)
+})
+}
 const wrapperRef = React.createRef();
+useEffect(()=>{
+if(props.key1==1){
+getgeFoods()
+}else if(props.key1==2){
+getgeDesert()
+}else{
+getgeProduct()
+}
 
+setTimeout(() => {
+console.log(glFoods,"ovqat");
+}, 1000);
+
+},[])
 return (
 <div>
 {/* <Navbar/> */}
 <div className={swip.slider}>
 <div className={swip.wrapper} ref={wrapperRef}>
-{manga.map((mangaItem) => (
-
-<Card/>
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
 ))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+{glFoods.map((mangaItem) => (
+<Card data={mangaItem}/>
+))}
+
+
+
+
+
+
 </div>
 <div className={swip.button}>
 <p className={swip.prev} onClick={prevSlide}><IoIosArrowRoundBack /></p>

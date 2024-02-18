@@ -1,0 +1,91 @@
+.m_zakaz{
+width: 1300px;
+margin: auto;
+}
+.tablitsa{
+width: 100%;
+border: 1px solid #000;
+height: max-content;
+}
+.t1{
+width: 99.3%;
+height: 45px;
+display: flex;
+gap: 130px;
+align-items: center;
+color: gray;
+font-size: 14px;
+background-color: #89898938;
+padding-left: 10px;
+}
+.t2{
+width: 100%;
+display: flex;
+align-items: center;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+.profil{
+display: flex;
+align-items: center;
+}
+
+
+.m_i{
+display: flex;
+}
+
+.profil img{
+width: 40px;
+height: 40px;
+border-radius: 50%;
+}
+
+
+.mesto{
+width: 100px;
+height: 20px;
+overflow-y: scroll;
+}
+.t2 button{
+width: 130px;
+height: 25px;
+border: none;
+border-radius: 8px;
+color: #f06262;
+background-color: rgba(240, 98, 98, 0.05);
+margin-left: 90px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

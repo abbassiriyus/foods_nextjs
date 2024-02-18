@@ -20,11 +20,12 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { CiCircleInfo } from "react-icons/ci";
-
+import Footer from './componet/footer';
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import Navbar from './componet/navbar';
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
@@ -53,7 +54,7 @@ function ikkj1(){
 }
 
 
-  return (
+  return (<><Navbar/>
     <div className={s.kota}>
       
 <div className={s.image_prosta}>
@@ -137,8 +138,8 @@ function ikkj1(){
       </div>
 </div>
       
-
-
+{page==0?(
+<>
 <div className={s.modal_page} id='modal_page' >
 <div className={s.modal_form}>
   <div className={s.close_x} onClick={()=>{document.querySelector("#modal_page").style="display:none"}}><IoCloseOutline /></div>
@@ -488,16 +489,6 @@ document.querySelector("#eyes1").style="display:block"
   
 </div>
 
-
-
-
-
-
-
-
-
-
-
 <div className={s.moya_kuxnya}>
 <h1 className={s.moy}>МОЯ КУХНЯ</h1>
 <div className={s.ramka}>
@@ -617,7 +608,15 @@ document.querySelector("#eyes1").style="display:block"
   </div>
 </div>
 </div>
-
-    </div>
+</>
+):(
+page==1?(
+<></>
+):(page==2?(
+<></>
+):(
+<></>
+)))}
+    </div><Footer/></>
   );
 }

@@ -24,8 +24,8 @@ return (
 </div>
 <div className={pc.p_ism}>
 <h1>ТАТЬЯНА ИБРАГИМОВА</h1>
-<p>Домашний повар</p>
 </div>
+<p className={pc.ism_p}>Домашний повар</p>
 <div className={pc.vbr_blyud}>
 <p>Все блюда</p>
 <p>Обед и ужин</p>

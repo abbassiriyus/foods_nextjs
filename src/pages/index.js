@@ -20,6 +20,8 @@ var [swiper, setSwipper] = useState(0);
 var [oshpazdanTaom,setOshpazdanTaom]=useState([])
 var [shirinliklar,setShirinliklar]=useState([])
 var [soglom,setSoglom]=useState([])
+
+
 function plus() {
 if (swiper + 1 === data.length) {
 setSwipper(0);
@@ -74,10 +76,18 @@ function svgxclose() {
 setXopen(false);
 }
 
+
+
 useEffect(()=>{
 getSizUchun();
 getheaderCarousel()
+
 },[])
+
+
+
+
+
 return (
 <div onClick={svgxclose}>
 <Navbar/>
@@ -240,17 +250,17 @@ return <div className={s.c}>
 
 <div className={s.swiper1}>
 <h1>ПОПУЛЯРНЫЕ БЛЮДА</h1>
-<Swiper/>
+<Swiper key1="1" />
 </div>
 
 <div className={s.swiper2}>
 <h1>ПОПУЛЯРНЫЕ ДЕСЕРТЫ</h1>
-<Swiper/>
+<Swiper key1="2" />
 </div>
 
 <div className={s.swiper3}>
 <h1>ПОПУЛЯРНЫЕ ПРОДУКТЫ</h1>
-<Swiper/>
+<Swiper key1="3"/>
 </div>
 
 

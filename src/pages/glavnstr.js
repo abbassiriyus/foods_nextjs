@@ -94,7 +94,7 @@ setXopen(false);
 
 return (
 <div onClick={svgxclose}>
-    <Navbar/>
+<Navbar/>
 <div className={s.header}>
 <div className={s.h_h1}>
 <h1>Привет!</h1>
