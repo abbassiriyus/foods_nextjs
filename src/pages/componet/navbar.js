@@ -209,7 +209,10 @@ export default function Navbar() {
               <HiChevronDown style={{ fontSize: '14px' }} /></span>
             <a href="/pover">Все повара</a>
             <a href="/forCooks">Регистрация поваров</a>
-            <a style={{ color: '#06c160' }} onClick={() => { document.querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>
+    {user?(
+      <a href='/zakazi' style={{ color: '#06c160' }}>Мои заказы</a>
+       ):(
+       <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>)}
           </div>
           <div className={s.navbar_btn}>
             <button onClick={() => openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
@@ -217,11 +220,11 @@ export default function Navbar() {
           <div className={s.navbar_vxod}>
          
             {user?(
-            <div  className={s.account_img} style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
-              <div className={s.modal_chiqish}>
-                <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3>
+            <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
+              <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
+              <a href="/profile">  <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3></a>
                 <div className={s.line2}></div>
-                <h4 onClick={()=>{localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
+                <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
               </div>
             </div>
             ):(

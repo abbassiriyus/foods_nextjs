@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from "../styles/profile.module.css"
 import Image from 'next/image';
 import { FaPen } from "react-icons/fa";
@@ -30,7 +30,7 @@ import Navbar from './componet/navbar';
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
-
+var [user,setUser]=useState([{}])
 
 
 function jin1(){
@@ -54,7 +54,9 @@ function ikkj1(){
   document.querySelector('#id2').style = `display: block;`
 }
 
-
+useEffect(()=>{
+  setUser(JSON.parse(localStorage.getItem("user")))
+},[])
   return (<><Navbar/>
     <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>
       
@@ -91,23 +93,24 @@ function ikkj1(){
         <div className={s.storage_user}>
           <div onClick={() => ikkj1()} className={s.edit_account}><FaPen />  <span>Редактировать</span></div>
           <div className={s.image_profil} >
-            <div className={s.account_img} style={{ background: 'url("https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b.png")', backgroundSize: 'cover' }} />
+            <div className={s.account_img} style={{background:`url(${user[0].image})`,backgroundSize: 'cover !important',
+    backgroundPosition: 'center !important'}} />
             <div className={s.p_user}><span>Дата регистрации</span>
               <div>08 февраля 2024</div></div>
           </div>
           <h1 className={s.ht}>
-            ABBAS</h1>
+            {user[0].name?(user[0].name):(user[0].email)}</h1>
         </div>
         <div className={s.danix_contact}>
           <h1>ДАННЫЕ ДЛЯ ВХОДА</h1>
          <div className={s.conntact_input}>
          <div className={s.pageinput}>
          <p>Телефон</p>
-            <input type="text" value="+7 (902)  663-33-71" disabled /><MdErrorOutline className={s.icon_error} />
+            <input type="text" value={user[0].phone} disabled /><MdErrorOutline className={s.icon_error} />
           </div>
           <div className={s.pageinput}>
             <p>Email</p>
-            <input disabled value="webabbas9@gmail.com" type="text" />
+            <input disabled value={user[0].email} type="text" />
             
             <MdErrorOutline title='' className={s.icon_error} />
           </div>

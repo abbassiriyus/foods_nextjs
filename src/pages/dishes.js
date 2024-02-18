@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s from "../styles/dishes.module.css"
-import Footer from "../pages/componet/footer"
-import Navbar from '../pages/componet/navbar';
 import { FiPlus } from "react-icons/fi";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import axios from 'axios';
+import url from './host/config';
 export default function dishes() {
+    var [page,setPage]=useState(0)
+    var [data,setData]=useState([])
+
 function och(){
 document.querySelector("#werwe").style = "display: block;"
 document.querySelector("#arrow_d").style="display:none"
@@ -15,14 +18,27 @@ document.querySelector("#werwe").style = "display: none;"
 document.querySelector("#arrow_d").style = "display:block"
 document.querySelector("#arrow_u").style = "display: none"
 }
+
+function getData() {
+    axios(`${url}/api/category`).then(res=>{
+        setData(res.data)
+    }).catch(err=>{
+
+    })
+}
+useEffect(()=>{
+    getData()
+},[])
 return (
 <div>
 <div className={s.dishes}>
-<div className={s.dishes_button}>
+    {page==0?(
+<div onClick={()=>{setPage(1)}} className={s.dishes_button}>
 <div className={s.circle}><FiPlus /></div>
 <h5>Добавить блюдо</h5>
 </div>
-<div className={s.d_i}>
+    ):(
+<div className={s.d_i} >
 <h1>РЕДАКТИРОВАТЬ БЛЮДО</h1>
 <div className={s.dishes_inp}>
 <div className={s.inputlar1}>
@@ -32,32 +48,10 @@ return (
 <MdOutlineKeyboardArrowDown id='arrow_d' onClick={()=>{och()}} className={s.arrow_d} /> <MdOutlineKeyboardArrowUp id='arrow_u' className={s.arrow_u} onClick={()=>{yop()}} /><br />
 </div>
 <div className={s.inp1_sozlari} id="werwe">
-<p>Торты</p>
-<p>Бенто торты</p>
-<p>Пирожные</p>
-<p>Шокола, конфеты, пряники</p>
-<p>Клубника в шоколаде</p>
-<p>Все десерты</p>
-<p>Закуски и гастробоксы</p>
-<p>Полезное и здоровое</p>
-<p>Все блюда</p>
-<p>Мясная гастрономия</p>
-<p>Мёд</p>
-<p>На компанию</p>
-<p>Супы</p>
-<p>Салаты</p>
-<p>Азиатская кухня</p>
-<p>Русская кухня</p>
-<p>Пироги и выпески</p>
-<p>Второе блюда</p>
-<p>Что нового</p>
-<p>Приготовим сегодня</p>
-<p>Обед и ужин</p>
-<p>Вкусно и полезно</p>
-<p>Продукты от фермеров</p>
-<p>Продукты от изготовителей</p>
-<p>Заготовки и заморозки</p>
-<p>14 февраля</p>
+    {data.map((item,key)=>{
+return <p>{item.title}</p>
+    })}
+
 </div>
 </div>
 <input placeholder='Название блюда' className={s.inputlar_11} type="text" /><br />
@@ -95,6 +89,9 @@ return (
 </div>
 </div>
 </div>
+    )}
+
+
 </div>
 </div>
 )
