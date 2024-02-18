@@ -14,7 +14,17 @@ import { BsSliders2 } from "react-icons/bs";
 export default function foods() {
 var [data,setData]=useState([])
 var [glFoods,setGlFoods]=useState([])
- 
+ var[acor,setAcor] = useState(0)
+ function search1() {
+    if(acor==0 ){
+        setAcor(1)
+        document.querySelector('#oq1').style="display:block"
+    }
+    else{
+        setAcor(0)
+        document.querySelector('#oq1').style="display:none"
+    }
+ }
 function getData() {
     axios.get(`${url}/api/category`).then(res=>{
         setData(res.data)
@@ -38,17 +48,19 @@ function getgeFoods(){
     <div className={s.router}><a href="/">Главная <IoIosArrowForward className={s.arrow} /></a>Все блюда</div>    
    <div className={s.food_body}>
     <h1>ВСЕ БЛЮДА <sup>1000</sup></h1>
-    <div  className={s.filter_} onClick={()=>{
-        document.querySelector('#filter').style="left:0px"
-    }}>
-      <div className={s.oq}>
+    <div  className={s.filter_} >
+      <div id='oq1' className={s.oq}>
+      <button>По рейтингу</button><br />
+      <button>По рейтингу</button><br />
       <button>По рейтингу</button>
-    <button></button>
+      <button>По рейтингу</button>
       </div>
 <div className={s.t_filter}>
-<div  className={s.bs_slider}><BsSliders2  /></div><h3>Фильтр</h3>
+<div onClick={()=>{
+        document.querySelector('#filter').style="left:0px"
+    }}  className={s.bs_slider}><BsSliders2  /></div><h3>Фильтр</h3>
 </div>
-<div className={s.search_w}>
+<div  onClick={()=>{search1()}} className={s.search_w}>
 <LuArrowDownUp /><h3>По новизне</h3>
 </div>
     </div>

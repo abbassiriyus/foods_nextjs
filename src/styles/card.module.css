@@ -50,12 +50,14 @@
     /* box-shadow: rgba(84, 63, 63, 0.299) 0px 48px 100px 0px; */
     min-width: 300px;
     position: relative;
+    background-color: white;
 }
 .card_text img{
     width: 50px;
     border-radius: 50%;
     margin-top: -55px;
     border: 4px solid white;
+    background-color: white;
 }
 .card_text h3{
     color: #06c160;
