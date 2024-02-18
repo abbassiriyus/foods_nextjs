@@ -220,7 +220,8 @@ export default function Navbar() {
           <div className={s.navbar_vxod}>
          
             {user?(
-            <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
+            <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
+            style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
               <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
               <a href="/profile">  <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3></a>
                 <div className={s.line2}></div>
