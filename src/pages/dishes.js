@@ -17,7 +17,6 @@ document.querySelector("#arrow_u").style = "display: none"
 }
 return (
 <div>
-<Navbar/>
 <div className={s.dishes}>
 <div className={s.dishes_button}>
 <div className={s.circle}><FiPlus /></div>
@@ -97,8 +96,6 @@ return (
 </div>
 </div>
 </div>
-
-<Footer></Footer>
 </div>
 )
 }

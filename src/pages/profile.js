@@ -21,8 +21,9 @@ import { SlArrowDown } from "react-icons/sl";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { CiCircleInfo } from "react-icons/ci";
 import Footer from './componet/footer';
-
-
+import Chat from './chat';
+import Dishes from './dishes'; 
+import Useful from './useful';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import Navbar from './componet/navbar';
@@ -55,7 +56,7 @@ function ikkj1(){
 
 
   return (<><Navbar/>
-    <div className={s.kota}>
+    <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>
       
 <div className={s.image_prosta}>
   <Image src={img} alt="" />
@@ -78,7 +79,12 @@ function ikkj1(){
       </div>
   </div>
   
-      <div className={s.main_profil}>
+      
+</div>
+    
+{page==0?(
+<>
+<div className={s.main_profil}>
         <div id='id1' className={s.li}>
 
         
@@ -136,10 +142,6 @@ function ikkj1(){
 </div>
 
       </div>
-</div>
-      
-{page==0?(
-<>
 <div className={s.modal_page} id='modal_page' >
 <div className={s.modal_form}>
   <div className={s.close_x} onClick={()=>{document.querySelector("#modal_page").style="display:none"}}><IoCloseOutline /></div>
@@ -611,11 +613,17 @@ document.querySelector("#eyes1").style="display:block"
 </>
 ):(
 page==1?(
-<></>
+<>
+<Chat/>
+</>
 ):(page==2?(
-<></>
+<>
+<Dishes/>
+</>
 ):(
-<></>
+<>
+<Useful/>
+</>
 )))}
     </div><Footer/></>
   );

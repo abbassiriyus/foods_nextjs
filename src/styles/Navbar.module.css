@@ -850,3 +850,34 @@ border: 1px solid #06c160;
 .rikey span:hover{
     border-bottom: 1px solid white;
 }
+.account_img{
+    width: 40px;
+height: 40px;
+border-radius: 50%;
+background-size: cover;
+position: relative;
+}
+.modal_chiqish{
+    position: absolute;
+    top: 100%;
+    right: 40%;
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 150px;
+    min-height: 30px;
+   
+    z-index: 123;
+}
+.line2{
+    height: 1px;
+    background-color: grey;
+    width: 90%;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.account_img h4{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}

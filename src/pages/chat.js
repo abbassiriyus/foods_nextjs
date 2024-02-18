@@ -11,23 +11,6 @@ export default function chat() {
     }
   return (
     <div>
-        <div className={s.change_chat}>
-            <div className={s.change}>
-                <a href="#">Профиль</a>
-            </div>
-            <div className={s.change} style={{backgroundColor:'#06c160'}}>
-                <a href="#" style={{color:'white'}}>Чаты</a>
-            </div>
-            <div className={s.change}>
-                <a href="#">Мои блюда</a>
-            </div>
-            <div className={s.change2}>
-                <a href="#">Полезные материалы</a>
-            </div>
-        </div>
-
-
-
         <div className={s.chatting}>
         <div className={s.chatting_media}>
             <div className={s.chatting_media_df}>
@@ -49,7 +32,7 @@ export default function chat() {
             
             <div className={s.chatting2}>
                 <div id='chat_space' className={s.chat_space}>
-<p id='chat_p'>dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd</p>
+            <p id='chat_p'>dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd dhbcjd</p>
 
                 </div>
                 <div className={s.chat_inp}>
