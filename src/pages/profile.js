@@ -32,8 +32,8 @@ import url from './host/config';
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
-var [user,setUser]=useState([{}])
-
+var [user,setUser]=useState({})
+var [ish,setIsh]=useState([])
 
 function jin1(){
 document.querySelector('#po').style =`top:0;`
@@ -56,30 +56,30 @@ function ikkj1(){
   document.querySelector('#id2').style = `display: block;`
 }
 
-function postUserInfo() {
+function putUserInfo() {
   var send_data={
-   image:document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user[0].image,
+   image:document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user.image,
    name:document.querySelector('#name_1').value,
    phone:document.querySelector('#phone_1').value,
    email:document.querySelector('#email_1').value,
-   password:user[0].password
+   password:user.password
   }
-  axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+  axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
     setUser(res.data)
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
   })
 }
 
-function postUserphone() {
+function putUserphone() {
   var send_data={
-   image:user[0].image,
-   name:user[0].name,
+   image:user.image,
+   name:user.name,
    phone:document.querySelector('#phone_2').value,
-   email:user[0].email,
-   password:user[0].password
+   email:user.email,
+   password:user.password
   }
-  axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+  axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
     setUser(res.data)
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
@@ -90,15 +90,15 @@ function resetPasword() {
   var tpassword=document.querySelector('#password2')
   var npassword=document.querySelector('#password1')
 
-  if(user[0].password==tpassword.value){
+  if(user.password==tpassword.value){
     var send_data={
-      image:user[0].image,
-      name:user[0].name,
-      phone:user[0].phone,
-      email:user[0].email,
+      image:user.image,
+      name:user.name,
+      phone:user.phone,
+      email:user.email,
       password:npassword.value
      }
-     axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+     axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
        setUser(res.data)
        localStorage.setItem('user',JSON.stringify(res.data))
        document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
@@ -108,12 +108,58 @@ function resetPasword() {
   }
 }
 
-useEffect(()=>{
-  var all_data=JSON.parse(localStorage.getItem("user"))
-  var date = new Date(all_data[0].time_update)
+function getUsers() {
+  var a=JSON.parse(localStorage.getItem("user"))
+if(a){
+   axios.get(`${url}/api/users/${a[0].id}`).then(res=>{
+  var date = new Date(res.data.time_update)
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
-  all_data[0].date=formattedDate
-  setUser(all_data)
+  res.data.date=formattedDate
+  setUser(res.data)
+  }).catch(err=>{
+    // window.location='/'
+    console.log("bir");
+  })
+}else{
+  console.log("ikki");
+  window.location='/'
+}
+ 
+
+}
+
+function getIshYonalishi() {
+ axios.get(`${url}/api/ishyonalishi`).then(res=>{
+  setIsh(res.data)
+ })
+}
+
+function UpdateData() {
+  var data_all=document.querySelectorAll('#chackbox1')
+  var category=user.category
+for (let i = 0; i < data_all.length; i++) {
+if(data_all[i].checked){
+console.log(category[i].title);
+if(!category[i].category_id){
+  axios.post(`${url}/api/user_category`,{user_id:user.id,category_id:category[i].id})
+  }
+}else{
+  console.log(category);
+  if(category[i].category_id){
+  axios.delete(`${url}/api/user_category/${category[i].category_id}`)
+  }
+}
+}
+setTimeout(() => {
+getUsers()
+}, 1000);
+}
+
+
+
+useEffect(()=>{
+  getUsers()
+  getIshYonalishi()
 },[])
   return (
   <>
@@ -152,24 +198,24 @@ useEffect(()=>{
            <span>Редактировать</span></div>
           <div className={s.image_profil} >
             <div className={s.account_img} 
-            style={{background:`url(${user[0].image})`,backgroundSize:'cover !important',
+            style={{background:`url(${user.image})`,backgroundSize:'cover !important',
                   backgroundPosition:'center !important'}} />
             <div className={s.p_user}><span>Дата регистрации</span>
-              <div>{user[0].date}</div></div>
+              <div>{user.date}</div></div>
           </div>
           <h1 className={s.ht}>
-            {user[0].name?(user[0].name):(user[0].email)}</h1>
+            {user.name?(user.name):(user.email)}</h1>
         </div>
         <div className={s.danix_contact}>
           <h1>ДАННЫЕ ДЛЯ ВХОДА</h1>
          <div className={s.conntact_input}>
          <div className={s.pageinput}>
          <p>Телефон</p>
-            <input type="text" value={user[0].phone} disabled /><MdErrorOutline className={s.icon_error} />
+            <input type="text" value={user.phone} disabled /><MdErrorOutline className={s.icon_error} />
           </div>
           <div className={s.pageinput}>
             <p>Email</p>
-            <input disabled value={user[0].email} type="text" />
+            <input disabled value={user.email} type="text" />
             
             <MdErrorOutline title='' className={s.icon_error} />
           </div>
@@ -191,14 +237,14 @@ useEffect(()=>{
 <div className={s.hom1}>
   <div style={{position:'relative'}}>
     <input type="file" name="" className={s.profil_img} id="file_image" />
-  <img src={user[0].image} alt="" />
+  <img src={user.image} alt="" />
 </div><div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
 </div>
 <div className={s.hom2}>
   <h2>Как вас зовут ?</h2>
   <div className={s.moi}>
     <input className={s.in} 
-     defaultValue={user[0].name} id='name_1' type="text" placeholder='Фамилия и имя' />
+     defaultValue={user.name} id='name_1' type="text" placeholder='Фамилия и имя' />
   </div>
 </div>
 <div  onClick={()=>{ document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`}}  className={s.hom3}>
@@ -211,16 +257,16 @@ useEffect(()=>{
 <div className={s.registe_post}>
 <div className={s.profile_input1}>
 <h3>Телефон</h3>
-<input type="text" id='phone_1' defaultValue={user[0].phone} />
+<input type="text" id='phone_1' defaultValue={user.phone} />
 </div>
 <div className={s.profile_input1}>
 <h3>email</h3>
-<input placeholder='email' id='email_1' defaultValue={user[0].email} type="text" />
+<input placeholder='email' id='email_1' defaultValue={user.email} type="text" />
 </div>
 </div>
 <div className={s.line2}></div>
 <div style={{paddingBottom:'40px',paddingLeft:'40px'}} className={s.car1}>
-  <button onClick={()=>{postUserInfo()}} >Сохранить изменения</button>
+  <button onClick={()=>{putUserInfo()}} >Сохранить изменения</button>
 </div>
 </div>
 
@@ -249,7 +295,7 @@ useEffect(()=>{
   <MdErrorOutline title='' className={s.icon_error} />
 </div>
 </div>
-    <button onClick={()=>postUserphone()} >Подтвердить</button>
+    <button onClick={()=>putUserphone()} >Подтвердить</button>
   </div>):(<div className={s.modal_head}>
     <h3 style={{maxWidth:'200px'}}>Изменить пароль</h3>
 <div className={s.input_phone} id='border1'>
@@ -312,241 +358,144 @@ document.querySelector("#eyes1").style="display:block"
 </div>
 </div>
 
-<div className={s.o_povere}>
+
+{user.pover?(
+  <div className={s.o_povere}>
  
-  <div id='korm' className={s.kok1}>
- <div onClick={() => ozgar()} className={s.hamer}><h1 className={s.hammer2}>ДАННЫЕ ПОВАРА</h1> 
- <div className={s.pon}>
- <FaPen />
-   <span className={s.link}>Редактировать</span>
+ <div id='korm' className={s.kok1}>
+  <div onClick={() => ozgar()} className={s.hamer}><h1 className={s.hammer2}>ДАННЫЕ ПОВАРА</h1> 
+  <div className={s.pon}>
+  <FaPen />
+    <span className={s.link}>Редактировать</span>
+  </div>
+ 
+  </div> 
+   <div className={s.daniy}>
+ <div className={s.daniy1}> 
+ <div className={s.ovqat}  style={{background:"#06c16073",color:'white',border:'none'}}>
+ 
+  <span>На компанию</span>
+   </div>
+   {user.category.map(item=>{
+if(item.in_user){
+  return <div className={s.ovqat}>
+  <span>{item.title}</span>
+   </div>  
+}
+
+})}
+ 
  </div>
+ <div className={s.daniy2}>
+   <div className={s.keof}>
+     <span className={s.ad}>Адрес</span>
+     <span> <TbLocation className={s.location}/>{user.address}</span>
+   </div>
+   <div className={s.keof}>
+     <span className={s.ad}>Специализация</span>
+     <span> 
+         {user.pover.ish_yonalishi}
+     </span>
+   </div>
+   <div className={s.keof}>
+     <span className={s.ad}>Сколько лет в деле</span>
+     <span>{user.pover.expertise} лет</span>
+   </div>
+   <div className={s.keof}>
+     <span className={s.ad}>Дата регистрации</span>
+     <span>{user.time_create.slice(0,10)}</span>
+   </div>
+ </div>
+   </div>
+   <div className={s.daniy3}>
+     <h1 className={s.g1}>О СЕБЕ</h1>
+     <div className={s.g2}>
+                   <span>{user.pover.deskription}</span>
+     </div>
+     <div onClick={() => jin1()} className={s.g3}>
+     <CiShare2 className={s.share}/>
+     <h4 className={s.h4}>Поделиться</h4>
+     </div>
+     </div>
+   </div>
+ <div id='kok2' className={s.kok2}>
+ <div className={s.poni}>
+   <h1 className={s.su}>ДАННЫЕ ПОВАРА</h1>
+   <div onClick={() =>ozgar2()}  className={s.do}> 
+   <FaPen/>
+       <span className={s.do1}> Отменить</span>
+   </div>
+ </div>
+ <div className={s.poni2}>
+   <select name="" id="" defaultValue={user.pover.ish_yonalishi} className={s.select_data}>
+    {ish.map(item=>{
+    return  <option value={item.title}>{item.title}</option>
+    })} 
+   </select>
+ </div>
+ <div className={s.poni3}>
+   <div className={s.miya1}>
+     <span>Категории блюд</span>
+   </div>
+   <div className={s.miya2}>
+     <div className={s.jin1}>
+    {user.category.map((item,key)=>{
+      return <div className={s.kateg}>
+         <input type="checkbox" id='chackbox1' defaultChecked={item.in_user} className={s.talan}/> 
+         <span className={s.ssss}>{item.title}</span>
+       </div>
+    })}
+      
 
- </div> 
-  <div className={s.daniy}>
-<div className={s.daniy1}>
-  <div className={s.ovqat}>
- <span>На компанию</span>
-  </div>
-  <div className={s.ovqat}>
- <span>На компанию</span>
-  </div>
-  <div className={s.ovqat}>
- <span>На компанию</span>
-  </div>
-  <div className={s.ovqat}>
- <span>На компанию</span>
-  </div>
-    <div className={s.ovqat}>
- <span>На компанию</span>
-  </div>
-</div>
-<div className={s.daniy2}>
-  <div className={s.keof}>
-    <span className={s.ad}>Адрес</span>
-    <span> <TbLocation className={s.location}/> Тюмень, жилой комплекс Москва</span>
-  </div>
-  <div className={s.keof}>
-    <span className={s.ad}>Специализация</span>
-    <span> 
-        Домашний повар
-       </span>
-  </div>
-  <div className={s.keof}>
-    <span className={s.ad}>Сколько лет в деле</span>
-    <span>5 лет</span>
-  </div>
-  <div className={s.keof}>
-    <span className={s.ad}>Дата регистрации</span>
-    <span>13-02-2024</span>
-  </div>
-</div>
-  </div>
-  <div className={s.daniy3}>
-    <h1 className={s.g1}>О СЕБЕ</h1>
-    <div className={s.g2}>
-                  <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque nisi minima impedit earum odio officia, sequi asperiores quibusdam, deleniti veritatis illo quas distinctio repellendus ut adipisci facere! Id debitis cupiditate, quae ea magnam fuga eius. Illo totam nihil officia pariatur dolor cum perferendis quod, aut quia autem debitis, sapiente eaque.</span>
-    </div>
-    <div onClick={() => jin1()} className={s.g3}>
-    <CiShare2 className={s.share}/>
-    <h4 className={s.h4}>Поделиться</h4>
-    </div>
-    </div>
-  </div>
-<div id='kok2' className={s.kok2}>
-<div className={s.poni}>
-  <h1 className={s.su}>ДАННЫЕ ПОВАРА</h1>
-  <div onClick={() =>ozgar2()} className={s.do}> 
-  <FaPen/>
-      <span className={s.do1}> Отменить</span>
-  </div>
-</div>
-<div className={s.poni2}>
-  <div className={s.lom1}>
-    <span className={s.lom2}>Специализация</span>
-<div className={s.lom3}>
-  <span>qeveg</span>
-<div className={s.lom4}>
-<SlArrowDown />
-</div>
-</div>
+     </div>
+   </div>
+ </div>
+ <div className={s.poni4}>
+   <h1 className={s.o_sebe}>
+   О СЕБЕ
+   </h1>
+   <div className={s.inp_osebe} style={{overflow:'hidden'}} >
+     {/* <textarea className={s.inp} type="text" placeholder='Расскажите о себе*'/> */}
+     <textarea defaultValue={user.pover.deskription} className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
+   </div>
+   <div className={s.bus1}>
+     <div className={s.ponit}>
+      <span>Город</span>
+      </div>
+ 
+ <div className={s.mb}>
+  <select style={{width:'100%',background:'white',border:'none',outline:"none",fontSize:'20px'}} name="" id="">
+    <option value="">Абаза</option>
+  </select>
+   {/* <span>Абаза</span> */}
+   {/* <SlArrowDown className={s.lom4}/> */}
+ </div>
+   </div>
+   <div className={s.bus2}>
+     <div className={s.lime1}>
+     <CiLocationArrow1  className={s.arrow}/>
+     <input className={s.jiy} type="text" defaultValue={user.pover.is_prepared} placeholder='Где Вы готовите*' />
+     <CiCircleInfo className={s.info}/>
+ 
+     </div>
+   </div>
+   <div className={s.bus3}>
+     <div className={s.nome}>
+       <input defaultValue={user.pover.expertise} className={s.nome2} type="number" placeholder='Сколько лет в деле' />
+     </div>
+   </div>
+   <div className={s.bus4}>
+     <div className={s.car1}>
+       <p>Дата регистрации</p>
+       <p>{user.pover.time_create.slice(0,10)}</p>
+       <button onClick={()=>{UpdateData()}}>Сохранить данные</button>
+     </div>
+   </div>
+ </div>
+ </div>
+ </div>
+):(<></>)}
 
-  </div>
-</div>
-<div className={s.poni3}>
-  <div className={s.miya1}>
-    <span>Категории блюд</span>
-  </div>
-  <div className={s.miya2}>
-    <div className={s.jin1}>
-
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Торты</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Пирожные</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Клубника в шоколаде</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Закуски и гастробоксы</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Все блюда</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Мёд</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>23 Февраля</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Заготовки и заморозка</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Продукты от фермеров</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Обед и ужин</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Что нового</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Пироги и выпечка</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Азиатская кухня</span>
-      </div>
-    </div>
-    <div className={s.jin1}>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Бенто торты</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Шоколад, конфеты, пряники</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Все десерты</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Полезное и здоровое</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Мясная гастрономия</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>На компанию</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Вторые блюда</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Продукты от изготовителей</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Вкусное и полезное</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Приготовим сегодня</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Салаты</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Русская кухня</span>
-      </div>
-      <div className={s.kateg}>
-        <input type="checkbox" className={s.talan}/> 
-        <span className={s.ssss}>Супы</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div className={s.poni4}>
-  <h1 className={s.o_sebe}>
-  О СЕБЕ
-  </h1>
-  <div className={s.inp_osebe}>
-    {/* <textarea className={s.inp} type="text" placeholder='Расскажите о себе*'/> */}
-    <textarea  className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
-  </div>
-  <div className={s.bus1}>
-    <div className={s.ponit}><span>Город</span></div>
-
-<div className={s.mb}>
-  <span>Абаза</span>
-  <SlArrowDown className={s.lom4}/>
-</div>
-  </div>
-  <div className={s.bus2}>
-    <div className={s.lime1}>
-    <CiLocationArrow1  className={s.arrow}/>
-    <input className={s.jiy} type="text" placeholder='Где Вы готовите*' />
-    <CiCircleInfo className={s.info}/>
-
-    </div>
-  </div>
-  <div className={s.bus3}>
-    <div className={s.nome}>
-      <input className={s.nome2} type="number" placeholder='С какого года в деле' />
-    </div>
-  </div>
-  <div className={s.bus4}>
-    <div className={s.car1}>
-      <p>Дата регистрации</p>
-      <p>13-02-2024</p>
-      <button>Сохранить данные</button>
-    </div>
-  </div>
-</div>
-</div>
-</div>
 
 <div id='po' className={s.podel}>
   <div className={s.podelista}>

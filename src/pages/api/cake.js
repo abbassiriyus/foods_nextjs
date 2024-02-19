@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '../styles/cake.module.css'
+import s from '../../styles/cake.module.css'
 export default function cake() {
   return (
     <div>
