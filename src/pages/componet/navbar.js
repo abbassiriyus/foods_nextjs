@@ -4,7 +4,6 @@ import { SlMenu } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input_error from './input_error';
 import Input_error2 from './input_error2';
-
 import { FaTelegramPlane, FaWeight } from "react-icons/fa";
 import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
