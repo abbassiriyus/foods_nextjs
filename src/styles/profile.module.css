@@ -1243,12 +1243,12 @@ opacity: 0;
 
 
 .line2{
-width: 100%;
+width: 90%;
 margin: auto;
 height: 2px ;
 background-color: rgba(128, 128, 128, 0.466);
-margin-top: 20px;
-margin-bottom: 20px;
+margin-top: 40px;
+margin-bottom: 40px;
 }
 .profile_input1{
 width: 40%;

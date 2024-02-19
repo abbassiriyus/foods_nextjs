@@ -27,6 +27,8 @@ import Useful from './useful';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import Navbar from './componet/navbar';
+import axios from 'axios';
+import url from './host/config';
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
@@ -54,6 +56,58 @@ function ikkj1(){
   document.querySelector('#id2').style = `display: block;`
 }
 
+function postUserInfo() {
+  var send_data={
+   image:document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user[0].image,
+   name:document.querySelector('#name_1').value,
+   phone:document.querySelector('#phone_1').value,
+   email:document.querySelector('#email_1').value,
+   password:user[0].password
+  }
+  axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+    setUser(res.data)
+    localStorage.setItem('user',JSON.stringify(res.data))
+    document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
+  })
+}
+
+function postUserphone() {
+  var send_data={
+   image:user[0].image,
+   name:user[0].name,
+   phone:document.querySelector('#phone_2').value,
+   email:user[0].email,
+   password:user[0].password
+  }
+  axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+    setUser(res.data)
+    localStorage.setItem('user',JSON.stringify(res.data))
+    document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
+  })
+}
+
+function resetPasword() {
+  var tpassword=document.querySelector('#password2')
+  var npassword=document.querySelector('#password1')
+
+  if(user[0].password==tpassword.value){
+    var send_data={
+      image:user[0].image,
+      name:user[0].name,
+      phone:user[0].phone,
+      email:user[0].email,
+      password:npassword.value
+     }
+     axios.put(`${url}/api/users/${user[0].id}`,send_data).then(res=>{
+       setUser(res.data)
+       localStorage.setItem('user',JSON.stringify(res.data))
+       document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
+     })
+  }else{
+
+  }
+}
+
 useEffect(()=>{
   var all_data=JSON.parse(localStorage.getItem("user"))
   var date = new Date(all_data[0].time_update)
@@ -61,7 +115,8 @@ useEffect(()=>{
   all_data[0].date=formattedDate
   setUser(all_data)
 },[])
-  return (<>
+  return (
+  <>
   <Navbar/>
     <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>  
 <div className={s.image_prosta}>
@@ -120,30 +175,33 @@ useEffect(()=>{
           </div>
          </div>
          <div className={s.openmodal_button}>
-       <div className={s.edit_account1}  onClick={()=>{setFormc(1);document.querySelector("#modal_page").style="display:flex"}}> Подтвердить номер телефона</div> 
-       <div className={s.edit_account12}  onClick={()=>{setFormc(0);document.querySelector("#modal_page").style="display:flex"}}>Изменить пароль</div> 
+       <div className={s.edit_account1}  onClick={()=>{setFormc(1);
+        document.querySelector("#modal_page").style="display:flex"}}> Подтвердить номер телефона</div> 
+       <div className={s.edit_account12}  onClick={()=>{setFormc(0);
+        document.querySelector("#modal_page").style="display:flex"}}>Изменить пароль</div> 
          </div>
         </div>
 
 <div className={s.chiqish_button}><IoExitOutline  style={{paddingRight:'10px',fontSize:'30px'}} />
-<div className={s.chiqish_gap}>Выйти</div>
+<div className={s.chiqish_gap} onClick={()=>{localStorage.clear('user');localStorage.clear('token');window.location.reload()}} >Выйти</div>
 </div>
 </div>
 <div id='id2' className={s.li2}>
 <div className={s.hj}>
 <div className={s.hom1}>
   <div style={{position:'relative'}}>
-    <input type="file" name="" className={s.profil_img} id="" />
-  <img src='https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b/7fbb88ed3c8e207187b09e0b54a9ab12d707ad6b.png' alt="" />
+    <input type="file" name="" className={s.profil_img} id="file_image" />
+  <img src={user[0].image} alt="" />
 </div><div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
 </div>
 <div className={s.hom2}>
   <h2>Как вас зовут ?</h2>
-  <div onClick={()=>{document.querySelector('#id2').style="display:none"}} className={s.moi}>
-    <input className={s.in} defaultValue={user[0].name} type="text" placeholder='Фамилия и имя' />
+  <div className={s.moi}>
+    <input className={s.in} 
+     defaultValue={user[0].name} id='name_1' type="text" placeholder='Фамилия и имя' />
   </div>
 </div>
-<div className={s.hom3}>
+<div  onClick={()=>{ document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`}}  className={s.hom3}>
   <FaPen/>
   <span>Отменить</span>
 </div>
@@ -153,12 +211,16 @@ useEffect(()=>{
 <div className={s.registe_post}>
 <div className={s.profile_input1}>
 <h3>Телефон</h3>
-<input type="text" defaultValue={user[0].phone} />
+<input type="text" id='phone_1' defaultValue={user[0].phone} />
 </div>
 <div className={s.profile_input1}>
 <h3>email</h3>
-<input placeholder='email' defaultValue={user[0].email} type="text" />
+<input placeholder='email' id='email_1' defaultValue={user[0].email} type="text" />
 </div>
+</div>
+<div className={s.line2}></div>
+<div style={{paddingBottom:'40px',paddingLeft:'40px'}} className={s.car1}>
+  <button onClick={()=>{postUserInfo()}} >Сохранить изменения</button>
 </div>
 </div>
 
@@ -171,11 +233,12 @@ useEffect(()=>{
     <h3 style={{maxWidth:'200px'}}>Подтвердите номер телефона</h3>
 <div className={s.input_phone} id='border2'>
   <p>Телефон</p>
-  <input type="number"  onKeyUp={(e)=>{
+  <input type="number" id='phone_2' onKeyUp={(e)=>{
   if((e.target.value).length<1){
     document.querySelector('#error_parol2').style="z-index:1;position:relative"
     document.querySelector('#border2').style="border:1px solid rgba(255, 0, 0, 0.77)"
   }else{
+
     document.querySelector('#error_parol2').style="z-index:-1;position:relative"
     document.querySelector('#border2').style="border:1px solid gray"
   }
@@ -186,7 +249,7 @@ useEffect(()=>{
   <MdErrorOutline title='' className={s.icon_error} />
 </div>
 </div>
-    <button>Подтвердить</button>
+    <button onClick={()=>postUserphone()} >Подтвердить</button>
   </div>):(<div className={s.modal_head}>
     <h3 style={{maxWidth:'200px'}}>Изменить пароль</h3>
 <div className={s.input_phone} id='border1'>
@@ -199,7 +262,7 @@ useEffect(()=>{
     document.querySelector('#error_parol1').style="z-index:-1;position:relative"
     document.querySelector('#border1').style="border:1px solid gray"
   }
-  }} placeholder='Текущий пароль' />
+  }} placeholder='Текущий пароль'  />
       <IoEyeOutline onClick={()=>{
 document.querySelector("#password2").type="text"
 document.querySelector("#eyes12").style="display:none"
@@ -241,7 +304,7 @@ document.querySelector("#eyes1").style="display:block"
   <MdErrorOutline title='' className={s.icon_error} />
 </div>
 </div>
-    <button>Изменить пароль</button>
+    <button onClick={()=>{resetPasword()}}>Изменить пароль</button>
     
   </div>)}
   
