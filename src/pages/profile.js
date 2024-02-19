@@ -155,6 +155,23 @@ getUsers()
 }, 1000);
 }
 
+function sendcChefImage(file1) {
+  var a=JSON.parse(localStorage.getItem("user"))
+  var data=new FormData()
+  data.append("image",file1)
+  data.append("user_povar_id",a[0].id)
+
+  axios.post(`${url}/api/my_kitchen`,data).then(res=>{
+   getUsers() 
+  })
+    
+  }
+  function deleteKichen(id){
+axios.delete(`${url}/api/my_kitchen/${id}`).then(res=>{
+  alert("delete data")
+  getUsers()
+})
+  }
 
 
 useEffect(()=>{
@@ -524,40 +541,31 @@ if(item.in_user){
   </div>
   
 </div>
-
-<div className={s.moya_kuxnya}>
+{user.pover?(<div className={s.moya_kuxnya}>
 <h1 className={s.moy}>МОЯ КУХНЯ</h1>
 <div className={s.ramka}>
-  <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
+ 
+   
+  
+  
+   {user.kitchen.map(item=>{
+     return  <div className={s.mens}  style={{background:`url(${item.image})`}}>
+    <div className={s.musr}><RiDeleteBin6Line onClick={()=>{deleteKichen(item.id)}} className={s.mus}/></div>
     </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
-    <div className={s.mens}>
-    <div className={s.musr}><RiDeleteBin6Line className={s.mus}/></div>
-    </div>
+   })}
+  
+  
     
-  <div className={s.dob}>
+  <div className={s.dob} style={{position:'relative'}}>
+    <input onChange={(e)=>{sendcChefImage(e.target.files[0])}} type="file" className={s.fimeinput} />
     <div className={s.plus}>
     <BsPlusLg />
     </div>
     <h2 className={s.som111}>Добавить фото</h2>
   </div>
 </div>
-</div>
+</div>):(<></>)}
+
 
 <div className={s.obshiy}>
 <div className={s.document}>
