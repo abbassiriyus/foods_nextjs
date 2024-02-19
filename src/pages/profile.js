@@ -202,7 +202,7 @@ useEffect(()=>{
         </div>
       </div>
   </div>
-  x
+  
       
 </div>
     
@@ -571,44 +571,19 @@ if(item.in_user){
 <div className={s.document}>
   <h1 className={s.dock}>ДОКУМЕНТЫ</h1>
   <div className={s.rem}>
-    <div className={s.ram}>
+   
+{user.document.map(item=>{
+  return  <div className={s.ram}>
     <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <span className={s.lorem}>{item.}</span>
       <IoMdClose className={s.close}/>
     </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
+})}
+  
+ 
 
 
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
 
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
   </div>
   <div className={s.sas}>
 <span>Добавить</span>
