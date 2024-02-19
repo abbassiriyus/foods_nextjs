@@ -243,18 +243,26 @@
     gap: 10px;
    
 }
-
-
+.close img{
+    width: 10%;
+}
+.close{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
 .navbar_mobile_menu{
     height: 500px;
     background-color: white;
-position: relative;
+position: absolute;
 top: 0px;
+width: 100%;
 left: 0px;
 z-index: 12312;
 z-index: 324234;
 padding-left: 15px;
-line-height: 28px;
+line-height: 38px;
 
 }
 #aaa{
@@ -278,7 +286,7 @@ line-height: 28px;
     margin-bottom: 20px;
 }
 .apps img{
-    width: 100px;
+    width: 130px;
 }
 .apps{
     display: flex;
@@ -885,4 +893,13 @@ position: relative;
 .account_img a{
 text-decoration: none;
 color: black;
+}
+.centre_app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tg{
+    margin-left: 35%;
+    color: grey;
 }

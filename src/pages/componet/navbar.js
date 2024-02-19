@@ -4,7 +4,6 @@ import { SlMenu } from "react-icons/sl";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input_error from './input_error';
 import Input_error2 from './input_error2';
-
 import { FaTelegramPlane, FaWeight } from "react-icons/fa";
 import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
@@ -284,22 +283,29 @@ export default function Navbar() {
 
       {isOpen ? (<div className={s.navbar_mobile_menu}>
         <div onClick={() => { setIsOpen(false) }} className={s.close}>
-          <MdClose style={{ fontSize: '35px' }} />
+          <hr />
+          <MdClose style={{ fontSize: '35px',marginTop:'10px' }} />
+          <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
+          <span style={{fontSize:'17px'}}>Войти</span>
+          <hr />
         </div>
         <div className={s.openmenu}>
           <p ><a href="/glavnstr">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
           <p><a href="/forCooks">Регистрация поваров</a> </p> <p  ><a style={{ color: '#06c160' }} href="#">Стать поваром</a></p>
-          <div className={s.app}>
+          <hr />
+      <div className={s.centre_app}>
+      <div className={s.app}>
             <div className={s.tg}>
-              <a href="#"><FaTelegramPlane /></a>
-              <a href="#"><SiVk /></a>
+              <a href="#"><FaTelegramPlane style={{color:'gray',fontSize:'25px'}} /></a>
+              <a href="#"><SiVk style={{color:'gray',fontSize:'25px'}} /></a>
             </div>
             <div className={s.apps}>
               <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="img" /></a>
               <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="img" /></a>
             </div>
           </div>
+      </div>
         </div>
 
       </div>) : (<div >
@@ -374,7 +380,6 @@ export default function Navbar() {
                 <div className={s.line_gl}></div>
                 <p>
                   Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
-
                 </p>
                 <button>Зарегистрироваться</button>
               </div>

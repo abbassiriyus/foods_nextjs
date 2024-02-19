@@ -1,0 +1,131 @@
+.politics_page{
+    max-width: 1300px;
+    margin: auto;
+    width: 90%;
+    }
+    .politics_page .politics_body{
+    display: flex;    
+    position: relative;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+    .politics_page .politics_body .politics_text{
+    width: 62%;
+    /* background-color: red; */
+    }
+    .politics_page .politics_body .politics_text h2{
+    font-size: 40px;
+    letter-spacing: 0.4px;
+    font-weight: 900;
+    font-family: 'Manrope',Arial,sans-serif,-apple-system;
+    }
+    .politics_page .router_page{
+    display: flex;
+    gap:20px;
+    align-items: center;
+    }
+    .politics_page .image img{
+    height: 40px;
+    }
+    .politics_page .image{
+    display: flex;
+    gap: 10px;
+    }
+    .politics_body .rectangle{
+    width:32%;
+    background-color: #e4f8ed;
+    /* min-height: 600px; */
+    position: relative;
+    border-radius: 30px;
+    left: -100px;
+    padding: 20px;
+    z-index: -1;
+    padding-top: 40%;
+    }
+    .politics_body p{
+    width: 80%;
+    }
+    .asos_page{
+    position: relative;
+    top: 50px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    }
+    .image{
+    display: flex;
+    justify-content: center;
+    }
+    .politics_text a{
+    color: #06c160;
+    line-height:50px ;
+    text-decoration: none;
+    }
+    .politics_text p{
+    font-family: 'Manrope',Arial,sans-serif,-apple-system;
+    }
+    .email_contact p{
+    text-align: center;
+    flex-wrap: wrap;
+    }
+   .svyaz{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+   }
+    .email_contact{
+    text-align: center;
+    line-height: 30px;
+    margin-top: 64px;
+    }
+    .router_page a{
+    text-decoration: none;
+    }
+    .router_page{
+    text-align: center;
+    font-family: 'Manrope',Arial,sans-serif,-apple-system;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    }
+.asos_page p{
+    margin-left: 5%;
+    margin-bottom: 22px;
+}
+    @media(max-width:991px){
+        .politics_page .politics_body .politics_text{
+            width: 100%;
+        }
+        .politics_body .rectangle{
+            /* display: none; */
+    background-color: rgba(0, 255, 255, 0);
+    padding: 0px;
+    width: 100%;
+    /* background-color: rgba(255, 255, 255, 0); */
+    position: relative;
+    left: 0px;
+        }
+        .politics_body p{
+            width: 100%;
+        }
+        .politics_page .politics_body .politics_text h2{
+            font-size: 23px;
+        } 
+            .svyaz h5{
+        text-align: center;
+       
+     }
+     .email_contact span{
+        margin-bottom: 30px;
+     }
+    }
+     @media(max-width:500px){
+        .politics_page .politics_body .politics_text h2{
+            font-size: 18px;
+        }   
+        .link{
+            font-size: 10px;
+        }
+    }

@@ -1,0 +1,476 @@
+.cake1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    width: 90%;
+    margin: auto;
+    margin-top: 2%;
+}
+.cake p{
+    line-height: 30px;
+    font-weight: 300;
+}
+.green_back{
+    background-color:  rgb(222, 254, 235);
+    width: 60%;
+    min-width: 210px;
+    border-radius: 10px;
+    height: 33px;
+    padding: 4px;
+}
+.tort{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+}
+.share1{
+    color: #009749;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+.cake_img{
+    background:url(https://content2.flowwow-images.com/data/flowers/1000x1000/77/1698323128_28380677.jpg) ;
+    width: 25%;
+    background-size: 100% 100%;
+    height:370px;
+    border-radius: 22px;
+    padding: 15px;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+.cake h3{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.cake_desc{
+    width: 40%;
+    min-width: 300px;
+    min-height:  240px;
+    padding: 20px;
+    border-radius: 22px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.buy{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin:auto;
+    padding-left:10px ;
+    border-radius: 11px;
+    margin-top: 30px;
+    padding-right:10px ;
+    min-height: 74px;
+    background-color: #00974922;
+}
+.buy button{
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #009749;
+}
+.buy button:hover{
+    border: 1px solid #009749;
+    background-color: white;
+    color: #009749;
+}
+.cake span{
+    color: #009749;
+    border-bottom: 1px dashed #009749;
+    cursor: pointer;
+    transition: 1s;
+}
+.cake span:hover{
+    border-bottom: 1px solid white;
+}
+.info{
+    display: flex;
+    gap: 20px;
+}
+.info h4{
+    color: gray;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.trans_span{
+    transition: 2s;
+}
+.info p{
+    margin-bottom: 10px;
+}
+/* modal */
+
+.modal_ssilka{
+    background-color: rgba(0, 0, 0, 0.544);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    display: none;
+}
+.copy_ssilka{
+    background-color: white;
+    width: 25%;
+    border-radius: 10px;
+    height: 350px;
+    min-width: 350px;   
+}
+.ichi{
+    padding: 5%;
+    width: 90%;
+    margin: auto;
+    min-width: 210px;
+}
+.close1{
+    display: flex;
+    justify-content: space-between;
+
+}
+.sayt{
+    display: flex;
+    /* justify-content: space-around; */
+    gap:25px ;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.hr{
+    margin-bottom: 50px;
+    color: rgba(128, 128, 128, 0.358);
+}
+.vk{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background-color: blue;
+    color:white;
+    font-size: 25px;
+    border-radius: 50%;
+}
+.telegram{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background: cornflowerblue;
+    color:white;
+    font-size: 25px;
+    border-radius: 50%;
+}
+.whatsapp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background-color: #009749;
+    color:white;
+    font-size: 25px;
+    border-radius: 50%;
+}
+.instagram{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background-color: orangered;
+    color:white;
+    font-size: 25px;
+    border-radius: 50%;
+}
+.inp_value{
+    width: 90%;
+    height: 43px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.475);
+    padding-left: 20px;
+    color: rgb(63, 63, 63);
+    /* padding-right: 20px; */
+    /* font-size: 22px; */
+}
+.btns button{
+    padding: 10px 30px ;
+    border-radius: 8px;
+    border: none;
+    background-color: #009749;
+    color: white;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: 1s;
+}
+.btns button:hover{
+    border: 1px solid #009749;
+    background-color: white;
+    color: #009749;
+}
+.none{
+    display: none;
+}
+/* card */
+
+.cards{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    }
+    .card{
+    width: 320px;
+    min-height: 510px;
+    border-radius: 18px;
+    padding: 1%;
+    transition: .3s;
+    background-color: white;
+    margin-bottom: 20px;
+    }
+    .card:hover{
+    box-shadow: 0px 0px 5px gray;
+    }
+    .profil{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 10px;
+    }
+    .profil img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: .4s;
+    border: 2px solid rgba(255, 255, 255, 0);
+    cursor: pointer;
+    }
+    .profil img:hover{
+    border: 2px solid rgba(0, 188, 0, 0.936);
+    scale: 1.01;
+    }
+    
+    
+    .bal{
+    width: 80%;
+    }
+    
+    .p1 span{
+    color: #06c160;
+    }
+    .comment{
+    font-size: 12px;
+    }
+    
+    .star{
+    color: rgb(255, 255, 11);
+    }
+    .p3{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    }
+    
+    .location{
+    color: #06c160;
+    }
+    
+    
+    .p_ism{
+    width: 90%;
+    height: max-content;
+    margin: auto;
+    margin-bottom: 0px;
+    }
+    
+    .p_ism h1{
+    font-size: 20px;
+    margin-top: 20px;
+    }
+    
+    .ism_p{
+    width: 90%;
+    margin: auto;
+    font-size: 13px;
+    color: gray;
+    margin-top: 10px;
+    }
+    
+    .vbr_blyud{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 15px;
+    }
+    
+    .vbr_blyud p{
+    width: max-content;
+    height: max-content;
+    background-color: #06c160;
+    border-radius: 15px;
+    padding: 2%;
+    color: white;
+    font-size: 12px;
+    transition: .3s;
+    cursor: pointer;
+    }
+    .vbr_blyud p:hover{
+    background-color: #009749;
+    }
+    
+    .p_b{
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    margin: auto;
+    }
+    
+    .p_b button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #06c160;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: .3s;
+    cursor: pointer;
+    margin-bottom: 20px;
+    }
+    .p_b button:hover{
+    background-color: white;
+    border: 1px solid #06c160;
+    color: #06c160;
+    font-weight:500;
+    }
+    @media(max-width:365px){
+    .profil img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    transition: .4s;
+    cursor: pointer;
+    }
+    .card{
+    width: 300px;
+    min-height: 400px;
+    border-radius: 18px;
+    padding: 1%;
+    transition: .3s;
+    }
+    .p_ism{
+    width: 90%;
+    margin: auto;
+    height: max-content;
+    margin-bottom: 0px;
+    line-clamp: 0px;
+    }
+    .p_ism h1{
+    margin-left: 0px;
+    font-size: 17px;
+    }
+    .p_b{
+    width: 90%;
+    height: 170px;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    margin: auto;
+    }
+    }
+    @media(max-width:344px){
+    .profil img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    transition: .4s;
+    cursor: pointer;
+    }
+    .card{
+    width: 300px;
+    min-height: 400px;
+    border-radius: 18px;
+    padding: 1%;
+    transition: .3s;
+    }
+    .p_b{
+    width: 90%;
+    height: 170px;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    margin: auto;
+    }
+    }
+
+
+
+
+    /* comment */
+    .about_c{
+        width: 85%;
+        margin: auto;
+        min-height: 300px;
+        background-color: white;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        min-width: 300px;
+        padding: 3%;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+    .between{
+        display: flex;
+        gap: 20px;
+    }
+    .buyers{
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+    .buyers h4{
+        font-weight: 300;
+    }
+    .star_buyers{
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+ 
+    .name{
+        display: flex;
+        gap:10px;
+    }
+.star_buyers img{
+    width: 7%;
+    min-width: 50px;
+}
+.bento{
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.hr{
+    color: rgba(128, 128, 128, 0.379);
+}
