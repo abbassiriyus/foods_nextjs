@@ -1,6 +1,4 @@
-
 /* for chatting */
-
 .chatting{
     width: 100%;
     margin: auto;
@@ -8,11 +6,17 @@
     align-items: start;
     margin-top: 40px;
     flex-wrap: wrap;
+    /* gap: 35px; */
     /* background-color: white; */
 }
 .big{
     width: 25%;
     min-width: 300px;
+}
+.anna_chat{
+    height: 430px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 .chatting1{
     width: 300px;
@@ -20,10 +24,12 @@
     align-items: start;
     justify-content: center;
     gap: 10px;
-    background-color: #06c160;
+    background-color: white;
     padding: 15px;
-    border-top-left-radius: 13px;
-    border-bottom-left-radius: 13px;
+    color: #06c160;
+    /* border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px; */
+    /* margin-bottom: 10px; */
 }
 .chatting1 img{
     border-radius: 50%;
@@ -77,9 +83,9 @@
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.img_text{
+/* .img_text{
     color: #fff;
-}
+} */
 .img_text h4{
     font-size: 18px;
     font-family: inherit;
