@@ -5,7 +5,7 @@ import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
 import axios from 'axios';
 import url from '../host/config';
-export default function card(props) {
+export default function card( props,{id} ) {
     
     const tiltRef = useRef(null);
     useEffect(() => {
@@ -17,6 +17,7 @@ export default function card(props) {
           'max-glare': 0.5,
         });
       }
+      console.log(id);
     }, []);
 
   return (
@@ -24,6 +25,7 @@ export default function card(props) {
 <div  className={s.cards}  >
     <div className={s.card}  > 
         <div className={s.card_img}>
+        
             <h3>Заказ за 24 часа</h3>
         </div>
         <div className={s.card_text}>
