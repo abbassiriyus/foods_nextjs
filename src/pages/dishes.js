@@ -1,56 +1,79 @@
 import React, { useEffect, useState } from 'react'
 import s from "../styles/dishes.module.css"
+
+
 import { FiPlus } from "react-icons/fi";
+
+
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { TbPaperclip } from "react-icons/tb";
 import axios from 'axios';
 import url from './host/config';
+import Navbar from "../pages/componet/navbar"
+import Footer from "../pages/componet/footer"
 export default function dishes() {
-    var [page,setPage]=useState(0)
-    var [data,setData]=useState([])
+var [page,setPage]=useState(0)
+var [data,setData]=useState([])
 
-function och(){
-document.querySelector("#werwe").style = "display: block;"
-document.querySelector("#arrow_d").style="display:none"
-document.querySelector("#arrow_u").style="display:block"
-}
-function yop(){
-document.querySelector("#werwe").style = "display: none;"
-document.querySelector("#arrow_d").style = "display:block"
-document.querySelector("#arrow_u").style = "display: none"
-}
+// function och(){
+// document.querySelector("#werwe").style = "display: block;"
+// document.querySelector("#arrow_d").style="display:none"
+// document.querySelector("#arrow_u").style="display:block"
+// }
+
+
+// function yop(){
+// document.querySelector("#werwe").style = "display: none;"
+// document.querySelector("#arrow_d").style = "display:block"
+// document.querySelector("#arrow_u").style = "display: none"
+// }
+
+
 
 function getData() {
-    axios(`${url}/api/category`).then(res=>{
-        setData(res.data)
-    }).catch(err=>{
+axios(`${url}/api/category`).then(res=>{
+setData(res.data)
+}).catch(err=>{
 
-    })
+})
 }
 useEffect(()=>{
-    getData()
+
+
+
+getData()
 },[])
 return (
 <div>
+
+
+
+<Navbar/>
+
 <div className={s.dishes}>
-    {page==0?(
-<div onClick={()=>{setPage(1)}} className={s.dishes_button}>
+{page==0?(
+<div onClick={()=>{setPage(1)}} className={s.dishes_button} id='plus'>
 <div className={s.circle}><FiPlus /></div>
 <h5>Добавить блюдо</h5>
 </div>
-    ):(
-<div className={s.d_i} >
+):(
+<div className={s.d_i} id='inputlar'>
 <h1>РЕДАКТИРОВАТЬ БЛЮДО</h1>
+
+
 <div className={s.dishes_inp}>
 <div className={s.inputlar1}>
+
+
 <div className={s.input_s_dobavkoy}>
 <div className={s.in}>
 <input placeholder='Категория' className={s.inputlar_0} style={{border:'none',outline:'none'}} type="text" /> 
 <MdOutlineKeyboardArrowDown id='arrow_d' onClick={()=>{och()}} className={s.arrow_d} /> <MdOutlineKeyboardArrowUp id='arrow_u' className={s.arrow_u} onClick={()=>{yop()}} /><br />
 </div>
 <div className={s.inp1_sozlari} id="werwe">
-    {data.map((item,key)=>{
+{data.map((item,key)=>{
 return <p>{item.title}</p>
-    })}
+})}
 
 </div>
 </div>
@@ -88,11 +111,27 @@ return <p>{item.title}</p>
 </div>
 </div>
 </div>
+
+
+<div className={s.inp_x}>
+<div className={s.i_g}>
+<p><TbPaperclip /></p><a href="#">Рекомендуем форматы: jpeg, png, не более 10 файлов</a>
 </div>
-    )}
+<div className={s.bb}>
+<button className={s.b1}>Добавить</button>
+<button className={s.b2} onClick={()=>setPage(0)}>Назад</button>
+</div>
+</div>
+
+</div>
+
+)}
+
+
 
 
 </div>
+<Footer/>
 </div>
 )
 }
