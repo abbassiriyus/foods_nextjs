@@ -18,18 +18,21 @@ export default function card(props) {
         });
       }
     }, []);
-
+function card1() {
+   localStorage.setItem('one',JSON.stringify(props.data))
+   window.location='/menu_detail' 
+}
   return (
   
 <div  className={s.cards}  >
-    <div className={s.card}  > 
-        <div className={s.card_img}>
+    <div className={s.card} onClick={()=>{card1()}} > 
+        <div style={{background:`url(${props.data.image})`,backgroundSize:'cover'}} className={s.card_img}>
             <h3>Заказ за 24 часа</h3>
         </div>
         <div className={s.card_text}>
     <div class={s.card_text2}>
-        <img src={props.data.image} alt="" />
-        <h3>Анна Казарцева</h3>
+        <img src={props.data.user_image} alt="" />
+        <h3>{props.data.username} {props.data.name}</h3>
      <div class={s.comment}>
         <div class={s.star}>
             <PiStarFill />
@@ -38,10 +41,10 @@ export default function card(props) {
             <PiStarFill />
             <PiStarFill />
         </div>
-        <p>5.0</p>
+        <p>{props.data.mark}</p>
         <div class={s.message}>
         <RiMessage2Line />
-            <p>16</p>
+            <p>{props.data.mark_org}</p>
         </div>
      </div>
         <a href=""><h2>{props.data.food_name}</h2></a>
@@ -55,7 +58,7 @@ export default function card(props) {
 
         <div class={s.star2}>
             <PiStarFill />
-            <p>5.0</p>
+            <p>{props.data.mark}</p>
         </div>
     </div>
         </div>

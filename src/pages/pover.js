@@ -19,6 +19,7 @@ import url from './host/config';
 export default function pover() {
 
   var [data,setData]=useState([])
+  var [ish,setIsh]=useState([])
   var [Category,setCategory]=useState([])
   function getCategory() {
     axios.get(`${url}/api/category`).then(res=>{
@@ -32,6 +33,15 @@ export default function pover() {
   var getPover=()=>{
 axios.get(`${url}/api/getpovar`).then(res=>{
 setData(res.data)
+axios.get(`${url}/api/ishyonalishi`).then(res7=>{
+  setIsh(res7.data)
+
+  console.log(res7.data,"Dad");
+  }).catch(err=>{
+  
+  })
+
+
 console.log(res.data,"Dad");
 }).catch(err=>{
 
@@ -116,26 +126,13 @@ function jimm22(){
     {/* <IoIosArrowUp /> */}
     <div className={ss.l}>
       <div id='kor2' className={ss.yopil_kateg}>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Профиссиональный повар<sup className={ss.sp2}>5</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Домашний повар<sup className={ss.sp2}>42</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Кондитер<sup className={ss.sp2}>142</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Фермер<sup className={ss.sp2}>7</sup></span>
-    </div>
-    <div className={ss.kichkina_kategoriya}>
-        <div className={ss.togri}></div>
-        <span className={ss.sp}>Другое<sup className={ss.sp2}>8</sup></span>
-    </div>
+  {ish.map(item=>{
+    return   <div className={ss.kichkina_kategoriya}>
+    <input type="checkbox"   />
+    <span className={ss.sp}>{item.title}<sup className={ss.sp2}>5</sup></span>
+</div>
+  })}
+  
     </div>
     </div>
 

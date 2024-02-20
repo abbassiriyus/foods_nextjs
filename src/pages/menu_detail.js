@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiCommentDetail } from "react-icons/bi";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
@@ -14,6 +14,12 @@ import { FaWhatsapp } from "react-icons/fa";
 import s from "../styles/menu_detail.module.css"
 export default function menu_detail() {
   var [accor,setAccor]=useState(1)
+  var[data,setData]=useState([])
+
+  useEffect(()=>{
+    setData(JSON.parse(localStorage.getItem('one')))
+  },[])
+
   return (
     <div>
       <Navbar/>
@@ -25,7 +31,7 @@ export default function menu_detail() {
       </div>
 <div className={s.cake}>
   <div className={s.cake1}>
-    <div className={s.cake_img}>
+    <div style={{background:`url(${data.image})`,        backgroundSize:'100% 100%'}} className={s.cake_img}>
       <h3 className={s.green_back}>Приготовим сегодня</h3>
     </div>
     <div className={s.cake_desc}>
@@ -71,9 +77,9 @@ export default function menu_detail() {
     <div className={s.cards}>
 <div className={s.card}>
 <div className={s.profil}>
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/08edcd3a1f69db53879d224c7bda483fc8d076e0/08edcd3a1f69db53879d224c7bda483fc8d076e0-wc200.jpeg" alt="" />
+<img src={data.user_image} alt="" />
 <div className={s.bal}>
-<p className={s.p1}>5.0 <span><BiCommentDetail className={s.comment} /> 11</span></p>
+<p className={s.p1}>{data.mark} <span><BiCommentDetail className={s.comment} /> {data.mark_org}</span></p>
 <p className={s.p2}>
 <FaStar className={s.star} />
 <FaStar className={s.star} />
@@ -85,7 +91,7 @@ export default function menu_detail() {
 </div>
 </div>
 <div className={s.p_ism}>
-<h1>ТАТЬЯНА ИБРАГИМОВА</h1>
+<h1>{data.username}{data.name}</h1>
 </div>
 <p className={s.ism_p}>Домашний повар</p>
 <div className={s.p_b}>
@@ -131,7 +137,7 @@ export default function menu_detail() {
 <h6 style={{fontWeight:500,fontSize:'14px'}}>Ссылка на блюдо</h6>
 <input className={s.inp_value} value={'https://povarnasvyazi.ru/menu/detail/2816'} type="text" />
 <div className={s.btns}>
-<button id='blck' onClick={()=>{document.querySelector('#blck').style="display:none"
+<button id='blck' onClick={()=>{document.querySelector('#blck').style="display:none";navigator.clipboard.writeText('https://povarnasvyazi.ru/menu/detail/2816')
 document.querySelector("#nn").style="display:block"
 }} className={s.block}>Копировать ссылку</button>
 <button id='nn'  className={s.none}>Ссылка скопирована!</button>
