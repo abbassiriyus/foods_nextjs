@@ -160,11 +160,30 @@ function sendcChefImage(file1) {
   var data=new FormData()
   data.append("image",file1)
   data.append("user_povar_id",a[0].id)
-
   axios.post(`${url}/api/my_kitchen`,data).then(res=>{
    getUsers() 
   })
     
+  }
+  function sendDocument(file1) {
+    // var a=document.querySelector('#send_document')
+    var a=JSON.parse(localStorage.getItem("user"))
+    var data=new FormData()
+    data.append("file",file1)
+    data.append("user_povar_id",a[0].id)
+    axios.post(`${url}/api/document`,data).then(res=>{
+      getUsers() 
+     })
+  }
+  function sendDiploma(file1) {
+    // var a=document.querySelector('#send_document')
+    var a=JSON.parse(localStorage.getItem("user"))
+    var data=new FormData()
+    data.append("file",file1)
+    data.append("user_povar_id",a[0].id)
+    axios.post(`${url}/api/diploma`,data).then(res=>{
+      getUsers() 
+     })
   }
   function deleteKichen(id){
 axios.delete(`${url}/api/my_kitchen/${id}`).then(res=>{
@@ -574,7 +593,7 @@ if(item.in_user){
    
 {user.document.map(item=>{
   return  <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
+    <IoDocumentOutline  className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
       <IoMdClose className={s.close}/>
     </div>
@@ -586,7 +605,7 @@ if(item.in_user){
 
   </div>
   <div style={{position:"relative"}} className={s.sas}>
-    <input type="file" style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
+    <input type="file" onChange={(e)=>{sendDocument(e.target.files[0])}} style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
 <span>Добавить</span>
   </div>
 </div>
@@ -607,7 +626,7 @@ return  <div className={s.ram}>
 
   </div>
   <div className={s.sas} style={{position:'relative'}}>
-  <input onChange={()=>{sendDocument()}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
+  <input onChange={()=>{sendDiploma(e.target.file[0])}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
 <span>Добавить</span>
   </div>
 </div>
