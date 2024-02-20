@@ -23,6 +23,9 @@ export default function card( props,{id} ) {
   return (
   
 <div  className={s.cards}  >
+  <div  className={s.cards}>
+    <div className={s.card} onClick={()=>{card1()}}> 
+        <div style={{background:`url(${props.data.image})`,backgroundSize:'cover'}} className={s.card_img}>
     <div className={s.card}  > 
         <div className={s.card_img}>
         
@@ -62,9 +65,9 @@ export default function card( props,{id} ) {
     </div>
         </div>
     </div>
-    {/* <Script src="../path/to/script.js" /> */}
+
    </div>
 
 
-  )
+ )
 }
