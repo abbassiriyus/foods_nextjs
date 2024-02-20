@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from '../styles/chat.module.css'
 import { TbSend } from "react-icons/tb";
-
+import {  useState } from 'react';
+import io from 'socket.io-client';
 export default function chat() {
-
+    
     function send(){
         var a=document.querySelector('#chatsend_inp').value
         document.querySelector('#chat_space').innerHTML+=`<p>${a}</p>`
         document.querySelector('#chatsend_inp').value=''
     }
+    const [socket, setSocket] = useState(null);
+
+    useEffect(() => {
+      const newSocket = io('http://localhost:4003'); // Server manzili va porti
+      setSocket(newSocket);
+    console.log(newSocket,"abbas");
+      return () => {
+        newSocket.close();
+      };
+    }, []);
   return (
     <div>
         <div className={s.chatting}>
