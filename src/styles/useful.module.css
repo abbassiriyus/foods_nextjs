@@ -20,6 +20,7 @@
     color: #06c160;
     width: 30%;
     min-width: 210px;
+    text-decoration: none;
 }
 .document:hover{
     color: black;

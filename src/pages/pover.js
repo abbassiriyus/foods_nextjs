@@ -198,7 +198,7 @@ return <div className={ss.povara}>
 
 <div className={ss.comment}>
 <FaRegCommentAlt className={ss.com} />
-<span>3</span>
+<span>{item.mark_org}</span>
 </div>
   </div>
 </div>
@@ -214,7 +214,7 @@ return <div className={ss.povara}>
 <div className={ss.a_card}>
   <div className={ss.ovqat_img}>
     {item.foods.map((item2,key2)=>{
-    return <div> <img className={ss.bld_img} src={item.image} alt="" />
+    return <div> <img  className={ss.bld_img} src={item.image} alt="" />
     <p>{item2.price}</p>
     </div>
     })}
