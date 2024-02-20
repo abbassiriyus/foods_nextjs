@@ -34,6 +34,14 @@
         overflow-x: scroll;
     }
 }
+.fimeinput{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+}
 
 
 
@@ -962,7 +970,7 @@ cursor: pointer;
 }
 .do{
     color: #06c160;
-
+cursor: pointer;
 }
 .do1{
         border-bottom: 1px dotted;
@@ -973,6 +981,16 @@ cursor: pointer;
     border: solid 1px silver;
     margin-top: 30px;
     border-radius:10px;
+}
+.select_data{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 20px;
+    border-radius: 20px;
 }
 .lom2{
     padding: 0px 10px;
@@ -1016,7 +1034,16 @@ cursor: pointer;
     justify-content: space-between;
 }
 .jin1{
-    width: 300px;
+    width: 100%;
+    display: grid;
+grid-template-columns: auto auto;
+}
+@media (max-width:500px){
+    .jin1{
+        width: 100%;
+        display: grid;
+    grid-template-columns: auto;
+    }
 }
 .kateg{
     width: 300px;
@@ -1228,12 +1255,12 @@ opacity: 0;
 
 
 .line2{
-width: 100%;
+width: 90%;
 margin: auto;
 height: 2px ;
 background-color: rgba(128, 128, 128, 0.466);
-margin-top: 20px;
-margin-bottom: 20px;
+margin-top: 40px;
+margin-bottom: 40px;
 }
 .profile_input1{
 width: 40%;
