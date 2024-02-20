@@ -354,7 +354,7 @@ width: 100%;}
     position: fixed;
     top: 0px;
     left: 0px;
-    background: #e9070754;
+    background: rgba(128, 128, 128, 0.493);
     display: none;
     justify-content: center;align-items: center;
 }

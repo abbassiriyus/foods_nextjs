@@ -63,12 +63,10 @@ function putUserInfo() {
   send_data.append("phone",document.querySelector('#phone_1').value)
   send_data.append("email",document.querySelector('#email_1').value)
   send_data.append("password",user.password)
-
-
   axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
-    setUser(res.data)
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
+    getUsers()
   })
 }
 
@@ -81,9 +79,10 @@ function putUserphone() {
    password:user.password
   }
   axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
-    setUser(res.data)
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
+    document.querySelector("#modal_page").style="display:none"
+    getUsers()
   })
 }
 
@@ -100,7 +99,7 @@ function resetPasword() {
       password:npassword.value
      }
      axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
-       setUser(res.data)
+      getUsers()
        localStorage.setItem('user',JSON.stringify(res.data))
        document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
      })
@@ -159,7 +158,7 @@ sends.append('expertise',document.querySelector('#expertise').value)
 sends.append('place',document.querySelector('#place').value)
 sends.append('is_prepared',document.querySelector('#is_prepared').value)
 
-sends.append('ish_yonalishi',document.querySelector('#ish_yonalishi').innerHTML)
+sends.append('ish_yonalishi',document.querySelector('#ish_yonalishi').value)
 axios.put(`${url}/api/user_povar/${user.pover.id}`,sends).then(res=>{
   getUsers()
 })
