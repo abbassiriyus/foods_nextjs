@@ -154,10 +154,12 @@ if(!category[i].category_id){
 }
 var sends=new FormData()
 sends.append('user_id',user.pover.user_id)
-sends.append('deskription',)
-sends.append('expertise',)
-sends.append('place',)
-sends.append('ish_yonalishi',)
+sends.append('deskription',document.querySelector('#deskription').value)
+sends.append('expertise',document.querySelector('#expertise').value)
+sends.append('place',document.querySelector('#place').value)
+sends.append('is_prepared',document.querySelector('#is_prepared').value)
+
+sends.append('ish_yonalishi',document.querySelector('#ish_yonalishi').innerHTML)
 axios.put(`${url}/api/user_povar/${user.pover.id}`,sends).then(res=>{
   getUsers()
 })
@@ -483,7 +485,7 @@ if(item.in_user){
    </div>
  </div>
  <div className={s.poni2}>
-   <select name="" id="" defaultValue={user.pover.ish_yonalishi} className={s.select_data}>
+   <select name="" id="ish_yonalishi" defaultValue={user.pover.ish_yonalishi} className={s.select_data}>
     {ish.map(item=>{
     return  <option value={item.title}>{item.title}</option>
     })} 
@@ -511,8 +513,7 @@ if(item.in_user){
    О СЕБЕ
    </h1>
    <div className={s.inp_osebe} style={{overflow:'hidden'}} >
-     {/* <textarea className={s.inp} type="text" placeholder='Расскажите о себе*'/> */}
-     <textarea defaultValue={user.pover.deskription} className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
+     <textarea id='deskription' defaultValue={user.pover.deskription} className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
    </div>
    <div className={s.bus1}>
      <div className={s.ponit}>
@@ -520,8 +521,8 @@ if(item.in_user){
       </div>
  
  <div className={s.mb}>
-  <select style={{width:'100%',background:'white',border:'none',outline:"none",fontSize:'20px'}} name="" id="">
-    <option value="">Абаза</option>
+  <select id="place" style={{width:'100%',background:'white',border:'none',outline:"none",fontSize:'20px'}} name="" >
+    <option value="Абаза">Абаза</option>
   </select>
    {/* <span>Абаза</span> */}
    {/* <SlArrowDown className={s.lom4}/> */}
@@ -530,14 +531,14 @@ if(item.in_user){
    <div className={s.bus2}>
      <div className={s.lime1}>
      <CiLocationArrow1  className={s.arrow}/>
-     <input className={s.jiy} type="text" defaultValue={user.pover.is_prepared} placeholder='Где Вы готовите*' />
+     <input id='is_prepared' className={s.jiy} type="text" defaultValue={user.pover.is_prepared} placeholder='Где Вы готовите*' />
      <CiCircleInfo className={s.info}/>
  
      </div>
    </div>
    <div className={s.bus3}>
      <div className={s.nome}>
-       <input defaultValue={user.pover.expertise} className={s.nome2} type="number" id='expertise1' placeholder='Сколько лет в деле' />
+       <input defaultValue={user.pover.expertise}  className={s.nome2} type="number" id='expertise' placeholder='Сколько лет в деле' />
      </div>
    </div>
    <div className={s.bus4}>
@@ -588,7 +589,7 @@ if(item.in_user){
   
   
    {user.kitchen.map(item=>{
-     return  <div className={s.mens}  style={{background:`url(${item.image})`}}>
+     return  <div className={s.mens}  style={{background:`url(${item.image})`,backgroundSize:'100% 100%'}}>
     <div className={s.musr}><RiDeleteBin6Line onClick={()=>{deleteKichen(item.id)}} className={s.mus}/></div>
     </div>
    })}
@@ -643,7 +644,6 @@ return  <div className={s.ram}>
  
 
   })} 
-
   </div>
   <div className={s.sas} style={{position:'relative'}}>
   <input onChange={()=>{sendDiploma(e.target.file[0])}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
