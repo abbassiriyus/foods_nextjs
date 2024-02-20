@@ -202,7 +202,7 @@ useEffect(()=>{
         </div>
       </div>
   </div>
-  x
+  
       
 </div>
     
@@ -567,50 +567,26 @@ if(item.in_user){
 </div>):(<></>)}
 
 
-<div className={s.obshiy}>
+{user.pover?(<div className={s.obshiy}>
 <div className={s.document}>
   <h1 className={s.dock}>ДОКУМЕНТЫ</h1>
   <div className={s.rem}>
-    <div className={s.ram}>
+   
+{user.document.map(item=>{
+  return  <div className={s.ram}>
     <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
+      <span className={s.lorem}>{item.file}</span>
       <IoMdClose className={s.close}/>
     </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
+})}
+  
+ 
 
 
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
 
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
   </div>
-  <div className={s.sas}>
+  <div style={{position:"relative"}} className={s.sas}>
+    <input type="file" style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
 <span>Добавить</span>
   </div>
 </div>
@@ -618,40 +594,26 @@ if(item.in_user){
 <div className={s.document}>
   <h1 className={s.dock}>ДИПЛОМЫ И СЕРТИФИКАТЫ</h1>
   <div className={s.rem}>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
 
+  {user.diploma.map(item=>{
+return  <div className={s.ram}>
+    <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}>{item.file}</span>
+      <IoMdClose className={s.close}/>
+    </div>
+ 
 
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, similique provident velit saepe voluptatem nisi blanditiis reiciendis assumenda nobis voluptates!!</span>
-      <IoMdClose className={s.close}/>
-    </div>
-    <div className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>Lorem ipsum dolor sit!</span>
-      <IoMdClose className={s.close}/>
-    </div>
+  })} 
 
   </div>
-  <div className={s.sas}>
+  <div className={s.sas} style={{position:'relative'}}>
+  <input onChange={()=>{sendDocument()}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
 <span>Добавить</span>
   </div>
 </div>
-</div>
+</div>):(<></>)}
+
+
 </>
 ):(
 page==1?(
