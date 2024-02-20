@@ -57,13 +57,14 @@ function ikkj1(){
 }
 
 function putUserInfo() {
-  var send_data={
-   image:document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user.image,
-   name:document.querySelector('#name_1').value,
-   phone:document.querySelector('#phone_1').value,
-   email:document.querySelector('#email_1').value,
-   password:user.password
-  }
+  var send_data=new FormData()
+  send_data.append("image",document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user.image)
+  send_data.append("name",document.querySelector('#name_1').value)
+  send_data.append("phone",document.querySelector('#phone_1').value)
+  send_data.append("email",document.querySelector('#email_1').value)
+  send_data.append("password",user.password)
+
+
   axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
     setUser(res.data)
     localStorage.setItem('user',JSON.stringify(res.data))
@@ -116,6 +117,7 @@ if(a){
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
   res.data.date=formattedDate
   setUser(res.data)
+  document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`
   }).catch(err=>{
     // window.location='/'
     console.log("bir");
@@ -141,18 +143,25 @@ for (let i = 0; i < data_all.length; i++) {
 if(data_all[i].checked){
 console.log(category[i].title);
 if(!category[i].category_id){
-  axios.post(`${url}/api/user_category`,{user_id:user.id,category_id:category[i].id})
+  axios.post(`${url}/api/user_category`,{user_id:user.id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
   }
 }else{
   console.log(category);
   if(category[i].category_id){
-  axios.delete(`${url}/api/user_category/${category[i].category_id}`)
+  axios.delete(`${url}/api/user_category/${category[i].category_id}`).then(res=>{}).catch(err=>{})
   }
 }
 }
-setTimeout(() => {
-getUsers()
-}, 1000);
+var sends=new FormData()
+sends.append('user_id',user.pover.user_id)
+sends.append('deskription',)
+sends.append('expertise',)
+sends.append('place',)
+sends.append('ish_yonalishi',)
+axios.put(`${url}/api/user_povar/${user.pover.id}`,sends).then(res=>{
+  getUsers()
+})
+
 }
 
 function sendcChefImage(file1) {
@@ -191,8 +200,19 @@ axios.delete(`${url}/api/my_kitchen/${id}`).then(res=>{
   getUsers()
 })
   }
-
-
+  function deleteDocument(id){
+    axios.delete(`${url}/api/document/${id}`).then(res=>{
+      alert("delete data")
+      getUsers()
+    })
+      }
+function deleteDiplom(id){
+        axios.delete(`${url}/api/diploma/${id}`).then(res=>{
+          alert("delete data")
+          getUsers()
+        })
+          }
+    
 useEffect(()=>{
   getUsers()
   getIshYonalishi()
@@ -233,8 +253,8 @@ useEffect(()=>{
           <div onClick={() => ikkj1()} className={s.edit_account}><FaPen /> 
            <span>Редактировать</span></div>
           <div className={s.image_profil} >
-            <div className={s.account_img} 
-            style={{background:`url(${user.image})`,backgroundSize:'cover !important',
+      <div className={s.account_img}  id='userimage'
+            style={{background:`url(${user.image})`,backgroundSize:'100% 100%',
                   backgroundPosition:'center !important'}} />
             <div className={s.p_user}><span>Дата регистрации</span>
               <div>{user.date}</div></div>
@@ -517,7 +537,7 @@ if(item.in_user){
    </div>
    <div className={s.bus3}>
      <div className={s.nome}>
-       <input defaultValue={user.pover.expertise} className={s.nome2} type="number" placeholder='Сколько лет в деле' />
+       <input defaultValue={user.pover.expertise} className={s.nome2} type="number" id='expertise1' placeholder='Сколько лет в деле' />
      </div>
    </div>
    <div className={s.bus4}>
@@ -593,9 +613,9 @@ if(item.in_user){
    
 {user.document.map(item=>{
   return  <div className={s.ram}>
-    <IoDocumentOutline  className={s.out}/>
+    <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
-      <IoMdClose className={s.close}/>
+      <IoMdClose onClick={()=>{deleteDocument(item.id)}} className={s.close}/>
     </div>
 })}
   
@@ -618,7 +638,7 @@ if(item.in_user){
 return  <div className={s.ram}>
     <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
-      <IoMdClose className={s.close}/>
+      <IoMdClose onClick={()=>{deleteDiplom(ite.id)}} className={s.close}/>
     </div>
  
 
