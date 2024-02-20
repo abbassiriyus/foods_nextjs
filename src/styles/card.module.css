@@ -21,7 +21,7 @@
     border-top-left-radius: 21px;
     border-top-right-radius: 21px;
     align-items: center;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     min-width: 300px;
     cursor: pointer;
 }
