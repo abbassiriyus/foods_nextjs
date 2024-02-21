@@ -5,8 +5,6 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icon
 import { TbPaperclip } from "react-icons/tb";
 import axios from 'axios';
 import url from './host/config';
-import Navbar from "../pages/componet/navbar"
-import Footer from "../pages/componet/footer"
 export default function dishes() {
 var [page,setPage]=useState(0)
 var [data,setData]=useState([])
@@ -31,7 +29,6 @@ return (
 
 
 
-<Navbar/>
 
 <div className={s.dishes}>
 {page==0?(
@@ -114,7 +111,7 @@ return <p key={key}>{item.title}</p>
 
 
 </div>
-<Footer/>
+
 </div>
 )
 }

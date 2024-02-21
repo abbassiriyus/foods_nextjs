@@ -32,7 +32,6 @@ axios.get(`${url()}/api/getpovar`).then(res=>{
 setData(res.data)
 axios.get(`${url()}/api/ishyonalishi`).then(res7=>{
   setIsh(res7.data)
-
   }).catch(err=>{
   
   })

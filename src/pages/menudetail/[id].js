@@ -17,11 +17,18 @@ import { useRouter } from 'next/router'
 import axios from 'axios';
 export default function menu_detail() {
 var [accor,setAccor]=useState(1)
-var[data,setData]=useState([])
+var [data,setData]=useState([])
+var [food,setFood]=useState([])
+var [user,setUser]=useState([])
+var [commnet,setCommnet]=useState([])
+
 var router=useRouter()
 function getData() {
 axios.get(`${url()}/api/foods/${router.query.id}`).then(res=>{
-  setData(res.data)
+ setFood(res.data.food)
+setUser(res.data.user)
+setCommnet(res.data.comment)
+
  console.log(res.data);
   }).catch(err=>{
     alert(err)
@@ -44,20 +51,20 @@ if(router.query.id){
       </div>
 <div className={s.cake}>
   <div className={s.cake1}>
-    <div style={{background:`url(${data.image})`,        backgroundSize:'100% 100%'}} className={s.cake_img}>
+    <div style={{background:`url(${food.image})`,  backgroundSize: 'cover',backgroundRepeat: 'no-repeat'}} className={s.cake_img}>
       <h3 className={s.green_back}>Приготовим сегодня</h3>
     </div>
     <div className={s.cake_desc}>
 <h3 >Описание и состав</h3>
-<p>творожный сыр, сливочное масло, сахарная пудра, мука, яйца, сахар, какао, растительное масло, разрыхлительбисквит: ванильныйшоколадный морковныйкрасный бархат начинка: клубникамалинасмородинавишня бананы в карамелисолёная карамель Во все тортики входит кремчиз🎂 Цветовая гамма, надпись, посыпка могут быть изменены на ваш вкус 😌</p>
+<p>{food.description}</p>
 <h3>Условия доставки</h3>
-<p>250 руб. до 20 км. от адреса изготовителя, более - по тарифам Яндекс Доставка.</p> <br />
+<p>{food.dastafka_us}</p> <br />
 
 
 
 {accor==0?(<div className={s.trans_span}>
   <h3>Условия хранения</h3>
-  <p>72 часа в холодильнике</p>
+  <p>{food.preparation_time} часа в холодильнике</p>
   <h3>Инфо</h3>
   <div className={s.info}>
     <div className={s.ves}>
@@ -65,8 +72,8 @@ if(router.query.id){
 <h4>Время <br />приготовления</h4>
     </div>
     <div className={s.day}>
-<p>400</p>
-<p>1 <br />день</p>
+<p>{food.weight}</p>
+<p>{(food.preparation_time/24).toFixed(0)} <br />день</p>
     </div>
   </div>
  
@@ -80,8 +87,8 @@ if(router.query.id){
 
 <div className={s.buy}>
 <div className={s.price}>
-<h3>1 000 ₽</h3>
-<p>400</p>
+<h3>{food.price} ₽</h3>
+<p>{food.weight}</p>
 </div>
 <button>В корзину</button>
 </div>

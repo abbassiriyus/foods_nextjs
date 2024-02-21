@@ -4,7 +4,7 @@ import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
 
-export default function card( props,{id} ){
+export default function card( props){
     
     const tiltRef = useRef(null);
     useEffect(() => {
@@ -25,22 +25,24 @@ function card1() {
   
 <div  className={s.cards}  >
     <div className={s.card} onClick={()=>{card1()}} > 
-        <div style={{background:`url(${props.data.image})`,backgroundSize:'cover'}} className={s.card_img}>
-    <div className={s.card}  > 
         <div className={s.card_img}>
-            <h3>Заказ за 24 часа</h3>
+    <div className={s.card}  > 
+        <div style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
+            <h3>Заказ за {(props.data.preparation_time).slice(0,2)} часа</h3>
         </div>
         <div className={s.card_text}>
     <div class={s.card_text2}>
         <img src={props.data.user_image} alt="" />
-        <h3>{props.data.username} {props.data.name}</h3>
+        <h4>{props.data.username} {props.data.name}</h4>
      <div class={s.comment}>
         <div class={s.star}>
-            <PiStarFill />
-            <PiStarFill />
-            <PiStarFill />
-            <PiStarFill />
-            <PiStarFill />
+          {['','','','',''].map((item,key)=>{
+         if(props.data.mark>key){
+     return <PiStarFill  />
+         }else{
+      return <PiStarFill style={{color:"gray"}} />
+         }
+          })}  
         </div>
         <p>{props.data.mark}</p>
         <div class={s.message}>
