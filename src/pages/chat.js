@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import s from '../styles/chat.module.css'
+import s from '../styles/Chat.module.css'
 import { TbSend } from "react-icons/tb";
 import {  useState } from 'react';
 import io from 'socket.io-client';

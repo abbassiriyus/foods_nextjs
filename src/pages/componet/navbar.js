@@ -24,7 +24,7 @@ export default function Navbar() {
   var [page, setPage] = useState(0)
  var [user,setUser]=useState(null)
   function getData() {
-    axios.get(`${url}/api/category`).then(res => {
+    axios.get(`${url()}/api/category`).then(res => {
       setData(res.data)
       console.log(res.data)
     }).catch(err => {
@@ -95,8 +95,8 @@ export default function Navbar() {
       var data_send = {
         phone: phone.value
       }
-      axios.post(`${url}/api/verify2`, data_send).then(res => {
-        axios.post(`${url}/api/verify`, data_send).then(res => {
+      axios.post(`${url()}/api/verify2`, data_send).then(res => {
+        axios.post(`${url()}/api/verify`, data_send).then(res => {
           console.log(res.data);
           setPage(5)
           setPhone(phone.value)
@@ -122,7 +122,7 @@ export default function Navbar() {
       code: code.value,
       phone: phone2
     }
-    axios.post(`${url}/api/verify/check`, send_data).then(res => {
+    axios.post(`${url()}/api/verify/check`, send_data).then(res => {
       console.log(res.data);
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
@@ -167,7 +167,7 @@ export default function Navbar() {
         setErrorphone("Пароль телефона слишком маленький")
       }
     } else {
-      axios.post(`${url}/api/login`, send_data).then(res => {
+      axios.post(`${url()}/api/login`, send_data).then(res => {
         console.log(res.data);
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('user',JSON.stringify(res.data.user))
@@ -276,7 +276,7 @@ export default function Navbar() {
       <div id='onmouse' className={s.onmous} onMouseLeave={() => NavbarDropdavnButton()} >
         <ul>
           {data.map((item, key) => {
-            return <li><a href="#">{item.title}</a></li>
+            return <li key={key}><a href="#">{item.title}</a></li>
           })}
         </ul>
       </div>

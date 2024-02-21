@@ -90,17 +90,17 @@ showSlide(currentSlide - 1);
 }
 };
 function getgeFoods(){
-axios.get(`${url}/api/gl_foods`).then(res=>{
+axios.get(`${url()}/api/gl_foods`).then(res=>{
 setGlFoods(res.data)
 })
 }
 function getgeDesert(){
-axios.get(`${url}/api/gl_desert`).then(res=>{
+axios.get(`${url()}/api/gl_desert`).then(res=>{
 setGlFoods(res.data)
 })
 }
 function getgeProduct(){
-axios.get(`${url}/api/gl_product`).then(res=>{
+axios.get(`${url()}/api/gl_product`).then(res=>{
 setGlFoods(res.data)
 })
 }
@@ -124,35 +124,35 @@ return (
 {/* <Navbar/> */}
 <div className={swip.slider}>
 <div className={swip.wrapper} ref={wrapperRef}>
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}/>
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card key={key} data={mangaItem}/>
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key} />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
-{glFoods.map((mangaItem) => (
-<Card data={mangaItem}/>
+{glFoods.map((mangaItem,key) => (
+<Card data={mangaItem} key={key}  />
 ))}
 
 

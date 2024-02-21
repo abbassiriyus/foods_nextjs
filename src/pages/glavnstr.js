@@ -6,8 +6,6 @@ import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import img1 from "../images/woman.png"
 import Image from "next/image";
-import Swiper from "../pages/SwiperGl";
-import Swipergap from "../pages/Swipergap"
 import Footer from "../pages/componet/footer"
 import Navbar from "../pages/componet/navbar";
 export default function glavnstr() {

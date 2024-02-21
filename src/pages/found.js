@@ -1,6 +1,5 @@
 import React from 'react'
-import s from "../styles/found.module.css"
-import Card from "../pages/componet/card"
+import s from "../styles/Found.module.css"
 export default function found() {
   return (
     <div>

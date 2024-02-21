@@ -1,5 +1,5 @@
 import React from 'react'
-import c from "../styles/first.module.css"
+import c from "../styles/First.module.css"
 import { TiStarFullOutline } from "react-icons/ti";
 import { BiCommentDetail } from "react-icons/bi";
 import { CiLocationArrow1 } from "react-icons/ci";

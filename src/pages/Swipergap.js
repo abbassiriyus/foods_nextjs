@@ -93,8 +93,8 @@ return (
 {/* <Navbar/> */}
 <div className={swip.slider}>
 <div className={swip.wrapper} ref={wrapperRef}>
-{manga.map((mangaItem) => (
-<Cardgap/>
+{manga.map((mangaItem,key) => (
+<Cardgap key={key} />
 ))}
 </div>
 <div className={swip.button} style={{marginTop:'20px'}}>

@@ -12,7 +12,6 @@ import img5 from "../images/taco.png"
 import img6 from "../images/pizza.png"
 import Script from 'next/script'
 import { FaPlus } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import VanillaTilt from 'vanilla-tilt';
@@ -72,10 +71,10 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
   }
 
   function getData() {
-    axios.get(`${url}/api/carousel_forcooks`).then(res=>{
+    axios.get(`${url()}/api/carousel_forcooks`).then(res=>{
       console.log(res.data,"ADad");
       setData(res.data)
-      axios.get(`${url}/api/vopros_atvet`).then(res1=>{
+      axios.get(`${url()}/api/vopros_atvet`).then(res1=>{
         console.log(res1.data);
         setAccordion_data(res1.data)
       }).catch(err1=>{
@@ -421,7 +420,7 @@ document.querySelector("#eyes1").style="display:block"
             <h1>ВОПРОСЫ <br />
               И ОТВЕТЫ</h1>
               {accordion_data.map((item,key)=>{
-  return <div className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
+  return <div key={key} className={s.accordion_item} onClick={()=>{SelectAc(key)}}>
               <div className={s.accordion_title}><h2 className='title_accordion'>{item.title}</h2><FaPlus className='plus' id={s.plus_acc} /></div>
               <div  className="accordion_p" id={s.hidden} style={{height:'0px',overflow: 'hidden'}}>
                {item.desk}</div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BsFillBalloonHeartFill } from "react-icons/bs";
-import s from "../styles/foods.module.css"
+import s from "../styles/Foods.module.css"
 import { BsSortDown } from "react-icons/bs";
 import Navbar from './componet/navbar';
 import { CiSearch } from "react-icons/ci";
@@ -26,7 +25,7 @@ var [glFoods,setGlFoods]=useState([])
     }
  }
 function getData() {
-    axios.get(`${url}/api/category`).then(res=>{
+    axios.get(`${url()}/api/category`).then(res=>{
         setData(res.data)
         console.log(res.data);
     })
@@ -37,7 +36,7 @@ getgeFoods()
 },[])
 
 function getgeFoods(){
-    axios.get(`${url}/api/foods`).then(res=>{
+    axios.get(`${url()}/api/foods`).then(res=>{
     setGlFoods(res.data)
     })
     }
@@ -72,7 +71,7 @@ function getgeFoods(){
 <h3>Все категории</h3>
 <div className={s.line}></div>
 {data.map((item,key)=>{
-    return <li><input type="checkbox" name="" id="" /> {item.title} <sup>{item.count}</sup></li>
+    return <li key={key}><input type="checkbox" name="" id="" /> {item.title} <sup>{item.count}</sup></li>
 })}
 
 
@@ -97,8 +96,8 @@ function getgeFoods(){
 {/* <Card/>
 <Card/>
 <Card/> */}
-{glFoods.map((mangaItem) => (
-  <Card data={mangaItem}/>
+{glFoods.map((mangaItem ,key) => (
+  <Card key={key} data={mangaItem}/>
 ))}
 
 

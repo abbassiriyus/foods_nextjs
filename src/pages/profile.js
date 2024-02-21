@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import s from "../styles/profile.module.css"
+import s from "../styles/Profile.module.css"
 import Image from 'next/image';
 import { FaPen } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
@@ -63,7 +63,7 @@ function putUserInfo() {
   send_data.append("phone",document.querySelector('#phone_1').value)
   send_data.append("email",document.querySelector('#email_1').value)
   send_data.append("password",user.password)
-  axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
+  axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     getUsers()
@@ -78,7 +78,7 @@ function putUserphone() {
    email:user.email,
    password:user.password
   }
-  axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
+  axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
     localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     document.querySelector("#modal_page").style="display:none"
@@ -98,7 +98,7 @@ function resetPasword() {
       email:user.email,
       password:npassword.value
      }
-     axios.put(`${url}/api/users/${user.id}`,send_data).then(res=>{
+     axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
       getUsers()
        localStorage.setItem('user',JSON.stringify(res.data))
        document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
@@ -111,7 +111,7 @@ function resetPasword() {
 function getUsers() {
   var a=JSON.parse(localStorage.getItem("user"))
 if(a){
-   axios.get(`${url}/api/users/${a[0].id}`).then(res=>{
+   axios.get(`${url()}/api/users/${a[0].id}`).then(res=>{
   var date = new Date(res.data.time_update)
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
   res.data.date=formattedDate
@@ -130,7 +130,7 @@ if(a){
 }
 
 function getIshYonalishi() {
- axios.get(`${url}/api/ishyonalishi`).then(res=>{
+ axios.get(`${url()}/api/ishyonalishi`).then(res=>{
   setIsh(res.data)
  })
 }
@@ -142,12 +142,12 @@ for (let i = 0; i < data_all.length; i++) {
 if(data_all[i].checked){
 console.log(category[i].title);
 if(!category[i].category_id){
-  axios.post(`${url}/api/user_category`,{user_id:user.id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
+  axios.post(`${url()}/api/user_category`,{user_id:user.id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
   }
 }else{
   console.log(category);
   if(category[i].category_id){
-  axios.delete(`${url}/api/user_category/${category[i].category_id}`).then(res=>{}).catch(err=>{})
+  axios.delete(`${url()}/api/user_category/${category[i].category_id}`).then(res=>{}).catch(err=>{})
   }
 }
 }
@@ -159,7 +159,7 @@ sends.append('place',document.querySelector('#place').value)
 sends.append('is_prepared',document.querySelector('#is_prepared').value)
 
 sends.append('ish_yonalishi',document.querySelector('#ish_yonalishi').value)
-axios.put(`${url}/api/user_povar/${user.pover.id}`,sends).then(res=>{
+axios.put(`${url()}/api/user_povar/${user.pover.id}`,sends).then(res=>{
   getUsers()
 })
 
@@ -170,7 +170,7 @@ function sendcChefImage(file1) {
   var data=new FormData()
   data.append("image",file1)
   data.append("user_povar_id",a[0].id)
-  axios.post(`${url}/api/my_kitchen`,data).then(res=>{
+  axios.post(`${url()}/api/my_kitchen`,data).then(res=>{
    getUsers() 
   })
     
@@ -181,7 +181,7 @@ function sendcChefImage(file1) {
     var data=new FormData()
     data.append("file",file1)
     data.append("user_povar_id",a[0].id)
-    axios.post(`${url}/api/document`,data).then(res=>{
+    axios.post(`${url()}/api/document`,data).then(res=>{
       getUsers() 
      })
   }
@@ -191,24 +191,24 @@ function sendcChefImage(file1) {
     var data=new FormData()
     data.append("file",file1)
     data.append("user_povar_id",a[0].id)
-    axios.post(`${url}/api/diploma`,data).then(res=>{
+    axios.post(`${url()}/api/diploma`,data).then(res=>{
       getUsers() 
      })
   }
   function deleteKichen(id){
-axios.delete(`${url}/api/my_kitchen/${id}`).then(res=>{
+axios.delete(`${url()}/api/my_kitchen/${id}`).then(res=>{
   alert("delete data")
   getUsers()
 })
   }
   function deleteDocument(id){
-    axios.delete(`${url}/api/document/${id}`).then(res=>{
+    axios.delete(`${url()}/api/document/${id}`).then(res=>{
       alert("delete data")
       getUsers()
     })
       }
 function deleteDiplom(id){
-        axios.delete(`${url}/api/diploma/${id}`).then(res=>{
+        axios.delete(`${url()}/api/diploma/${id}`).then(res=>{
           alert("delete data")
           getUsers()
         })
@@ -433,9 +433,9 @@ document.querySelector("#eyes1").style="display:block"
  
   <span>На компанию</span>
    </div>
-   {user.category.map(item=>{
+   {user.category.map((item,key)=>{
 if(item.in_user){
-  return <div className={s.ovqat}>
+  return <div key={key} className={s.ovqat}>
   <span>{item.title}</span>
    </div>  
 }
@@ -497,7 +497,7 @@ if(item.in_user){
    <div className={s.miya2}>
      <div className={s.jin1}>
     {user.category.map((item,key)=>{
-      return <div className={s.kateg}>
+      return <div key={key} className={s.kateg}>
          <input type="checkbox" id='chackbox1' defaultChecked={item.in_user} className={s.talan}/> 
          <span className={s.ssss}>{item.title}</span>
        </div>
@@ -587,8 +587,8 @@ if(item.in_user){
    
   
   
-   {user.kitchen.map(item=>{
-     return  <div className={s.mens}  style={{background:`url(${item.image})`,backgroundSize:'100% 100%'}}>
+   {user.kitchen.map((item,key)=>{
+     return  <div key={key} className={s.mens}  style={{background:`url(${item.image})`,backgroundSize:'100% 100%'}}>
     <div className={s.musr}><RiDeleteBin6Line onClick={()=>{deleteKichen(item.id)}} className={s.mus}/></div>
     </div>
    })}
@@ -611,8 +611,8 @@ if(item.in_user){
   <h1 className={s.dock}>ДОКУМЕНТЫ</h1>
   <div className={s.rem}>
    
-{user.document.map(item=>{
-  return  <div className={s.ram}>
+{user.document.map((item,key)=>{
+  return  <div key={key} className={s.ram}>
     <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
       <IoMdClose onClick={()=>{deleteDocument(item.id)}} className={s.close}/>
@@ -634,8 +634,8 @@ if(item.in_user){
   <h1 className={s.dock}>ДИПЛОМЫ И СЕРТИФИКАТЫ</h1>
   <div className={s.rem}>
 
-  {user.diploma.map(item=>{
-return  <div className={s.ram}>
+  {user.diploma.map((item,key)=>{
+return  <div key={key} className={s.ram}>
     <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
       <IoMdClose onClick={()=>{deleteDiplom(ite.id)}} className={s.close}/>

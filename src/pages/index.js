@@ -40,13 +40,13 @@ console.log(swiper);
 }
 
 function getSizUchun() {
-axios.get(`${url}/api/siz_uchun`).then(res=>{
+axios.get(`${url()}/api/siz_uchun`).then(res=>{
 setSizUchun(res.data)
-axios.get(`${url}/api/oshpazdan_taom`).then(res1=>{
+axios.get(`${url()}/api/oshpazdan_taom`).then(res1=>{
 setOshpazdanTaom(res1.data)
-axios.get(`${url}/api/shirinliklar`).then(res2=>{
+axios.get(`${url()}/api/shirinliklar`).then(res2=>{
 setShirinliklar(res2.data)
-axios.get(`${url}/api/soglom`).then(res3=>{
+axios.get(`${url()}/api/soglom`).then(res3=>{
 setSoglom(res3.data)
 })
 })
@@ -57,7 +57,7 @@ console.log(res.data);
 })
 }
 function getheaderCarousel(params) {
-axios.get(`${url}/api/userprog/header`).then(res=>{
+axios.get(`${url()}/api/userprog/header`).then(res=>{
 setData(res.data)
 console.log(res.data);
 
@@ -81,7 +81,7 @@ setXopen(false);
 useEffect(()=>{
 getSizUchun();
 getheaderCarousel()
-
+console.log(url());
 },[])
 
 
@@ -189,7 +189,7 @@ return <FaStar className={s.star1} />
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
 {sizUchun.map((item,key)=>{
-return <div className={s.c}>
+return <div key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p >{item.title}</p>
@@ -219,7 +219,7 @@ return <div key={key} className={s.c}>
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
 {shirinliklar.map((item,key)=>{
-return <div className={s.c}>
+return <div key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -234,7 +234,7 @@ return <div className={s.c}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
 {soglom.map((item,key)=>{
-return <div className={s.c}>
+return <div key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>

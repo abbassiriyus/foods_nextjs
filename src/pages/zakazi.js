@@ -1,5 +1,5 @@
 import React from 'react'
-import z from "../styles/zakazi.module.css"
+import z from "../styles/Zakazi.module.css"
 import { IoCalendarOutline } from "react-icons/io5";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { TbMessage2 } from "react-icons/tb";

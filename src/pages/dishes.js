@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import s from "../styles/dishes.module.css"
-
-
+import s from "../styles/Dishes.module.css"
 import { FiPlus } from "react-icons/fi";
-
-
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { TbPaperclip } from "react-icons/tb";
 import axios from 'axios';
@@ -15,23 +11,10 @@ export default function dishes() {
 var [page,setPage]=useState(0)
 var [data,setData]=useState([])
 
-// function och(){
-// document.querySelector("#werwe").style = "display: block;"
-// document.querySelector("#arrow_d").style="display:none"
-// document.querySelector("#arrow_u").style="display:block"
-// }
-
-
-// function yop(){
-// document.querySelector("#werwe").style = "display: none;"
-// document.querySelector("#arrow_d").style = "display:block"
-// document.querySelector("#arrow_u").style = "display: none"
-// }
-
 
 
 function getData() {
-axios(`${url}/api/category`).then(res=>{
+axios(`${url()}/api/category`).then(res=>{
 setData(res.data)
 }).catch(err=>{
 
@@ -72,7 +55,7 @@ return (
 </div>
 <div className={s.inp1_sozlari} id="werwe">
 {data.map((item,key)=>{
-return <p>{item.title}</p>
+return <p key={key}>{item.title}</p>
 })}
 
 </div>

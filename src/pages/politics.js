@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../pages/componet/navbar';
-import s from "../styles/politics.module.css"
-import { BsApple } from "react-icons/bs";
+import s from "../styles/Politics.module.css"
 export default function politics() {
   return (
     <div>

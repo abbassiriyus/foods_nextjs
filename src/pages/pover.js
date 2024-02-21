@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import ss from '../styles/pover.module.css'
+import ss from '../styles/Pover.module.css'
 import { IoIosStar } from "react-icons/io";
 import { FaRegCommentAlt } from "react-icons/fa";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { GrUpdate } from "react-icons/gr";
 import { HiChevronDown } from "react-icons/hi";
 import { IoIosSearch } from "react-icons/io";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { VscSettings } from "react-icons/vsc";
 import { AiOutlineClose } from "react-icons/ai";
-import { useRouter } from 'next/router';
-import glavnstr from './glavnstr';
 import axios from 'axios';
 import Navbar from './componet/navbar';
 import Footer from '../pages/componet/footer';
@@ -22,7 +19,7 @@ export default function pover() {
   var [ish,setIsh]=useState([])
   var [Category,setCategory]=useState([])
   function getCategory() {
-    axios.get(`${url}/api/category`).then(res=>{
+    axios.get(`${url()}/api/category`).then(res=>{
      setCategory(res.data)
      getPover()
      console.log(res.data);
@@ -31,9 +28,9 @@ export default function pover() {
     })
   }
   var getPover=()=>{
-axios.get(`${url}/api/getpovar`).then(res=>{
+axios.get(`${url()}/api/getpovar`).then(res=>{
 setData(res.data)
-axios.get(`${url}/api/ishyonalishi`).then(res7=>{
+axios.get(`${url()}/api/ishyonalishi`).then(res7=>{
   setIsh(res7.data)
 
   console.log(res7.data,"Dad");
@@ -106,8 +103,8 @@ function jimm22(){
   </div>
 
     <div id='kor1' className={ss.yopil_kateg}>
-{Category.map(item=>{
-   return <div className={ss.kichkina_kategoriya}>
+{Category.map((item,key)=>{
+   return <div key={key} className={ss.kichkina_kategoriya}>
         <input type="checkbox"   />
         <span className={ss.sp}>{item.title}<sup className={ss.sp2}>123</sup></span>
     </div>
@@ -126,8 +123,8 @@ function jimm22(){
     {/* <IoIosArrowUp /> */}
     <div className={ss.l}>
       <div id='kor2' className={ss.yopil_kateg}>
-  {ish.map(item=>{
-    return   <div className={ss.kichkina_kategoriya}>
+  {ish.map((item,key)=>{
+    return   <div key={key} className={ss.kichkina_kategoriya}>
     <input type="checkbox"   />
     <span className={ss.sp}>{item.title}<sup className={ss.sp2}>5</sup></span>
 </div>
@@ -173,7 +170,7 @@ function jimm22(){
   </div>
     </div>
  {data.map((item,key)=>{
-return <div className={ss.povara}>
+return <div key={key} className={ss.povara}>
 <div className={ss.cards}>
   <div className={ss.b_card}>
 <div className={ss.card1}>
@@ -214,7 +211,7 @@ return <div className={ss.povara}>
 <div className={ss.a_card}>
   <div className={ss.ovqat_img}>
     {item.foods.map((item2,key2)=>{
-    return <div> <img  className={ss.bld_img} src={item.image} alt="" />
+    return <div key={key2}> <img  className={ss.bld_img} src={item.image} alt="" />
     <p>{item2.price}</p>
     </div>
     })}

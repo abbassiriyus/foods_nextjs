@@ -11,7 +11,7 @@ import Navbar from './componet/navbar';
 import { TfiClose } from "react-icons/tfi";
 import Footer from './componet/footer';
 import { FaWhatsapp } from "react-icons/fa";
-import s from "../styles/menu_detail.module.css"
+import s from "../styles/menuDetail.module.css"
 export default function menu_detail() {
   var [accor,setAccor]=useState(1)
   var[data,setData]=useState([])

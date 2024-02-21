@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react'
-import s from "../../styles/card.module.css"
+import s from "../../styles/Card.module.css"
 import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
-import axios from 'axios';
-import url from '../host/config';
+
 export default function card( props,{id} ){
     
     const tiltRef = useRef(null);
