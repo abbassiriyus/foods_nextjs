@@ -4,6 +4,7 @@ import { IoIosStar } from "react-icons/io";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
 import { HiChevronDown } from "react-icons/hi";
+import { BiCommentDetail } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { HiOutlineLocationMarker } from "react-icons/hi";
@@ -224,35 +225,131 @@ return <div key={key} className={ss.povara}>
 <div className={ss.cards3}>
  <div className={ss.about_p}>
  <div className={ss.img_p}>
-
+<img src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg" alt="" />
  </div>
  <div className={ss.star_p}>
 <div className={ss.name_p}>
 <div className={ss.name}>
 <h3>Чмиль Софья Сергеевна</h3>
 <p>Кондитер</p>
-</div>
-<div className={ss.map_p}>
-<p><CiLocationArrow1 />1.8 км
- от вас</p>
-</div>
-</div>
 <div className={ss.comment_p}>
-<div className="str5">
-  <span>4.9</span>
+<div className={ss.str5}>
+  <strong>4.9</strong>
   <IoIosStar className={ss.zv}/>
 <IoIosStar className={ss.zv}/>
 <IoIosStar className={ss.zv}/>
 <IoIosStar className={ss.zv}/>
 <IoIosStar className={ss.zv}/>
+<div className={ss.coment}>
+  <p><BiCommentDetail />3</p>
+</div>
+</div>
+<div className={ss.zakaz_p}>
+ <p>Торты</p>
+ <p>Торты</p>
 </div>
 
 </div>
+</div>
+</div>
+
  </div>
  </div>
+
+
+
+
+
+
+
+
+
+
+ <div className={ss.tort_p}>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo2}>
+<center><span>25000</span></center>
+</div>
+ </div>
 </div>
 
 
+
+
+
+
+<div className={ss.cards3}>
+ <div className={ss.about_p}>
+ <div className={ss.img_p}>
+<img src="https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg" alt="" />
+ </div>
+ <div className={ss.star_p}>
+<div className={ss.name_p}>
+<div className={ss.name}>
+<h3>Чмиль Софья Сергеевна</h3>
+<p>Кондитер</p>
+<div className={ss.comment_p}>
+<div className={ss.str5}>
+  <strong>4.9</strong>
+  <IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<div className={ss.coment}>
+  <p><BiCommentDetail />3</p>
+</div>
+</div>
+<div className={ss.zakaz_p}>
+ <p>Торты</p>
+ <p>Торты</p>
+</div>
+
+</div>
+</div>
+</div>
+
+ </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+ <div className={ss.tort_p}>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo1}>
+<center><span>25000</span></center>
+</div>
+<div style={{background:`url(https://cs1.livemaster.ru/storage/46/00/c1f2992a7453815b33195b8635i4--suveniry-i-podarki-bento-tort-v-murome.jpg)`,backgroundSize:'100% 100%'}} className={ss.background_photo2}>
+<center><span>25000</span></center>
+</div>
+ </div>
+</div>
 </div>
 
 
