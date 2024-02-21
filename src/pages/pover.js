@@ -22,7 +22,6 @@ export default function pover() {
     axios.get(`${url()}/api/category`).then(res=>{
      setCategory(res.data)
      getPover()
-     console.log(res.data);
     }).catch(err=>{
   
     })
@@ -33,13 +32,11 @@ setData(res.data)
 axios.get(`${url()}/api/ishyonalishi`).then(res7=>{
   setIsh(res7.data)
 
-  console.log(res7.data,"Dad");
   }).catch(err=>{
   
   })
 
 
-console.log(res.data,"Dad");
 }).catch(err=>{
 
 })

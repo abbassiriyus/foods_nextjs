@@ -119,10 +119,8 @@ if(a){
   document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`
   }).catch(err=>{
     // window.location='/'
-    console.log("bir");
   })
 }else{
-  console.log("ikki");
   window.location='/'
 }
  
@@ -140,12 +138,10 @@ function UpdateData() {
   var category=user.category
 for (let i = 0; i < data_all.length; i++) {
 if(data_all[i].checked){
-console.log(category[i].title);
 if(!category[i].category_id){
   axios.post(`${url()}/api/user_category`,{user_id:user.id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
   }
 }else{
-  console.log(category);
   if(category[i].category_id){
   axios.delete(`${url()}/api/user_category/${category[i].category_id}`).then(res=>{}).catch(err=>{})
   }

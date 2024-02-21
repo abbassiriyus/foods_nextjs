@@ -16,11 +16,10 @@ export default function card( props,{id} ){
           'max-glare': 0.5,
         });
       }
-      console.log(id);
     }, []);
 function card1() {
    localStorage.setItem('one',JSON.stringify(props.data))
-   window.location='/menu_detail' 
+   window.location=`/menudetail/${props.data.id}` 
 }
   return (
   

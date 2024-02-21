@@ -15,7 +15,6 @@ export default function chat() {
     useEffect(() => {
       const newSocket = io('http://localhost:4003'); // Server manzili va porti
       setSocket(newSocket);
-    console.log(newSocket,"abbas");
       return () => {
         newSocket.close();
       };

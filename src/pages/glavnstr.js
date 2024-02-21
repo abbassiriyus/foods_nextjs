@@ -70,7 +70,6 @@ setSwipper(0);
 } else {
 setSwipper(swiper + 1);
 }
-console.log(swiper);
 }
 function minus() {
 if (swiper === 0) {
@@ -78,7 +77,6 @@ setSwipper(data.length - 1);
 } else {
 setSwipper(swiper - 1);
 }
-console.log(swiper);
 }
 
 const [xopen, setXopen] = useState(false);

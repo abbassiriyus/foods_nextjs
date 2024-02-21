@@ -28,7 +28,6 @@ setSwipper(0);
 } else {
 setSwipper(swiper + 1);
 }
-console.log(swiper);
 }
 function minus() {
 if (swiper === 0) {
@@ -36,7 +35,6 @@ setSwipper(data.length - 1);
 } else {
 setSwipper(swiper - 1);
 }
-console.log(swiper);
 }
 
 function getSizUchun() {
@@ -51,7 +49,6 @@ setSoglom(res3.data)
 })
 })
 })
-console.log(res.data);
 }).catch(err=>{
 
 })
@@ -59,11 +56,9 @@ console.log(res.data);
 function getheaderCarousel(params) {
 axios.get(`${url()}/api/userprog/header`).then(res=>{
 setData(res.data)
-console.log(res.data);
 
 })
 .catch(err=>{
-console.log(err);
 })
 }
 
@@ -81,7 +76,6 @@ setXopen(false);
 useEffect(()=>{
 getSizUchun();
 getheaderCarousel()
-console.log(url());
 },[])
 
 

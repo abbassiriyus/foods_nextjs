@@ -26,9 +26,7 @@ export default function Navbar() {
   function getData() {
     axios.get(`${url()}/api/category`).then(res => {
       setData(res.data)
-      console.log(res.data)
     }).catch(err => {
-      console.log("not geting");
     })
   }
 
@@ -97,11 +95,9 @@ export default function Navbar() {
       }
       axios.post(`${url()}/api/verify2`, data_send).then(res => {
         axios.post(`${url()}/api/verify`, data_send).then(res => {
-          console.log(res.data);
           setPage(5)
           setPhone(phone.value)
         }).catch(err => {
-          console.log(err);
           phone1.style = "border:1px solid red"
           phone_error.style = "position:relative;z-index:2"
           setErrorphone("Номер был введен неверно")
@@ -123,12 +119,10 @@ export default function Navbar() {
       phone: phone2
     }
     axios.post(`${url()}/api/verify/check`, send_data).then(res => {
-      console.log(res.data);
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
       window.location = "/profile"
     }).catch(err => {
-      console.log(err);
       code13.style = "border:1px solid red"
     })
 
@@ -168,7 +162,6 @@ export default function Navbar() {
       }
     } else {
       axios.post(`${url()}/api/login`, send_data).then(res => {
-        console.log(res.data);
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('user',JSON.stringify(res.data.user))
         setTimeout(() => {
@@ -181,7 +174,6 @@ export default function Navbar() {
         password_in.style = "border:1px solid red"
         password_error.style = "position:relative;z-index:2"
         setErrorpassword("Номер телефона или пароль не совпадают")
-        console.log(err);
       })
     }
 

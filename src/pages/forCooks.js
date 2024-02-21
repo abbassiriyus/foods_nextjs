@@ -47,7 +47,6 @@ title: "Ishlab chiqaruvchilarning mahsulotlari"
 
   }
   function SelectAc(key){
-    console.log(key);
 for (let i = 0; i < accordion_data.length; i++) {
 if(key==i && key!=accor_gr){
   setAccor_gl(i)
@@ -72,16 +71,12 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 
   function getData() {
     axios.get(`${url()}/api/carousel_forcooks`).then(res=>{
-      console.log(res.data,"ADad");
       setData(res.data)
       axios.get(`${url()}/api/vopros_atvet`).then(res1=>{
-        console.log(res1.data);
         setAccordion_data(res1.data)
       }).catch(err1=>{
-        console.log("not geting");
       })
     }).catch(err=>{
-      console.log("not geting");
     })
   }
 

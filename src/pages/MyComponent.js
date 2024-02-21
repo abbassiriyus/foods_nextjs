@@ -3,7 +3,6 @@ import Script from 'next/script';
 
 const MyComponent = () => {
   useEffect(() => {
-    console.log('Sayfa yüklendi');
   }, []);
 
   return (

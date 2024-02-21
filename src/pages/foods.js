@@ -27,7 +27,6 @@ var [glFoods,setGlFoods]=useState([])
 function getData() {
     axios.get(`${url()}/api/category`).then(res=>{
         setData(res.data)
-        console.log(res.data);
     })
 }
 useEffect(()=>{

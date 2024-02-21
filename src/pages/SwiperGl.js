@@ -114,9 +114,7 @@ getgeDesert()
 getgeProduct()
 }
 
-setTimeout(() => {
-console.log(glFoods,"ovqat");
-}, 1000);
+
 
 },[])
 return (
