@@ -19,7 +19,7 @@ export default function menu_detail() {
 var [accor,setAccor]=useState(1)
 var [data,setData]=useState([])
 var [food,setFood]=useState([])
-var [user,setUser]=useState([])
+var [user,setUser]=useState({category:[],pover:{}})
 var [commnet,setCommnet]=useState([])
 
 var router=useRouter()
@@ -27,6 +27,16 @@ function getData() {
 axios.get(`${url()}/api/foods/${router.query.id}`).then(res=>{
  setFood(res.data.food)
 setUser(res.data.user)
+for (let i = 0; i < res.data.comment.length; i++) {
+ 
+  var date = new Date(res.data.comment[i].time_update)
+var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
+res.data.comment[i].date=formattedDate
+}
+
+
+
+
 setCommnet(res.data.comment)
 
  console.log(res.data);
@@ -97,32 +107,34 @@ if(router.query.id){
     <div className={s.cards}>
 <div className={s.card}>
 <div className={s.profil}>
-<img src={data.user_image} alt="" />
+<img src={user.image} alt="" />
 <div className={s.bal}>
-<p className={s.p1}>{data.mark} <span><BiCommentDetail className={s.comment} /> {data.mark_org}</span></p>
+<p className={s.p1}>{user.mark} <span><BiCommentDetail className={s.comment} /> {user.mark_org}</span></p>
 <p className={s.p2}>
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
-<FaStar className={s.star} />
+  {['','','','',''].map((item,key)=>{
+    if(user.mark>key){
+    return <FaStar key={key} className={s.star} />
+    }else{
+      return <FaStar key={key} className={s.star}  style={{color:'gray'}} />
+    }
+  })}
+
 </p>
 <p className={s.p3}><CiLocationArrow1 className={s.location} /> 0.0 км от вас</p>
 </div>
 </div>
 <div className={s.p_ism}>
-<h1>{data.username}{data.name}</h1>
+<h1>{user.username} {user.name}</h1>
 </div>
-<p className={s.ism_p}>Домашний повар</p>
+<p className={s.ism_p}>{user.pover.ish_yonalishi}</p>
 <div className={s.p_b}>
 <button><LuNavigation /> Написать сообщение</button>
 </div>
 <div className={s.vbr_blyud}>
 <p>Все блюда</p>
-<p>Обед и ужин</p>
-<p>Приготовим сегодня</p>
-<p>Второе блюда</p>
-<p>Русская кухня</p>
+{user.category.map((item,key)=>{
+  return <p key={key} >{item.title}</p>
+})}
 </div>
 
 </div>
@@ -165,56 +177,43 @@ document.querySelector("#nn").style="display:block"
 </div>
   </div>
 </div>
-<div className={s.about_c}>
- <div className={s.coment_1}>
- <div className={s.buyers}>
+
+{commnet.length>0?(<div className={s.about_c}> <div className={s.buyers}>
 <h3>ОТЗЫВЫ ПОКУПАТЕЛЕЙ</h3>
-<h4>2 ОТЗЫВА</h4>
+<h4>{commnet.length} ОТЗЫВА</h4>
   </div>
+  {commnet.map((item,key)=>{
+    return <>
+     <div className={s.coment_1}>
   <div className={s.star_buyers}>
 <div className={s.between}>
-<img src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" alt="" />
+<img src={item.image} alt="" />
 <div className={s.stars}>
   <div className={s.name}>
-    <h4>Вероника Бердникова</h4><p>19 декабря 2023</p>
+    <h4>{item.name} {item.lastname} </h4><p>{item.date}</p>
   </div>
   <div className={s.star}>
-  <FaStar />
-  <FaStar />
-  <FaStar />
-  <FaStar />
-  <FaStar />
+  {['','','','',''].map((item1,key1)=>{
+    if(item.mark>key1){
+    return <FaStar key={key1} className={s.star} />
+    }else{
+      return <FaStar key={key} className={s.star}  style={{color:'gray'}} />
+    }
+  })}
   </div>
 </div>
 
 </div>
   </div>
-  <p className={s.bento} style={{marginLeft:'7%'}}>Большое спасибо за бенто, все на высшем уровне и дизайн и вкус. Морковный с карамелью - просто бомба, все оценили.</p>
+  <p className={s.bento} style={{marginLeft:'7%'}}>{item.description}</p>
  </div>
- <hr className={s.hr} />
- <div className={s.coment_1}>
+ {key+1!=commnet.length?(<hr className={s.hr} />):(<></>)}
+    </>
+  })}
 
-  <div className={s.star_buyers}>
-<div className={s.between}>
-<img src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" alt="" />
-<div className={s.stars}>
-  <div className={s.name}>
-    <h4>Вероника Бердникова</h4><p>19 декабря 2023</p>
-  </div>
-  <div className={s.star}>
-  <FaStar />
-  <FaStar />
-  <FaStar />
-  <FaStar />
-  <FaStar />
-  </div>
-</div>
 
-</div>
-  </div>
-  <p className={s.bento} style={{marginLeft:'7%'}}>Спасибо большое за тортик🤗 Ооочень вкусный и быстро доставили🔥</p>
- </div>
-</div>
+</div>):(<></>)}
+
 <Footer/>
     </div>
   )

@@ -29,6 +29,86 @@ function getData() {
         setData(res.data)
     })
 }
+
+function filterData(){
+var data1=document.querySelectorAll("#filtercheck")
+var bosilgan=[]
+for (let i = 0; i < data1.length; i++) {
+    if(data1[i].checked){
+   bosilgan.push(data[i]) 
+    }
+}
+console.log(bosilgan);
+axios.get(`${url()}/api/foods`).then(res=>{
+var tayyor=[]
+if(bosilgan.length==0){
+tayyor=res.data
+}else{
+   for (let i = 0; i < res.data.length; i++) {
+     res.data[i].qosh=false
+     console.log(res.data[i]);
+   for (let j = 0; j < bosilgan.length; j++) {
+    if(bosilgan[j].id==res.data[i].category_id){
+        res.data[i].qosh=true
+    }
+   }
+   if(res.data[i].qosh){
+    tayyor.push(res.data[i])
+    }
+
+}
+}
+
+
+setGlFoods(tayyor)
+
+    })
+
+}
+
+function sortReting() {
+    console.log("Salom");
+    var a=[...glFoods]
+    a.sort(function(a, b){
+        return b.mark-a.mark;
+    });
+ 
+ 
+    setGlFoods(a)
+
+}
+function sortSena() {
+    console.log("Salom");
+    var a=[...glFoods]
+    a.sort(function(a, b){
+        return a.price-b.price;
+    });
+    console.log(a);
+  setTimeout(() => {
+    setGlFoods(a)
+  }, 10);
+}
+
+function sortSenaRever() {
+    console.log("Salom");
+    var a=[...glFoods]
+    a.sort(function(a, b){
+        return b.price-a.price;
+    });
+    setGlFoods(a)
+}
+
+function sorttime() {
+    console.log("Salom");
+    var a=[...glFoods]
+    console.log(new Date('2024-02-21T06:05:13.724Z'));
+    a.sort(function(a, b){
+        return new Date(b.time_update) - new Date(a.time_update);
+    });
+    setGlFoods(a)
+}
+
+
 useEffect(()=>{
 getData()
 getgeFoods()
@@ -70,7 +150,7 @@ function getgeFoods(){
 <h3>Все категории</h3>
 <div className={s.line}></div>
 {data.map((item,key)=>{
-    return <li key={key}><input type="checkbox" name="" id="" /> {item.title} <sup>{item.count}</sup></li>
+    return <li key={key}><input onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
 })}
 
 
@@ -84,12 +164,12 @@ function getgeFoods(){
     <button>Найти</button>
     </div>
 <div className={s.link}>
-<div className={s.reyting}>
+<div onClick={()=>{sortReting()}} className={s.reyting}>
 <BsSortDown  className={s.toggle_fill} /><h4>По рейтингу</h4>
 </div>
-<h4>По возрастанию цены</h4>
-<h4>По убыванию цены</h4>
-<h4>По новизне</h4>
+<h4 onClick={()=>{sortSenaRever()}}  >По возрастанию цены</h4>
+<h4  onClick={()=>{sortSena()}} >По убыванию цены</h4>
+<h4 onClick={()=>{sorttime()}}>По новизне</h4>
 </div>
 <div className={s.cards}>
 {/* <Card/>
