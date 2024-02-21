@@ -5,6 +5,7 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
 import { HiChevronDown } from "react-icons/hi";
 import { IoIosSearch } from "react-icons/io";
+import { CiLocationArrow1 } from "react-icons/ci";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { VscSettings } from "react-icons/vsc";
 import { AiOutlineClose } from "react-icons/ai";
@@ -166,7 +167,7 @@ function jimm22(){
   <span>Показать на карте</span>
   </div>
     </div>
- {data.map((item,key)=>{
+ {/* {data.map((item,key)=>{
 return <div key={key} className={ss.povara}>
 <div className={ss.cards}>
   <div className={ss.b_card}>
@@ -208,8 +209,9 @@ return <div key={key} className={ss.povara}>
 <div className={ss.a_card}>
   <div className={ss.ovqat_img}>
     {item.foods.map((item2,key2)=>{
-    return <div key={key2}> <img  className={ss.bld_img} src={item.image} alt="" />
-    <p>{item2.price}</p>
+    return <div style={{background:`url(${item2.image})`,backgroundSize:'cover',width:'150px',height:'200px',backgroundPosition:'center'}} key={key2}>
+      
+    <p >{item2.price}</p>
     </div>
     })}
    
@@ -218,9 +220,38 @@ return <div key={key} className={ss.povara}>
 </div>
 </div>
 
- })}
+ })} */}
 
+<div className={ss.cards3}>
+ <div className={ss.about_p}>
+ <div className={ss.img_p}>
 
+ </div>
+ <div className={ss.star_p}>
+<div className={ss.name_p}>
+<div className={ss.name}>
+<h3>Чмиль Софья Сергеевна</h3>
+<p>Кондитер</p>
+</div>
+<div className={ss.map_p}>
+<p><CiLocationArrow1 />1.8 км
+ от вас</p>
+</div>
+</div>
+<div className={ss.comment_p}>
+<div className="str5">
+  <span>4.9</span>
+  <IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+<IoIosStar className={ss.zv}/>
+</div>
+
+</div>
+ </div>
+ </div>
+</div>
 
 
 </div>
