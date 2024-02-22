@@ -50,7 +50,7 @@ function card1() {
             <p>{props.data.mark_org}</p>
         </div>
      </div>
-        <a href=""  ><h2>{props.data.foods_name}</h2></a>
+        <a href="" onClick={()=>{window.location=`/menudetail/${props.data.id}`}} ><h2>{props.data.foods_name}</h2></a>
         <div class={s.korzina}>
             <div class={s.price}>
                 <span>{props.data.price} ₽</span>
