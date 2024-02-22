@@ -26,6 +26,8 @@ getData()
 return (
 <div>
 
+
+
 <div className={s.dishes}>
 {page==0?(
 <div onClick={()=>{setPage(1)}} className={s.dishes_button} id='plus'>
@@ -33,23 +35,19 @@ return (
 <h5>Добавить блюдо</h5>
 </div>
 ):(
+
+
+
+
+
 <div className={s.d_i} id='inputlar'>
 <h1>РЕДАКТИРОВАТЬ БЛЮДО</h1>
 
 
+
+
 <div className={s.dishes_inp}>
 
-<div className={s.yangi_card}>
-<div className={s.img_i}>
-<BiDish /> <PiTrashFill />
-</div>
-<div className={s.c_soz}>
-<h1><FaPen /> Редактировать</h1>
-<h1>ovqatni nomi</h1>
-<p>ovqatni narx</p>
-<p>ovqatni grammmi</p>
-</div>
-</div>
 
 <div className={s.inputlar1}>
 <div className={s.input_s_dobavkoy}>
@@ -119,6 +117,19 @@ return <p key={key}>{item.title}</p>
 
 </div>
 
+
+
+<div className={s.yangi_card}>
+<div className={s.img_i}>
+<BiDish /> 
+</div>
+<div className={s.c_soz}>
+<h1><FaPen /> Редактировать</h1>
+<h1>ovqatni nomi</h1>
+<p>ovqatni narx</p>
+<p>ovqatni grammmi</p>
+</div>
+</div>
 </div>
 )
 }

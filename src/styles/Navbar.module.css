@@ -297,12 +297,12 @@ line-height: 38px;
     font-size: 20px;
 }
 .onmous{
-    width: 210px;
+    width: 260px;
     display: none;
     border-radius: 20px;
     position: absolute;
     top: 70px;
-    left: 18%;
+    left: 23.5%;
     z-index: 12123;
     font-size: 18px;
     background-color: white;
@@ -311,7 +311,7 @@ line-height: 38px;
     box-shadow: 0px 0px 1px 0px gray;
 }
 .onmous ul{
-    width: 200px;
+    width: 250px;
     max-height: 400px;
     list-style: none;
     overflow: scroll;
@@ -322,6 +322,10 @@ line-height: 38px;
 }
 .onmous ul li{
     padding: 10px 10px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: inherit;
 }
 .onmous ul li:hover{
     scale: 1.01;
