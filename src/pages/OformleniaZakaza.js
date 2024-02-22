@@ -251,13 +251,17 @@ export default function Oformlenia_zakaz() {
                 </h2>
               </div>
 
-              <textarea name=" " id="" cols="30" rows="10"></textarea>
+              <textarea className={o.texta} name=" " id="" cols="30" rows="10"></textarea>
               <div className={o.button_for_pay_goods}>
                 <button>Оформить</button>
               </div>
             </div>
           </div>
         </div>
+
+
+
+
         <div className={o.second_oformlenia_zakaz}>
           <h4>Для вас приготовит:</h4>
           <div className={o.info_customer_zakaz}>
@@ -281,7 +285,7 @@ export default function Oformlenia_zakaz() {
             </p>
           </div>
           <div className={o.how_it_cook_zakaz}>
-            <p>Котлеты Домашние</p>
+            <p>Котлеты Домашние</p><br />
             <span>1 порция • 479 ₽</span>
           </div>
           <div className={o.overall_price_zakaz}>
