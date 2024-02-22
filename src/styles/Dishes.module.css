@@ -1,15 +1,24 @@
 .yangi_card{
-width: 250px;
+width: 300px;
 min-height:400px;
 border-radius: 20px;
 background-color: #06c160;
 }
 .img_i{
 width: 100%;
-height: max-content;
-font-size: 15px;
+height: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-
+.dish_i{
+font-size: 150px;
+color: white;
+}
+.c_soz h1{
+font-size: 20px;
+font-weight: 500;
+}
 
 
 .dishes{

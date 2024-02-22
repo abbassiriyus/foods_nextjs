@@ -121,7 +121,7 @@ return <p key={key}>{item.title}</p>
 
 <div className={s.yangi_card}>
 <div className={s.img_i}>
-<BiDish /> 
+<BiDish className={s.dish_i} /> 
 </div>
 <div className={s.c_soz}>
 <h1><FaPen /> Редактировать</h1>
