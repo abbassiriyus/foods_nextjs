@@ -1,5 +1,6 @@
 .a_div{
-width: 1100px;
+max-width: 1300px;
+width: 100%;
 margin: auto;
 margin-top: 30px;
 }
@@ -21,12 +22,13 @@ font-size: 45px;
 font-family: 'Montserrat',Arial,serif,-apple-system;
 font-weight: 900;
 text-transform: uppercase;
+margin-bottom: 30px;
 }
 .tablitsa{
 width: 100%;
 height: max-content;
 border-radius: 12px;
-border: 1px solid rgb(158, 158, 158);
+border: 1px solid rgb(199, 196, 196);
 margin-top: 25px;
 }
 .t1{
@@ -37,7 +39,7 @@ gap: 130px;
 align-items: center;
 color: gray;
 font-size: 14px;
-background-color: #89898938;
+background-color:rgb(240, 240, 240);
 border-top-left-radius: 9px;
 border-top-right-radius: 9px;
 padding-left: 15px;
@@ -57,6 +59,8 @@ align-items: center;
 
 .m_i{
 display: flex;
+margin-top: 30px;
+
 }
 
 .profil img{
@@ -66,7 +70,7 @@ border-radius: 50%;
 }
 
 .mesto{
-width: 200px;
+/* width: 520px; */
 height: 60px;
 }
 .t2 button{
@@ -84,15 +88,109 @@ cursor: pointer;
 
 
 
+.table1{
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    align-items: center;
+    /* width: 100%; */
+    margin-bottom: 40px;
+    /* background-color: #f06262; */
+}
+.table1 table{
+    border-collapse: collapse;
+    overflow: hidden;
+}
+.table1 thead tr th{
+    background-color: rgb(228, 228, 228);
+    height: 50px;    
+}
 
-
-
-
-
-
-
-
-
+.btnt2{
+    width: 130px;
+height: 25px;
+border: none;
+border-radius: 8px;
+color: #f06262;
+background-color: rgba(240, 98, 98, 0.05);
+margin-left: 90px; 
+cursor: pointer;
+} 
+/* table2 */
+.table2{
+    width: 90%;
+    margin: auto;
+    min-width: 300px;
+    background-color: white;
+    min-height: 270px;
+    border-radius: 10px;
+    /* padding: 20px; */
+    margin-top: 50px;
+    display: none;
+}
+.card_table{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+.card_table1{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(211, 211, 211, 0.329);
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.img_t{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 60px;
+    /* margin-top: 20px; */
+}
+.adress{
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.adress p{
+    margin-bottom: 10px
+}
+.btn_price{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+.img_t img{
+    width: 10%;
+    border-radius: 50%;
+}
+.btnt3{
+    width: 130px;
+height: 25px;
+border: none;
+border-radius: 8px;
+color: #f06262;
+margin-left: 20px;
+background-color: rgba(240, 98, 98, 0.05);
+cursor: pointer;
+} 
+@media (max-width:1330px) {
+    .zkz{
+        margin-left: 30px;
+    }
+}
+@media  (max-width:1024px){
+    .table1{
+        display: none;
+    }
+    .table2{
+        display: block;
+    }
+    .a_div{
+        margin-left: 20px;
+    }
+}
 
 
 

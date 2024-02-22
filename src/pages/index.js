@@ -95,7 +95,7 @@ return (
 <h1 className={s.h_h2} style={{paddingTop:'30px'}}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
 <p className={s.h_p1}>Тебе не нужно покупать продукты, готовить и мыть посуду. Наслаждайся вкусной едой без лишних забот!
 </p>
-<button className={s.h_button}>Выбрать блюда</button>
+<a href="/foods"><button className={s.h_button}>Выбрать блюда</button></a>
 <p className={s.h_p2}>Вы повар? — <span className={s.h_span1}>давайте с нами!</span>
 </p>
 <span className={s.h_span2}>Регистрация займет всего 3 минуты</span>

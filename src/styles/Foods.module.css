@@ -41,6 +41,9 @@ margin-bottom: 30px;
     padding-bottom: 10px;
     align-items: center;
 }
+.actiocheck li{
+    margin-bottom: 15px;
+}
 .food_body h1 sup{
     font-size: 20px;
     color: grey;

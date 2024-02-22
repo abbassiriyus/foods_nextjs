@@ -13,11 +13,13 @@
 }
 .green_back{
     background-color:  rgb(222, 254, 235);
-    width: 60%;
+    width: 50%;
     min-width: 210px;
     border-radius: 10px;
-    height: 33px;
+    height: 30px;
     padding: 4px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 .tort{
     display: flex;

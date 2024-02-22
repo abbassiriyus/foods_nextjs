@@ -101,7 +101,7 @@ return (
 <p className={s.h_p1}>Тебе не нужно покупать продукты, готовить и мыть посуду. Наслаждайся вкусной едой без лишних забот!
 </p>
 
-<a href="/foods.js"><button className={s.h_button}>Выбрать блюда</button></a>
+<button className={s.h_button}>Выбрать блюда</button>
 <p className={s.h_p2}>Вы повар? — <span className={s.h_span1}>давайте с нами!</span>
 </p>
 <span className={s.h_span2}>Регистрация займет всего 3 минуты</span>

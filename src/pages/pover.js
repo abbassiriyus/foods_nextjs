@@ -252,10 +252,10 @@ getPover()
                   <span>Найти</span>
                 </div>
               </div>
-              <div className={ss.karta}>
+              {/* <div className={ss.karta}>
                 <HiOutlineLocationMarker className={ss.lorem} />
                 <span>Показать на карте</span>
-              </div>
+              </div> */}
             </div>
 
 

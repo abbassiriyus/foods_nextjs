@@ -188,7 +188,7 @@ document.querySelector("#nn").style="display:block"
   <div className={s.star_buyers}>
 <div className={s.between}>
 <img src={item.image} alt="" />
-<div className={s.stars}>
+<div className={s.stars} onClick={() => { window.location = `/oneuser/${item.user_id}` }}>
   <div className={s.name}>
     <h4>{item.name} {item.lastname} </h4><p>{item.date}</p>
   </div>

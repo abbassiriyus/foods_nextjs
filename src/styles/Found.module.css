@@ -25,10 +25,11 @@
 .found_img img{
     position: relative;
     right: 100px;
+    width: 70%;
 }
 .found_img{
-    width:49%;
-    height: 40%;
+    width:400px;
+    height: 400px;
     border-radius: 50%;
     background-color: #e6f9ef;
     /* background-color: red; */
