@@ -24,7 +24,7 @@ function card1() {
   return (
   
 <div  className={s.cards}  >
-    <div className={s.card} onClick={()=>{card1()}} > 
+  {props.data?(  <div className={s.card} onClick={()=>{card1()}} > 
         <div className={s.card_img}>
     <div className={s.card}  > 
         <div style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
@@ -68,7 +68,9 @@ function card1() {
     </div>
     {/* <Script src="../path/to/script.js" /> */}
    </div>
-</div></div>
+</div>):(<></>)}
+  
+</div>
 
   )
 }

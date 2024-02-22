@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
-import "./oformlenia_zakaz.css";
+// import "../styles/oformlenia_zakaz.css";
 
 export default function Oformlenia_zakaz() {
   const Openanotherperson = () => {
