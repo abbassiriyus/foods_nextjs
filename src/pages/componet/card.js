@@ -24,14 +24,14 @@ function card1() {
   return (
   
 <div  className={s.cards}  >
-  {props.data?(  <div className={s.card} onClick={()=>{card1()}} > 
+  {props.data?(  <div className={s.card}> 
         <div className={s.card_img}>
     <div className={s.card}  > 
         <div style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
             <h3>Заказ за {(props.data.preparation_time).slice(0,2)} часа</h3>
         </div>
         <div className={s.card_text}>
-    <div class={s.card_text2}>
+    <div onClick={()=>window.location=`/oneuser/${props.data.user_povar_id}`} class={s.card_text2}>
         <img src={props.data.user_image} alt="" />
         <h4>{props.data.username} {props.data.name}</h4>
      <div class={s.comment}>

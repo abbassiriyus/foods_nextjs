@@ -188,11 +188,13 @@ export default function Navbar() {
         <div className={s.navbar}>
 
           <div id='menu' className={s.navbar_menu}>
-            <FaArrowLeft /> <SlMenu onClick={() => setIsOpen(true)} />
+            <FaArrowLeft />
+             <SlMenu onClick={() => setIsOpen(true)} />
           </div>
 
           <div className={s.navbar_logo}>
-            <a href="/"><img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
+            <a href="/">
+              <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
           </div>
           <div className={s.navbar_line}>
             <span id='aaa'><a href="/foods" onMouseEnter={() => onmousenter1()}>Все блюда
@@ -268,7 +270,7 @@ export default function Navbar() {
       <div id='onmouse' className={s.onmous} onMouseLeave={() => NavbarDropdavnButton()} >
         <ul>
           {data.map((item, key) => {
-            return <li key={key}><a href="#">{item.title}</a></li>
+            return <li onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}} key={key}><a href="#">{item.title}</a></li>
           })}
         </ul>
       </div>

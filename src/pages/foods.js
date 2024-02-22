@@ -26,7 +26,16 @@ var [glFoods,setGlFoods]=useState([])
  }
 function getData() {
     axios.get(`${url()}/api/category`).then(res=>{
+
         setData(res.data)
+   setTimeout(() => {
+    for (let i=0; i < res.data.length; i++) {
+        if(res.data[i].id==localStorage.getItem("category")){
+            console.log('ert');
+            document.querySelectorAll("#filtercheck")[i].checked=true
+        }
+        }
+   }, 1000);
     })
 }
 
@@ -38,7 +47,6 @@ for (let i = 0; i < data1.length; i++) {
    bosilgan.push(data[i]) 
     }
 }
-console.log(bosilgan);
 axios.get(`${url()}/api/foods`).then(res=>{
 var tayyor=[]
 if(bosilgan.length==0){
@@ -112,12 +120,32 @@ function sorttime() {
 useEffect(()=>{
 getData()
 getgeFoods()
+
+
+
+
 },[])
 
 function getgeFoods(){
-    axios.get(`${url()}/api/foods`).then(res=>{
-    setGlFoods(res.data)
-    })
+        var logd=localStorage.getItem('category')
+        console.log(logd);
+        if(logd){
+
+        axios.get(`${url()}/api/foods`).then(res=>{
+            console.log(res.data,"asdasd");
+    
+        setGlFoods(res.data.filter(item=>item.category_id==logd))
+
+
+        }).catch(err=>{
+    
+        })
+        }else{
+        axios.get(`${url()}/api/foods`).then(res=>{
+            setGlFoods(res.data) })
+            }
+        
+   
     }
   return (
   
@@ -143,14 +171,14 @@ function getgeFoods(){
 </div>
     </div>
 <div className={s.actoon_page}>
-<ul id='filter' className={s.actiocheck}>
+<ul id='filter'  className={s.actiocheck}>
     <div className={s.close} onClick={()=>{
         document.querySelector('#filter').style="left:-130%"
     }}><IoMdClose /></div>
 <h3>Все категории</h3>
 <div className={s.line}></div>
 {data.map((item,key)=>{
-    return <li key={key}><input onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
+    return <li key={key}><input  onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
 })}
 
 

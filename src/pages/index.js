@@ -184,7 +184,7 @@ return <FaStar className={s.star1} />
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
 {sizUchun.map((item,key)=>{
-return <div key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p >{item.title}</p>
@@ -199,7 +199,7 @@ return <div key={key} className={s.c}>
 <h1 className={s.jison}>Блюда от поваров</h1>
 <div className={s.cards}>
 {oshpazdanTaom.map((item,key)=>{
-return <div key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -214,7 +214,7 @@ return <div key={key} className={s.c}>
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
 {shirinliklar.map((item,key)=>{
-return <div key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -229,7 +229,7 @@ return <div key={key} className={s.c}>
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cs}>
 {soglom.map((item,key)=>{
-return <div key={key} className={s.c}>
+return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
