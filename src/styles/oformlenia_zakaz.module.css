@@ -1,37 +1,37 @@
-.big-oformlinia-zaka {
+.big_oformlinia_zaka {
   display: flex;
   gap: 80px;
 }
-.App-offormlenia-zakaz {
+.App_offormlenia_zakaz {
   background: #fafafa;
   padding: 15px 25px;
 }
-.where-Oformlenia-zakaz {
+.where_Oformlenia_zakaz {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.where-Oformlenia-zakaz a {
+.where_Oformlenia_zakaz a {
   color: #06c160;
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.where-Oformlenia-zakaz span {
+.where_Oformlenia_zakaz span {
   margin-top: 3px;
 }
-.where-Oformlenia-zakaz a:hover {
+.where_Oformlenia_zakaz a:hover {
   text-decoration: none;
 }
 
-.first-oformlenia-zakaz {
+.first_oformlenia_zakaz {
   background: #fff;
   padding: 20px 25px;
   border-radius: 10px;
   width: 850px;
 }
 
-.count-offermlenia-zakaz {
+.count_offermlenia_zakaz {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -41,29 +41,29 @@
   background: #e6f9ef;
 }
 
-.count-what-do-oformlenia-zakaz {
+.count_what_do_oformlenia_zakaz {
   display: flex;
   align-items: start;
   gap: 30px;
 }
 
-.gets-person-zakaz {
+.gets_person_zakaz {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-.gets-person2-zakaz {
+.gets_person2_zakaz {
   display: none;
   align-items: center;
   gap: 30px;
 }
-.gets-person3-zakaz {
+.gets_person3_zakaz {
   display: none;
   align-items: center;
   gap: 30px;
 }
 
-.gets-person2-zakaz input {
+.gets_person2_zakaz input {
   width: 250px;
   height: 20px;
   padding: 10px 15px;
@@ -75,7 +75,7 @@
   border-radius: 10px;
 }
 
-.gets-person-zakaz p {
+.gets_person_zakaz p {
   width: 250px;
   height: 30px;
   padding: 10px 15px;
@@ -86,47 +86,47 @@
   border-radius: 10px;
 }
 
-.get-another-person-zakaz {
+.get_another_person_zakaz {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.get-another-person-zakaz2 {
+.get_another_person_zakaz2 {
   display: none;
   align-items: center;
   gap: 20px;
 }
 
-#checkbox-zakaz {
+#checkbox_zakaz {
   width: 20px;
   height: 20px;
   accent-color: #06c160;
 }
 
-.radio-inp-text-zakaz {
+.radio_inp_text_zakaz {
   display: flex;
   align-items: center;
   gap: 10px;
   line-height: 0;
   cursor: pointer;
 }
-#radio-zakaz {
+#radio_zakaz {
   accent-color: #06c160;
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
-.inp-checkbox-and-text-zakaz p {
+.inp_checkbox_and_text_zakaz p {
   color: #909090;
   display: none;
 }
 
-.big-dostavka-zakaz {
+.big_dostavka_zakaz {
   display: none;
 }
 
-.small-div-dostavka p {
+.small_div_dostavka p {
   width: 250px;
   height: 30px;
   padding: 10px 15px;
@@ -137,13 +137,13 @@
   border-radius: 10px;
 }
 
-.small-div-dostavka {
+.small_div_dostavka {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.small-div-dostavka input {
+.small_div_dostavka input {
   width: 250px;
   height: 25px;
   padding: 10px 15px;
@@ -155,12 +155,12 @@
   border-radius: 10px;
 }
 
-.middle-dostavka-div {
+.middle_dostavka_div {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-.another-info-zakaz input {
+.another_info_zakaz input {
   width: 100px;
   height: 25px;
   padding: 10px 15px;
@@ -172,13 +172,13 @@
   border-radius: 10px;
 }
 
-.another-info-zakaz {
+.another_info_zakaz {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.hr-for-dostavka-or-zakaz {
+.hr_for_dostavka_or_zakaz {
   border: none;
   height: 1px;
   background: #909090a4;
@@ -186,7 +186,7 @@
   margin-bottom: 30px;
 }
 
-.inp-time-data-dostavka input {
+.inp_time_data_dostavka input {
   width: 250px;
   height: 28px;
   padding: 10px 15px;
@@ -198,7 +198,7 @@
   border-radius: 10px;
 }
 
-.inp-time-data-dostavka select {
+.inp_time_data_dostavka select {
   width: 250px;
   height: 50px;
   padding: 10px 15px;
@@ -210,12 +210,12 @@
   border-radius: 10px;
 }
 
-.inp-time-data-dostavka {
+.inp_time_data_dostavka {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-.comment-for-zakaz textarea {
+.comment_for_zakaz textarea {
   width: 600px;
   padding: 10px 15px;
   border: 1px solid #909090;
@@ -226,26 +226,26 @@
   border-radius: 10px;
 }
 
-.oplata-zakaza-way-money {
+.oplata_zakaza_way_money {
   display: flex;
   align-items: center;
   gap: 20px;
   cursor: pointer;
 }
-.oplata-zakaza-way-card {
+.oplata_zakaza_way_card {
   display: flex;
   align-items: center;
   gap: 20px;
   cursor: no-drop;
 }
-.radio-oplata-card {
+.radio_oplata_card {
   cursor: no-drop !important;
 }
-.oplata-zakaza-way-card h3 {
+.oplata_zakaza_way_card h3 {
   color: #909090c2;
 }
 
-.importand-think-oplata {
+.importand_think_oplata {
   display: flex;
   gap: 10px;
   align-items: start;
@@ -254,7 +254,7 @@
   border-radius: 5px;
 }
 
-.first-think-oplata {
+.first_think_oplata {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -266,18 +266,18 @@
   margin-top: 10px;
 }
 
-.second-think-oplata p {
+.second_think_oplata p {
   line-height: 0.5;
 }
 
-.button-for-pay-goods {
+.button_for_pay_goods {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-top: 10px;
 }
 
-.comment-for-zakaz button {
+.comment_for_zakaz button {
   height: 40px;
   width: 200px;
   border-radius: 10px;
@@ -287,13 +287,13 @@
   background: #06c160;
 }
 
-.comment-for-zakaz button:hover {
+.comment_for_zakaz button:hover {
   background-color: #fff;
   border: 1px solid #06c160;
   color: #06c160;
 }
 
-.second-oformlenia-zakaz {
+.second_oformlenia_zakaz {
   background: #e6f9ef;
   height: 400px;
   width: 300px;
@@ -301,64 +301,64 @@
   padding: 2px 10px;
 }
 
-.info-customer-zakaz {
+.info_customer_zakaz {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.her-img-zakaz img {
+.her_img_zakaz img {
   width: 55px;
   height: 55px;
   border-radius: 100%;
 }
 
-.her-name-zakaz a {
+.her_name_zakaz a {
   color: #06c160;
   text-decoration: none;
   line-height: 0;
 }
-.her-name-zakaz a:hover {
+.her_name_zakaz a:hover {
   text-decoration: underline;
 }
 
-.her-name-zakaz p {
+.her_name_zakaz p {
   color: #909090;
   font-size: 13px;
 }
 
-.count-of-zakaz {
+.count_of_zakaz {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.count-of-zakaz p {
+.count_of_zakaz p {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #06c160;
 }
 
-.how-it-cook-zakaz {
+.how_it_cook_zakaz {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media (max-width: 1140px) {
-  .how-it-cook-zakaz {
+  .how_it_cook_zakaz {
     display: block;
   }
-  .count-of-zakaz {
+  .count_of_zakaz {
     display: block;
   }
-  .count-of-zakaz h4 {
+  .count_of_zakaz h4 {
     line-height: 0;
   }
-  .info-customer-zakaz {
+  ._ {
     display: block;
     text-align: center;
   }
-  .second-oformlenia-zakaz button {
+  .second_oformlenia_zakaz button {
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -367,7 +367,7 @@
     color: white;
     font-size: 15px;
   }
-  .second-oformlenia-zakaz {
+  .second_oformlenia_zakaz {
     background: #e6f9ef;
     height: 450px;
     width: 500px !important;
@@ -375,24 +375,24 @@
     padding: 2px 10px;
   }
 }
-.how-it-cook-zakaz p {
+.how_it_cook_zakaz p {
   font-size: 13px;
   font-weight: 650;
   line-height: 0;
 }
 
-.how-it-cook-zakaz span {
+.how_it_cook_zakaz span {
   color: #909090;
   font-size: 13px;
 }
 
-.overall-price-zakaz {
+.overall_price_zakaz {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.second-oformlenia-zakaz button {
+.second_oformlenia_zakaz button {
   width: 100%;
   height: 50px;
   border-radius: 10px;
@@ -402,42 +402,42 @@
   font-size: 18px;
 }
 
-.second-oformlenia-zakaz button:hover {
+.second_oformlenia_zakaz button:hover {
   background-color: #fff;
   border: 1px solid #06c160;
   color: #06c160;
 }
 
-.count-offermlenia-zakaz2 {
+.count_offermlenia_zakaz2 {
   display: none;
 }
 
 @media (max-width: 1100px) {
-  .big-oformlinia-zaka {
+  .big_oformlinia_zaka {
     display: block;
     padding: 10px 20px;
   }
-  .first-oformlenia-zakaz {
+  .first_oformlenia_zakaz {
     width: 95%;
   }
-  .second-oformlenia-zakaz {
+  .second_oformlenia_zakaz {
     width: 100%;
     margin-top: 20px;
   }
-  .how-it-cook-zakaz {
+  .how_it_cook_zakaz {
     display: flex;
   }
-  .count-of-zakaz {
+  .count_of_zakaz {
     display: flex;
   }
-  .count-of-zakaz h4 {
-    line-height: 0;
+  .count_of_zakaz h4 {
+    line-height: 0_
   }
-  .info-customer-zakaz {
+  ._ {
     display: block;
     text-align: center;
   }
-  .second-oformlenia-zakaz button {
+  .second_oformlenia_zakaz button {
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -446,7 +446,7 @@
     color: white;
     font-size: 15px;
   }
-  .second-oformlenia-zakaz {
+  .second_oformlenia_zakaz {
     background: #e6f9ef;
     height: 450px;
     width: 500px !important;
@@ -456,20 +456,20 @@
 }
 
 @media (max-width: 850px) {
-  .second-think-oplata p {
+  .second_think_oplata p {
     font-size: 13px;
   }
-  .first-think-oplata {
+  .first_think_oplata {
     width: 20px;
     height: 20px;
   }
-  .comment-for-zakaz textarea {
+  .comment_for_zakaz textarea {
     width: 500px;
   }
 }
 
 @media (max-width: 800px) {
-  .gets-person-zakaz p {
+  .gets_person_zakaz p {
     width: 200px;
     height: 30px;
     padding: 10px 15px;
@@ -479,7 +479,7 @@
     background: #efefef;
     border-radius: 10px;
   }
-  .gets-person2-zakaz input {
+  .gets_person2_zakaz input {
     width: 200px;
     height: 20px;
     padding: 10px 15px;
@@ -491,7 +491,7 @@
     border-radius: 10px;
   }
 
-  .small-div-dostavka input {
+  .small_div_dostavka input {
     width: 200px;
     height: 25px;
     padding: 10px 15px;
@@ -502,7 +502,7 @@
     background: #fff;
     border-radius: 10px;
   }
-  .small-div-dostavka p {
+  .small_div_dostavka p {
     width: 200px;
     height: 30px;
     padding: 10px 15px;
@@ -512,7 +512,7 @@
     background: #efefef;
     border-radius: 10px;
   }
-  .another-info-zakaz input {
+  .another_info_zakaz input {
     width: 75px;
     height: 25px;
     padding: 10px 15px;
@@ -524,7 +524,7 @@
     border-radius: 10px;
   }
 
-  .inp-time-data-dostavka input {
+  .inp_time_data_dostavka input {
     width: 200px;
     height: 28px;
     padding: 10px 15px;
@@ -536,7 +536,7 @@
     border-radius: 10px;
   }
 
-  .inp-time-data-dostavka select {
+  .inp_time_data_dostavka select {
     width: 230px;
     height: 50px;
     padding: 10px 15px;
@@ -550,10 +550,10 @@
 }
 
 @media (max-width: 700px) {
-  .count-offermlenia-zakaz {
+  .count_offermlenia_zakaz {
     display: none;
   }
-  .count-offermlenia-zakaz2 {
+  .count_offermlenia_zakaz2 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -562,7 +562,7 @@
     justify-content: center;
     background: #e6f9ef;
   }
-  .df-in-which-stage-zakaz {
+  .df_in_which_stage_zakaz {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -570,13 +570,13 @@
 }
 
 @media (max-width: 600px) {
-  .oplata-zakaza-way-money h3 {
+  .oplata_zakaza_way_money h3 {
     font-size: 15px;
   }
-  .text-about-bank-card h3 {
+  .text_about_bank_card h3 {
     font-size: 15px;
   }
-  .gets-person-zakaz p {
+  .gets_person_zakaz p {
     width: 90%;
     height: 30px;
     padding: 10px 15px;
@@ -587,21 +587,21 @@
     background: #efefef;
     border-radius: 10px;
   }
-  .gets-person-zakaz {
+  .gets_person_zakaz {
     display: block;
   }
-  .gets-person2-zakaz {
+  .gets_person2_zakaz {
     display: none;
   }
-  .get-another-person-zakaz {
+  .get_another_person_zakaz {
     display: none;
   }
-  .get-another-person-zakaz2 {
+  .get_another_person_zakaz2 {
     display: flex;
     align-items: center;
     gap: 20px;
   }
-  .gets-person3-zakaz input {
+  .gets_person3_zakaz input {
     margin-top: 20px;
     width: 90%;
     height: 20px;
@@ -614,7 +614,7 @@
     border-radius: 10px;
   }
 
-  .small-div-dostavka input {
+  .small_div_dostavka input {
     width: 90%;
     height: 25px;
     padding: 10px 15px;
@@ -625,7 +625,7 @@
     background: #fff;
     border-radius: 10px;
   }
-  .small-div-dostavka p {
+  .small_div_dostavka p {
     width: 90%;
     height: 30px;
     padding: 10px 15px;
@@ -635,7 +635,7 @@
     background: #efefef;
     border-radius: 10px;
   }
-  .another-info-zakaz input {
+  .another_info_zakaz input {
     width: 90%;
     margin-top: 20px;
     height: 25px;
@@ -648,19 +648,19 @@
     border-radius: 10px;
   }
 
-  .small-div-dostavka {
+  .small_div_dostavka {
     display: block;
   }
-  .middle-dostavka-div {
+  .middle_dostavka_div {
     display: block;
   }
-  .another-info-zakaz {
+  .another_info_zakaz {
     display: block;
   }
-  .inp-time-data-dostavka {
+  .inp_time_data_dostavka {
     display: block;
   }
-  .inp-time-data-dostavka input {
+  .inp_time_data_dostavka input {
     width: 90%;
     height: 28px;
     padding: 10px 15px;
@@ -672,7 +672,7 @@
     border-radius: 10px;
   }
 
-  .inp-time-data-dostavka select {
+  .inp_time_data_dostavka select {
     width: 100%;
     height: 50px;
     padding: 10px 15px;
@@ -684,13 +684,13 @@
     border-radius: 10px;
     margin-top: 20px;
   }
-  #onlain-oplata-zakaz {
+  #onlain_oplata_zakaz {
     display: none;
   }
-  .comment-for-zakaz textarea {
+  .comment_for_zakaz textarea {
     width: 100%;
   }
-  .comment-for-zakaz button {
+  .comment_for_zakaz button {
     height: 40px;
     width: 150px;
     border-radius: 10px;
@@ -700,52 +700,52 @@
     background: #06c160;
   }
 
-  .second-oformlenia-zakaz {
+  .second_oformlenia_zakaz {
     width: 100% !important;
   }
 
-  .her-img-zakaz img {
+  .her_img_zakaz img {
     width: 100px;
     height: 100px;
     border-radius: 100%;
   }
-  .df-in-which-stage-zakaz span {
+  .df_in_which_stage_zakaz span {
     display: none;
   }
-  .comment-for-zakaz {
+  .comment_for_zakaz {
     width: 90%;
   }
 }
 @media (max-width: 450px) {
-  .button-for-pay-goods {
+  .button_for_pay_goods {
     display: flex;
     align-items: center;
     justify-content: start;
   }
-  .importand-think-oplata {
+  .importand_think_oplata {
     padding: 2px 15px;
   }
-  .second-think-oplata p {
+  .second_think_oplata p {
     font-size: 12px !important;
     line-height: 1 !important;
   }
-  .oplata-zakaza-way-money h3 {
+  .oplata_zakaza_way_money h3 {
     font-size: 13px;
   }
-  .text-about-bank-card h3 {
+  .text_about_bank_card h3 {
     font-size: 13px;
   }
 }
 @media (max-width: 400px) {
-  .df-in-which-stage-zakaz h2 {
+  .df_in_which_stage_zakaz h2 {
     font-size: 20px;
   }
 }
 @media (max-width: 360px) {
-  .importand-think-oplata {
+  .importand_think_oplata {
     padding: 2px 5px;
   }
-  .df-in-which-stage-zakaz h2 {
+  .df_in_which_stage_zakaz h2 {
     font-size: 16px;
   }
 }

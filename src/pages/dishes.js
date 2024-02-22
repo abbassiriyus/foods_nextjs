@@ -3,13 +3,14 @@ import s from "../styles/Dishes.module.css"
 import { FiPlus } from "react-icons/fi";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { TbPaperclip } from "react-icons/tb";
+import { BiDish } from "react-icons/bi";
+import { PiTrashFill } from "react-icons/pi";
+import { FaPen } from "react-icons/fa";
 import axios from 'axios';
 import url from './host/config';
 export default function dishes() {
 var [page,setPage]=useState(0)
 var [data,setData]=useState([])
-
-
 
 function getData() {
 axios(`${url()}/api/category`).then(res=>{
@@ -20,15 +21,10 @@ setData(res.data)
 }
 useEffect(()=>{
 
-
-
 getData()
 },[])
 return (
 <div>
-
-
-
 
 <div className={s.dishes}>
 {page==0?(
@@ -42,9 +38,20 @@ return (
 
 
 <div className={s.dishes_inp}>
+
+<div className={s.yangi_card}>
+<div className={s.img_i}>
+<BiDish /> <PiTrashFill />
+</div>
+<div className={s.c_soz}>
+<h1><FaPen /> Редактировать</h1>
+<h1>ovqatni nomi</h1>
+<p>ovqatni narx</p>
+<p>ovqatni grammmi</p>
+</div>
+</div>
+
 <div className={s.inputlar1}>
-
-
 <div className={s.input_s_dobavkoy}>
 <div className={s.in}>
 <input placeholder='Категория' className={s.inputlar_0} style={{border:'none',outline:'none'}} type="text" /> 

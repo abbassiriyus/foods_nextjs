@@ -1,0 +1,240 @@
+.App_korzinka{
+background: #fafafa;
+padding: 15px 25px;
+}
+
+.where_korzinka{
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.where_korzinka a{
+color: #06c160;
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.where_korzinka span{
+margin-top: 3px;
+}
+.where_korzinka a:hover{
+text-decoration: none;
+}
+
+
+.first_korzinka_div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.small_first_korzinka_div p{
+color: #909090;
+font-size: 12px;
+line-height: 0px;
+}
+
+.small_first_korzinka_div h3{
+font-size: 20px;
+}
+
+
+.trash_delete_korzinka{
+color: #909090;
+font-size: 20px;
+}
+.trash_delete_korzinka:hover{
+color: #06c160;
+cursor: pointer;
+}
+
+.korzinka_big_and_about_div hr{
+border: none;
+height: 1px;
+background: #9090909d;
+}
+
+
+.korzinka_big_and_about_div{
+background: #fff;
+padding: 15px 20px 30px 20px;
+width: 800px;
+border-radius: 15px;
+margin-top: 50px;
+}
+
+@media (max-width:850px) {
+.korzinka_big_and_about_div{
+background: #fff;
+padding: 15px 20px 30px 20px;
+width: 600px;
+border-radius: 15px;
+margin-top: 50px;
+}
+
+}
+
+@media (max-width: 670px) {
+.korzinka_big_and_about_div{
+background: #fff;
+padding: 15px 20px 30px 20px;
+width: 88%;
+margin: auto;
+border-radius: 15px;
+margin-top: 50px;
+}
+
+}
+
+.second_korzinka_div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.img_name_price_korzinka{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.korzinka_img{
+width: 65px;
+height: 65px;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.korzinka_img img{
+width: 100%;
+}
+
+.name_price_korzinka h3{
+font-size: 22px;
+line-height: 5px;
+}
+.name_price_korzinka p{
+color: #909090;
+font-size: 18px;
+}
+
+.overall_price_plus_minus_korzinka{
+display: flex;
+align-items: center;
+gap: 30px;
+}
+
+.overall_price_plus_minus_korzinka h3{
+font-size: 22px;
+}
+
+.minus_korzinka{
+width: 20px;
+height: 20px;
+border-radius: 50%;
+color: #06c160;
+border: 1px solid #06c160;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.minus_korzinka h3{
+font-size: 30px;
+cursor: pointer;
+}
+.plus_korzinka{
+width: 20px;
+height: 20px;
+border-radius: 50%;
+color: #06c160;
+border: 1px solid #06c160;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.plus_korzinka h3{
+font-size: 30px;
+cursor: pointer;
+}
+
+.overall_price_plus_minus_korzinka .bx_trash{
+color: #909090;
+font-size: 20px;
+}
+.overall_price_plus_minus_korzinka .bx_trash:hover{
+color: #06c160;
+cursor: pointer;
+}
+
+.korzinka_bottom{
+margin-bottom: 20px;
+}
+
+.korzinka_top{
+margin-top: 20px;
+}
+
+.price_over_korzinka{
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 60px;
+}
+
+.price_over_korzinka button{
+width: 150px;
+height: 40px; 
+border: none;
+background: #06c160;
+color: white;
+border-radius: 10px;
+}
+
+.after_media_six_hundred{
+display: none;
+}
+
+@media (max-width:600px) {
+.img_name_price_korzinka, .overall_price_plus_minus_korzinka{
+display: none;
+}
+.after_media_six_hundred{
+display: block;
+width: 100%;
+}
+.media_img_name_price_korzinka_kotta{
+display: flex;
+align-items: center;
+gap: 10px; 
+}
+.media_img_name_price_korzinka_trash i{
+color: #909090;
+font-size: 20px;
+}
+.media_img_name_price_korzinka_trash i:hover{
+color: #06c160;
+cursor: pointer;
+}
+.media_img_name_price_korzinka{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.media_overall_price_plus_minus_korzinka{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.media_overall_price_plus_minus_korzinka_count{
+display: flex;
+align-items: center;
+gap: 20px;
+}
+}
+
+@media (max-width:410px) {
+.price_over_korzinka{
+display: block;
+text-align: center;
+}
+}

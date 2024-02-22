@@ -52,6 +52,12 @@ background-color: white;
 margin-top: 30px;
 margin-bottom: 50px;
 }
+.profil img{
+width: 160px;
+height: 160px;
+border-radius: 50%;
+
+}
 .p_soz{
 width: 75%;
 display: block;
@@ -240,7 +246,12 @@ margin-bottom: 50px;
 }
 .p_img{
 width: 20%;
+height: 70px;
 }
+.p_img img{
+width: 100%;
+}
+
 .p_soz{
 width: 75%;
 display: block;
