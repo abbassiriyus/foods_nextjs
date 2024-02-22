@@ -775,6 +775,7 @@ margin-left: -40%;
     min-width: 300px;
     margin-top: 60px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 .about_p{
     display: flex;
@@ -785,9 +786,19 @@ margin-left: -40%;
 }
 .img_p{
     width: 10%;
+    /* background: red; */
+    border-radius: 50%;
+}
+.img_p img:hover{
+    border: 3px solid #06c160;
+    padding: 2px;
 }
 .img_p img{
     width: 100%;
+    border-radius: 50%;
+    transition: 0.4s;
+    border: 3px solid white;
+    padding: 2px;
 }
 .star_p{
     width: 90%;
@@ -806,6 +817,7 @@ margin-left: -40%;
     display: flex;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: space-between;
 }
@@ -813,9 +825,9 @@ margin-left: -40%;
 .zakaz_p{
     display: flex;
     gap: 15px;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     /* width: 30%; */
-    
+
 }
 .zakaz_p p{
     padding: 5px;
@@ -824,7 +836,6 @@ margin-left: -40%;
     color: #06c160;
 }
 .background_photo{
-    border-bottom-left-radius: 20px;
     margin-top: 20px;
     min-width: 150px;
     width:8%;
@@ -836,19 +847,6 @@ margin-left: -40%;
     flex-wrap: wrap;
     width: 100%;
     margin: auto;
-}
-.background_photo1{
-    margin-top: 20px;
-    min-width: 150px;
-    width:8%;
-    height:120px;
-}
-.background_photo2{
-    border-bottom-right-radius: 20px;
-    margin-top: 20px;
-    width:8%;
-    height:120px;
-    min-width: 150px;
 }
 .tort_p span{
     background-color: #000000d5;
@@ -875,18 +873,13 @@ margin-left: -40%;
     .tort_p{
      width:98%;
      margin: auto;
-     /* margin-left: 5%; */
         gap:5px;
     }
-    /* .background_photo{
-        border-bottom-left-radius: 20px;
-    } */
 }
 @media(max-width:1175px){
     .tort_p{
      width:98%;
      margin: auto;
-     /* margin-left: 5%; */
         gap:5px;
 
     }
@@ -897,7 +890,6 @@ margin-left: -40%;
         margin-top: 5px;
         min-width: 300px;
         min-height: 300px;
-        border-radius: 0px;
     }
     .background_photo1{
         margin-top: 5px;
@@ -915,7 +907,6 @@ margin-left: -40%;
         margin-top: 5px;
         min-width: 240px;
         min-height: 240px;
-        border-radius: 0px;
     }
     .background_photo1{
         margin-top: 5px;
@@ -933,7 +924,6 @@ margin-left: -40%;
         margin-top: 5px;
         min-width: 190px;
         min-height: 190px;
-        border-radius: 0px;
     }
     .background_photo1{
         margin-top: 5px;
@@ -951,7 +941,6 @@ margin-left: -40%;
         margin-top: 5px;
         min-width: 180px;
         min-height: 180px;
-        border-radius: 0px;
     }
     .background_photo1{
         margin-top: 5px;

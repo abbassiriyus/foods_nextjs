@@ -634,7 +634,7 @@ if(item.in_user){
 return  <div key={key} className={s.ram}>
     <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
-      <IoMdClose onClick={()=>{deleteDiplom(ite.id)}} className={s.close}/>
+      <IoMdClose onClick={()=>{deleteDiplom(item.id)}} className={s.close}/>
     </div>
  
 
