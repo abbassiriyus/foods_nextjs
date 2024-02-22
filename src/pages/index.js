@@ -74,8 +74,9 @@ setXopen(false);
 
 
 useEffect(()=>{
-getSizUchun();
 getheaderCarousel()
+getSizUchun();
+
 },[])
 
 
@@ -128,11 +129,11 @@ alt=""
 />
 <div className={s.s_p_g_s}>
 <div className={s.nomi}>
-<p className={s.nazvanie_bluda}>{data[swiper].food_name}</p>
+<p className={s.nazvanie_bluda}>{data[swiper].foods_name}</p>
 <p className={s.stoimost}>{data[swiper].price} ₽</p>
 </div>
 <div className={s.s_p_i_s1}>
-<div className={s.s_infa}>
+<div onClick={()=>{window.location=`/oneuser/${data[swiper].user_id}`}} className={s.s_infa}>
 <p className={s.sotuvchi}>{data[swiper].name}</p>
 <div className={s.bal}>
 {['','','','',''].map((item,key)=>{
@@ -149,7 +150,7 @@ return <FaStar className={s.star1} />
 <p className={s.kakoypovar}>{data[swiper].ish_yonalishi_title}</p>
 </div>
 <div className={s.s_button}>
-<button>Заказать</button>
+<button onClick={()=>{window.location=`/menudetail/${data[swiper].food_id}`}} >Заказать</button>
 </div>
 </div>
 </div>

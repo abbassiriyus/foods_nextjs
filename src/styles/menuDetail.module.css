@@ -34,13 +34,15 @@
     cursor: pointer;
 }
 .cake_img{
-    background:url(https://content2.flowwow-images.com/data/flowers/1000x1000/77/1698323128_28380677.jpg) ;
+    /* background:url(https://content2.flowwow-images.com/data/flowers/1000x1000/77/1698323128_28380677.jpg) ; */
     width: 25%;
     height:370px;
     border-radius: 22px;
     padding: 15px;
     min-width: 300px;
     margin-bottom: 20px;
+background-size: cover !important;
+background-position: center !important;
 }
 .cake h3{
     margin-bottom: 20px;

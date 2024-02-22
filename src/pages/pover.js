@@ -175,7 +175,7 @@ getPover()
       <div className={ss.glava}>
         {/* <button onClick={() =>push('/navbar')}>go home</button> */}
         <div className={ss.gap}>
-          <span className={ss.gap_1}>ВСЕ ПОВАРА <sup className={ss.gap_2}>200</sup></span>
+          <span className={ss.gap_1}>ВСЕ ПОВАРА <sup className={ss.gap_2}>{data.length}</sup></span>
         </div>
         <div className={ss.plan}>
           <div className={ss.kategoriya} id='openModal'>

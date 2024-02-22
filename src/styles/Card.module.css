@@ -23,6 +23,8 @@
     /* padding-top: 15px; */
     min-width: 300px;
     cursor: pointer;
+    background-size: cover !important;
+    background-position: center !important;
 }
 .card_text2{
     padding: 20px;

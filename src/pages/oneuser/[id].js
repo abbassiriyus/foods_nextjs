@@ -14,8 +14,9 @@ export default function first() {
     var [data,setData]=useState([])
     var router=useRouter()
     function getData() {
-      axios.get(`${url()}/api/users/${router.query.id}`).then(res=>{
+      axios.get(`${url()}/api/getpovar/${router.query.id}`).then(res=>{
       setData(res.data)
+      console.log(res.data);
       }).catch(err=>{
         alert(err)
       })

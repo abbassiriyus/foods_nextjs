@@ -54,14 +54,14 @@ if(router.query.id){
     <div>
       <Navbar/>
       <div className={s.tort}>
-<h2>БЕНТО КОТЫ</h2>
+<h2>{food.foods_name}</h2>
 <div  onClick={()=>{document.querySelector('#yopil').style='display:flex'}} className={s.share1}>
 <IoShareSocialOutline  /><span>Поделиться</span>
 </div>
       </div>
 <div className={s.cake}>
   <div className={s.cake1}>
-    <div style={{background:`url(${food.image})`,  backgroundSize: 'cover',backgroundRepeat: 'no-repeat'}} className={s.cake_img}>
+    <div style={{background:`url(${food.image})`,backgroundSize: 'cover',backgroundRepeat: 'no-repeat',backgroundPosition:'center'}} className={s.cake_img}>
       <h3 className={s.green_back}>Приготовим сегодня</h3>
     </div>
     <div className={s.cake_desc}>

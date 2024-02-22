@@ -69,6 +69,8 @@
     border-radius: 50%;
     width: 180px;
     height: 180px;
+    background-size: cover !important;
+    background-position: center;
 }
 .image_profil .p_user{
  color: #111;
@@ -486,6 +488,8 @@ background-color: aqua;
 border-radius: 10px;
 background: url('https://i.pinimg.com/originals/79/fd/1e/79fd1e908ef669bd38d875b94aa4fde0.jpg');
 background-size: 100% 100%;
+background-size: cover !important;
+background-position: center !important;
 }
 .musr{
     width: 40px;
