@@ -96,20 +96,20 @@ return (
 <p>Сколько лет в деле</p>
 <p>Дата регистрации</p>
 </div>
+{user.pover?(<div className={c.block2}>
+<p><CiLocationArrow1 className={c.location} /> {user.pover.deskription}</p>
+<p>{user.pover.ish_yonalishi}</p>
+<p>{user.pover.expertise}</p>
+<p>{user.pover.time_create?user.pover.time_create.slice(0, 10):""}</p>
+</div>):(<></>)}
 
-<div className={c.block2}>
-<p><CiLocationArrow1 className={c.location} /> {user.deskription}</p>
-<p>{user.ish_yonalishi}</p>
-<p>{user.expertise}</p>
-<p>{user.time_create?user.time_create.slice(0, 10):""}</p>
-</div>
 </div>
 
 </div>
 
 <div className={c.p3}>
 <h1>О СЕБЕ</h1>
-<p>{user.deskription}</p>
+<p>{user.about_me}</p>
 </div>
 
 </div>

@@ -10,49 +10,62 @@ import url from './host/config';
 export default function dishes() {
 var [page,setPage]=useState(0)
 var [data,setData]=useState([])
+var [foods,setFoods]=useState([])
+
 function getData() {
-axios(`${url()}/api/category`).then(res=>{
-setData(res.data)
+axios(`${url()}/api/foods`).then(res=>{
+    var local=JSON.parse(localStorage.getItem('user'))
+    var data1=res.data.filter(item=>item.user_povar_id==local[0].id)
+    setFoods(data1)
+axios(`${url()}/api/category`).then(res1=>{
+    setData(res1.data)
+    }).catch(err=>{
+    })
 }).catch(err=>{
 })
 }
+
+function deleteData(id) {
+    axios.delete(`${url()}/api/foods/${id}`).then(res=>{
+    console.log("delete succses");
+    getData()
+    }).catch(err=>{
+    })
+}
+
 useEffect(()=>{
 getData()
 },[])
-function och(){
-document.querySelector("#werwe").style = "display: block;"
-document.querySelector("#arrow_d").style="display:none"
-document.querySelector("#arrow_u").style="display:block"
-}
-function yop(){
-document.querySelector("#werwe").style = "display: none;"
-document.querySelector("#arrow_d").style = "display:block"
-document.querySelector("#arrow_u").style = "display: none"
-}
+
 return (
 <div>
 <div className={s.dishes}>
-<div className={s.yangi_card}>
+
+{page==0?(
+<div className={s.dicv}>
+    {foods.map((item,key)=>{
+     return  <div className={s.yangi_card}>
 <div className={s.img_i}>
 <div className={s.udalitЬ}>
-<div className={s.vedro} >
-<FaTrash />
+<div onClick={()=>{deleteData(item.id)}} className={s.vedro} >
+<FaTrash  />
 </div>
 </div>
-<img src="https://mypovar.ru/images/empty-dish.svg" alt="" />
+<img src={item.image} alt="" />
 </div>
 <div className={s.c_soz}>
 <h1 className={s.c_h1}><FaPen className={s.ruchka} /> <p>Редактировать</p></h1>
-<h1 className={s.c_h2}>ovqatni nomi</h1>
-<p className={s.c_p1}>ovqatni narx</p>
-<p className={s.c_p2}>ovqatni grammmi</p>
+<h1 className={s.c_h2}>{item.foods_name}</h1>
+<p className={s.c_p1}>{item.price}</p>
+<p className={s.c_p2}>{item.weight}</p>
 </div>
-</div>
+</div> 
+    })}
 
-{page==0?(
 <div onClick={()=>{setPage(1)}} className={s.dishes_button} id='plus'>
 <div className={s.circle}><FiPlus /></div>
 <h5>Добавить блюдо</h5>
+</div>
 </div>
 ):(
 
@@ -68,105 +81,34 @@ return (
 {/* <MdOutlineKeyboardArrowDown id='arrow_d' onClick={()=>{och()}} className={s.arrow_d} /> <MdOutlineKeyboardArrowUp id='arrow_u' className={s.arrow_u} onClick={()=>{yop()}} /><br /> */}
 
 <select className={s.select} name="" id="" placeholder='Категория' >
-<option className={s.option} value="1">
-<p>Торты</p>
+
+{data.map((item,key)=>{
+    return <option className={s.option} value={item.id}>
+<p>{item.title}</p>
 </option>
-<option className={s.option} value="2">
-<p>Бенто торты</p>
-</option>
-<option className={s.option} value="">
-<p>Пирожные</p>
-</option>
-<option className={s.option} value="3">
-<p>Шокола, конфеты, пряники</p>
-</option>
-<option className={s.option} value="4">
-<p>Клубника в шоколаде</p>
-</option>
-<option className={s.option} value="5">
-<p>Все десерты</p>
-</option>
-<option className={s.option} value="6">
-<p>Закуски и гастробоксы</p>
-</option>
-<option className={s.option} value="7">
-<p>Полезное и здоровое</p>
-</option>
-<option className={s.option} value="8">
-<p>Все блюда</p>
-</option>
-<option className={s.option} value="9">
-<p>Мясная гастрономия</p>
-</option>
-<option className={s.option} value="10">
-<p>Мёд</p>
-</option>
-<option className={s.option} value="11">
-<p>На компанию</p>
-</option>
-<option className={s.option} value="12">
-<p>Супы</p>
-</option>
-<option className={s.option} value="13">
-<p>Салаты</p>
-</option>
-<option className={s.option} value="14">
-<p>Азиатская кухня</p>
-</option>
-<option className={s.option} value="15">
-<p>Русская кухня</p>
-</option>
-<option className={s.option} value="16">
-<p>Пироги и выпески</p>
-</option>
-<option className={s.option} value="17">
-<p>Второе блюда</p>
-</option>
-<option className={s.option} value="18">
-<p>Что нового</p>
-</option>
-<option className={s.option} value="19">
-<p>Приготовим сегодня</p>
-</option>
-<option className={s.option} value="20">
-<p>Обед и ужин</p>
-</option>
-<option className={s.option} value="21">
-<p>Вкусно и полезно</p>
-</option>
-<option className={s.option} value="22">
-<p>Продукты от фермеров</p>
-</option>
-<option className={s.option} value="23">
-<p>Продукты от изготовителей</p>
-</option>
-<option className={s.option} value="24">
-<p>Заготовки и заморозки</p>
-</option>
-<option className={s.option} value="25">
-<p>14 февраля</p>
-</option>
+})}
+
 </select>
 </div>
 </div>
-<input placeholder='Название блюда' className={s.inputlar_11} type="text" /><br />
-<textarea placeholder='Описание и состав' className={s.inputlar_2} type="text" /><br />
-<input placeholder='Количество порций' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Вес (примерно:300г)' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Время приготовления' className={s.inputlar_1} type="text" /><br />
-<textarea placeholder='Условия хранения' className={s.inputlar_2} type="text" /><br />
+<input placeholder='Название блюда' id='foods_name' className={s.inputlar_11} type="text" /><br />
+<textarea placeholder='Описание и состав' id='description' className={s.inputlar_2} type="text" /><br />
+<input placeholder='Количество порций' id='portion' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Вес (примерно:300г)' id='weight' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Время приготовления' id='preparation_time' className={s.inputlar_1} type="text" /><br />
+<textarea placeholder='Условия хранения' id='storage_condition' className={s.inputlar_2} type="text" /><br />
 </div>
 <div className={s.liniya}></div>
 <div className={s.inputlar2}>
-<input placeholder='Калорийность' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Белки, г' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Жиры, г' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Углеводы, г' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Калорийность' id='calorie' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Белки, г' id='proteins' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Жиры, г' id='oils' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Углеводы, г' id="carbs" className={s.inputlar_1} type="text" /><br />
 <div className={s.input_a}>
 <a href="#" className={s.inp_a}>Как рассчитать калорийность и БЖУ?</a><br />
 </div>
-<input placeholder='Упаковка' className={s.inputlar_1} type="text" /><br />
-<input placeholder='Цена, р' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Упаковка' id='packages' className={s.inputlar_1} type="text" /><br />
+<input placeholder='Цена, р' id='price' className={s.inputlar_1} type="text" /><br />
 <div className={s.liniya2}></div>
 <div className={s.inp2_sozlari}>
 <div className={s.inp2_s_p1}>
@@ -185,7 +127,8 @@ return (
 </div>
 
 <div className={s.inp_x}>
-<div className={s.i_g}>
+<div className={s.i_g} >
+    <input type="file" name="" id="image" />
 <p><TbPaperclip /></p><a href="#">Рекомендуем форматы: jpeg, png, не более 10 файлов</a>
 </div>
 <div className={s.bb}>
