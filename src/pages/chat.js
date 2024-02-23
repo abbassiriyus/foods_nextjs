@@ -3,6 +3,8 @@ import s from '../styles/Chat.module.css'
 import { TbSend } from "react-icons/tb";
 import {  useState } from 'react';
 import io from 'socket.io-client';
+
+const socket = io.connect("http://localhost:4003");
 export default function chat() {
     
     function send(){
@@ -10,15 +12,29 @@ export default function chat() {
         document.querySelector('#chat_space').innerHTML+=`<p>${a}</p>`
         document.querySelector('#chatsend_inp').value=''
     }
-    const [socket, setSocket] = useState(null);
 
+    const [room, setRoom] = useState("");
+
+    // Messages States
+    const [message, setMessage] = useState("");
+    const [messageReceived, setMessageReceived] = useState("");
+  
+    const joinRoom = () => {
+      if (room !== "") {
+        socket.emit("join_room", room);
+      }
+    };
+  
+    const sendMessage = () => {
+      socket.emit("send_message", { message, room });
+    };
+  
     useEffect(() => {
-      const newSocket = io('http://localhost:4003'); // Server manzili va porti
-      setSocket(newSocket);
-      return () => {
-        newSocket.close();
-      };
-    }, []);
+      socket.on("receive_message", (data) => {
+        setMessageReceived(data.message);
+      });
+    }, [socket]);
+  
   return (
     <div>
         <div className={s.chatting}>
@@ -104,6 +120,28 @@ export default function chat() {
                 </div>
             </div>
         </div>
+
+        <div className="App">
+      <input
+        placeholder="Room Number..."
+        onChange={(event) => {
+          setRoom(event.target.value);
+        }}
+      />
+      <button onClick={()=>joinRoom()}> Join Room</button>
+      <input
+        placeholder="Message..."
+        onChange={(event) => {
+          setMessage(event.target.value);
+        }}
+      />
+      <button onClick={()=>sendMessage()}> Send Message</button>
+      <h1> Message:</h1>
+      {messageReceived}
+    </div>
+
+
+
     </div>
   )
 }
