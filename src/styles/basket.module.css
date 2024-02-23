@@ -1,0 +1,163 @@
+.zakaz{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 10%;
+}
+@media(max-width:789px){
+    .zakaz{
+        width: 100%;
+        margin: auto;
+    }
+}
+.card_basket{
+    width: 100%;
+    min-width: 300px;
+    max-width: 900px;
+    /* max-width: 1200px; */
+    min-height: 200px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top:50px;
+    margin-bottom: 40px;
+}
+.h3{
+    font-size: 33px;
+    font-weight: 900;
+}
+.padding{
+    padding: 20px;
+    min-width: 300px;
+}
+.a_basket{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.a_basket a{
+    color: #06c160;
+}
+.delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    min-width: 300px;
+
+}
+.delete_bin{
+    font-size: 22px;
+    color: grey;
+    transition: 0.5s;
+}
+.delete_bin:hover{
+    color: #06c160;
+}
+.card_img_name{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.img_c{
+    width: 10%;
+}
+.img_c img{
+    width: 100%;
+    border-radius: 10px;
+}
+.name_c{
+    /* background-color: red; */
+    width: 70%;
+}
+/* @media (max-width:1400px) {
+    .footer{
+        width: 100%;
+        margin: auto;
+    }
+} */
+.name_c h3{
+    font-size: 25px;
+    min-width: 210px;
+    transition: 0.6s;
+margin-left: 20px;
+}
+
+.name_c h3:hover{
+    color: #06c160;
+}
+.name_c p{
+    color: grey;
+    font-weight: 400;
+    margin-left: 20px;
+    /* margin-top: 10px; */
+    font-size: 19px;
+}
+@media(max-width:600px){
+    .name_c h3{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .name_c p{
+        color: grey;
+        font-weight: 400;
+        margin-left: 10px;
+        /* margin-top: 10px; */
+        font-size: 12px;
+    }
+}
+.btn_1{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 30px;
+}
+.minus{
+    font-size: 25px;
+    color: #06c160;
+    transition: 0.6s;
+}
+.minus:hover{
+    background-color: #06c160;
+    border-radius:50% ;
+    color:white ;
+}
+.price{
+    display: flex;
+    /* background-color: red; */
+
+}
+.price_btn{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+.price_btn button{
+    width: 20%;
+    border:none ;
+    height: 44px;
+    background-color: #06c160;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 10px;
+    min-width:160px ;
+    transition: 0.6s;
+}
+.price_btn button:hover{
+    background-color: white;
+    color: #06c160;
+    border: 1px solid #06c160;
+
+}
+.price_btn span{
+    font-weight: 900;
+}
+/* .footer{
+    width: 80%;
+    margin: auto;
+} */

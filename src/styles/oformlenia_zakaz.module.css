@@ -1,15 +1,22 @@
 .big_oformlinia_zaka {
   display: flex;
-  gap: 80px;
-  width: 80%;
+  gap: 30px;
+  width:90%;
   margin: auto;
   margin-top: 30px;
+  min-width: 300px;
 }
+
 .App_offormlenia_zakaz {
   background: #fafafa;
   padding: 15px 25px;
+  margin-bottom: 30px;
   margin-top: 30px;
+  /* min-width: 300px; */
+  width: 80%;
+  margin-left: 5%;
 }
+
 .where_Oformlenia_zakaz {
   display: flex;
   align-items: center;
@@ -28,12 +35,15 @@
 .where_Oformlenia_zakaz a:hover {
   text-decoration: none;
 }
-
+.padding2{
+  padding: 10px 15px;
+}
 .first_oformlenia_zakaz {
   background: #fff;
-  padding: 20px 25px;
+  /* padding: 20px 25px; */
+  /* padding: 10px 10px; */
   border-radius: 10px;
-  width: 850px;
+  /* width: 850px; */
 }
 .My_order_oformlenia{
     margin-top: 20px;
@@ -43,6 +53,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  min-width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +61,7 @@
 }
 
 .count_what_do_oformlenia_zakaz {
-  display: flex;
+  /* display: flex; */
   align-items: start;
   gap: 30px;
 }
@@ -60,6 +71,7 @@
   align-items: center;
   gap: 30px;
   margin-bottom: 20px;
+  min-width: 210px;
 }
 .gets_person2_zakaz {
   display: none;
@@ -71,6 +83,13 @@
   align-items: center;
   gap: 30px;
 }
+.name_person_zakaz{
+  margin-top: 20px;
+  min-width: 20px;
+}
+.phone_number_zakaz{
+  margin-top: 20px;
+}
 
 .gets_person2_zakaz input {
   width: 250px;
@@ -81,6 +100,7 @@
   align-items: center;
   justify-content: start;
   background: #fff;
+  min-width: 10px;
   border-radius: 10px;
 }
 
@@ -325,17 +345,27 @@
   border: 1px solid #06c160;
   color: #06c160;
 }
+@media (max-width:991px) {
+  .App_offormlenia_zakaz{
+    margin-left: 0%;
+    min-width: 100px;
+    width: auto;
+    padding: 1%;
+  }
 
+  .padding2{
+    padding: 1% !important;
+  }
+}
 .second_oformlenia_zakaz {
   background: #e6f9ef;
-  height: 380px;
+  height: 350px;
   width: 300px;
   border-radius: 10px;
   padding: 20px 30px;
-  
+  min-width: 260px;
 
 }
-
 .info_customer_zakaz {
   display: flex;
   align-items: center;
@@ -364,18 +394,27 @@
 
 .count_of_zakaz {
   display: flex;
+  margin-bottom: 20px;
+  margin-top: 10px;
   justify-content: space-between;
   align-items: center;
 }
 .count_of_zakaz p {
   display: flex;
+  margin-bottom: 10px;
   align-items: center;
   gap: 10px;
   color: #06c160;
+  transition: 0.6s;
 }
-
+.count_of_zakaz p:hover{
+  color: black;
+}
 .how_it_cook_zakaz {
    line-height: 10px;
+   align-items: center;
+   display: flex;
+   gap: 10px;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: space-between; */
@@ -384,9 +423,9 @@
   .how_it_cook_zakaz {
     display: block;
   }
-  .count_of_zakaz {
+  /* .count_of_zakaz {
     display: block;
-  }
+  } */
   .count_of_zakaz h4 {
     line-height: 0;
   }
@@ -394,8 +433,15 @@
     display: block;
     text-align: center;
   }
+
+  .big_oformlinia_zaka {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-right: 200px;
+  }
   .second_oformlenia_zakaz button {
-    width: 100%;
+    width: 90%;
     height: 40px;
     border-radius: 10px;
     border: none;
@@ -405,10 +451,15 @@
   }
   .second_oformlenia_zakaz {
     background: #e6f9ef;
-    height: 450px;
-    width: 500px !important;
+    height: 390px;
+    margin-top: 20px;
+    width: 280px !important;
     border-radius: 10px;
     padding: 20px 30px;
+  }
+  .overall_price_zakaz{
+    margin-top: 70px;
+    margin-bottom: 20px;
   }
 }
 .how_it_cook_zakaz p {
@@ -424,9 +475,10 @@
 
 .overall_price_zakaz {
   display: flex;
+  margin-top: 40px;
   align-items: center;
   justify-content: flex-end;
-  margin-top:100px;
+  /* margin-top:100px; */
 }
 
 .second_oformlenia_zakaz button {
@@ -457,6 +509,8 @@
 .texta{
   margin-top: 20px;
 }
+
+/* 
 @media (max-width: 1100px) {
   .big_oformlinia_zaka {
     display: block;
@@ -498,8 +552,15 @@
     border-radius: 10px;
     padding: 2px 10px;
   }
-}
-
+} */
+/* @media(max-width:991px){
+  .big_oformlinia_zaka{
+    width:90%;
+    /* margin-right: 100px; */
+   /* min-width: 300px; */
+    /* margin: auto;
+  } */
+/* } */ 
 @media (max-width: 850px) {
   .second_think_oplata p {
     font-size: 13px;
@@ -510,6 +571,7 @@
   }
   .comment_for_zakaz textarea {
     width: 500px;
+    min-width: 300px;
   }
 }
 
@@ -613,7 +675,12 @@
     gap: 30px;
   }
 }
-
+/* @media (max-width: 991px){
+  .big_oformlinia_zaka{
+    display: flex;
+    flex-direction:column-reverse;
+  }
+} */
 @media (max-width: 600px) {
   .oplata_zakaza_way_money h3 {
     font-size: 15px;
@@ -650,7 +717,7 @@
     margin-top: 20px;
     width: 90%;
     height: 20px;
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     border: 1px solid #909090;
     display: flex;
     align-items: center;

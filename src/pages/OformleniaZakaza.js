@@ -2,6 +2,8 @@ import React from "react";
 import o from "../styles/oformlenia_zakaz.module.css"
 import { IoIosArrowForward } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
+import Navbar from "./componet/navbar";
+import Footer from "./componet/footer";
 // import "../styles/oformlenia_zakaz.css";
 
 export default function Oformlenia_zakaz() {
@@ -35,7 +37,12 @@ export default function Oformlenia_zakaz() {
       "accent-color: #fff; border: 1px solid #909090a2; ";
   };
   return (
-    <div className={o.App_offormlenia_zakaz}>
+  <div >
+
+<Navbar/>
+
+
+      <div className={o.App_offormlenia_zakaz}>
       <div className={o.where_Oformlenia_zakaz}>
         <a href="#">
           Главная
@@ -48,10 +55,11 @@ export default function Oformlenia_zakaz() {
       <div className={o.My_order_oformlenia}>
         <h2>ОФОРМИТЬ ЗАКАЗ</h2>
       </div>
-
+{/*  */}
       <div className={o.big_oformlinia_zaka}>
         <div className={o.first_oformlenia_zakaz}>
-          <div className={o.count_what_do_oformlenia_zakaz}>
+    <div className={o.padding2}>
+    <div className={o.count_what_do_oformlenia_zakaz}>
             <div className={o.count_offermlenia_zakaz}>
               <h3>01</h3>
             </div>
@@ -257,6 +265,7 @@ export default function Oformlenia_zakaz() {
               </div>
             </div>
           </div>
+    </div>
         </div>
 
 
@@ -295,5 +304,7 @@ export default function Oformlenia_zakaz() {
         </div>
       </div>
     </div>
+    <Footer/>
+  </div>
   );
 }
