@@ -11,10 +11,10 @@
 }
 .big{
     width: 25%;
-    min-width: 300px;
+    /* min-width: 300px; */
 }
 .anna_chat{
-    height: 430px;
+   max-height: 430px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -22,14 +22,10 @@
     width: 300px;
     display: flex;
     align-items: start;
-    justify-content: center;
     gap: 10px;
     background-color: white;
-    padding: 15px;
-    color: #06c160;
-    /* border-top-left-radius: 13px;
-    border-bottom-left-radius: 13px; */
-    /* margin-bottom: 10px; */
+    padding: 15px 10px;
+    /* color: #06c160; */
 }
 .chatting1 img{
     border-radius: 50%;
@@ -44,6 +40,10 @@
     padding: 15px;
     overflow: scroll;
     overflow-x: hidden;
+}
+.chatting1:hover{
+    background: #06c16099 !important;
+    cursor: pointer;
 }
 .chatting2{
     width: 59%;
@@ -146,12 +146,7 @@
     .chatting_media{
         display: block;
     }
-    .chatting1{
-        display: none;
-    }
-    .chatting2{
-        width: 100%;
-    }
+ 
     .chat_inp{
         width: 100%;
         gap: 10px;
@@ -184,4 +179,18 @@
     margin-bottom: 13px;
     font-size: 17px;
     font-family: 'Manrope',Arial,sans-serif,-apple-system;
+}
+@media(max-width:847px){
+    .chatting1{
+        width: 100%;
+    }
+    .anna_chat{
+        width: 100%;
+    }
+    .big{
+        width: 100%;
+    }
+    .chatting2{
+        width: 100%;
+    }
 }
