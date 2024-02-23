@@ -24,7 +24,6 @@ export default function chat() {
             } else {
                 a[i].style = "background:white;color:black"
             }
-
         }
       setRoom(id)
         socket.emit("join_room", id );
