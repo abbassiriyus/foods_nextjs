@@ -189,7 +189,7 @@ return (
 <p><TbPaperclip /></p><a href="#">Рекомендуем форматы: jpeg, png, не более 10 файлов</a>
 </div>
 <div className={s.bb}>
-<button className={s.b1} >Добавить</button>
+<button className={s.b1}  >Добавить</button>
 <button className={s.b2} onClick={()=>setPage(0)}>Назад</button>
 </div>
 </div>
