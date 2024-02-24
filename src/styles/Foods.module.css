@@ -254,3 +254,153 @@ min-height: 400px;
 .oq button:hover{
     background-color: grey;
 }
+
+    @media(max-width:1060px){
+        .liniya{
+            width: 95%;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .kichkina_kategoriya{
+            width: 95%;
+        }
+        .loko{
+            width: 98%;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 9px;
+            position: fixed;
+            top: 880px;
+            background-color: #fff;
+        }
+        .kota_kategoriya2{
+            width: 95%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        .kategoriya_button{
+            width: 160px;
+            height: 45px;
+            font-size: 15px;
+        }
+        .perevarot{
+            font-size: 15px;
+        }
+        .primen{
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    @media(max-width:1225px){
+        .sp{
+            font-size: 15px;
+        }
+    }
+    .sp{
+        font-weight: 600;
+        margin-top: -5px;
+   }
+   .sp2{
+       margin-left: 7px;
+       color: #909090;
+   }
+   
+   .kategoriya_button{
+    width: 85%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    font-weight: 600;
+    border: solid 1px #909090;
+    font-size: 18px;
+    transition: 0.2s;
+    /* margin-left: 20px; */
+    }  
+    .perevarot{
+        color: #06c160;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        }
+        .kategoriya_button:hover .perevarot{
+            color: white;
+        }
+        .kategoriya_button:hover{
+            background-color: #06c160;
+            border: solid 1px #06c160;
+            color: white;
+        }
+
+    .kichkina_kategoriya{
+        width: 81%;
+        display: flex;
+        margin: auto;
+        margin-top: 15px;
+        gap: 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }   
+    .yopil_kateg{
+        overflow-x: hidden ;
+        transition: 90s ;
+    }
+    .kota_kategoriya22{   
+        width: 250px;
+        margin:auto;
+        font-size:19px;
+        font-weight: 500;
+        color: #06c160;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+    }
+    .kota_kategoriya2{   
+        width: 250px;
+        margin:auto;
+        font-size:19px;
+        font-weight: 500;
+        color: #06c160;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .ukaz1{
+        font-size: 15px;
+        font-weight: 900;
+        margin-left: 8px;
+       
+    }
+    .kota_kategoriya2{
+        margin-bottom: 20px;
+    }
+    .primen{
+        width: 130px;
+        height: 45px;
+        background-color: #06c160;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: white;
+        font-size: 17px;
+        display: none;
+    }
+    @media(max-width:1300px){
+        .kota_kategoriya2{
+            width: 82%;
+        }
+    }
+    @media (max-width:440px) {
+        .loko{
+            margin-left: 5px;
+        }
+    }
