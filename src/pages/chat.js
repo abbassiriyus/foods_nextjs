@@ -27,7 +27,10 @@ export default function chat() {
         }
       setRoom(id)
         socket.emit("join_room", id );
-
+axios.get(`${url()}/api/messages/${id}`).then(res=>{
+setMessage(res.data)
+console.log(res.data);
+})
     };
 
     const sendMessage = () => {
@@ -85,8 +88,13 @@ export default function chat() {
 
                 <div className={s.chatting2}>
                     <div id='chat_space' className={s.chat_space}>
-                     {messageReceived.map(item=>{
-                       <p id='chat_p'>{item.message}</p> 
+                     {message.map(item=>{
+                   var d=JSON.parse(localStorage.getItem('user'))
+                   if(item.user_id===d[0].id){
+                     return  <p id='chat_p' style={{margin:'auto',marginRight:"20px",marginTop:'20px'}}>{item.message}</p> 
+                     }else{
+                        return  <p id='chat_p' style={{margin:'auto',marginLeft:"20px",marginTop:'20px'}}>{item.message}</p> 
+                     }
                      })}   
 
                     </div>
