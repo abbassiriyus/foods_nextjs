@@ -10,7 +10,7 @@ export default function dishes() {
     var [page, setPage] = useState(0)
     var [data, setData] = useState([])
     var [foods, setFoods] = useState([])
-    var [oneFood, setOneFood] = {}
+    var [oneFood, setOneFood] =useState({})
 
     function getData() {
         axios(`${url()}/api/foods`).then(res => {
