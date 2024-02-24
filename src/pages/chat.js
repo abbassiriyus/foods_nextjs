@@ -34,16 +34,17 @@ console.log(res.data);
     };
 
     const sendMessage = () => {
+        var chat = (JSON.parse(localStorage.getItem("user")))
         var message=document.querySelector("#chatsend_inp").value
         socket.emit("send_message", { 
             message,
              room,
             chat:chat[0].id });
+            document.querySelector("#chatsend_inp").value=""
     };
 
     function getChat() {
         var chat = (JSON.parse(localStorage.getItem("user")))
-       
         axios.get(`${url()}/api/room/${chat[0].id}`).then(res => {
             setChat(res.data)
         }).catch(err => {
@@ -57,6 +58,8 @@ console.log(res.data);
         socket.on("receive_message", (data) => {
             // setMessageReceived(data.message);
             console.log(data,"asas");
+            setMessage(data)
+            // document.querySelector('#messageend').scrollIntoView();
         });
     }, []);
 
@@ -94,7 +97,7 @@ console.log(res.data);
                         return  <p id='chat_p' style={{margin:'auto',marginLeft:"20px",marginTop:'20px'}}>{item.message}</p> 
                      }
                      })}   
-
+<div id='messageend'></div>
                     </div>
                     <div className={s.chat_inp}>
                         <input id='chatsend_inp' placeholder='Введите ваше сообщение' type="text" />
