@@ -356,8 +356,10 @@ export default function Navbar() {
                   <div onClick={() => setPage(3)} className={s.rikey}>
                     <RiKey2Fill className={s.fill_key} /><span style={{ cursor: 'pointer' }} >Напомнить пароль</span>
                   </div>
-                </div>
-              </div>
+                </div> 
+
+                
+              </div> 
             ) : (page == 2 ? (
               <div className={s.form_body_gl}>
                 <h3 >Регистрация</h3>
