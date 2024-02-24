@@ -64,7 +64,6 @@ function putUserInfo() {
   send_data.append("email",document.querySelector('#email_1').value)
   send_data.append("password",user.password)
   axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
-    localStorage.setItem('user',JSON.stringify(res.data))
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     getUsers()
   })
@@ -79,7 +78,7 @@ function putUserphone() {
    password:user.password
   }
   axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
-    localStorage.setItem('user',JSON.stringify(res.data))
+   
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     document.querySelector("#modal_page").style="display:none"
     getUsers()
@@ -100,7 +99,7 @@ function resetPasword() {
      }
      axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
       getUsers()
-       localStorage.setItem('user',JSON.stringify(res.data))
+     
        document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
      })
   }else{
@@ -116,6 +115,7 @@ if(a){
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
   res.data.date=formattedDate
   setUser(res.data)
+  localStorage.setItem("user",JSON.stringify([res.data]))
   document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`
   }).catch(err=>{
     // window.location='/'

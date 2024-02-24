@@ -163,6 +163,7 @@ export default function Navbar() {
     } else {
       axios.post(`${url()}/api/login`, send_data).then(res => {
         localStorage.setItem('token',res.data.token)
+        console.log(res.data.user);
         localStorage.setItem('user',JSON.stringify(res.data.user))
         setTimeout(() => {
           window.location='/profile'

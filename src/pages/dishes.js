@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import s from "../styles/Dishes.module.css"
 import { FiPlus } from "react-icons/fi";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { TbPaperclip } from "react-icons/tb";
 import { FaPen } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
@@ -32,9 +31,57 @@ function deleteData(id) {
     }).catch(err=>{
     })
 }
+function postData() {
+    var data= new FormData()
+    data.append("category_id",document.querySelector("#category_id").value)
+    data.append("foods_name",document.querySelector("#foods_name").value)
+    data.append("portion",document.querySelector("#portion").value)
+    data.append("weight",document.querySelector("#weight").value)
+    data.append("preparation_time",document.querySelector("#preparation_time").value)
+    data.append("storage_condition",document.querySelector("#storage_condition").value)
+    data.append("calorie",document.querySelector("#calorie").value)
+    data.append("proteins",document.querySelector("#proteins").value)
+    data.append("oils",document.querySelector("#oils").value)
+    data.append("carbs",document.querySelector("#carbs").value)
+    data.append("packages",document.querySelector("#packages").value)
+    data.append("price",document.querySelector("#price").value)
+    data.append("image",document.querySelector("#image").value)
 
+
+axios.post(`${url()}/api/foods`,data).then(res=>{
+getData()
+setPage(0)
+}).catch(err=>{
+
+})
+
+
+}
+
+function getkey(key) {
+    console.log(key);
+  var dat=[...advantages]
+   if(dat[key].yes){
+    dat[key].yes=false
+    }else{
+    dat[key].yes=true
+
+   }
+   setAdvantages(dat)
+}
+
+var [advantages,setAdvantages]=useState([])
+function getAdvantages() {
+    axios.get(`${url()}/api/advantages`).then(res=>{
+        for (let i = 0; i < res.data.length; i++) {
+          res.data[i].yes=false
+        }
+setAdvantages(res.data)
+    })
+}
 useEffect(()=>{
 getData()
+getAdvantages()
 },[])
 
 return (
@@ -78,9 +125,8 @@ return (
 <div className={s.inputlar1}>
 <div className={s.input_s_dobavkoy}>
 <div className={s.in}>
-{/* <MdOutlineKeyboardArrowDown id='arrow_d' onClick={()=>{och()}} className={s.arrow_d} /> <MdOutlineKeyboardArrowUp id='arrow_u' className={s.arrow_u} onClick={()=>{yop()}} /><br /> */}
 
-<select className={s.select} name="" id="" placeholder='Категория' >
+<select className={s.select} name="" id="category_id" placeholder='Категория' >
 
 {data.map((item,key)=>{
     return <option className={s.option} value={item.id}>
@@ -115,12 +161,9 @@ return (
 <p className={s.s_p1}>Вкусовые <br /> предпочтения:</p><br />
 </div>
 <div className={s.inp2_s_p3}>
-<p className={s.inp2_s_p12}>Вегитарианское</p>
-<p className={s.inp2_s_p2}>Без сахара</p>
-<p className={s.inp2_s_p2}>Без лактозы</p>
-<p className={s.inp2_s_p2}>Без глютена</p>
-<p className={s.inp2_s_p2}>Без орехов и бабов</p>
-<p className={s.inp2_s_p2}>Острое</p>
+{advantages.map((item,key)=>{
+    return <p onClick={()=>{getkey(key)}} style={item.yes?{background:'#06c160'}:{background:'white'}} className={s.inp2_s_p2}>{item.title}</p>
+})}
 </div>
 </div>
 </div>
@@ -132,7 +175,7 @@ return (
 <p><TbPaperclip /></p><a href="#">Рекомендуем форматы: jpeg, png, не более 10 файлов</a>
 </div>
 <div className={s.bb}>
-<button className={s.b1}  >Добавить</button>
+<button className={s.b1}  onClick={()=>{postData()}} >Добавить</button>
 <button className={s.b2} onClick={()=>setPage(0)}>Назад</button>
 </div>
 </div>
