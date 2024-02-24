@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import s from "../styles/Foods.module.css"
+import { GrUpdate } from "react-icons/gr";
 import { BsSortDown } from "react-icons/bs";
+import { GoChevronUp } from "react-icons/go";
+import { HiChevronDown } from "react-icons/hi";
 import Navbar from './componet/navbar';
 import { CiSearch } from "react-icons/ci";
 import { LuArrowDownUp } from "react-icons/lu";
@@ -14,6 +17,10 @@ export default function foods() {
 var [data,setData]=useState([])
 var [glFoods,setGlFoods]=useState([])
  var[acor,setAcor] = useState(0)
+
+
+
+
  function search1() {
     if(acor==0 ){
         setAcor(1)
@@ -179,7 +186,46 @@ function getgeFoods(){
 <div className={s.line}></div>
 {data.map((item,key)=>{
     return <li key={key}><input  onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
+    // 
 })}
+
+
+<div className={s.line}></div>
+            <div className={s.som}>
+              <div   className={s.kota_kategoriya2}><p>Специализация <GoChevronUp className={s.ukaz1} /></p></div>
+              <div  className={s.kota_kategoriya22}><p>Специализация <HiChevronDown className={s.ukaz1} /></p></div>
+            </div>
+
+            {/* <IoIosArrowUp /> */}
+            <div className={s.l}>
+              <div  className={s.yopil_kateg}>
+              {data.map((item,key)=>{
+    return <li key={key}><input  onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
+    // 
+})}
+
+              </div>
+            </div>
+
+            <div className={s.line}></div>
+            <div className={s.loko}>
+              <div className={s.primen}>
+                <span>Применить</span>
+              </div>
+              <div  className={s.kategoriya_button}>
+                <div  className={s.perevarot}><GrUpdate /></div>
+                <span>Сбросить фильтр</span>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
 
 
 </ul>

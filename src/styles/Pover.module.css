@@ -784,8 +784,6 @@ margin-left: -40%;
     gap: 20px;
 }
 .img_p{
-    width: 10%;
-    /* background: red; */
     border-radius: 50%;
 }
 .img_p img:hover{
@@ -793,15 +791,15 @@ margin-left: -40%;
     padding: 2px;
 }
 .img_p img{
-    width: 100%;
     border-radius: 50%;
     transition: 0.4s;
     border: 3px solid white;
     padding: 2px;
+    width:80px;
+    height: 80px;
 }
 .star_p{
     width: 90%;
-    /* background-color: #06c160; */
 
 }
 .str5{
