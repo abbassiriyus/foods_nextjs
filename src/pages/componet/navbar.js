@@ -128,7 +128,69 @@ export default function Navbar() {
 
   }
 
+var [resgister,setRegister]=useState(0)
+  function sendMessage() {
+    var phone =document.querySelector("#phone_div")
+    var phone_input=document.querySelector("#phone_input")
+    var email_div=document.querySelector("#email_div")
+    var email_input=document.querySelector("#email_input")
+    var password_div=document.querySelector("#password_div")
+    var password_input=document.querySelector("#password_input")
 
+  if((phone_input.value).length>7 && (password_input.value).length>7 && (email_input.value).includes('@gmail.com')){
+    phone_input.disabled=true
+    email_input.disabled=true
+    password_input.disabled=true
+    phone.style="border:1px solid grey"
+    email_div.style="border:1px solid grey"
+    password_div.style="border:1px solid grey"
+    setRegister(1)
+    var data=new FormData()
+    data.append("phone", phone_input.value )
+  axios.post(`${url()}/api/verify`,data).then(res=>{
+    document.querySelector('#phone_code').style="display:block"
+  })
+  }else{
+if((phone_input.value).length<8){
+  phone.style="border:1px solid red"
+}
+if((password_input.value).length<8){
+  password_div.style="border:1px solid red"
+}
+if(!(email_input.value).includes('@gmail.com')){
+  email_div.style="border:1px solid red"
+}
+  }
+  }
+function sendMessage2() {
+  var phone_input=document.querySelector("#phone_input")
+  var email_input=document.querySelector("#email_input")
+  var password_input=document.querySelector("#password_input")
+  var code=document.querySelector('#verify_code')
+  var seb=new FormData()
+  seb.append("phone",phone_input.value)
+  seb.append("code",code.value)
+axios.post(`${url()}/api/verify/check`,seb).then(res=>{
+if(res.data.user){
+localStorage.setItem("user",JSON.stringify(res.data.user))
+window.location="/profile"
+}else{
+seb.append("email",email_input.value)
+seb.append("password",password_input.value)
+axios.post(`${url()}/api/register`,seb, { headers: {
+  Authorization: `${res.data.token}`}
+}).then(res=>{
+  localStorage.setItem("user",JSON.stringify(res.data.data))
+window.location="/profile"
+})
+
+}
+}).catch(err=>{
+  code.style="border:1px solid grey"
+
+})
+
+  }
 
   var [errorPassword, setErrorpassword] = useState('')
   function loginPage() {
@@ -365,21 +427,25 @@ export default function Navbar() {
                 <h3 >Регистрация</h3>
                 <div className={s.back_gl} onClick={() => setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
                 <br />
-                <div className={s.input_phone_gl}>
-                  <input type="text" /><IoIosInformationCircleOutline />
+                <div className={s.input_phone_gl} id='phone_div'>
+                  <input type="text" defaultValue={'+7'}  id='phone_input' />
+                  <IoIosInformationCircleOutline />
                 </div>
-                <div className={s.input_phone_gl}>
-                  <input placeholder='Email' type="text" /><IoIosInformationCircleOutline />
+                <div id='email_div' className={s.input_phone_gl}>
+                  <input placeholder='Email' id='email_input' type="text" />
+                  <IoIosInformationCircleOutline />
                 </div>
-                <div className={s.input_phone_gl}>
-                  <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
+                <div id='password_div' className={s.input_phone_gl}>
+                  <input placeholder='Пароль' id='password_input' type="password" /><IoIosInformationCircleOutline />
                 </div>
 
-<div className={s.kod_2}>
-<p>На указанный номер поступит звонок. <a href="#">Введите последние 4 цифры номера телефона</a> , с которого был звонок.</p>
-<input type="text" name="" placeholder='Код подтверждения' id="" />
-<p><a href="#">Отправить СМС</a> на указанный номер</p>
-</div>
+            <div className={s.kod_2} style={{display:'none'}} id='phone_code'>
+            {/* <p>На указанный номер поступит звонок. <a href="#">Введите последние 4 цифры номера телефона</a> , с которого был звонок.</p> */}
+            <br /><br />
+          <input type="text" name="" placeholder='Код подтверждения' id="verify_code" />
+         <p>
+          <a onClick={()=>{sendMessage()}} href="#">Отправить СМС</a> на указанный номер</p>
+        </div>
                 <div className={s.line_gl}></div>
 
 
@@ -387,7 +453,9 @@ export default function Navbar() {
                 <p>
                   Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
                 </p>
-                <button>Зарегистрироваться</button>
+{resgister==0?( <button onClick={()=>sendMessage()} >Зарегистрироваться</button>
+              ):(<button onClick={()=>sendMessage2()} >Зарегистрироваться</button>)}
+               
               </div>
 
             ) : (page == 3 ? (
