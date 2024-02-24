@@ -372,7 +372,16 @@ export default function Navbar() {
                 <div className={s.input_phone_gl}>
                   <input placeholder='Пароль' type="password" /><IoIosInformationCircleOutline />
                 </div>
+
+<div className={s.kod_2}>
+<p>На указанный номер поступит звонок. <a href="#">Введите последние 4 цифры номера телефона</a> , с которого был звонок.</p>
+<input type="text" name="" placeholder='Код подтверждения' id="" />
+<p><a href="#">Отправить СМС</a> на указанный номер</p>
+</div>
                 <div className={s.line_gl}></div>
+
+
+
                 <p>
                   Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
                 </p>
@@ -398,7 +407,9 @@ export default function Navbar() {
                 <h3 style={{ textAlign: 'center' }}>Письмо отправлено</h3>
                 <div style={{ marginTop: '10px', textAlign: 'center' }} className={s.back_gl2}> На указанный email было отправлено письмо со ссылкой для смены пароля. </div>
                 <br />
-                <center>  <button onClick={() => { document.querySelector('#modal_gl').style = "display:none" }} style={{ marginTop: '10px', width: '30%', height: '45px' }}>Ок</button></center>
+                <center>  
+                  <input type="" />
+                  <button onClick={() => { document.querySelector('#modal_gl').style = "display:none" }} style={{ marginTop: '10px', width: '30%', height: '45px' }}>Ок</button></center>
 
               </div>
             ) : (

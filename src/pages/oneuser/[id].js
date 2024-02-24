@@ -193,8 +193,7 @@ return <div className={c.card}>
 </div>
 
 </div>
-
-<div className={c.comment}>
+{commnet!=0?(<div className={c.comment}>
 <h1 className={c.c_h1}>ОТЗЫВЫ ПОКУПАТЕЛЕЙ</h1>
 
 {commnet.map((item,key)=>{
@@ -202,14 +201,14 @@ return<div className={c.c_c}>
 <div className={c.c_profil}>
 <img src={item.image} alt="" />
 <div className={c.b}>
-<h1>{item.user_id}</h1>
+<h1>{item.user_id} {item.name}</h1>
 {['','','','',''].map((item,key)=>{
-  if(user.mark>key){
- return <TiStarFullOutline className={c.star} />
-  }else{
- return <TiStarFullOutline className={c.star} style={{color:'grey'}} />
-  }
- })
+if(user.mark>key){
+return <TiStarFullOutline className={c.star} />
+}else{
+return <TiStarFullOutline className={c.star} style={{color:'grey'}} />
+}
+})
 }
 </div>
 </div>
@@ -217,20 +216,17 @@ return<div className={c.c_c}>
 </div>
 })}
 
+</div>):(<></>)}
 
 
-
+{kitchen.length!=0?(<div className={c.kuxnya}>
+<h1>МОЯ КУХНЯ</h1><div className={c.img_k}>
+{kitchen.map((item,key)=>{
+return <img src={item.image} alt="" />
+})}
 </div>
+</div>):(<></>)}
 
-<div className={c.kuxnya}>
-<h1>МОЯ КУХНЯ</h1>
-<div className={c.img_k}>
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b101ac9a75baba379214d6eb55dd20cc5f87a728/b101ac9a75baba379214d6eb55dd20cc5f87a728-wc400.jpeg" alt="" />
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b101ac9a75baba379214d6eb55dd20cc5f87a728/b101ac9a75baba379214d6eb55dd20cc5f87a728-wc400.jpeg" alt="" />
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b101ac9a75baba379214d6eb55dd20cc5f87a728/b101ac9a75baba379214d6eb55dd20cc5f87a728-wc400.jpeg" alt="" />
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/b101ac9a75baba379214d6eb55dd20cc5f87a728/b101ac9a75baba379214d6eb55dd20cc5f87a728-wc400.jpeg" alt="" />
-</div>
-</div>
 
 
 <Footer/>

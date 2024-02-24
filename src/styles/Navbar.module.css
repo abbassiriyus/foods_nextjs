@@ -907,3 +907,27 @@ color: black;
     margin-left: 35%;
     color: grey;
 }
+
+.kod_2{
+width: 100%;
+height: max-content;
+background-color: white;
+margin: auto;
+}
+.kod_2 input{
+width: 100%;
+height: 40px;
+font-size: 18px;
+margin: auto;
+border-radius: 10px;
+padding-left: 10px;
+border: none;
+border: 1px solid gray;
+outline: none;
+margin-left: 20px;
+
+}
+
+
+
+
