@@ -35,8 +35,6 @@ console.log(res.data);
 
     const sendMessage = () => {
         var message=document.querySelector("#chatsend_inp").value
-        var chat = (JSON.parse(localStorage.getItem("user")))
-        console.log(chat);
         socket.emit("send_message", { 
             message,
              room,
@@ -58,9 +56,9 @@ console.log(res.data);
     useEffect(() => {
         socket.on("receive_message", (data) => {
             // setMessageReceived(data.message);
-            console.log(data);
+            console.log(data,"asas");
         });
-    }, [socket]);
+    }, []);
 
     return (
         <div>
