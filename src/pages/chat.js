@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import url from "./host/config"
 
-const socket = io.connect("http://localhost:4003");
+const socket = io.connect(url());
 export default function chat() {
 
 
