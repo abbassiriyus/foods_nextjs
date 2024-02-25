@@ -79,8 +79,9 @@ justify-content: space-around;
 align-items: center;
 }
 .stars{
-width: 160px;
+/* width: 160px; */
 display: flex;
+gap: 6px;
 align-items: center;
 justify-content: space-between;
 }
@@ -521,7 +522,8 @@ margin: auto;
 margin-top: 60px;
 padding-top: 20px;
 padding-bottom: 25px;
-margin-bottom: 10 0px;
+margin-bottom: 50px;
+
 }
 .kuxnya h1{
 width: 90%;
@@ -534,8 +536,9 @@ margin-bottom: 20px;
 width: 90%;
 margin: auto;
 display: flex;
-justify-content: space-between;
+/* justify-content: space-between; */
 align-items: center;
+gap: 30px;
 flex-wrap: wrap;
 }
 

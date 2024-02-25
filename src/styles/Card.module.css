@@ -29,6 +29,16 @@
 .card_text2{
     padding: 20px;
 }
+.card_text2 img{
+    /* width: 300px; */
+    height: 50px;
+    border: 2px solid white;
+    transition: 1s;
+}
+
+.card_text2 img:hover{
+    border: 2px solid #06c160;
+}
 .card_img h3{
     color: rgb(0, 0, 0);
      background: rgb(221, 254, 214);

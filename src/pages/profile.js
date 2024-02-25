@@ -609,9 +609,9 @@ if(item.in_user){
    
 {user.document.map((item,key)=>{
   return  <div key={key} className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
+    <IoMdClose onClick={()=>{deleteDocument(item.id)}} className={s.close}/> <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
-      <IoMdClose onClick={()=>{deleteDocument(item.id)}} className={s.close}/>
+     
     </div>
 })}
   
@@ -632,16 +632,16 @@ if(item.in_user){
 
   {user.diploma.map((item,key)=>{
 return  <div key={key} className={s.ram}>
-    <IoDocumentOutline className={s.out}/>
-      <span className={s.lorem}>{item.file}</span>
-      <IoMdClose onClick={()=>{deleteDiplom(item.id)}} className={s.close}/>
+    <IoMdClose onClick={()=>{deleteDiplom(item.id)}} className={s.close}/>   <IoDocumentOutline className={s.out}/>
+      <span className={s.lorem}> {item.file}</span>
+   
     </div>
- 
+
 
   })} 
   </div>
   <div className={s.sas} style={{position:'relative'}}>
-  <input onChange={()=>{sendDiploma(e.target.file[0])}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
+  <input onChange={(e)=>{sendDiploma(e.target.files[0])}} type="file" id='send_document' style={{position:"absolute",width:'100%',height:'100%',left:'0px',top:'0px',opacity:0}} />
 <span>Добавить</span>
   </div>
 </div>
