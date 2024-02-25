@@ -35,6 +35,35 @@ export default function dishes() {
         })
     }
     function postData() {
+
+        if(oneFood.id){
+            var data = new FormData()
+            var dat = JSON.parse(localStorage.getItem("user"))
+            data.append('user_povar_id', dat[0].id)
+            data.append("category_id", document.querySelector("#category_id").value)
+            data.append("foods_name", document.querySelector("#foods_name").value)
+            data.append("portion", document.querySelector("#portion").value)
+            data.append("dastafka_us", document.querySelector("#storage_condition").value)
+            data.append("weight", document.querySelector("#weight").value)
+            data.append("description", document.querySelector("#description").value)
+            data.append("preparation_time", document.querySelector("#preparation_time").value)
+            data.append("storage_condition", document.querySelector("#storage_condition").value)
+            data.append("calorie", document.querySelector("#calorie").value)
+            data.append("proteins", document.querySelector("#proteins").value)
+            data.append("oils", document.querySelector("#oils").value)
+            data.append("carbs", document.querySelector("#carbs").value)
+            data.append("packages", document.querySelector("#packages").value)
+            data.append("price", document.querySelector("#price").value)
+            if(document.querySelector("#image").value){
+            data.append("image", document.querySelector("#image").value)
+            }
+            axios.put(`${url()}/api/foods/${oneFood.id}`, data).then(res => {
+                getData()
+                setPage(0)
+                setOneFood({})
+            }).catch(err => {
+            })
+        }else{
         var data = new FormData()
         var dat = JSON.parse(localStorage.getItem("user"))
         data.append('user_povar_id', dat[0].id)
@@ -52,17 +81,34 @@ export default function dishes() {
         data.append("carbs", document.querySelector("#carbs").value)
         data.append("packages", document.querySelector("#packages").value)
         data.append("price", document.querySelector("#price").value)
+        if(document.querySelector("#image").value){
         data.append("image", document.querySelector("#image").value)
+        }else{
+        data.append("image", "https://icon-library.com/images/healthy-food-icon/healthy-food-icon-20.jpg")
 
-
+        }
         axios.post(`${url()}/api/foods`, data).then(res => {
-            getData()
-            setPage(0)
+           
+       for (let i = 0; i < advantages.length; i++) {
+        if(advantages[i].yes){
+             var send12=new FormData()
+             send12.append("food_id",res.data.id)
+             send12.append("advantages_id",advantages[i].id)
+     axios.post(`${url()}/api/food_advantages`, send12 ).then(res=>{
+       setPage(0)
+       getData()
+       }).catch(err=>{
+        setPage(0)
+        getData()
+       }) 
+        }
+       }
+
+            
         }).catch(err => {
-
         })
-
-
+        }
+      
     }
 
     function getkey(key) {
@@ -86,6 +132,33 @@ export default function dishes() {
             setAdvantages(res.data)
         })
     }
+
+    function getAdvantagesUser(foodid) {
+    console.log(foodid);
+    axios.get(`${url()}/api/food_advantages`).then(res1 => {
+       var a=res1.data.filter(item=>item.food_id==foodid)
+    axios.get(`${url()}/api/advantages`).then(res2 => {
+        console.log(res2.data);
+        console.log(a);
+    for (let i = 0; i < res2.data.length; i++) {
+        res2.data[i].food_id=0
+        res2.data[i].yes=false
+       for (let j = 0; j < a.length; j++) {
+        console.log(res2.data[i].id,a[j].advantages_id);
+      if(res2.data[i].id===a[j].advantages_id){
+        res2.data[i].food_id=a[j].food_id
+        res2.data[i].yes=true
+      }
+       }
+    }
+   
+setAdvantages(res2.data)
+        })
+        })
+
+       
+    }
+
     useEffect(() => {
         getData()
         getAdvantages()
@@ -108,7 +181,7 @@ export default function dishes() {
                                     <img src={item.image} alt="" />
                                 </div>
                                 <div className={s.c_soz}>
-                                    <h1 className={s.c_h1}><FaPen className={s.ruchka} /> <p>Редактировать</p></h1>
+                                    <h1  style={{cursor:'pointer'}}  onClick={()=>{setOneFood(item);setPage(1);getAdvantagesUser(item.id)}} className={s.c_h1}><FaPen className={s.ruchka}/> <p>Редактировать</p></h1>
                                     <h1 className={s.c_h2}>{item.foods_name}</h1>
                                     <p className={s.c_p1}>{item.price}</p>
                                     <p className={s.c_p2}>{item.weight}</p>
@@ -116,7 +189,7 @@ export default function dishes() {
                             </div>
                         })}
 
-                        <div onClick={() => { setPage(1) }} className={s.dishes_button} id='plus'>
+                        <div onClick={() => { setPage(1);setOneFood({}) }} className={s.dishes_button} id='plus'>
                             <div className={s.circle}><FiPlus /></div>
                             <h5>Добавить блюдо</h5>
                         </div>
@@ -183,7 +256,7 @@ export default function dishes() {
                             </div>
                             <div className={s.bb}>
                                 <button className={s.b1} onClick={() => { postData() }} >Добавить</button>
-                                <button className={s.b2} onClick={() => {setPage(0);setFoods([])}}>Назад</button>
+                                <button className={s.b2} onClick={() => {setPage(0);setOneFood()}}>Назад</button>
                             </div>
                         </div>
 

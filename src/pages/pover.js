@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import ss from '../styles/Pover.module.css'
 import { IoIosStar } from "react-icons/io";
-import { FaRegCommentAlt } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
 import { HiChevronDown } from "react-icons/hi";
 import { BiCommentDetail } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
-import { CiLocationArrow1 } from "react-icons/ci";
-import { HiOutlineLocationMarker } from "react-icons/hi";
 import { VscSettings } from "react-icons/vsc";
 import { AiOutlineClose } from "react-icons/ai";
 import axios from 'axios';
@@ -17,7 +14,7 @@ import { GoChevronUp } from "react-icons/go";
 import url from './host/config';
 export default function pover() {
 
-  var [data, setData] = useState([{ category: [], foods: [] }])
+  var [data, setData] = useState([])
   var [ish, setIsh] = useState([])
   var [Category, setCategory] = useState([])
   function getCategory() {
@@ -36,10 +33,7 @@ export default function pover() {
       }).catch(err => {
 
       })
-
-
     }).catch(err => {
-
     })
   }
   var search1 = () => {
@@ -47,11 +41,7 @@ export default function pover() {
     axios.get(`${url()}/api/getpovar`).then(res => {
       var data = res.data.filter(item => item.name.includes(inp) || item.lastname.includes(inp) || item.username.includes(inp))
       setData(data)
-
-
-
     }).catch(err => {
-
     })
   }
   useEffect(() => {

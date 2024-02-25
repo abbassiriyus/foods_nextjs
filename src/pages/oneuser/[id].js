@@ -33,6 +33,15 @@ export default function first() {
         alert(err)
       })
     }
+    
+    function sendcard(id) {
+      window.location=`/menudetail/${id}` 
+   }
+   
+   function senduser(id) {
+     window.location=`/oneuser/${id}`
+   }
+
       useEffect(()=>{
     if(router.query.id){
       getData()   
@@ -45,8 +54,8 @@ return (
 
 <div className={c.slka}>
 <div className={c.s_p}>
-<a href="#" className={c.a1}>Главная <MdKeyboardArrowRight /></a>
-<a href="#" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
+<a href="/" className={c.a1}>Главная <MdKeyboardArrowRight /></a>
+<a href="/pover" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
 <p>{user.name} {user.lastname} {user.username}</p>
 </div>
 <p className={c.s_p1}><FiShare2 /> Поделиться</p>
@@ -60,7 +69,7 @@ return (
 <div className={c.p1}>
 <h1>{user.name} {user.lastname} {user.username}</h1>
 <div className={c.ball}>
-<div className={c.stars}>
+<div  className={c.stars}>
 
 {['','','','',''].map((item,key)=>{
   if(user.mark>key){
@@ -177,12 +186,12 @@ return (
 <div className={c.m_c}>
 {foods.map((item,key)=>{
 return <div className={c.card}>
-<img src={item.image} style={{height:'350px'}} alt="" />
+<img onClick={()=>{sendcard(item.id)}} src={item.image} style={{height:'350px'}} alt="" />
 <div className={c.c_soz}>
-<h1>{item.foods_name}</h1>
-<div className={c.c_s}>
-<div className={c.c_s1}>
-<span>{item.price} ₽</span>
+<h1 onClick={()=>{sendcard(item.id)}}>{item.foods_name}</h1>
+<div  className={c.c_s}>
+<div onClick={()=>{sendcard(item.id)}} className={c.c_s1}>
+<span >{item.price} ₽</span>
 <p>{item.weight}</p>
 </div>
 <button>В корзину</button>
@@ -199,9 +208,9 @@ return <div className={c.card}>
 {commnet.map((item,key)=>{
 return<div className={c.c_c}>
 <div className={c.c_profil}>
-<img src={item.image} alt="" />
-<div className={c.b}>
-<h1>{item.user_id} {item.name}</h1>
+<img  onClick={()=>senduser(item.user_id)}  src={item.image} alt="" />
+<div onClick={()=>senduser(item.user_id)} className={c.b}>
+<h1> {item.name}</h1>
 {['','','','',''].map((item,key)=>{
 if(user.mark>key){
 return <TiStarFullOutline className={c.star} />

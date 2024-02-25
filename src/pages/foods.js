@@ -31,14 +31,21 @@ var [glFoods,setGlFoods]=useState([])
         document.querySelector('#oq1').style="display:none"
     }
  }
+
+var [advantages,setAdvantages]=useState([])
+function getAdvantages() {
+    axios.get(`${url()}/api/advantages`).then(res=>{
+setAdvantages(res.data)
+    })
+}
+
 function getData() {
     axios.get(`${url()}/api/category`).then(res=>{
-
+        getAdvantages()
         setData(res.data)
-   setTimeout(() => {
+        setTimeout(() => {
     for (let i=0; i < res.data.length; i++) {
         if(res.data[i].id==localStorage.getItem("category")){
-            console.log('ert');
             document.querySelectorAll("#filtercheck")[i].checked=true
         }
         }
@@ -46,8 +53,40 @@ function getData() {
     })
 }
 
+function filterData2(){
+    var data1=document.querySelectorAll("#filtercheck2")
+    localStorage.removeItem("category")
+    var bosilgan=[]
+    for (let i = 0; i < data1.length; i++) {
+        if(data1[i].checked){
+       bosilgan.push(data[i]) 
+        }
+    }
+    axios.get(`${url()}/api/foods`).then(res=>{
+    var tayyor=[]
+    if(bosilgan.length==0){
+    tayyor=res.data
+    }else{
+       for (let i = 0; i < res.data.length; i++) {
+         res.data[i].qosh=false
+         console.log(res.data[i]);
+       for (let j = 0; j < bosilgan.length; j++) {
+        if(bosilgan[j].id==res.data[i].category_id){
+            res.data[i].qosh=true
+        }
+       }
+       if(res.data[i].qosh){
+        tayyor.push(res.data[i])
+        }
+    
+    }
+    }
+    setGlFoods(tayyor)
+    })}
+
 function filterData(){
 var data1=document.querySelectorAll("#filtercheck")
+localStorage.removeItem("category")
 var bosilgan=[]
 for (let i = 0; i < data1.length; i++) {
     if(data1[i].checked){
@@ -199,8 +238,8 @@ function getgeFoods(){
             {/* <IoIosArrowUp /> */}
             <div className={s.l}>
               <div  className={s.yopil_kateg}>
-              {data.map((item,key)=>{
-    return <li key={key}><input  onChange={()=>{filterData()}} type="checkbox" name="" id="filtercheck" /> {item.title} <sup>{item.count}</sup></li>
+              {advantages.map((item,key)=>{
+    return <li key={key}><input  onChange={()=>{filterData2()}} type="checkbox" name="" id="filtercheck2" /> {item.title} <sup>{item.count}</sup></li>
     // 
 })}
 

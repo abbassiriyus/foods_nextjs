@@ -17,24 +17,28 @@ export default function card( props){
         });
       }
     }, []);
-function card1() {
-   localStorage.setItem('one',JSON.stringify(props.data))
+function sendcard() {
    window.location=`/menudetail/${props.data.id}` 
 }
+
+function senduser() {
+  window.location=`/oneuser/${props.data.user_povar_id}`
+}
+
   return (
   
 <div  className={s.cards}  >
   {props.data?(  <div className={s.card}> 
         <div className={s.card_img}>
     <div className={s.card}  > 
-        <div style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
+        <div onClick={()=>sendcard()} style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
             <h3>Заказ за {(props.data.preparation_time).slice(0,2)} часа</h3>
         </div>
         <div className={s.card_text}>
-    <div onClick={()=>window.location=`/oneuser/${props.data.user_povar_id}`} class={s.card_text2}>
-        <img src={props.data.user_image} alt="" />
-        <h4>{props.data.username} {props.data.name}</h4>
-     <div class={s.comment}>
+    <div   class={s.card_text2}>
+        <img onClick={()=>senduser()} src={props.data.user_image} alt="" />
+        <h4  onClick={()=>senduser()} >{props.data.username} {props.data.name}</h4>
+     <div onClick={()=>senduser()}  class={s.comment}>
         <div class={s.star}>
           {['','','','',''].map((item,key)=>{
          if(props.data.mark>key){
@@ -50,7 +54,7 @@ function card1() {
             <p>{props.data.mark_org}</p>
         </div>
      </div>
-        <a href="" onClick={()=>{window.location=`/menudetail/${props.data.id}`}} ><h2>{props.data.foods_name}</h2></a>
+        <a  onClick={()=>sendcard()} style={{background:'red'}}  ><h2>{props.data.foods_name}</h2></a>
         <div class={s.korzina}>
             <div class={s.price}>
                 <span>{props.data.price} ₽</span>
