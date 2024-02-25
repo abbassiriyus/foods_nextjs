@@ -210,6 +210,9 @@ margin-bottom: 30px;
     .body_card{
         width: 100%;
     } 
+    .footer{
+        width: 100%;
+    }
     .actiocheck{
         width: 100%;
         border: none;
@@ -403,4 +406,10 @@ min-height: 400px;
         .loko{
             margin-left: 5px;
         }
+    }
+
+
+    .footer{
+        width: 80%;
+        margin: auto;
     }

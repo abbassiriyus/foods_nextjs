@@ -9,6 +9,7 @@ import { CiSearch } from "react-icons/ci";
 import { LuArrowDownUp } from "react-icons/lu";
 import { IoIosArrowForward } from "react-icons/io";
 import Card from "./componet/card"
+import Footer from "../pages/componet/footer"
 import url from './host/config';
 import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
@@ -309,7 +310,10 @@ function getgeFoods(){
 
 
    </div>
+<div className={s.footer}>
+<Footer/>
 
+</div>
     </div>
   )
 }
