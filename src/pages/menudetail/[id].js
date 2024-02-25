@@ -19,7 +19,7 @@ export default function menu_detail() {
 var [accor,setAccor]=useState(1)
 var [data,setData]=useState([])
 var [food,setFood]=useState([])
-var [user,setUser]=useState({category:[],pover:{}})
+var [user,setUser]=useState({})
 var [commnet,setCommnet]=useState([])
 
 var router=useRouter()
@@ -33,10 +33,6 @@ for (let i = 0; i < res.data.comment.length; i++) {
 var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
 res.data.comment[i].date=formattedDate
 }
-
-
-
-
 setCommnet(res.data.comment)
 
  console.log(res.data);
@@ -44,9 +40,48 @@ setCommnet(res.data.comment)
     alert(err)
   })
 }
+
+
+function sendMessage() {
+  
+  var userone=user.id
+  var twouser=localStorage.getItem('user')
+if(twouser){
+axios.get(`${(url())}/api/room`).then(res=>{
+var usertwo=(JSON.parse(twouser))[0].id
+var test=false
+for (let i = 0; i < res.data.length; i++) {
+  if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
+window.location="/profile"
+test=true
+  }
+}
+if(!test){
+  var data1=new FormData()
+  data1.append('user1',userone)
+  data1.append('user2',usertwo)
+axios.post(`${url()}/api/room`,data1).then(res=>{
+  alert('Проверьте окно чата')
+window.location="/profile"
+})
+}
+  })
+}else{
+  alert('Вы не зарегистрированы')
+}
+
+  
+
+
+
+}
+
+
+var [page_window,setPageWindow]=useState("")
   useEffect(()=>{
 if(router.query.id){
   getData()   
+  setPageWindow(window.location.href)
 }  
 },[router])
 
@@ -59,7 +94,7 @@ if(router.query.id){
 <IoShareSocialOutline  /><span>Поделиться</span>
 </div>
       </div>
-<div className={s.cake}>
+      {user.pover?(<div className={s.cake}>
   <div className={s.cake1}>
     <div style={{background:`url(${food.image})`,backgroundSize: 'cover',backgroundRepeat: 'no-repeat',backgroundPosition:'center'}} className={s.cake_img}>
       <h3 className={s.green_back}>Приготовим сегодня</h3>
@@ -126,14 +161,19 @@ if(router.query.id){
 <div className={s.p_ism}>
 <h1>{user.username} {user.name}</h1>
 </div>
-<p className={s.ism_p}>{user.pover.ish_yonalishi}</p>
+<p className={s.ism_p}>{user.pover?user.pover.ish_yonalishi:""}</p>
 <div className={s.p_b}>
-<button><LuNavigation /> Написать сообщение</button>
+<button onClick={()=>{sendMessage()}}><LuNavigation /> Написать сообщение</button>
 </div>
 <div className={s.vbr_blyud}>
-<p>Все блюда</p>
+<p onClick={()=>{window.location="/foods"}} >Все блюда</p>
 {user.category.map((item,key)=>{
-  return <p key={key} >{item.title}</p>
+  return <p onClick={()=>{
+    localStorage.setItem("category", item.id)
+    setTimeout(() => {
+      window.location="/foods"
+    }, 100);
+  }} key={key} >{item.title}</p>
 })}
 </div>
 
@@ -141,7 +181,9 @@ if(router.query.id){
 </div>
     </div>
   </div>
-</div>
+</div>):(<></>)}
+
+
 
 <div id='yopil' className={s.modal_ssilka}>
   <div  className={s.copy_ssilka}>
@@ -167,9 +209,9 @@ if(router.query.id){
 </div>
 <hr className={s.hr}/>
 <h6 style={{fontWeight:500,fontSize:'14px'}}>Ссылка на блюдо</h6>
-<input className={s.inp_value} value={'https://povarnasvyazi.ru/menu/detail/2816'} type="text" />
+<input className={s.inp_value} value={ page_window } type="text" />
 <div className={s.btns}>
-<button id='blck' onClick={()=>{document.querySelector('#blck').style="display:none";navigator.clipboard.writeText('https://povarnasvyazi.ru/menu/detail/2816')
+<button id='blck' onClick={()=>{document.querySelector('#blck').style="display:none";navigator.clipboard.writeText(`${window?(window.location.href):""}`)
 document.querySelector("#nn").style="display:block"
 }} className={s.block}>Копировать ссылку</button>
 <button id='nn'  className={s.none}>Ссылка скопирована!</button>

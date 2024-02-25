@@ -59,30 +59,45 @@ function filterData2(){
     var bosilgan=[]
     for (let i = 0; i < data1.length; i++) {
         if(data1[i].checked){
-       bosilgan.push(data[i]) 
+       bosilgan.push(advantages[i]) 
         }
     }
+axios.get(`${url()}/api/food_advantages`).then(res2=>{
+    var ney=[]
+    for (let i = 0; i < res2.data.length; i++) {
+        res2.data[i].push=false
+    for (let j = 0; j < bosilgan.length; j++) {
+        if(bosilgan[j].id==res2.data[i].advantages_id){
+            res2.data[i].push=true
+        }
+    }
+    if(res2.data[i].push){
+     ney.push(res2.data[i])
+    }
+    }
+
     axios.get(`${url()}/api/foods`).then(res=>{
     var tayyor=[]
-    if(bosilgan.length==0){
+    if(ney.length==0){
     tayyor=res.data
     }else{
        for (let i = 0; i < res.data.length; i++) {
          res.data[i].qosh=false
          console.log(res.data[i]);
-       for (let j = 0; j < bosilgan.length; j++) {
-        if(bosilgan[j].id==res.data[i].category_id){
+       for (let j = 0; j < ney.length; j++) {
+        if(ney[j].food_id==res.data[i].id){
             res.data[i].qosh=true
         }
        }
        if(res.data[i].qosh){
         tayyor.push(res.data[i])
         }
-    
     }
     }
     setGlFoods(tayyor)
-    })}
+    })
+})
+}
 
 function filterData(){
 var data1=document.querySelectorAll("#filtercheck")
@@ -166,10 +181,6 @@ function sorttime() {
 useEffect(()=>{
 getData()
 getgeFoods()
-
-
-
-
 },[])
 
 function getgeFoods(){
@@ -202,10 +213,10 @@ function getgeFoods(){
     <h1>ВСЕ БЛЮДА <sup>1000</sup></h1>
     <div  className={s.filter_} >
       <div id='oq1' className={s.oq}>
-      <button>По рейтингу</button><br />
-      <button>По рейтингу</button><br />
-      <button>По рейтингу</button>
-      <button>По рейтингу</button>
+      <button onClick={()=>{sortReting()}} >По рейтингу</button><br />
+      <button onClick={()=>{sortSenaRever()}}>По возрастанию цены</button><br />
+      <button onClick={()=>{sortSena()}}>По убыванию цены</button>
+      <button onClick={()=>{sorttime()}}>По новизне</button>
       </div>
 <div className={s.t_filter}>
 <div onClick={()=>{
@@ -230,11 +241,9 @@ function getgeFoods(){
 
 
 <div className={s.line}></div>
-            <div className={s.som}>
-              <div   className={s.kota_kategoriya2}><p>Специализация <GoChevronUp className={s.ukaz1} /></p></div>
-              <div  className={s.kota_kategoriya22}><p>Специализация <HiChevronDown className={s.ukaz1} /></p></div>
-            </div>
-
+          
+              <div   className={s.kota_kategoriya2}>
+                <p style={{color:"black"}}>Специализация</p></div>
             {/* <IoIosArrowUp /> */}
             <div className={s.l}>
               <div  className={s.yopil_kateg}>

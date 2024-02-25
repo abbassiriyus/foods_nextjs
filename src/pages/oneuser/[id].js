@@ -33,7 +33,38 @@ export default function first() {
         alert(err)
       })
     }
+    function sendMessage() { 
+      var userone=router.query.id
+      var twouser=localStorage.getItem('user')
+    if(twouser){
+    axios.get(`${(url())}/api/room`).then(res=>{
+    var usertwo=(JSON.parse(twouser))[0].id
+    var test=false
+    for (let i = 0; i < res.data.length; i++) {
+      if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
+    window.location="/profile"
+    test=true
+      }
+    }
+    if(!test){
+      var data1=new FormData()
+      data1.append('user1',userone)
+      data1.append('user2',usertwo)
+    axios.post(`${url()}/api/room`,data1).then(res=>{
+      alert('Проверьте окно чата')
+    window.location="/profile"
+    })
+    }
+      })
+    }else{
+      alert('Вы не зарегистрированы')
+    }
     
+      
+    
+    
+    
+    }
     function sendcard(id) {
       window.location=`/menudetail/${id}` 
    }
@@ -60,8 +91,7 @@ return (
 </div>
 <p className={c.s_p1}><FiShare2 /> Поделиться</p>
 </div>
-
-<div className={c.profil}>
+{user.id?(<div className={c.profil}>
 <div className={c.p_img}>
 <img src={user.image} alt="" />
 </div>
@@ -122,8 +152,9 @@ return (
 </div>
 
 </div>
-</div>
-<div className={c.profil2}>
+</div>):(<></>)}
+
+{user.id?(<div className={c.profil2}>
 <div className={c.p_img}>
 <img src={user.imgage} alt="" />
 </div>
@@ -179,9 +210,9 @@ return (
 </div>
 
 </div>
-</div>
+</div>):(<></>)}
 
-<div className={c.menu}>
+{foods.length!=0?(<div className={c.menu}>
 <h1>МЕНЮ</h1>
 <div className={c.m_c}>
 {foods.map((item,key)=>{
@@ -201,7 +232,8 @@ return <div className={c.card}>
 })}
 </div>
 
-</div>
+</div>):(<></>)}
+
 {commnet!=0?(<div className={c.comment}>
 <h1 className={c.c_h1}>ОТЗЫВЫ ПОКУПАТЕЛЕЙ</h1>
 
