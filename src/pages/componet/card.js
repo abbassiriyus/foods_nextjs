@@ -6,7 +6,7 @@ import VanillaTilt from 'vanilla-tilt';
 import url from "../host/config"
 import axios from 'axios';
 
-export default function card( props){
+export default function card(props){
     
     const tiltRef = useRef(null);
     useEffect(() => {
@@ -40,6 +40,9 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   alert('Вы не зарегистрированы')
 }
 }
+useEffect(()=>{
+  console.log(props);
+},[])
   return (
   
 <div  className={s.cards}  >
@@ -47,7 +50,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
         <div className={s.card_img}>
     <div className={s.card}  > 
         <div onClick={()=>sendcard()} style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>
-            <h3>Заказ за {(props.data.preparation_time).slice(0,2)} часа</h3>
+            <h3>Заказ за {(props.data.preparation_time)} часа</h3>
         </div>
         <div className={s.card_text}>
     <div   class={s.card_text2}>

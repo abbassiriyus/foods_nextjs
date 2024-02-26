@@ -11,7 +11,7 @@ import Navbar from "./componet/navbar";
 import axios from "axios";
 import url from "./host/config";
 import Swiper from "../pages/SwiperGl.js";
-import Swipergap from "../pages/Swipergap.js"
+import Slidder from "../pages/slidder.js"
 import Swiperprofil from "../pages/Profilswiper.js"
 export default function index() {
 var [data, setData] = useState([{}]);
@@ -261,7 +261,7 @@ return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);win
 
 <div className={s.swipergap}>
 <h1>ОТЗЫВЫ</h1>
-<Swipergap/>
+<Slidder/>
 </div>
 
 <div className={s.swiperprofil}>

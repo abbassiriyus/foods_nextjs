@@ -1,39 +1,48 @@
 import React, { useEffect, useState } from "react";
 import Card from "./componet/card";
-import swip from "../styles/SwiperGl.module.css";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import s from "../styles/slidder.module.css"
+import swip  from "../styles/SwiperGl.module.css"
+import { MdArrowBackIos } from "react-icons/md";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import axios from "axios";
 import url from "./host/config";
+import { Swiper, SwiperSlide } from 'swiper/react';
 const SwiperGl = (props)=> {
 const [currentSlide, setCurrentSlide] = useState(0);
 var [glFoods,setGlFoods]=useState([])
 const slidesToShow = 2;
-
-const showSlide = (n) => {
-const slideWidth = 100 / slidesToShow;
-wrapperRef.current.style.transform = `translateX(-${n * slideWidth}%)`;
-setCurrentSlide(n);
+const breakpoints = {
+  320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      slideToClickedSlide: true,
+  },
+  920: {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    slideToClickedSlide: true,
+},
+921: {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  slideToClickedSlide: true,
+},
+  1362: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+      slideToClickedSlide: true,
+  },
+  1363: {
+      slidesPerView: 3,
+      spaceBetween: 0,
+      slideToClickedSlide: true,
+  }
 };
 
-const nextSlide = () => {
 
-const totalSlides = Math.ceil(glFoods.length / slidesToShow);
 
-const nextSlideIndex = currentSlide + 1;
 
-if (nextSlideIndex < totalSlides) {
-showSlide(nextSlideIndex);
-} else {
-showSlide(currentSlide);
-}
-};
-
-const prevSlide = () => {
-if (currentSlide > 0) {
-showSlide(currentSlide - 1);
-}
-};
 function getgeFoods(){
 axios.get(`${url()}/api/gl_foods`).then(res=>{
 setGlFoods(res.data)
@@ -59,32 +68,42 @@ getgeDesert()
 getgeProduct()
 }
 
-
-
 },[])
 return (
 <div>
-{/* <Navbar/> */}
-<div className={swip.slider}>
-<div className={swip.wrapper} ref={wrapperRef}>
-{glFoods.map((item,key) => (
-<Card data={item} key={key}/>
-))}
+ <Swiper
+ cssMode={true}
+ navigation={{
+ prevEl: '.swiper_button_prev1',
+ nextEl: '.swiper-button-next1'
+ }}
+ breakpoints={breakpoints}
+ mousewheel={true}
+ keyboard={true}
+ id={s.slidder}
+ slidesPerView={3}
+ modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+ className="mySwiper"
+ loop={true}
+ >
 
+ {glFoods.map((item,key) => {
+ return <SwiperSlide className={s.slide12} ><Card data={item} key={key}/> </SwiperSlide>
+})}
 
+ <div className={s.buttons}>
+ <div className="swiper_button_prev1"><MdArrowBackIos className={s.b} /></div>
+ <div className="swiper-button-next1"><MdOutlineArrowForwardIos className={s.b} /></div>
+ </div>
+ </Swiper>
 
-
-
-
-
-</div>
-<div className={swip.button}>
-<p className={swip.prev} onClick={prevSlide}><IoIosArrowRoundBack /></p>
-<p className={swip.next} onClick={nextSlide}><IoIosArrowRoundForward /></p>
-</div>
-</div>
 </div>
 );
 }
 
 export default SwiperGl
+
+
+
+
+
