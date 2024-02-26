@@ -50,10 +50,10 @@ title: "Ishlab chiqaruvchilarning mahsulotlari"
 for (let i = 0; i < accordion_data.length; i++) {
 if(key==i && key!=accor_gr){
   setAccor_gl(i)
-document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
-document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06c160;"
-document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
-}else{
+  document.querySelectorAll(".accordion_p")[i].style="height:auto;padding-bottom:30px"
+    document.querySelectorAll(".plus")[i].style="transform: rotate(45deg);color: #06c160;"
+   document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
+  }else{
   if(key==accor_gr){
     setAccor_gl(-1)
   }
