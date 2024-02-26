@@ -1,0 +1,17 @@
+#slidder{
+min-height:400px;
+max-width: 1380px;
+
+}
+.slide12{
+    padding: 3px;
+    display: flex !important;
+    justify-content: center;align-items: center;
+}
+@media(max-width:500px){
+    .slide12{
+        padding: 0px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    } 
+}

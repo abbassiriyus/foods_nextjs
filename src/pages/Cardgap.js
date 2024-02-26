@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import c from "../styles/Cardgap.module.css"
-export default function Cardgap() {
+export default function Cardgap({data1}) {
+    useEffect(()=>{
+        console.log(data1);
+    })
 return (
 <div>
 
 <div className={c.card}>
 <div className={c.profil}>
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/08e1ce517e2fa7a7ef57074b550e65d647770081/08e1ce517e2fa7a7ef57074b550e65d647770081-wc200.jpeg" alt="" />
+<img src={data1.image} alt="" />
 <div className={c.p_g}>
-<p>Ксения Павлова</p>
-<p>Клиент сервиса</p>
+<p>{data1.fullname}</p>
+<p>{data1.servis}</p>
 </div>
 </div>
 <div className={c.commentariy}>
