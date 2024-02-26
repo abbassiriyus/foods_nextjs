@@ -1,8 +1,8 @@
 
 
 import React from 'react'
-//  var url="http://localhost:4004"
-const url="https://foodbackent.onrender.com"
+ var url="http://localhost:4004"
+// const url="https://foodbackent.onrender.com"
 function config() {
   return url
 }

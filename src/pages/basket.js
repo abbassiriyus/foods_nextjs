@@ -1,59 +1,139 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './componet/navbar'
 import Footer from './componet/footer'
 import { GoPlusCircle } from "react-icons/go";
 import { LuMinusCircle } from "react-icons/lu";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import s from "../styles/basket.module.css"
+import axios from 'axios';
+import url from "./host/config.js"
 export default function basket() {
+
+  var [data,setData]=useState(0)
+
+function getData(params) {
+  var user=localStorage.getItem('user')
+  if(user){ 
+   axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+  setData(res.data.filternew)
+   })
+  }
+}
+
+function minusData(id,count) {
+  if(count-1==0){
+    axios.delete(`${url()}/api/karzinka/${id}`).then(res=>{
+    getData()
+    }).catch(err=>{
+
+    })
+  }else{
+    axios.put(`${url()}/api/karzinka/count/${id}`,{count:count-1}).then(res=>{
+      getData()
+    })
+  }
+
+}
+function plusData(id,count) {
+  axios.put(`${url()}/api/karzinka/count/${id}`,{ count:count+1 }).then(res=>{
+    getData()
+  })
+}
+
+function deleteData(id) {
+     axios.delete(`${url()}/api/karzinka/${id}`).then(res=>{
+      getData()
+    }).catch(err=>{
+      
+    })
+}
+function deleteAll(params) {
+  console.log(params);
+  for (let i = 0; i < params.length; i++) {
+   axios.delete(`${url()}/api/karzinka/${params[i].shopid}`).then(res=>{
+    getData()
+   })
+  }
+}
+
+function offerZakaz(data) {
+  var senddata=""
+  for (let i = 0; i < data.length; i++) {
+   senddata=senddata+" "+data[i].foods_name+". Count:"+data[i].count+". Price "+data[i].price+"₽. All "+data[i].price*data[i].count+"₽," 
+  }
+console.log(senddata);
+localStorage.setItem("zakazall",senddata)
+setTimeout(() => {
+  window.location=""
+}, 100);
+}
+
+useEffect(()=>{
+getData()
+},[])
+
   return (
     <div>
         <Navbar/>
- <div className={s.zakaz}>
+        {data==0?(<></>):(data.length==0?(<Found/>):(<>
+       <div className={s.zakaz}>
     <div className={s.a_basket}>
 <a href="">Главная</a><span>Корзина</span>
     </div>
     <h3 className={s.h3}>ВАШ ЗАКАЗ</h3>
-  <div className={s.card_basket}>
+
+{data.map((item,key)=>{
+  var all=0
+  for (let i = 0; i < item.food.length; i++) {
+    all=all+(item.food[i].price*item.food[i].count)
+  }
+  return <div className={s.card_basket}>
     <div className={s.padding}>
     <div className={s.delete}>
     <div className={s.name}>
-    <p style={{color:'grey',fontSize:'13px'}}>Домашний повар</p>
-    <h3 style={{fontWeight:500}}>Ксения Попова</h3>
+    <p style={{color:'grey',fontSize:'13px'}}>{item.ish_yonalishi}</p>
+    <h3 style={{fontWeight:500}}>{item.name}</h3>
     </div>
-    <RiDeleteBin5Line className={s.delete_bin}/>
+    <RiDeleteBin5Line onClick={()=>deleteAll(item.food)} className={s.delete_bin}/>
 
     </div>
     <hr />
-
-    <div className={s.card_img_name}>
+{item.food.map((item1,key1)=>{
+  return <div className={s.card_img_name}>
     <div className={s.img_c}>
-        <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/5b0e3f16ed48fe04bf574afe3e8ae883a2e50684/5b0e3f16ed48fe04bf574afe3e8ae883a2e50684-wc100.jpeg" alt="" />
+        <img src={item1.image} alt="" />
     </div>
     <div className={s.name_c}>
-    <h3>Горячее «Картофельный рулет-запеканка»</h3>
-    <p>0,750кг • 720 ₽</p>
+    <h3>{item1.foods_name}</h3>
+    <p>{item1.weight} • {item1.price} ₽</p>
     </div>
-
     <div className={s.price}>
     <span></span>
     <div className={s.btn_1}>
-    <GoPlusCircle className={s.minus}/><p>1</p><LuMinusCircle  className={s.minus} />
+    <GoPlusCircle onClick={()=>{plusData(item1.shopid,item1.count)}} className={s.minus}/><p>{item1.count}</p>
+    <LuMinusCircle  className={s.minus} onClick={()=>{minusData(item1.shopid,item1.count)}} />
   </div>
-    <RiDeleteBin5Line className={s.delete_bin}/>
+    <RiDeleteBin5Line onClick={()=>deleteData(item1.shopid)} className={s.delete_bin}/>
     </div>
     </div>
+
+})}
+  
     <hr />
     <div className={s.price_btn}>
-        <span>ИТОГО: 720 ₽</span>
-        <button>Оформить заказ</button>
+        <span>ИТОГО: {all} ₽</span>
+        <button onClick={()=>{offerZakaz(item.food)}} >Оформить заказ</button>
     </div>
     </div>
         </div>
+})}
+ 
 
 
         
- </div>
+ </div>  
+        </>))}
+
 
 
  

@@ -95,6 +95,12 @@ margin-left: 20px;
     /* margin-top: 10px; */
     font-size: 19px;
 }
+.btn_1{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 30px;
+}
 @media(max-width:600px){
     .name_c h3{
         font-size: 15px;
@@ -107,13 +113,16 @@ margin-left: 20px;
         /* margin-top: 10px; */
         font-size: 12px;
     }
+   
+    .padding{
+        padding: 3px;
+    }
+    .name_c{
+        /* background-color: red; */
+        width: 50%;
+    }
 }
-.btn_1{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-right: 30px;
-}
+
 .minus{
     font-size: 25px;
     color: #06c160;
@@ -161,3 +170,9 @@ margin-left: 20px;
     width: 80%;
     margin: auto;
 } */
+@media(max-width:350px){
+    .btn_1{
+        padding-right: 0px !important;
+        margin-right: 0px;
+    }
+}

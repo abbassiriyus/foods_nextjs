@@ -205,6 +205,9 @@ function getgeFoods(){
         
    
     }
+
+
+
   return (
   
     <div>
@@ -266,17 +269,6 @@ function getgeFoods(){
                 <span>Сбросить фильтр</span>
               </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
 </ul>
 <div className={s.body_card}>
     <div className={s.action_search}>
@@ -301,9 +293,6 @@ function getgeFoods(){
 {glFoods.map((mangaItem ,key) => (
   <Card key={key} data={mangaItem}/>
 ))}
-
-
-
 </div>
 </div>
 </div>

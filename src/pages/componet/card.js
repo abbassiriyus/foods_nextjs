@@ -3,6 +3,8 @@ import s from "../../styles/Card.module.css"
 import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
+import url from "../host/config"
+import axios from 'axios';
 
 export default function card( props){
     
@@ -24,7 +26,20 @@ function sendcard() {
 function senduser() {
   window.location=`/oneuser/${props.data.user_povar_id}`
 }
-
+function buyOne(food_id) {
+  var user=localStorage.getItem('user')
+if(user){
+var send_data=new FormData()
+send_data.append("user_ca_id",JSON.parse(user)[0].id)
+send_data.append("food_id",food_id)
+send_data.append("count",1)
+axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+  }).catch(err=>{
+  })
+}else{
+  alert('Вы не зарегистрированы')
+}
+}
   return (
   
 <div  className={s.cards}  >
@@ -60,7 +75,7 @@ function senduser() {
                 <span>{props.data.price} ₽</span>
                 <p>{props.data.portion} кг.</p>
             </div>
-            <button>В корзину</button>
+            <button onClick={()=>buyOne(props.data.id)} >В корзину</button>
         </div>
 
         <div class={s.star2}>

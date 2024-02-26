@@ -230,12 +230,13 @@ useEffect(()=>{
         <div onClick={() => setPage(1)} className={s.line1}>
           <a style={page == 1 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Чаты</a>
         </div>
-        <div onClick={() => setPage(2)} className={s.line1}>
+        {user.pover?(<>    <div onClick={() => setPage(2)} className={s.line1}>
           <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Мои блюди</a>
         </div>
         <div onClick={() => setPage(3)} className={s.line1}>
           <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Полезные материалы</a>
-        </div>
+        </div></>):(<></>)}
+    
       </div>
   </div>
   

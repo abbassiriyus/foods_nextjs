@@ -18,6 +18,7 @@ import url from '../host/config';
 import { AiOutlineClose } from "react-icons/ai";
 import { RiKey2Fill } from "react-icons/ri";
 import Aos from 'aos';
+import { FaCartShopping } from "react-icons/fa6";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
@@ -34,8 +35,24 @@ export default function Navbar() {
   setUser(localStorage.getItem("user"))
   }, [])
 
+var [count,setCount]=useState(0)
+function getshopcar(){
+  var user=localStorage.getItem('user')
+  if(user){
+axios.get(`${url()}/api/karzinka/${(JSON.parse(user))[0].id}`).then(res=>{
+  setCount(res.data.count)
+})
+  }
+}
+useEffect(()=>{
+  setTimeout(() => {
+    getshopcar()
+  }, 1000);
+})
+
   useEffect(() => {
     Aos.init();
+    
   })
 
 
@@ -73,9 +90,7 @@ export default function Navbar() {
     }
   }
 
-  function crateNewUser() {
-
-  }
+  
   var [error_phone, setErrorphone] = useState("")
   var [phone2, setPhone] = useState(7)
 
@@ -272,7 +287,8 @@ window.location="/profile"
           </div>
           <div className={s.navbar_btn}>
             <button onClick={() => openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
-          </div>
+          </div> 
+          {count==0?(<></>):(<a href='/basket' className={s.shopcar}><FaCartShopping className={s.shopcaricons} /><sup>{count}</sup></a>)} 
           <div className={s.navbar_vxod}>
          
             {user?(

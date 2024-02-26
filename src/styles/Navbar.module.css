@@ -16,6 +16,27 @@
     width: 100px;
     cursor: pointer;
 }
+.shopcar{
+    font-size: 30px;
+    display: flex;
+    align-items: start;
+    text-decoration: none;
+    color: black;
+}
+.shopcar sup{
+    font-size: 15px;
+    background-color: rgb(173, 109, 109);
+    width: 20px;
+    color: white;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -10px;
+    left: -10px;
+    border-radius: 50%;
+}
 .navbar_line{
     display: flex;
     align-items: center;

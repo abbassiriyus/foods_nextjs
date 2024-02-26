@@ -178,7 +178,7 @@ document.querySelectorAll(".title_accordion")[i].style="color: #06c160;"
 
                       <p>02</p>
                     </div>
-                    <button>Регистрация в сервисе</button>
+                    {/* <button>Регистрация в сервисе</button> */}
                   </div>
 
 
