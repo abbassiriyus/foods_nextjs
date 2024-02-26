@@ -23,31 +23,38 @@ useEffect(()=>{
 getData()
 },[])
 const breakpoints = {
-  320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  },
-  920: {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    slideToClickedSlide: true,
+320: {
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+920: {
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
 },
 921: {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  slideToClickedSlide: true,
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
 },
-  1362: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  },
-  1363: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  }
+
+922: {
+slidesPerView: 2,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+
+1362: {
+slidesPerView: 2,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+1363: {
+slidesPerView: 3,
+spaceBetween: 0,
+slideToClickedSlide: true,
+}
 };
 return (
 <>

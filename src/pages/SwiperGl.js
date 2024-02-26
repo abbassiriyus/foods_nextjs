@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./componet/card";
 import s from "../styles/slidder.module.css"
-import swip  from "../styles/SwiperGl.module.css"
 import { MdArrowBackIos } from "react-icons/md";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
@@ -37,7 +36,12 @@ const breakpoints = {
       slidesPerView: 3,
       spaceBetween: 0,
       slideToClickedSlide: true,
-  }
+  },
+  2000: {
+    slidesPerView: 3,
+    spaceBetween: 0,
+    slideToClickedSlide: true,
+}
 };
 
 
@@ -71,31 +75,31 @@ getgeProduct()
 },[])
 return (
 <div>
- <Swiper
- cssMode={true}
- navigation={{
- prevEl: '.swiper_button_prev1',
- nextEl: '.swiper-button-next1'
- }}
- breakpoints={breakpoints}
- mousewheel={true}
- keyboard={true}
- id={s.slidder}
- slidesPerView={3}
- modules={[Navigation, Pagination, Mousewheel, Keyboard]}
- className="mySwiper"
- loop={true}
- >
+<Swiper
+cssMode={true}
+navigation={{
+prevEl:'.swiper_button_prev1',
+nextEl:'.swiper-button-next1'
+}}
+breakpoints={breakpoints}
+mousewheel={true}
+keyboard={true}
+id={s.slidder}
+slidesPerView={3}
+modules={[Navigation,Pagination,Mousewheel,Keyboard]}
+className="mySwiper"
+loop={true}
+>
 
- {glFoods.map((item,key) => {
- return <SwiperSlide className={s.slide12} ><Card data={item} key={key}/> </SwiperSlide>
+{glFoods.map((item,key)=>{
+return <SwiperSlide className={s.slide12}> <Card data={item} key={key} /> </SwiperSlide>
 })}
 
- <div className={s.buttons}>
- <div className="swiper_button_prev1"><MdArrowBackIos className={s.b} /></div>
- <div className="swiper-button-next1"><MdOutlineArrowForwardIos className={s.b} /></div>
- </div>
- </Swiper>
+<div className={s.buttons}>
+<div className="swiper_button_prev1"><MdArrowBackIos className={s.b}/> </div>
+<div className="swiper-button-next1"><MdOutlineArrowForwardIos className={s.b}/></div>
+</div>
+</Swiper>
 
 </div>
 );
