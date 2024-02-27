@@ -528,13 +528,17 @@ window.location="/profile"
 
         </div>
       </div>
-      <div className={s.modal_stat} >
+      <div className={s.modal_stat}  id='modal32' >
+        <div>
 <div className={s.form_stat}>
 <div className={s.df_form}>
 <div className={s.inp_1}>
 <h1 className={s.s_h1}>СТАТЬ ПОВАРОМ</h1>
 
-<MdClose style={{ fontSize: '30px',position:'absolute',top:'20px',right:'20px' }}/>
+<MdClose onClick={()=>{
+  document.querySelector("#modal32").style="display:none;"
+  
+}} style={{ fontSize: '30px',position:'absolute',top:'20px',right:'20px' }}/>
 <h3 className={s.form_h3}>Расскажите о себе*</h3>
 
 <div className={s.input}>
@@ -645,7 +649,7 @@ window.location="/profile"
 </div>
 </div>
 </div>
-</div>
+</div></div>
 </div>
     </div>
   )

@@ -981,9 +981,15 @@ justify-content: center;
     margin-top: 1%;
     margin-bottom: 1%;
     border-radius: 20px;
+    display: flex;
     max-width: 1000px;
-    min-height:230vh;
+    /* min-height:230vh; */
+    /* overflow:scroll; */
+    /* min-height: min-content; */
     /* height: auto !important; */
+}
+.df_form{
+    background-color: #fff;
 }
 .s_h1{
     font-weight: 900;
