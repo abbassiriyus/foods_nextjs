@@ -377,12 +377,12 @@ if(key==i && key!=accor_gr){
           </div>
         </div>
 
-  <div data-aos="fade-up"
+  {/* <div data-aos="fade-up"
               data-aos-duration="3000" className={s.registration}>
               <Image className={s.taco} src={img5} alt="" />
               <Image className={s.donut} src={img4} alt="" />
 
-              <h1>РЕГИСТРАЦИЯ В СЕРВИСЕ</h1>
+               <h1>РЕГИСТРАЦИЯ В СЕРВИСЕ</h1> 
               <div className={s.servis_inp}>
                 <div className={s.phone_inp}>
                   <input type="text" name="" id="" placeholder='Телефон' /><IoIosInformationCircleOutline />
@@ -407,7 +407,7 @@ document.querySelector("#eyes1").style="display:block"
                 <p>Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных <br /> в соответствии с <a href="">политикой информационной безопасности.</a> Мы не используем данные и не присылаем рассылки</p>
                 <center><button>Зарегистрироваться</button></center>
               </div>
-            </div>
+            </div> */}
         <div  data-aos="fade-up"
                     data-aos-duration="3000" className={s.vopros}>
 
