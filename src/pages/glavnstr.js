@@ -186,7 +186,7 @@ alt=""
 <div className={s.cardlar}>
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
-<div className={s.c}>
+<div  className={s.c}>
 <img className={s.card_img} src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9/71e6ad25f30896a44011eb4cab9ddffa4bca0ab9.png" alt="" />
 <div className={s.c_soz}>
 <p>Поздравить любимых</p>

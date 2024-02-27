@@ -12,35 +12,35 @@ const [currentSlide, setCurrentSlide] = useState(0);
 var [glFoods,setGlFoods]=useState([])
 const slidesToShow = 2;
 const breakpoints = {
-  320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  },
-  920: {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    slideToClickedSlide: true,
+320: {
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+920: {
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
 },
 921: {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  slideToClickedSlide: true,
+slidesPerView: 1,
+spaceBetween: 0,
+slideToClickedSlide: true,
 },
-  1362: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  },
-  1363: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-  },
-  2000: {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    slideToClickedSlide: true,
+1362: {
+slidesPerView: 2,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+1363: {
+slidesPerView: 3,
+spaceBetween: 0,
+slideToClickedSlide: true,
+},
+2000: {
+slidesPerView: 3,
+spaceBetween: 0,
+slideToClickedSlide: true,
 }
 };
 

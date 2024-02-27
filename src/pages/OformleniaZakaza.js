@@ -17,23 +17,23 @@ export default function Oformlenia_zakaz() {
     document.querySelector("#big_dostavka_zakaz").style = "display:block";
     document.querySelector("#inp_checkbox_and_text_zakaz p").style =
       "display:none";
-    document.querySelector(".radio_dostavka_zakaz").style =
+    document.querySelector("#radio-zakaz").style =
       "accent-color: #06c160; ";
-    document.querySelector(".radio_dostavka_zakaz2").style =
+    document.querySelector("#radio-zakaz").style =
       "accent-color: #fff; ";
   };
   const Openzakaz = () => {
     document.querySelector("#big_dostavka_zakaz").style = "display:none";
     document.querySelector("#inp_checkbox_and_text_zakaz p").style =
       "display:block";
-    document.querySelector(".radio_dostavka_zakaz").style =
+    document.querySelector("#radio-zakaz").style =
       "accent-color: #fff; ";
-    document.querySelector(".radio_dostavka_zakaz2").style =
+    document.querySelector("#radio-zakaz").style =
       "accent-color: #06c160; ";
   };
 
   const nodropradio = () => {
-    document.querySelector(".radio-oplata-card").style =
+    document.querySelector("#radio-zakaz").style =
       "accent-color: #fff; border: 1px solid #909090a2; ";
   };
   return (
@@ -53,7 +53,7 @@ export default function Oformlenia_zakaz() {
         <p>Корзина</p>
       </div>
       <div className={o.My_order_oformlenia}>
-        <h2>ОФОРМИТЬ ЗАКАЗ</h2>
+        <h1>ОФОРМИТЬ ЗАКАЗ</h1>
       </div>
 {/*  */}
       <div className={o.big_oformlinia_zaka}>
