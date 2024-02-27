@@ -55,7 +55,7 @@ export default function dishes() {
             data.append("packages", document.querySelector("#packages").value)
             data.append("price", document.querySelector("#price").value)
             if(document.querySelector("#image").value){
-            data.append("image", document.querySelector("#image").value)
+            data.append("image", document.querySelector("#image").files[0])
             }
             axios.put(`${url()}/api/foods/${oneFood.id}`, data).then(res => {
                 getData()
@@ -82,7 +82,7 @@ export default function dishes() {
         data.append("packages", document.querySelector("#packages").value)
         data.append("price", document.querySelector("#price").value)
         if(document.querySelector("#image").value){
-        data.append("image", document.querySelector("#image").value)
+        data.append("image", document.querySelector("#image").files[0])
         }else{
         data.append("image", "https://icon-library.com/images/healthy-food-icon/healthy-food-icon-20.jpg")
 
