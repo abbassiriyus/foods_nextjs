@@ -7,11 +7,18 @@ import Footer from "./componet/footer";
 // import "../styles/oformlenia_zakaz.css";
 
 export default function Oformlenia_zakaz() {
-  const Openanotherperson = () => {
-    document.querySelector(".gets-person2-zakaz").style = "display:flex";
+  const Openanotherperson = (ches) => {
+
+    if(ches){
+    document.querySelector("#gets_person2_zakaz1").style = "display:flex";
+    }else{
+      document.querySelector("#gets_person2_zakaz1").style = "display:none";
+    }
+
+  
   };
   const Openanotherperson2 = () => {
-    document.querySelector(".gets-person3-zakaz").style = "display:block";
+    document.querySelector("#gets_person2_zakaz2").style = "display:block";
   };
   const Opendostavkazakaz = () => {
     document.querySelector("#big_dostavka_zakaz").style = "display:block";
@@ -36,6 +43,28 @@ export default function Oformlenia_zakaz() {
     document.querySelector("#radio-zakaz").style =
       "accent-color: #fff; border: 1px solid #909090a2; ";
   };
+
+  function postdata(){
+    var data=new FormData()
+    var user=JSON.parse(localStorage.getItem("user"))
+    data.append('creator',user[0].id)
+    if(document.querySelector('#checkbox-zakaz').checked){
+        data.append('fullname',document.querySelector('#fullname12').value)
+       data.append('phone',document.querySelector('#phone12').value)
+       data.append('to_my_friend',true)
+    
+  }else{
+    data.append('fullname',user[0].name)
+    data.append('phone',user[0].phone)
+    data.append('to_my_friend',false)
+  }
+
+    data.append('')
+    data.append('')
+  }
+
+
+
   return (
   <div >
 
@@ -83,16 +112,16 @@ export default function Oformlenia_zakaz() {
                 <input
                   type="checkbox"
                   id="checkbox-zakaz"
-                  onChange={Openanotherperson}
+                  onChange={(e)=>{Openanotherperson(e.target.checked)}}
                 />
                 <h4>Другой получатель</h4>
               </div>
-              <div className={o.gets_person2_zakaz}>
+              <div className={o.gets_person2_zakaz} id="gets_person2_zakaz1">
                 <div className={o.name_person_zakaz}>
-                  <input type="text" name="" id="" placeholder="Имя" />
+                  <input type="text" name="" id="fullname12" placeholder="Имя" />
                 </div>
                 <div className={o.phone_number_zakaz}>
-                  <input type="text" name="" id="" placeholder="Телефон" />
+                  <input type="text" name="" id="phone12" placeholder="Телефон" />
                 </div>
               </div>
               <div className={o.get_another_person_zakaz2}>
@@ -103,7 +132,7 @@ export default function Oformlenia_zakaz() {
                 />
                 <h4>Другой получатель</h4>
               </div>
-              <div className={o.gets_person3_zakaz}>
+              <div className={o.gets_person3_zakaz} id="gets_person2_zakaz2">
                 <div className={o.name_person_zakaz}>
                   <input type="text" name="" id="" placeholder="Имя" />
                 </div>
@@ -131,7 +160,7 @@ export default function Oformlenia_zakaz() {
                   <input
                     type="radio"
                     onClick={Openzakaz}
-                    name=""
+                    name="qwe"
                     id="radio-zakaz"
                     className={o.radio_dostavka_zakaz2} />
                   <h3>Самовызов</h3>
@@ -143,7 +172,7 @@ export default function Oformlenia_zakaz() {
                   <input
                     type="radio"
                     onClick={Opendostavkazakaz}
-                    name=""
+                    name="qwe"
                     id="radio-zakaz"
                     className={o.radio_dostavka_zakaz}
                   />

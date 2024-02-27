@@ -84,11 +84,11 @@ font-weight: 900;
   gap: 30px;
 }
 .name_person_zakaz{
-  margin-top: 20px;
+  margin-top: 0px;
   min-width: 20px;
 }
 .phone_number_zakaz{
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .gets_person2_zakaz input {
@@ -118,7 +118,7 @@ font-weight: 900;
 .get_another_person_zakaz {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   gap: 20px;
 }
 .get_another_person_zakaz2 {
