@@ -626,7 +626,7 @@ window.location="/profile"
 <p style={{fontSize:'17px',fontWeight:400}}>Вы проходили специализированные курсы или может у Вас профессиональное кулинарное образование? Это только большой плюс!</p>
 
 <div className={s.link}>
-<LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
+<LuUnlink  style={{color:'#06c160',fontSize:'22px',opacity:0.9}}/>
   <span>Прикрепите фото сертификата или диплома</span>
 </div>
 </div>
@@ -640,7 +640,9 @@ window.location="/profile"
 
 
 <div  className={s.foto}>
+<div className={s.camera}>
 
+</div>
 </div>
 </div>
 </div>

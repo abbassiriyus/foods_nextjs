@@ -996,7 +996,8 @@ justify-content: center;
 .df_form{
     display: flex;
     width: 90%;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 70px;
 }
 .inp_1{
     width:70%;
@@ -1098,6 +1099,8 @@ justify-content: center;
 .link span{
     color: #06c160;
     transition: 1s;
+    opacity: 0.9;
+    font-weight: 500;
     border-bottom: 1px dashed #06c160;
 }
 .link span:hover{
@@ -1110,12 +1113,32 @@ justify-content: center;
 }
 .btn button{
     margin-bottom: 20px;
-    border: none;
+    border: 1px solid white;
     border-radius: 10px;
     padding:15px 10px;
     background-color: #06c160;
     color:white;
     font-weight: 800;
+    transition: 1s;
+}
+.btn button:hover{
+    background-color: white;
+    color: #06c160;
+    border: 1px solid #06c160;
+}
+.foto{
+    width: 20%;
+    /* margin: auto;   */
+   
+}
+.camera{
+  position: sticky;
+    top: 20px;
+    right: 0px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #e6f9ef;
 }
 /*  */
 
