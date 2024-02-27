@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
+import { LuUnlink } from "react-icons/lu";
 import { SlMenu } from "react-icons/sl";
+import { FaLocationArrow } from "react-icons/fa";
+import { CiLocationArrow1 } from "react-icons/ci";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input_error from './input_error';
 import Input_error2 from './input_error2';
@@ -521,8 +524,127 @@ window.location="/profile"
             ))))}
 
 
+
+
         </div>
       </div>
+      <div className={s.modal_stat} >
+<div className={s.form_stat}>
+<div className={s.df_form}>
+<div className={s.inp_1}>
+<h1 className={s.s_h1}>СТАТЬ ПОВАРОМ</h1>
+
+<MdClose style={{ fontSize: '30px',position:'absolute',top:'20px',right:'20px' }}/>
+<h3 className={s.form_h3}>Расскажите о себе*</h3>
+
+<div className={s.input}>
+<input placeholder='Фамилия и имя' type="text" />
+<input placeholder='Email' type="text" />
+<textarea placeholder='О себе' name="" id="" cols="30" rows="10"></textarea>
+
+<select name="" id="">
+  <option value="">Профессиональный повар</option>
+  <option value="">Домашний повар</option>
+  <option value="">Кондитер</option>
+</select>
+</div>
+<h3 className={s.form_h3}>Выберите категории меню*</h3>
+<div className={s.df_zakaz}>
+<div className={s.zakaz_check}>
+<div className={s.check}>
+<input type="checkbox" name="" id="" />
+<h4>Торты</h4>
+</div>
+
+<div className={s.check}>
+<input type="checkbox" name="" id="" />
+<h4>Торты</h4>
+</div>
+</div>
+
+
+<div className={s.zakaz_check}>
+<div className={s.check}>
+<input type="checkbox" name="" id="" />
+<h4>Торты</h4>
+</div>
+
+<div className={s.check}>
+<input type="checkbox" name="" id="" />
+<h4>Торты</h4>
+</div>
+</div>
+
+</div>
+
+<h3 style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>Где Вы готовите*</h3>
+<select className={s.select1} name="" id="">
+  <option value="">Профессиональный повар</option>
+  <option value="">Домашний повар</option>
+  <option value="">Кондитер</option>
+</select>
+<div className={s.location}>
+<FaLocationArrow   style={{color:'#06c160',fontSize:'20px',marginTop:'15px',marginLeft:'10px'}}/>
+<input type="text" placeholder='
+Укажите адрес кухни' />
+
+</div>
+<a href="">Пример фото с кухней!</a>
+
+<div className={s.input}>
+  <h3  style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>С какого года в деле</h3>
+<input placeholder='С какого года в деле' type="text" />
+
+</div>
+
+
+<div className={s.input}>
+  <h3  style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>Подтверждение личности</h3>
+<p style={{fontSize:'17px',fontWeight:400}}> Чтобы покупатели могли Вам доверять - прикрепите <strong>фото или скан паспорта</strong> и отправьте заявку на модерацию (его увидит только администратор сервиса во избежании случаев мошенничества).</p>
+
+<div className={s.link}>
+<LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
+  <span>Прикрепите фото лица с паспортом</span>
+</div>
+</div>
+
+
+<div className={s.input}>
+  <h3  style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>Санитарная книжка</h3>
+<p style={{fontSize:'17px',fontWeight:400}}> Если есть санитарная книжка — прикрепите ее фото, это выделит Вас среди других изготовителей.</p>
+
+<div className={s.link}>
+<LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
+  <span>Прикрепите фото санитарной книжки</span>
+</div>
+</div>
+
+
+
+<div className={s.input}>
+  <h3  style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>У Вас есть сертификаты? Супер!</h3>
+<p style={{fontSize:'17px',fontWeight:400}}>Вы проходили специализированные курсы или может у Вас профессиональное кулинарное образование? Это только большой плюс!</p>
+
+<div className={s.link}>
+<LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
+  <span>Прикрепите фото сертификата или диплома</span>
+</div>
+</div>
+
+<div className={s.btn}>
+<center><button>Отправить заявку</button>
+<p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p></center>
+</div>
+
+</div>
+
+
+<div  className={s.foto}>
+
+</div>
+</div>
+</div>
+</div>
     </div>
   )
 }
