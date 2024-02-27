@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import o from "../styles/oformlenia_zakaz.module.css"
 import { IoIosArrowForward } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import Navbar from "./componet/navbar";
 import Footer from "./componet/footer";
-// import "../styles/oformlenia_zakaz.css";
-
+import axios from "axios";
+import url from "./host/config"
 export default function Oformlenia_zakaz() {
+  
+  var [radio,setRadio]=useState(true)
+  
+
+
   const Openanotherperson = (ches) => {
 
     if(ches){
@@ -58,9 +63,26 @@ export default function Oformlenia_zakaz() {
     data.append('phone',user[0].phone)
     data.append('to_my_friend',false)
   }
+  if(radio){
+    data.append('village','test')
+    data.append('home','test')
+    data.append('ofice','test')
+    data.append('building','test')
+    data.append('convex','test')
+  }else{
+    data.append('village',document.querySelector("#input1").value)
+    data.append('home',document.querySelector("#input2").value)
+    data.append('ofice',document.querySelector("#input3").value)
+    data.append('building',document.querySelector("#input4").value)
+    data.append('convex',document.querySelector("#input5").value)
+  }
+  data.append('time',document.querySelector("#input_time").value)
+  data.append('date',document.querySelector("#input_day").value)
+    
+axios.post(`${url()}/api/food_seller`,data).then(res=>{
+  window.location='/profile'
+})
 
-    data.append('')
-    data.append('')
   }
 
 
@@ -68,7 +90,7 @@ export default function Oformlenia_zakaz() {
   return (
   <div >
 
-<Navbar/>
+{/* <Navbar/> */}
 
 
       <div className={o.App_offormlenia_zakaz}>
@@ -84,7 +106,6 @@ export default function Oformlenia_zakaz() {
       <div className={o.My_order_oformlenia}>
         <h1>ОФОРМИТЬ ЗАКАЗ</h1>
       </div>
-{/*  */}
       <div className={o.big_oformlinia_zaka}>
         <div className={o.first_oformlenia_zakaz}>
     <div className={o.padding2}>
@@ -182,16 +203,16 @@ export default function Oformlenia_zakaz() {
                   <div className={o.first_info_dostavka_zakaz}>
                     <div className={o.small_div_dostavka}>
                       <p>Тюмень</p>
-                      <input type="text" placeholder="Улица" name="" id="" />
+                      <input type="text" placeholder="Улица" name="" id="inpu1" />
                     </div>
                     <div className={o.middle_dostavka_div}>
                       <div className={o.another_info_zakaz}>
-                        <input type="text" placeholder="Дом" name="" id="" />
+                        <input type="text" placeholder="Дом" name="" id="input2" />
                         <input
                           type="text"
                           placeholder="Квартира офис"
                           name=""
-                          id=""
+                          id="input3"
                         />
                       </div>
                       <div className={o.another_info_zakaz}>
@@ -199,9 +220,9 @@ export default function Oformlenia_zakaz() {
                           type="text"
                           placeholder="Подъезд"
                           name=""
-                          id=""
+                          id="input4"
                         />
-                        <input type="text" placeholder="Этаж" name="" id="" />
+                        <input type="text" placeholder="Этаж" name="" id="input5" />
                       </div>
                     </div>
                   </div>
@@ -213,8 +234,8 @@ export default function Oformlenia_zakaz() {
                 <div className={o.data_zakaz_time}>
                   <h3>Желаемая дата и время</h3>
                   <div className={o.inp_time_data_dostavka}>
-                    <input type="date" name="" id="" />
-                    <select name="" id="">
+                    <input type="date" name="" id="input_day" />
+                    <select name="" id="input_ntime">
                       <option value="">21:00 - 21:30</option>
                       <option value="">21:30 - 22:00</option>
                       <option value="">22:00 - 22:30</option>
@@ -243,7 +264,7 @@ export default function Oformlenia_zakaz() {
               <div className={o.oplata_zakaza_way_money}>
                 <input
                   type="radio"
-                  name=""
+                  name="ss"
                   id="radio-zakaz"
                   className={o.radio_oplata_money}
                 />
@@ -253,7 +274,7 @@ export default function Oformlenia_zakaz() {
                 <input
                   onClick={nodropradio}
                   type="radio"
-                  name=""
+                  name="ss"
                   id="radio-zakaz"
                   className={o.radio_oplata_card}
                 />
@@ -329,7 +350,7 @@ export default function Oformlenia_zakaz() {
           <div className={o.overall_price_zakaz}>
             <h2>итого: 479 ₽</h2>
           </div>
-          <button>Оформить заказ</button>
+          <button onClick={()=>postdata()}>Оформить заказ</button>
         </div>
       </div>
     </div>
