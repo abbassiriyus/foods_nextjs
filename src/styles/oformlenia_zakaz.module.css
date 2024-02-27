@@ -1,27 +1,25 @@
 .big_oformlinia_zaka {
   display: flex;
-  gap: 30px;
-  width:90%;
+  gap: 80px;
+  width: 90%;
   margin: auto;
   margin-top: 30px;
   min-width: 300px;
 }
 
 .App_offormlenia_zakaz {
-  background: #fafafa;
-  padding: 15px 25px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  /* min-width: 300px; */
-  width: 80%;
-  margin-left: 5%;
+  width: 100%;
+  max-width: 1380px;
+margin: auto;
+margin-top: 20px;
+margin-bottom: 20px;
 }
 
 .where_Oformlenia_zakaz {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-left: 10%;
+  margin-left: 5.5%;
 }
 .where_Oformlenia_zakaz a {
   color: #06c160;
@@ -45,10 +43,12 @@
   border-radius: 10px;
   /* width: 850px; */
 }
-.My_order_oformlenia{
+.My_order_oformlenia h1{
     margin-top: 20px;
-    margin-left: 10%;
-}
+    margin-left: 5.5%;
+    font-size: 34px;
+font-weight: 900;
+  }
 .count_offermlenia_zakaz {
   width: 50px;
   height: 50px;
@@ -405,7 +405,8 @@
   align-items: center;
   gap: 10px;
   color: #06c160;
-  transition: 0.6s;
+  transition: .3s;
+cursor: pointer;
 }
 .count_of_zakaz p:hover{
   color: black;
@@ -475,10 +476,9 @@
 
 .overall_price_zakaz {
   display: flex;
-  margin-top: 40px;
+  margin-top: 30px;
   align-items: center;
   justify-content: flex-end;
-  /* margin-top:100px; */
 }
 
 .second_oformlenia_zakaz button {
@@ -489,7 +489,9 @@
   background: #06c160;
   color: white;
   font-size: 18px;
-  /* margin-top: 100px; */
+margin-top: 10px;
+transition: .3s;
+cursor: pointer;
 }
 .second_oformlenia_zakaz h4{
   margin-top: 10px;
