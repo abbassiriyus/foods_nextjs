@@ -529,6 +529,8 @@ window.location="/profile"
 
         </div>
       </div>
+
+
       <div className={s.modal_stat}  id='modal32' >
         <div style={{margin:'auto'}}>
 <div className={s.form_stat}>
