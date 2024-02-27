@@ -6,22 +6,55 @@ background-color: #fff;
 
 }
 .dicv{
-display: flex;
+display: grid;
+grid-template-columns: auto auto auto;
 gap: 20px;
 flex-wrap: wrap;
 width: 100%;
 max-width: 1300px;
 align-items: stretch;
 }
+@media(max-width:974px){
+    .dicv{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto ;
+    }
+}
+@media(max-width:680px){
+    .dicv{
+        width: 60%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto ;
+    }
+}
+@media(max-width:490px){
+    .dicv{
+        width: 80%;
+        margin: auto;
+
+    }
+}
+@media(max-width:380px){
+    .dicv{
+        width: 90%;
+        margin: auto;
+
+    }
+}
 .img_i{
 position: relative;
 }
-.img_i img{
+.imgzx{
 width: 100%;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 background-color: #e6f9ef;
 height: 230px;
+background-size: cover !important;
+background-position: center !important;
 }
 .udalitЬ{
 width: 100%;
@@ -99,7 +132,8 @@ display: flex;
 gap: 30px;
 }
 .dishes_button{
-max-width: 250px;
+max-width: 300px;
+min-width: 300px;
 width: 80%;
 /* height: 200px; */
 border-radius: 10px;
@@ -346,6 +380,19 @@ display: flex;
 justify-content: space-between;
 }
 }
+/* @media(max-width:946px){
+    .dicv{
+        width: 90%;
+        margin: auto;
+    }
+}
+@media(max-width:726px){
+    .dicv{
+        width: 60%;
+        min-width: 300px;
+        margin: auto;
+    }
+} */
 @media(max-width:946px){
 .dishes_inp{
 width: 100%;

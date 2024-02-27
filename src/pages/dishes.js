@@ -178,7 +178,9 @@ setAdvantages(res2.data)
                                             <FaTrash />
                                         </div>
                                     </div>
-                                    <img src={item.image} alt="" />
+                                    <div className={s.imgzx} style={{background:`url(${item.image})`}}>
+
+                                    </div>
                                 </div>
                                 <div className={s.c_soz}>
                                     <h1  style={{cursor:'pointer'}}  onClick={()=>{setOneFood(item);setPage(1);getAdvantagesUser(item.id)}} className={s.c_h1}><FaPen className={s.ruchka}/> <p>Редактировать</p></h1>

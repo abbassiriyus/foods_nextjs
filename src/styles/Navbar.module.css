@@ -274,11 +274,12 @@
     align-items: center;
 }
 .navbar_mobile_menu{
-    height: 500px;
+    height: 100vh;
     background-color: white;
 position: absolute;
 top: 0px;
 width: 100%;
+min-width: 300px;
 left: 0px;
 z-index: 12312;
 z-index: 324234;
