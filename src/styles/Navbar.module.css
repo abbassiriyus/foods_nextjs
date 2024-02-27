@@ -975,6 +975,7 @@ justify-content: center;
 }
 .form_stat{
     width: 90%;
+    margin: auto;
     position: sticky;
     background-color: white;
     padding: 3%;
@@ -990,6 +991,7 @@ justify-content: center;
 }
 .df_form{
     background-color: #fff;
+    padding: 2%;
 }
 .s_h1{
     font-weight: 900;
@@ -1133,18 +1135,33 @@ justify-content: center;
     border: 1px solid #06c160;
 }
 .foto{
-    width: 20%;
+    /* width: 20%; */
+       display: flex;
+    justify-content: center;
+    align-items: center;
     /* margin: auto;   */
    
 }
 .camera{
   position: sticky;
-    top: 20px;
+    top: 80px;
     right: 0px;
     width: 250px;
     height: 250px;
     border-radius: 50%;
+ 
     background-color: #e6f9ef;
+}
+@media(max-width:960px){
+    .df_form{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+
+    }
+    .foto{
+        width:40%;
+        margin: auto;
+    }
 }
 /*  */
 

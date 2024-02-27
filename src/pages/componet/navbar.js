@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
+import { VscDeviceCamera } from "react-icons/vsc";
 import { LuUnlink } from "react-icons/lu";
 import { SlMenu } from "react-icons/sl";
 import { FaLocationArrow } from "react-icons/fa";
@@ -529,7 +530,7 @@ window.location="/profile"
         </div>
       </div>
       <div className={s.modal_stat}  id='modal32' >
-        <div>
+        <div style={{margin:'auto'}}>
 <div className={s.form_stat}>
 <div className={s.df_form}>
 <div className={s.inp_1}>
@@ -538,7 +539,7 @@ window.location="/profile"
 <MdClose onClick={()=>{
   document.querySelector("#modal32").style="display:none;"
   
-}} style={{ fontSize: '30px',position:'absolute',top:'20px',right:'20px' }}/>
+}} style={{ fontSize: '30px',position:'absolute',top:'50px',right:'60px' }}/>
 <h3 className={s.form_h3}>Расскажите о себе*</h3>
 
 <div className={s.input}>
@@ -636,8 +637,8 @@ window.location="/profile"
 </div>
 
 <div className={s.btn}>
-<center><button>Отправить заявку</button>
-<p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p></center>
+<button>Отправить заявку</button>
+<p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p>
 </div>
 
 </div>
@@ -645,7 +646,8 @@ window.location="/profile"
 
 <div  className={s.foto}>
 <div className={s.camera}>
-
+<VscDeviceCamera style={{fontSize:'100px'}} />
+<h5>Добавить фотку профиля</h5>
 </div>
 </div>
 </div>
