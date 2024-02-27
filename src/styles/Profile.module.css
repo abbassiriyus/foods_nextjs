@@ -32,7 +32,16 @@
     .lines{
         width: 100%;
         overflow-x: scroll;
-        height: 70px;
+        height: 80px;
+    }
+    .line1 a{
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+}
+@media(max-width:662px){
+    .line{
+        gap: 15px;
     }
 }
 .fimeinput{
@@ -229,7 +238,11 @@ border: none;
         font-size: 12px;
     }
 } */
-
+@media(max-width:1708px){
+    .image_prosta{
+        z-index: -1;
+    }
+}
 @media(max-width:1260px){
     .image_prosta{
         display: none;
@@ -587,13 +600,16 @@ margin-right: 5px;
     align-items: center;
 }
 .ram{
-    align-items: center;
     display: flex;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
     color: #06c160;
     transition: 0.2s;
+}
+.ram span{
+    width: 100%;
 }
 .ram:hover{
     color: black;
@@ -656,12 +672,22 @@ margin-right: 5px;
         width: 100%;
         margin-top: 20px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .ram span{
+        
+        font-size: 18px;
     }
     .lorem{
         margin-right: auto;
     }
     .dock{
         font-size: 24px;
+    }
+}
+@media(max-width:470px){
+    .ram span{
+        font-size: 3.7vw;
     }
 }
 @media(max-width:420px){

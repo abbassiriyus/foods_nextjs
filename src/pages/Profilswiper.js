@@ -193,7 +193,8 @@ return <SwiperSlide className={s.slide12}><ProfilCard data={item} key={key} /> <
 })}
 
 <div className={s.buttons}>
-<div className="swiper_button_prev1"><MdArrowBackIos className={s.b}/> </div>
+<div className="swiper_button_prev1"><MdArrowBackIos className={s.b}/>
+</div>
 <div className="swiper-button-next1"><MdOutlineArrowForwardIos className={s.b}/></div>
 </div>
 </Swiper>
