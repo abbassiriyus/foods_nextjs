@@ -227,7 +227,7 @@ return <div  onClick={()=>{localStorage.setItem('category',item.id);window.locat
 </div>
 <div className={s.cardlar}>
 <h1 className={s.jison}>Полезные продукты</h1>
-<div className={s.cs}>
+<div className={s.cards}>
 {soglom.map((item,key)=>{
 return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
