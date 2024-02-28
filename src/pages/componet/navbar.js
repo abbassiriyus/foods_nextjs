@@ -26,16 +26,26 @@ import { FaCartShopping } from "react-icons/fa6";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
+  var [ish_yonalishi, setishYonalishi] = useState([])
+
   var [page, setPage] = useState(0)
  var [user,setUser]=useState(null)
   function getData() {
     axios.get(`${url()}/api/category`).then(res => {
+      for (let i = 0; i < res.data.length; i++) {
+      res.data[i].push=false
+      }
       setData(res.data)
+    axios.get(`${url()}/api/ishyonalishi`).then(res1 => {
+      setishYonalishi(res1.data)
+    }).catch(err => {
+    })
     }).catch(err => {
     })
   }
 
-  useEffect(() => { getData()
+  useEffect(() => {
+    getData()
   setUser(localStorage.getItem("user"))
   }, [])
 
@@ -262,7 +272,56 @@ window.location="/profile"
 
   }
 
+function sendpover() {
+  
+  var user_me=JSON.parse(localStorage.getItem("user"))
+var send_data=new FormData()
+send_data.append('user_id',user_me[0].id)
+send_data.append('deskription',document.querySelector('#ocebya').value)
+send_data.append('expertise',document.querySelector('#expertise123').value)
+send_data.append('place',document.querySelector('#place123').value)
+send_data.append('ish_yonalishi',document.querySelector('#ish_yonalishi123').value)
+send_data.append('is_prepared',document.querySelector('#is_prepared123').value)
 
+var document1= new FormData()
+document1.append('user_povar_id',user_me[0].id)
+document1.append('file', document.querySelector("#document123").value)
+
+var document2= new FormData()
+document2.append('user_povar_id',user_me[0].id)
+document2.append('file', document.querySelector("#document1232").value)
+
+var diploma= new FormData()
+diploma.append('user_povar_id',user_me[0].id)
+diploma.append('file', document.querySelector("#diploma123").value)
+
+axios.post(`${url()}/api/user_povar`,send_data).then(res=>{
+axios.post(`${url()}/api/document`,document1).then(res2=>{
+  axios.post(`${url()}/api/document`,document2).then(res3=>{
+    axios.post(`${url()}/api/diploma`,diploma).then(res4=>{
+  for (let i = 0; i < data.length; i++) {
+   if(data[i].push){
+    //  integer not null,
+    // "category_id" integer not null,
+  var yubdata=new FormData() 
+  yubdata.append("user_id",user_me[0].id)
+  yubdata.append("category_id",data[i].id)
+  }
+    
+  }
+    })
+  })
+})
+})
+
+}
+
+function sellectdatachange(key,check) {
+  var a=[...data]
+  a[key].push=check
+  console.log(a);
+  setData(a)
+}
   return (
     <div>
       <div className={s.navbar_big}>
@@ -288,6 +347,7 @@ window.location="/profile"
        ):(
        <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>)}
           </div>
+          <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex" }}>Стать поваром</a>
           <div className={s.navbar_btn}>
             <button onClick={() => openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
           </div> 
@@ -546,52 +606,37 @@ window.location="/profile"
 <div className={s.input}>
 <input placeholder='Фамилия и имя' type="text" />
 <input placeholder='Email' type="text" />
-<textarea placeholder='О себе' name="" id="" cols="30" rows="10"></textarea>
+<textarea placeholder='О себе' name="" id="ocebya" cols="30" rows="10"></textarea>
 
-<select name="" id="">
-  <option value="">Профессиональный повар</option>
-  <option value="">Домашний повар</option>
-  <option value="">Кондитер</option>
+<select name="" id="ish_yonalishi123">
+{ish_yonalishi.map((item,key)=>{
+  return <option value={item.title}>{item.title}</option>
+})}  
+
 </select>
 </div>
 <h3 className={s.form_h3}>Выберите категории меню*</h3>
 <div className={s.df_zakaz}>
 <div className={s.zakaz_check}>
-<div className={s.check}>
-<input type="checkbox" name="" id="" />
-<h4>Торты</h4>
-</div>
 
-<div className={s.check}>
-<input type="checkbox" name="" id="" />
-<h4>Торты</h4>
+{data.map((item,key)=>{
+  return <div className={s.check}>
+<input type="checkbox" onChange={(e)=>{sellectdatachange(key,e.target.checked)}} name="" id="" />
+<h4>{item.title}</h4>
 </div>
-</div>
+})
+}
 
 
-<div className={s.zakaz_check}>
-<div className={s.check}>
-<input type="checkbox" name="" id="" />
-<h4>Торты</h4>
-</div>
-
-<div className={s.check}>
-<input type="checkbox" name="" id="" />
-<h4>Торты</h4>
-</div>
 </div>
 
 </div>
 
 <h3 style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>Где Вы готовите*</h3>
-<select className={s.select1} name="" id="">
-  <option value="">Профессиональный повар</option>
-  <option value="">Домашний повар</option>
-  <option value="">Кондитер</option>
-</select>
+<input type="text" id='place123' placeholder='adress' />
 <div className={s.location}>
 <FaLocationArrow   style={{color:'#06c160',fontSize:'20px',marginTop:'15px',marginLeft:'10px'}}/>
-<input type="text" placeholder='
+<input type="text" id='is_prepared123' placeholder='
 Укажите адрес кухни' />
 
 </div>
@@ -599,7 +644,7 @@ window.location="/profile"
 
 <div className={s.input}>
   <h3  style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>С какого года в деле</h3>
-<input placeholder='С какого года в деле' type="text" />
+<input placeholder='С какого года в деле' id='expertise123' type="text" />
 
 </div>
 
@@ -609,6 +654,7 @@ window.location="/profile"
 <p style={{fontSize:'17px',fontWeight:400}}> Чтобы покупатели могли Вам доверять - прикрепите <strong>фото или скан паспорта</strong> и отправьте заявку на модерацию (его увидит только администратор сервиса во избежании случаев мошенничества).</p>
 
 <div className={s.link}>
+  <input id='document123'  type="file" />
 <LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
   <span>Прикрепите фото лица с паспортом</span>
 </div>
@@ -620,6 +666,7 @@ window.location="/profile"
 <p style={{fontSize:'17px',fontWeight:400}}> Если есть санитарная книжка — прикрепите ее фото, это выделит Вас среди других изготовителей.</p>
 
 <div className={s.link}>
+<input id='document1232' type="file" />
 <LuUnlink  style={{color:'#06c160',fontSize:'22px'}}/>
   <span>Прикрепите фото санитарной книжки</span>
 </div>
@@ -632,7 +679,8 @@ window.location="/profile"
 <p style={{fontSize:'17px',fontWeight:400}}>Вы проходили специализированные курсы или может у Вас профессиональное кулинарное образование? Это только большой плюс!</p>
 
 <div className={s.link}>
-<LuUnlink  style={{color:'#06c160',fontSize:'22px',opacity:0.9}}/>
+<input id='diploma123' type="file" />
+<LuUnlink   style={{color:'#06c160',fontSize:'22px',opacity:0.9}}/>
   <span>Прикрепите фото сертификата или диплома</span>
 </div>
 </div>
@@ -646,9 +694,16 @@ window.location="/profile"
 
 
 <div  className={s.foto}>
-<div className={s.camera}>
-<VscDeviceCamera style={{fontSize:'100px'}} />
-<h5>Добавить фотку профиля</h5>
+ 
+<div className={s.camera}> 
+<div>
+<input type="file" className={s.input_dfi}  />
+
+ <center>
+  <VscDeviceCamera style={{fontSize:'40px',textAlign:'center'}} /></center> 
+<br/>
+
+<h5>Добавить фотку профиля</h5></div>
 </div>
 </div>
 </div>
