@@ -633,7 +633,7 @@ function sellectdatachange(key,check) {
 </div>
 
 <h3 style={{marginTop:'20px',marginBottom:'20px'}} className={s.form_h3}>Где Вы готовите*</h3>
-<input type="text" id='place123' placeholder='adress' />
+<input className={s.input1} type="text" id='place123' placeholder='adress' />
 <div className={s.location}>
 <FaLocationArrow   style={{color:'#06c160',fontSize:'20px',marginTop:'15px',marginLeft:'10px'}}/>
 <input type="text" id='is_prepared123' placeholder='
@@ -686,26 +686,41 @@ function sellectdatachange(key,check) {
 </div>
 
 <div className={s.btn}>
-<button>Отправить заявку</button>
-<p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p>
+
+<center><button>Отправить заявку</button>
+<p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p></center>
 </div>
 
 </div>
 
-
+<div className={s.png}>
 <div  className={s.foto}>
  
-<div className={s.camera}> 
-<div>
-<input type="file" className={s.input_dfi}  />
+ <div className={s.camera}> 
+ <div>
+ <input type="file" className={s.input_dfi}  />
+ 
+  <center>
+   <VscDeviceCamera style={{fontSize:'50px'}} /></center> 
+ <br/>
+ 
+ <h5>Добавить фотку профиля</h5></div>
+ </div>
+ 
+ </div>
 
- <center>
-  <VscDeviceCamera style={{fontSize:'40px',textAlign:'center'}} /></center> 
-<br/>
+<div className={s.spn}>
+  {/* <span> <br />
+  </span> */}
 
-<h5>Добавить фотку профиля</h5></div>
+  <span>Рекомендуем форматы:</span><br/>
+  <span>jpeg,png,не более 10 MB</span>
 </div>
+
+ {/* <span >
+ </span> */}
 </div>
+
 </div>
 </div></div>
 </div>
