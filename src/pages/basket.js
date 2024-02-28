@@ -11,7 +11,7 @@ export default function basket() {
 
   var [data,setData]=useState(0)
 
-function getData(params) {
+function getData() {
   var user=localStorage.getItem('user')
   if(user){ 
    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
@@ -57,14 +57,9 @@ function deleteAll(params) {
 }
 
 function offerZakaz(data) {
-  var senddata=""
-  for (let i = 0; i < data.length; i++) {
-   senddata=senddata+" "+data[i].foods_name+". Count:"+data[i].count+". Price "+data[i].price+"₽. All "+data[i].price*data[i].count+"₽," 
-  }
-console.log(senddata);
-localStorage.setItem("zakazall",senddata)
+localStorage.setItem("zakazall",JSON.stringify(data))
 setTimeout(() => {
-  window.location=""
+  window.location="/OformleniaZakaza"
 }, 100);
 }
 
@@ -122,7 +117,7 @@ getData()
     <hr />
     <div className={s.price_btn}>
         <span>ИТОГО: {all} ₽</span>
-        <button onClick={()=>{offerZakaz(item.food)}} >Оформить заказ</button>
+        <button onClick={()=>{offerZakaz(item)}} >Оформить заказ</button>
     </div>
     </div>
         </div>

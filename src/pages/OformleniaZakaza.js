@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import o from "../styles/oformlenia_zakaz.module.css"
 import { IoIosArrowForward } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
@@ -10,6 +10,7 @@ export default function Oformlenia_zakaz() {
   
   var [radio,setRadio]=useState(true)
   
+  var [data,setData]=useState({})
 
 
   const Openanotherperson = (ches) => {
@@ -49,38 +50,118 @@ export default function Oformlenia_zakaz() {
       "accent-color: #fff; border: 1px solid #909090a2; ";
   };
 
+var [allprice,setAllPrice]=useState(0)
+  useEffect(()=>{
+    var oneproduct=localStorage.getItem("zakazall")
+    var a=0
+    for (let i = 0; i < JSON.parse(oneproduct).food.length; i++) {
+    a=a+((JSON.parse(oneproduct).food[i]).count*(JSON.parse(oneproduct).food[i]).price)
+    }
+    setAllPrice(a)
+    console.log(JSON.parse(oneproduct));
+    setData(JSON.parse(oneproduct))
+  },[])
   function postdata(){
-    var data=new FormData()
+    var data1=new FormData()
     var user=JSON.parse(localStorage.getItem("user"))
-    data.append('creator',user[0].id)
+    data1.append('creator',user[0].id) 
+    data1.append('food_id',data.food_id)
     if(document.querySelector('#checkbox-zakaz').checked){
-        data.append('fullname',document.querySelector('#fullname12').value)
-       data.append('phone',document.querySelector('#phone12').value)
-       data.append('to_my_friend',true)
-    
+        data1.append('fullname',document.querySelector('#fullname12').value)
+       data1.append('phone',document.querySelector('#phone12').value)
+       data1.append('to_my_friend',true) 
   }else{
-    data.append('fullname',user[0].name)
-    data.append('phone',user[0].phone)
-    data.append('to_my_friend',false)
+    data1.append('fullname',user[0].name)
+    data1.append('phone',user[0].phone)
+    data1.append('to_my_friend',false)
   }
   if(radio){
-    data.append('village','test')
-    data.append('home','test')
-    data.append('ofice','test')
-    data.append('building','test')
-    data.append('convex','test')
+    data1.append('the_city',data.place)
+    data1.append('village','0')
+    data1.append('home','0')
+    data1.append('office','0')
+    data1.append('building','0')
+    data1.append('convex','0')
   }else{
-    data.append('village',document.querySelector("#input1").value)
-    data.append('home',document.querySelector("#input2").value)
-    data.append('ofice',document.querySelector("#input3").value)
-    data.append('building',document.querySelector("#input4").value)
-    data.append('convex',document.querySelector("#input5").value)
+    data1.append('the_city',(data.place).split(' '))
+    data1.append('village',document.querySelector("#input1").value)
+    data1.append('home',document.querySelector("#input2").value)
+    data1.append('office',document.querySelector("#input3").value)
+    data1.append('building',document.querySelector("#input4").value)
+    data1.append('convex',document.querySelector("#input5").value)
   }
-  data.append('time',document.querySelector("#input_time").value)
-  data.append('date',document.querySelector("#input_day").value)
+  data1.append('time',document.querySelector("#input_time").value)
+  data1.append('date',document.querySelector("#input_day").value)
     
-axios.post(`${url()}/api/food_seller`,data).then(res=>{
-  window.location='/profile'
+
+  console.log(data1);
+axios.post(`${url()}/api/food_seller`,data1).then(res=>{
+  console.log("o`xshadi");
+var my_data=JSON.parse(localStorage.getItem("user"))
+var sendmessage=`sender:${my_data[0].name}, phone:${my_data[0].phone}.
+name: ${data1.get('fullname')}  ${data1.get('phone')}.
+time:${data1.get("date")} ${data1.get("time")}. 
+address:${data1.get('the_city')+" "+data1.get('village')+" "+data1.get('home')+" "+data1.get('office')+" "+data1.get('building')}. 
+food:
+`
+for (let i = 0; i < data.food.length; i++) {
+  sendmessage+=`${i+1}) name:"${data.food[i].foods_name}" count:${data.food[i].count} price:${data.food[i].price}`
+}
+sendmessage+=". message:"
+sendmessage+=document.querySelector('#menasa').value
+axios.get(`${url()}/api/room`).then(res=>{
+  var room_yes=false
+for (let i = 0; i < res.data.length; i++) {
+ if((res.data[i].user1==data.user_id && res.data[i].user2==my_data[0].id) || (res.data[i].user2==data.user_id && res.data[i].user1==my_data[0].id)){
+room_yes=res.data[i].id
+ }
+}
+
+if(room_yes){
+  var senddata=new FormData()
+  senddata.append("user_id",my_data[0].id)
+  senddata.append("room_id",room_yes)
+  senddata.append("message",sendmessage)
+axios.post(`${url()}/api/messages`,senddata).then(res=>{
+alert("сообщение отправлено")
+window.location="/profile"
+window.location="/profile"
+
+
+}).catch(err=>{
+console.log(err);
+})
+}else{
+  var sendroom=new FormData()
+  sendroom.append("user1",my_data[0].id)
+  sendroom.append("user2",data.user_id)
+axios.post(`${url()}/api/room`,sendroom ).then(res=>{
+  var senddata=new FormData()
+  console.log(my_data[0]);
+  senddata.append("user_id",my_data[0].id)
+  senddata.append("room_id",res.data.id)
+  senddata.append("message",sendmessage)
+axios.post(`${url()}/api/messages`,senddata).then(res=>{
+alert("сообщение отправлено")
+window.location="/profile"
+}).catch(err=>{
+console.log(err);
+})
+})
+
+
+}
+
+})
+
+
+
+
+
+
+  // window.location='/profile'
+}).catch(err=>{
+  console.log("xato");
 })
 
   }
@@ -90,7 +171,7 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
   return (
   <div >
 
-{/* <Navbar/> */}
+<Navbar/>
 
 
       <div className={o.App_offormlenia_zakaz}>
@@ -123,10 +204,10 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
 
               <div className={o.gets_person_zakaz}>
                 <div className={o.name_person_zakaz}>
-                  <p>Sojida</p>
+                  <p>{data.name}</p>
                 </div>
                 <div className={o.phone_number_zakaz}>
-                  <p>+7 (902) 663-33-71</p>
+                  <p>{data.phone}</p>
                 </div>
               </div>
               <div className={o.get_another_person_zakaz}>
@@ -180,19 +261,20 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
                 <div className={o.radio_inp_text_zakaz}>
                   <input
                     type="radio"
-                    onClick={Openzakaz}
+                    
+                    onClick={()=>{Openzakaz();setRadio(true)}}
                     name="qwe"
                     id="radio-zakaz"
                     className={o.radio_dostavka_zakaz2} />
                   <h3>Самовызов</h3>
                 </div>
-                <p>Тюмень, Тульская улица, 4</p>
+                <p>{data.place}</p>
               </div>
               <div className={o.inp_checkbox_and_text_zakaz} id="inp_checkbox_and_text_zakaz">
                 <div className={o.radio_inp_text_zaka}>
                   <input
                     type="radio"
-                    onClick={Opendostavkazakaz}
+                    onClick={()=>{Opendostavkazakaz();setRadio(false)}}
                     name="qwe"
                     id="radio-zakaz"
                     className={o.radio_dostavka_zakaz}
@@ -202,8 +284,8 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
                 <div className={o.big_dostavka_zakaz} id="big_dostavka_zakaz">
                   <div className={o.first_info_dostavka_zakaz}>
                     <div className={o.small_div_dostavka}>
-                      <p>Тюмень</p>
-                      <input type="text" placeholder="Улица" name="" id="inpu1" />
+                      <p>{data.place?(data.place).split(" ")[0]:""}</p>
+                      <input type="text" placeholder="Улица" name="" id="input1" />
                     </div>
                     <div className={o.middle_dostavka_div}>
                       <div className={o.another_info_zakaz}>
@@ -235,13 +317,13 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
                   <h3>Желаемая дата и время</h3>
                   <div className={o.inp_time_data_dostavka}>
                     <input type="date" name="" id="input_day" />
-                    <select name="" id="input_ntime">
-                      <option value="">21:00 - 21:30</option>
-                      <option value="">21:30 - 22:00</option>
-                      <option value="">22:00 - 22:30</option>
-                      <option value="">22:30 - 23:00</option>
-                      <option value="">23:00 - 23:30</option>
-                      <option value="">23:30 - 00:00</option>
+                    <select name="" id="input_time">
+                      <option value="21:00 - 21:30">21:00 - 21:30</option>
+                      <option value="21:30 - 22:00">21:30 - 22:00</option>
+                      <option value="22:00 - 22:30">22:00 - 22:30</option>
+                      <option value="22:30 - 23:00">22:30 - 23:00</option>
+                      <option value="23:00 - 23:30">23:00 - 23:30</option>
+                      <option value="23:30 - 00:00">23:30 - 00:00</option>
                     </select>
                   </div>
                 </div>
@@ -275,6 +357,7 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
                   onClick={nodropradio}
                   type="radio"
                   name="ss"
+                  disabled
                   id="radio-zakaz"
                   className={o.radio_oplata_card}
                 />
@@ -309,9 +392,9 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
                 </h2>
               </div>
 
-              <textarea className={o.texta} name=" " id="" cols="30" rows="10"></textarea>
+              <textarea className={o.texta} name=" " id="menasa" cols="30" rows="10"></textarea>
               <div className={o.button_for_pay_goods}>
-                <button>Оформить</button>
+                <button onClick={()=>postdata()}>Оформить</button>
               </div>
             </div>
           </div>
@@ -326,15 +409,15 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
           <div className={o.info_customer_zakaz}>
             <div className={o.her_img_zakaz}>
               <img
-                src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/c43e52072ef279dc7f24086ca28f0ead9e9f01bc/c43e52072ef279dc7f24086ca28f0ead9e9f01bc-wc100.jpeg"
+                src={data.user_image}
                 alt=""
               />
             </div>
             <div className={o.her_name_zakaz}>
               <a href="#">
-                <h4>Анастасия Ковалева</h4>
+                <h4>{data.name}</h4>
               </a>
-              <p>Домашний повар</p>
+              <p>{data.ish_yonalishi}</p>
             </div>
           </div>
           <div className={o.count_of_zakaz}>
@@ -343,12 +426,16 @@ axios.post(`${url()}/api/food_seller`,data).then(res=>{
               <MdEdit /> Изменить
             </p>
           </div>
-          <div className={o.how_it_cook_zakaz}>
-            <p>Котлеты Домашние</p><br />
-            <span>1 порция • 479 ₽</span>
-          </div>
+{data.food?(data.food).map((item,key)=>{
+  return <div className={o.how_it_cook_zakaz} style={{display:'flex',justifyContent:'space-between'}} >
+  <p>{item.foods_name}</p><br />
+  <span>{item.count} порция • {item.price} ₽</span>
+</div>
+}):<></>}
+          
+          
           <div className={o.overall_price_zakaz}>
-            <h2>итого: 479 ₽</h2>
+            <h2>итого: {allprice} ₽</h2>
           </div>
           <button onClick={()=>postdata()}>Оформить заказ</button>
         </div>

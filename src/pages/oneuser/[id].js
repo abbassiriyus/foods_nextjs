@@ -42,8 +42,8 @@ export default function first() {
     var test=false
     for (let i = 0; i < res.data.length; i++) {
       if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
-    window.location="/profile"
-    test=true
+       window.location="/profile"
+       test=true
       }
     }
     if(!test){
@@ -59,11 +59,7 @@ export default function first() {
     }else{
       alert('Вы не зарегистрированы')
     }
-    
-      
-    
-    
-    
+
     }
     function sendcard(id) {
       window.location=`/menudetail/${id}` 
@@ -72,7 +68,20 @@ export default function first() {
    function senduser(id) {
      window.location=`/oneuser/${id}`
    }
-
+   function buyOne(food_id) {
+    var user=localStorage.getItem('user')
+  if(user){
+  var send_data=new FormData()
+  send_data.append("user_ca_id",JSON.parse(user)[0].id)
+  send_data.append("food_id",food_id)
+  send_data.append("count",1)
+  axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+    }).catch(err=>{
+    })
+  }else{
+    alert('Вы не зарегистрированы')
+  }
+  }
       useEffect(()=>{
     if(router.query.id){
       getData()   
@@ -155,9 +164,11 @@ return (
 </div>):(<></>)}
 
 {user.id?(<div className={c.profil2}>
-<div className={c.p_img}>
-<img src={user.imgage} alt="" />
-</div>
+  <div style={{background:`url(${user.image})`,width:'100px',height:'100px',borderRadius:'50%',margin:'auto',backgroundSize:'cover'}} className={c.profile_image}>
+  </div>
+{/* <div  className={c.p_img}>
+<img src={user.image} alt="" />
+</div> */}
 <div className={c.p_soz}>
 <div className={c.p1}>
 <h1>{user.name} {user.lastname} {user.username}</h1>
@@ -171,7 +182,7 @@ return (
   }
  })
 }
-<p>4.9</p>
+<p>{user.mark}</p>
 </div>
 <div className={c.otzv}>
 <p className={c.s_p12}><BiCommentDetail /> {user.mark_org} отзыва</p>
@@ -200,12 +211,12 @@ return (
 <p>Дата регистрации</p>
 </div>
 
-<div className={c.block2}>
-<p><CiLocationArrow1 className={c.location} /> {user.deskription}</p>
-<p>{user.ish_yonalishi}</p>
-<p>{user.expertise}</p>
-<p>{user.time_create?user.time_create.slice(0, 10):""}</p>
-</div>
+{user.pover?(<div className={c.block2}>
+<p><CiLocationArrow1 className={c.location} /> {user.pover.deskription}</p>
+<p>{user.pover.ish_yonalishi}</p>
+<p>{user.pover.expertise}</p>
+<p>{user.pover.time_create?user.pover.time_create.slice(0, 10):""}</p>
+</div>):(<></>)}
 </div>
 </div>
 
@@ -216,8 +227,9 @@ return (
 <h1>МЕНЮ</h1>
 <div className={c.m_c}>
 {foods.map((item,key)=>{
-return <div className={c.card}>
-<img onClick={()=>{sendcard(item.id)}} src={item.image} style={{height:'350px'}} alt="" />
+return <div onClick={()=>{sendcard(item.id)}}  className={c.card}>
+  <div className={c.img} style={{height:'250px',background:`url(${item.image})`,backgroundSize:'cover',backgroundPosition:'center',marginBottom:'20px'}} ></div>
+{/* <img src={item.image} style={{height:'350px'}} alt="" /> */}
 <div className={c.c_soz}>
 <h1 onClick={()=>{sendcard(item.id)}}>{item.foods_name}</h1>
 <div  className={c.c_s}>
@@ -225,7 +237,7 @@ return <div className={c.card}>
 <span >{item.price} ₽</span>
 <p>{item.weight}</p>
 </div>
-<button>В корзину</button>
+<button onClick={()=>buyOne(item.id)}>В корзину</button>
 </div>
 </div>
 </div>
@@ -250,9 +262,10 @@ return <TiStarFullOutline className={c.star} />
 return <TiStarFullOutline className={c.star} style={{color:'grey'}} />
 }
 })
-}
+}<p>12.12.12</p>
 </div>
 </div>
+
 <p>{item.description}</p>
 </div>
 })}
@@ -260,10 +273,12 @@ return <TiStarFullOutline className={c.star} style={{color:'grey'}} />
 </div>):(<></>)}
 
 
-{kitchen.length!=0?(<div className={c.kuxnya}>
+{kitchen.length!=0?(<div className={c.kuxnya} style={{paddingBottom:'20px',marginBottom:'30px'}}>
 <h1>МОЯ КУХНЯ</h1><div className={c.img_k}>
 {kitchen.map((item,key)=>{
-return <img src={item.image} alt="" />
+return <div className={c.image} return style={{background:`url(${item.image})`,width:'250px',height:'250px',margin:'auto',backgroundSize:'cover',borderRadius:'20px'}} 
+></div>
+{/* <img src={item.image} alt="" /> */}
 })}
 </div>
 </div>):(<></>)}

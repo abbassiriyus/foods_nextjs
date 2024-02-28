@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export default function card(props){
     
-    const tiltRef = useRef(null);
+const tiltRef = useRef(null);
     useEffect(() => {
       if (tiltRef.current) {
         VanillaTilt.init(tiltRef.current, {

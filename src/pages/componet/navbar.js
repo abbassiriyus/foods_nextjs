@@ -49,14 +49,13 @@ axios.get(`${url()}/api/karzinka/${(JSON.parse(user))[0].id}`).then(res=>{
   }
 }
 useEffect(()=>{
-  setTimeout(() => {
-    getshopcar()
-  }, 1000);
+    setInterval(() => {
+      getshopcar()
+    }, 1000);
 })
 
   useEffect(() => {
     Aos.init();
-    
   })
 
 
