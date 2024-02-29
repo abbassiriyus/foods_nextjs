@@ -274,7 +274,9 @@
     align-items: center;
 }
 .navbar_mobile_menu{
-    height: 100vh;
+    /* height: 100%; */
+    /* width: 100%; */
+    height: 48pc;
     background-color: white;
 position: absolute;
 top: 0px;
@@ -283,7 +285,7 @@ min-width: 300px;
 left: 0px;
 z-index: 12312;
 z-index: 324234;
-padding-left: 15px;
+padding-left: 25px;
 line-height: 38px;
 
 }
@@ -296,6 +298,7 @@ line-height: 38px;
     text-decoration: none;
     color: black;
     font-size: 20px;
+line-height: 50px;
     font-weight: 500;
     font-family: 400 var(--fs16)/var(--lh16) 'Manrope',Arial,sans-serif,-apple-system;
 }
@@ -307,16 +310,19 @@ line-height: 38px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.apps img{
-    width: 130px;
-}
-.apps{
-    display: flex;
-    gap: 10px;
-}
 .close{
     font-weight: 500;
     font-size: 20px;
+}
+.close1{
+width: 98%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+}
+.close1 img{
+width: 150px;
 }
 .onmous{
     width: 260px;
@@ -1221,5 +1227,167 @@ opacity: 0;
     padding-left: 10px;
     margin-bottom: 20px;
 }
+
+
+.reklama{
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    }
+    
+    .app_store{
+    width: 170px;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: .3s;
+    cursor: pointer;
+    }
+    .app_store:hover{
+    color: #06c160;
+    border: #06c160 1px solid;
+    }
+    .ap_i{
+    width: 30%;
+    text-align: center;
+    }
+    .apple{
+    font-size: 33px;
+    }
+    .ap_soz{
+    width: 80%;
+    text-align: left;
+    }
+    .ap_p1{
+    font-size: 12px;
+    font-weight: 500;
+    }
+    .ap_p2{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "PT Sans", sans-serif;
+    font-style: normal;
+    }
+    
+    .google_play{
+    width: 170px;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: .3s;
+    cursor: pointer;
+    }
+    .google_play:hover{
+    color:#06c160;
+    border: 1px solid #00db6aeb;
+    }
+    .gp_i{
+    width: 32%;
+    text-align: center;
+    font-size: 15px;
+    }
+    .google{
+    font-size: 28px;
+    }
+    .gp_soz{
+    width: 74%;
+    text-align: left;
+    }
+    .gp_p1{
+    font-size: 11px;
+    font-weight: 500;
+    }
+    .gp_p2{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "PT Sans", sans-serif;
+    font-style: normal;
+    }
+    @media (max-width:1510px) {
+        .reklama{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            margin-top: 30px;
+            }
+    }
+
+    @media(max-width:390px){
+        .reklama{
+        width:80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        gap: 10px;
+        margin-top: 30px;
+        }
+        .app_store{
+        width: 150px;
+        height: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        transition: .3s;
+        min-width: 100px;
+        cursor: pointer;
+        }
+        .apple{
+        font-size: 30px;
+        }
+        .ap_soz{
+        width: 100%;
+        text-align: left;
+        }
+        .ap_p1{
+        font-size: 10px;
+        font-weight: 500;
+        }
+        .ap_p2{
+        font-size: 17px;
+        font-weight: 700;
+        font-family: "PT Sans", sans-serif;
+        font-style: normal;
+        }
+        .google_play{
+        width: 150px;
+        height: 45px;
+        display: flex;
+        min-width: 100px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 8px;
+        transition: .3s;
+        cursor: pointer;
+        }
+        .gp_p1{
+        font-size: 10px;
+        font-weight: 500;
+        }
+        .gp_p2{
+        font-size: 13px;
+        font-weight: 700;
+        font-family: "PT Sans", sans-serif;
+        font-style: normal;
+        }
+        .google{
+        font-size: 25px;
+        }
+        }
 /*  */
 

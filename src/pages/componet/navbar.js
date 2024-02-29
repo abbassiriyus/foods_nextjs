@@ -13,6 +13,8 @@ import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
+import { FaApple } from "react-icons/fa";
+import { FaGooglePlay } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
@@ -435,31 +437,48 @@ function sellectdatachange(key,check) {
       </div>
 
       {isOpen ? (<div className={s.navbar_mobile_menu}>
-        <div onClick={() => { setIsOpen(false) }} className={s.close}>
-          <hr />
+        <div onClick={() => { setIsOpen(false) }} className={s.close1}>
           <MdClose style={{ fontSize: '35px',marginTop:'10px' }} />
           <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
-          <span style={{fontSize:'17px'}}>Войти</span>
-          <hr />
+          <span style={{fontSize:'17px',paddingRight:'30px'}}>Войти</span>
         </div>
         <div className={s.openmenu}>
+        {/* <MdClose style={{ fontSize: '35px',position:'absolute',top:'40px'}} /> */}
           <p ><a href="/glavnstr">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
-          <p><a href="/forCooks">Регистрация поваров</a> </p> <p  ><a style={{ color: '#06c160' }} href="#">Стать поваром</a></p>
-          <hr />
+          <p  ><a style={{ color: '#06c160',marginBottom:'20px' }} href="#">Стать поваром</a></p>
+          <hr style={{color:'grey',width:'95%',marginTop:'10px'}} />
       <div className={s.centre_app}>
       <div className={s.app}>
             <div className={s.tg}>
               <a href="#"><FaTelegramPlane style={{color:'gray',fontSize:'25px'}} /></a>
               <a href="#"><SiVk style={{color:'gray',fontSize:'25px'}} /></a>
             </div>
-            <div className={s.apps}>
-              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" alt="img" /></a>
-              <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="img" /></a>
+        
+<div className={s.reklama}>
+<div className={s.app_store}>
+<div className={s.ap_i}>
+<FaApple className={s.apple}/>
+</div>
+<div className={s.ap_soz}>
+<p className={s.ap_p1}>Download on the</p>
+<p className={s.ap_p2}>App Store</p>
+</div>
+</div>
+<div className={s.google_play}>
+<div className={s.gp_i}>
+<FaGooglePlay className={s.google}/>
+
+</div>
+<div className={s.gp_soz}>
+<p className={s.gp_p1}>GET IT ON</p>
+<p className={s.gp_p2}>Google Play</p>
+</div>
+</div>
+</div>
             </div>
           </div>
       </div>
-        </div>
 
       </div>) : (<div >
       </div>)}
