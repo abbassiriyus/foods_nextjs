@@ -52,7 +52,8 @@ export default function Navbar() {
 var [count,setCount]=useState(0)
 function getshopcar(){
   var user=localStorage.getItem('user')
-  if(user){
+  var user1=localStorage.getItem('karzinka')
+  if(user1){
 axios.get(`${url()}/api/karzinka/${(JSON.parse(user))[0].id}`).then(res=>{
   setCount(res.data.count)
 })
@@ -273,7 +274,6 @@ window.location="/profile"
   }
 
 function sendpover() {
-  
   var user_me=JSON.parse(localStorage.getItem("user"))
 var send_data=new FormData()
 send_data.append('user_id',user_me[0].id)
@@ -285,30 +285,46 @@ send_data.append('is_prepared',document.querySelector('#is_prepared123').value)
 
 var document1= new FormData()
 document1.append('user_povar_id',user_me[0].id)
-document1.append('file', document.querySelector("#document123").value)
+document1.append('file', document.querySelector("#document123").files[0])
 
 var document2= new FormData()
 document2.append('user_povar_id',user_me[0].id)
-document2.append('file', document.querySelector("#document1232").value)
+document2.append('file', document.querySelector("#document1232").files[0])
 
 var diploma= new FormData()
 diploma.append('user_povar_id',user_me[0].id)
-diploma.append('file', document.querySelector("#diploma123").value)
+diploma.append('file', document.querySelector("#diploma123").files[0])
 
+var user =new FormData()
+
+if(document.querySelector("#send_prefil_image").files[0]){
+user.append("image",document.querySelector("#send_prefil_image").files[0])
+}else{
+user.append("image",user_me[0].image)
+}
+user.append("phone",user_me[0].phone)
+user.append("password",user_me[0].password)
+user.append("email",document.querySelector("#imayyefamiliya").value)
+user.append("name",document.querySelector("#email_put_profle").value)
 axios.post(`${url()}/api/user_povar`,send_data).then(res=>{
 axios.post(`${url()}/api/document`,document1).then(res2=>{
   axios.post(`${url()}/api/document`,document2).then(res3=>{
     axios.post(`${url()}/api/diploma`,diploma).then(res4=>{
-  for (let i = 0; i < data.length; i++) {
+axios.put(`${url()}/api/users_pover_put/${user_me[0].id}`,user).then(res=>{
+     for (let i = 0; i < data.length; i++) {
    if(data[i].push){
-    //  integer not null,
-    // "category_id" integer not null,
   var yubdata=new FormData() 
   yubdata.append("user_id",user_me[0].id)
   yubdata.append("category_id",data[i].id)
-  }
-    
-  }
+axios.post(`${url()}/api/user_category`,yubdata).then(res=>{
+
+}).catch(err=>{
+
+})}}
+  window.location="/profile"  
+})
+
+ 
     })
   })
 })
@@ -341,13 +357,14 @@ function sellectdatachange(key,check) {
             </a>
               <HiChevronDown style={{ fontSize: '14px' }} /></span>
             <a href="/pover">Все повара</a>
-            <a href="/forCooks">Регистрация поваров</a>
-    {user?(
-      <a href='/zakazi' style={{ color: '#06c160' }}>Мои заказы</a>
+            {/* <a href="/forCooks">Регистрация поваров</a> */}
+    {user?((JSON.parse(user))[0].pover?
+    ( <a href='/zakazi' style={{ color: '#06c160' }}>Мои заказы</a>):( 
+      <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>Стать поваром</a>)
        ):(
-       <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>)}
+       <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>
+       )}
           </div>
-          <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex" }}>Стать поваром</a>
           <div className={s.navbar_btn}>
             <button onClick={() => openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
           </div> 
@@ -600,12 +617,12 @@ function sellectdatachange(key,check) {
 <MdClose onClick={()=>{
   document.querySelector("#modal32").style="display:none;"
   
-}} style={{ fontSize: '30px',position:'absolute',top:'50px',right:'60px' }}/>
+}} style={{ fontSize: '30px',position:'absolute',top:'40px',right:'10%' }}/>
 <h3 className={s.form_h3}>Расскажите о себе*</h3>
 
 <div className={s.input}>
-<input placeholder='Фамилия и имя' type="text" />
-<input placeholder='Email' type="text" />
+<input placeholder='Фамилия и имя' id='imayyefamiliya' type="text" />
+<input placeholder='Email' id='email_put_profle' type="text" />
 <textarea placeholder='О себе' name="" id="ocebya" cols="30" rows="10"></textarea>
 
 <select name="" id="ish_yonalishi123">
@@ -682,12 +699,12 @@ function sellectdatachange(key,check) {
 <input id='diploma123' type="file" />
 <LuUnlink   style={{color:'#06c160',fontSize:'22px',opacity:0.9}}/>
   <span>Прикрепите фото сертификата или диплома</span>
-</div>
+</div>setPage(2) 
 </div>
 
 <div className={s.btn}>
 
-<center><button>Отправить заявку</button>
+<center><button onClick={()=>sendpover()}  >Отправить заявку</button>
 <p><strong>Внимание! </strong>* - Поля обязательные к заполнению.</p></center>
 </div>
 
@@ -698,7 +715,7 @@ function sellectdatachange(key,check) {
  
  <div className={s.camera}> 
  <div>
- <input type="file" className={s.input_dfi}  />
+ <input type="file"  id="send_prefil_image" className={s.input_dfi}  />
  
   <center>
    <VscDeviceCamera style={{fontSize:'50px'}} /></center> 

@@ -263,7 +263,7 @@ getPover()
                         <p>{item.ish_yonalishi}</p>
                         <div className={ss.comment_p}>
                           <div className={ss.str5}>
-                            <strong>{item.mark}</strong>
+                            <strong>{(item.mark).toFixed(1)}</strong>
 
                             {['', '', '', '', '',].map((item2, key2) => {
                               if (item.mark > key2) {

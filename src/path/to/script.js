@@ -263,8 +263,8 @@ var VanillaTilt = (function () {
         x = Math.min(Math.max(x, 0), 1);
         y = Math.min(Math.max(y, 0), 1);
     
-        let tiltX = (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2);
-        let tiltY = (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2);
+        let tiltX = (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(1);
+        let tiltY = (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(1);
         let angle = Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI);
     
         return {

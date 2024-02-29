@@ -144,7 +144,7 @@ if(router.query.id){
 <div className={s.profil}>
 <img src={user.image} alt="" />
 <div className={s.bal}>
-<p className={s.p1}>{user.mark} <span><BiCommentDetail className={s.comment} /> {user.mark_org}</span></p>
+<p className={s.p1}>{(user.mark).toFixed(1)} <span><BiCommentDetail className={s.comment} /> {user.mark_org}</span></p>
 <p className={s.p2}>
   {['','','','',''].map((item,key)=>{
     if(user.mark>key){

@@ -966,7 +966,7 @@ display: flex;
 z-index: 3232;
 align-self: center;
 justify-content: center;
-/* display: none; */
+display: none;
 }
 .form_stat{
     width: 90%;
@@ -1004,7 +1004,7 @@ justify-content: center;
     align-items: start;
 }
 .inp_1{
-    width:65%;
+    width:63%;
 }
 .input input{
     width:100% !important;
@@ -1131,7 +1131,7 @@ justify-content: center;
 .png{
     position: sticky;
     top: 130px;
-    background-color: #06c160;
+    /* background-color: #06c160; */
 }
 .foto{
     /* width: 20%; */
@@ -1208,6 +1208,7 @@ opacity: 0;
     top:0px;
     left: 0px;
     opacity: 0;
+    z-index: 12;
 }
 
 .input1{

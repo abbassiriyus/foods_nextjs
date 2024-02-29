@@ -79,7 +79,7 @@ export default function menu_detail() {
 <div className={s.profil}>
 <img src={data.user_image} alt="" />
 <div className={s.bal}>
-<p className={s.p1}>{data.mark} <span><BiCommentDetail className={s.comment} /> {data.mark_org}</span></p>
+<p className={s.p1}>{(data.mark).toFixed(1)} <span><BiCommentDetail className={s.comment} /> {data.mark_org}</span></p>
 <p className={s.p2}>
 <FaStar className={s.star} />
 <FaStar className={s.star} />
