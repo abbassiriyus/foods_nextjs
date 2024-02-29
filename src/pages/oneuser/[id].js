@@ -75,6 +75,7 @@ export default function first() {
   send_data.append("user_ca_id",JSON.parse(user)[0].id)
   send_data.append("food_id",food_id)
   send_data.append("count",1)
+  localStorage.setItem("karzinka",1)
   axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
     }).catch(err=>{
     })
