@@ -776,7 +776,10 @@ function sellectdatachange(key,check) {
     <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
 Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
 <button>Продолжить</button>
-  <GrClose  className={s.whtclose} />
+  <GrClose onClick={()=>{
+  document.querySelector("#modal32").style="display:none;"
+  
+}}  className={s.whtclose} />
   </div>
 </div>
 
