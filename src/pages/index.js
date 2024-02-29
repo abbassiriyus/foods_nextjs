@@ -143,7 +143,7 @@ return <FaStar className={s.star} />
 return <FaStar className={s.star1} /> 
 }
 })}
-<p className={s.bal2}>{(data[swiper].mark).toFixed(1)}</p>
+<p className={s.bal2}>{data[swiper].mark}</p>
 <BiCommentDetail className={s.kometariy} />
 <p className={s.tets_123}>{data[swiper].mark_org}</p>
 </div>
