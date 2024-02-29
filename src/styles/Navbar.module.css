@@ -1228,6 +1228,7 @@ opacity: 0;
     margin-bottom: 20px;
 }
 
+<<<<<<< Updated upstream
 
 .reklama{
     width: 100%;
@@ -1390,4 +1391,69 @@ opacity: 0;
         }
         }
 /*  */
+=======
+.navbar_tegi{
+display: none;
+}
+@media(max-width:1024px){
+.navbar_tegi{
+width: 100%;
+height: 88vb;
+display: flex;
+align-items: end;
+position: absolute;
+}
+.n_1{
+width: 100%;
+height: 89px;
+background-color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.n_t2{
+width: 90%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+}
+.blyuda{
+text-align: center;
+cursor: pointer;
+}
+.b_i{
+font-size: 24px;
+color: gray;
+}
+.blyuda span{
+color: gray;
+}
+}
+@media(max-width:339px){
+.n_t2{
+width: 95%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+}
+.b_i{
+font-size: 20px;
+color: gray;
+}
+.blyuda span{
+color: gray;
+font-size: 12px;
+}
+}
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 

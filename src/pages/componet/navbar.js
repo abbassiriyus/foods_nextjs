@@ -25,6 +25,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import { RiKey2Fill } from "react-icons/ri";
 import Aos from 'aos';
 import { FaCartShopping } from "react-icons/fa6";
+import { LuChefHat } from "react-icons/lu";
+import { IoBagHandleOutline } from "react-icons/io5";
+import { CiUser } from "react-icons/ci";
+import { PiChatsDuotone } from "react-icons/pi";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
@@ -760,6 +764,34 @@ function sellectdatachange(key,check) {
 </div>
 </div></div>
 </div>
+  
+
+
+
+<div className={s.navbar_tegi}>
+<div className={s.n_1}>
+<div className={s.n_t2}>
+<div className={s.blyuda}>
+<p><LuChefHat className={s.b_i} /> <br /> <span>Все блюда</span></p>
+</div>
+<div className={s.blyuda}>
+<p><IoBagHandleOutline className={s.b_i} /> <br /> <span>Мои заказы</span></p>
+</div>
+<div className={s.blyuda}>
+<p><CiUser className={s.b_i} /> <br /> <span>Профил</span></p>
+</div>
+<div className={s.blyuda}>
+<p><PiChatsDuotone className={s.b_i} /> <br /> <span>Чаты</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
     </div>
+  
   )
 }
