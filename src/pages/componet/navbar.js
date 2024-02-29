@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
 import { VscDeviceCamera } from "react-icons/vsc";
+import { GrClose } from "react-icons/gr";
+
 import { LuUnlink } from "react-icons/lu";
 import { SlMenu } from "react-icons/sl";
 import { FaLocationArrow } from "react-icons/fa";
@@ -280,6 +282,8 @@ window.location="/profile"
   }
 
 function sendpover() {
+// document.querySelector("#auto").style="display:none"
+// document.quaerySelector("#akk").style="display:flex"
   var user_me=JSON.parse(localStorage.getItem("user"))
 var send_data=new FormData()
 send_data.append('user_id',user_me[0].id)
@@ -630,7 +634,7 @@ function sellectdatachange(key,check) {
 
 
       <div className={s.modal_stat}  id='modal32' >
-        <div style={{margin:'auto'}}>
+        <div id='auto' style={{margin:'auto'}}>
 <div className={s.form_stat}>
 <div className={s.df_form}>
 <div className={s.inp_1}>
@@ -721,7 +725,7 @@ function sellectdatachange(key,check) {
 <input id='diploma123' type="file" />
 <LuUnlink   style={{color:'#06c160',fontSize:'22px',opacity:0.9}}/>
   <span>Прикрепите фото сертификата или диплома</span>
-</div>setPage(2) 
+</div>
 </div>
 
 <div className={s.btn}>
@@ -761,7 +765,26 @@ function sellectdatachange(key,check) {
 </div>
 
 </div>
-</div></div>
+</div>
+</div>
+
+{/*  */}
+
+<div id='akk' className={s.akkaunt}>
+  <div className={s.wht}>
+    <h3>Заявка принята</h3>
+    <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
+Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
+<button>Продолжить</button>
+  <GrClose  className={s.whtclose} />
+  </div>
+</div>
+
+
+
+{/*  */}
+
+
 </div>
   
 
@@ -791,6 +814,5 @@ function sellectdatachange(key,check) {
 
 
     </div>
-  
   )
 }
