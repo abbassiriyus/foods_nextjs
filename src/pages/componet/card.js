@@ -26,6 +26,7 @@ function sendcard() {
 function senduser() {
   window.location=`/oneuser/${props.data.user_povar_id}`
 }
+
 function buyOne(food_id) {
   var user=localStorage.getItem('user')
 if(user){
@@ -33,6 +34,7 @@ var send_data=new FormData()
 send_data.append("user_ca_id",JSON.parse(user)[0].id)
 send_data.append("food_id",food_id)
 send_data.append("count",1)
+localStorage.setItem("karzinka",1)
 axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   }).catch(err=>{
   })
@@ -40,9 +42,6 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   alert('Вы не зарегистрированы')
 }
 }
-useEffect(()=>{
-  console.log(props);
-},[])
   return (
   
 <div  className={s.cards}  >
