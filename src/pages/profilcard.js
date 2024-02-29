@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import pc from "../styles/Profilcard.module.css"
 import { BiCommentDetail } from "react-icons/bi";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import url from "./host/config";
+import axios from "axios";
 export default function profilcard() {
+var [data,setData] = useState([])
+function getCard(){
+axios.get(`${url()}/api/gl_users`).then(res=>{
+
+}).catch(err=>{
+
+})
+}
+useEffect(()=>{
+    getCard()
+},[])
 return (
 <div>
 <div className={pc.cards}>
