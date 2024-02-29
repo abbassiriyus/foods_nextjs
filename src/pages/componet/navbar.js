@@ -447,7 +447,6 @@ function sellectdatachange(key,check) {
           <span style={{fontSize:'17px',paddingRight:'30px'}}>Войти</span>
         </div>
         <div className={s.openmenu}>
-        {/* <MdClose style={{ fontSize: '35px',position:'absolute',top:'40px'}} /> */}
           <p ><a href="/glavnstr">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
           <p  ><a style={{ color: '#06c160',marginBottom:'20px' }} href="#">Стать поваром</a></p>
