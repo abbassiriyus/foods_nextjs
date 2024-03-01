@@ -88,7 +88,20 @@ export default function first() {
       getData()   
     }  
     },[router])
+function formatDate(dateTime) {
+const options = {
+year: 'numeric',
+month: 'long',
+day: 'numeric',
+hour: 'numeric',
+minute: 'numeric',
+// timeZone: 'UTC',
+timeZone: 'Asia/Tashkent',
+};
 
+const formattedDate = new Date(dateTime).toLocaleString('ru-RU', options);
+return formattedDate;
+}
 return (
 <div>
 <Navbar/>
@@ -256,6 +269,7 @@ return<div className={c.c_c}>
 <img  onClick={()=>senduser(item.user_id)}  src={item.image} alt="" />
 <div onClick={()=>senduser(item.user_id)} className={c.b}>
 <h1> {item.name}</h1>
+<p>{formatDate(item.time_create)}</p>
 {['','','','',''].map((item,key)=>{
 if(user.mark>key){
 return <TiStarFullOutline className={c.star} />
@@ -263,7 +277,7 @@ return <TiStarFullOutline className={c.star} />
 return <TiStarFullOutline className={c.star} style={{color:'grey'}} />
 }
 })
-}<p>12.12.12</p>
+}
 </div>
 </div>
 
