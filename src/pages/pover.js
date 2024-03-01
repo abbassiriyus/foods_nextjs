@@ -317,7 +317,9 @@ getPover()
         </div>
 
       </div>
-      <Footer />
+<div className={ss.Footer}>
+<Footer />
+</div>
     </div>
   )
 }

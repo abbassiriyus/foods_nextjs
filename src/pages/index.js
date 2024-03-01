@@ -300,8 +300,9 @@ return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);win
 </div>
 </div>
 
+<div className={s.footer}>
 <Footer/>
-
+</div>
 </div>
 );
 }
