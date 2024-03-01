@@ -299,10 +299,8 @@ function getgeFoods(){
 
 
    </div>
-<div className={s.footer}>
 <Footer/>
 
-</div>
     </div>
   )
 }

@@ -285,10 +285,8 @@ return <div className={c.image} return style={{background:`url(${item.image})`,w
 </div>):(<></>)}
 
 
-<div className={c.footer}>
 <Footer/>
 
-</div>
 
 </div>
 )

@@ -82,7 +82,7 @@ getData()
   for (let i = 0; i < item.food.length; i++) {
     all=all+(item.food[i].price*item.food[i].count)
   }
-  return <div className={s.card_basket}>
+    return <div className={s.card_basket}>
     <div className={s.padding}>
     <div className={s.delete}>
     <div className={s.name}>
@@ -129,13 +129,8 @@ getData()
  </div>  
         </>))}
 
-
-
- 
-<div className={s.footer}>
  <Footer/>
 
-</div>
     </div>
   )
 }

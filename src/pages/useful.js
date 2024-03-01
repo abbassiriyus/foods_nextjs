@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useEffect, useState } from 'react'
 import { FaRegFilePdf } from "react-icons/fa6";
 import s from "../styles/Useful.module.css"
@@ -33,11 +28,6 @@ export default function useful() {
   </div>
   </a>
 })}
-
-
-  
-
-
 
 </div>
 </div>
