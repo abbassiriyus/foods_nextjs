@@ -355,7 +355,7 @@ alt=""
 </div>
 </div>
 
-<Footer/>
+<Footer />
 
 </div>
 );
