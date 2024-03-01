@@ -354,16 +354,18 @@ width: 100px;
 .onmous{
     width: 260px;
     display: none;
-    border-radius: 20px;
+    border-radius: 15px;
     position: absolute;
     top: 70px;
     left: 23.5%;
     z-index: 12123;
     font-size: 18px;
     background-color: white;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    box-shadow: 0px 0px 1px 0px gray;
+    box-shadow: 0px 0px 3px gray;
+    /* border: 0.1px solid gray; */
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+    /* box-shadow: 0px 0px 1px  gray; */
 }
 .onmous ul{
     width: 250px;

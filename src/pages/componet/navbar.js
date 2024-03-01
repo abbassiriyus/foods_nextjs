@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
 import { VscDeviceCamera } from "react-icons/vsc";
 import { GrClose } from "react-icons/gr";
-
 import { LuUnlink } from "react-icons/lu";
 import { SlMenu } from "react-icons/sl";
 import { FaLocationArrow } from "react-icons/fa";
@@ -365,8 +364,7 @@ function sellectdatachange(key,check) {
               <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
           </div>
           <div className={s.navbar_line}>
-            <span id='aaa'><a href="/foods" onMouseEnter={() => onmousenter1()}>Все блюда
-            </a>
+            <span id='aaa'><a href="/foods" onMouseEnter={() => onmousenter1()}>Все блюда</a>
               <HiChevronDown style={{ fontSize: '14px' }} /></span>
             <a href="/pover">Все повара</a>
             {/* <a href="/forCooks">Регистрация поваров</a> */}
