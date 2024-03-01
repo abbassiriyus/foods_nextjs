@@ -331,7 +331,9 @@ axios.post(`${url()}/api/user_category`,yubdata).then(res=>{
 }).catch(err=>{
 
 })}}
-  window.location="/profile"  
+setPage(6) 
+document.querySelector('#modal_gl').style = "display:block"
+document.querySelector("#modal32").style="display:none;"
 })
 
  
@@ -520,7 +522,8 @@ function sellectdatachange(key,check) {
 
 
               <button onClick={() => openPagePhone()} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
-            </div>) : (page == 1 ? (
+            </div>) : (
+              page == 1 ? (
               <div className={s.form_body_gl}>
                 <h3>Вход на сайт</h3>
                 <div className={s.back_gl1}><span onClick={() => setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
@@ -546,7 +549,8 @@ function sellectdatachange(key,check) {
 
                 
               </div> 
-            ) : (page == 2 ? (
+            ) : (
+              page == 2 ? (
               <div className={s.form_body_gl}>
                 <h3 >Регистрация</h3>
                 <div className={s.back_gl} onClick={() => setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
@@ -582,7 +586,8 @@ function sellectdatachange(key,check) {
                
               </div>
 
-            ) : (page == 3 ? (
+            ) : (
+              page == 3 ? (
               <div className={s.form_body_gl2}>
                 <h3>Напомнить пароль</h3>
                 <div onClick={() => setPage(1)} style={{ marginTop: '40px', marginBottom: '30px' }} className={s.back_gl}><FaArrowLeftLong /><span>Вернуться к авторизации</span> </div>
@@ -596,7 +601,8 @@ function sellectdatachange(key,check) {
 
                 <button className={s.kod_o} onClick={() => setPage(4)} >Отправить код</button>
               </div>
-            ) : (page == 4 ? (
+            ) : (
+              page == 4 ? (
               <div className={s.form_body_gl}>
                 <h3 style={{ textAlign: 'center' }}>Письмо отправлено</h3>
                 <div style={{ marginTop: '10px', textAlign: 'center' }} className={s.back_gl2}> На указанный email было отправлено письмо со ссылкой для смены пароля. </div>
@@ -606,7 +612,7 @@ function sellectdatachange(key,check) {
                   <button onClick={() => { document.querySelector('#modal_gl').style = "display:none" }} style={{ marginTop: '10px', width: '30%', height: '45px' }}>Ок</button></center>
 
               </div>
-            ) : (
+            ) : (page==5?(
               <div className={s.form_body_gl}>
                 <h3>Вход на сайт</h3>
                 <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
@@ -623,14 +629,21 @@ function sellectdatachange(key,check) {
                 <button onClick={() => { openPageCheck() }} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
                 <span>Отправить СМС на указанный номер</span>
 
-              </div>
+              </div>):(<div id='akk' className={s.akkaunt}>
+  <div className={s.wht}>
+    <h3>Заявка принята</h3>
+    <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
+Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
+<button>Продолжить</button>
+  <GrClose onClick={()=>{
+  document.querySelector("#modal32").style="display:none;"
+  window.location="/profile" 
+}}  className={s.whtclose} />
+  </div>
+</div>)
             )
 
             ))))}
-
-
-
-
         </div>
       </div>
 
@@ -772,18 +785,7 @@ function sellectdatachange(key,check) {
 
 {/*  */}
 
-<div id='akk' className={s.akkaunt}>
-  <div className={s.wht}>
-    <h3>Заявка принята</h3>
-    <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
-Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
-<button>Продолжить</button>
-  <GrClose onClick={()=>{
-  document.querySelector("#modal32").style="display:none;"
-  
-}}  className={s.whtclose} />
-  </div>
-</div>
+
 
 
 
