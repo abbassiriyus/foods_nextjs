@@ -22,6 +22,8 @@
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "swiper": "^11.0.6",
-    "vanilla-tilt": "^1.8.1"
+    "vanilla-tilt": "^1.8.1",
+    "yandex-maps": "^0.0.1",
+    "ymaps": "^0.2.1"
   }
 }
