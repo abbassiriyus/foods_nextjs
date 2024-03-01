@@ -1,53 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import pc from "../styles/Profilcard.module.css"
 import { BiCommentDetail } from "react-icons/bi";
-import { CiLocationArrow1 } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import url from "./host/config";
-import axios from "axios";
-export default function profilcard() {
-var [data,setData] = useState([])
-function getCard(){
-axios.get(`${url()}/api/gl_users`).then(res=>{
+export default function profilcard({data}) {
 
-}).catch(err=>{
-
-})
-}
-useEffect(()=>{
-    getCard()
-},[])
 return (
 <div>
 <div className={pc.cards}>
 <div className={pc.card}>
+    <div>
 <div className={pc.profil}>
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/08edcd3a1f69db53879d224c7bda483fc8d076e0/08edcd3a1f69db53879d224c7bda483fc8d076e0-wc200.jpeg" alt="" />
+    <div style={{
+        background:`url(${data.image})`,backgroundSize:'cover',
+        width:'70px',borderRadius:'50%',
+        height:'70px',
+        backgroundPosition:'center' }} className={pc.image12}>
+
+    </div>
+{/* <img src={data.image} alt="" /> */}
 <div className={pc.bal}>
-<p className={pc.p1}>5.0 <span><BiCommentDetail className={pc.comment} /> 11</span></p>
+<p className={pc.p1}>{data.mark}<span><BiCommentDetail className={pc.comment} />{data.mark_org}</span></p>
 <p className={pc.p2}>
-<FaStar className={pc.star} />
-<FaStar className={pc.star} />
-<FaStar className={pc.star} />
-<FaStar className={pc.star} />
-<FaStar className={pc.star} />
+    {['','','','',''].map((item,key)=>{
+        if(data.mark>key){
+ return <FaStar className={pc.star} />
+        }else{
+ return <FaStar className={pc.star} style={{color:'grey'}} />
+        }
+    })}
 </p>
-<p className={pc.p3}><CiLocationArrow1 className={pc.location} /> 0.0 км от вас</p>
+{/* <p className={pc.p3}><CiLocationArrow1 className={pc.location} /> 0.0 км от вас</p> */}
 </div>
 </div>
 <div className={pc.p_ism}>
-<h1>ТАТЬЯНА ИБРАГИМОВА</h1>
+<h1>{data.name}</h1>
 </div>
-<p className={pc.ism_p}>Домашний повар</p>
+<p className={pc.ism_p}>{data.ish_yonalishi}</p></div>
 <div className={pc.vbr_blyud}>
 <p>Все блюда</p>
-<p>Обед и ужин</p>
-<p>Приготовим сегодня</p>
-<p>Второе блюда</p>
-<p>Русская кухня</p>
+{data.category.map(item=>{
+    return <p>{item.title}</p>
+})}
 </div>
 <div className={pc.p_b}>
-<button>Написать сообщение</button>
+    
+<center><button>Написать сообщение</button></center>
 </div>
 </div>
 </div>

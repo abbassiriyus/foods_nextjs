@@ -1,21 +1,15 @@
-.cards{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 
-}
 .card{
     /* background: red; */
-    width: 100%;
-    max-width: 350px;
-    width: 90%;
-    max-width: 400px;
-    margin-bottom: 21px;
+    width: 98%;
+    /* max-width: 350px; */
+    /* max-width: 400px; */
+    /* margin-bottom: 21px; */
     
 }
 .card_img{
     background-size: cover;
-    width: 80%;
+    width: 100%;
     min-height: 300px;
     border-top-left-radius: 21px;
     border-top-right-radius: 21px;
@@ -29,14 +23,19 @@
 .card_text2{
     padding: 20px;
 }
-.card_text2 img{
+.card_text2 .card_image12{
     /* width: 300px; */
     height: 50px;
     border: 2px solid white;
     transition: 1s;
+    border-radius: 50%;
+    margin-top: -60px;
+    margin-bottom: 10px;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
-.card_text2 img:hover{
+.card_text2 .card_image12:hover{
     border: 2px solid #06c160;
 }
 .card_img h3{
@@ -45,15 +44,15 @@
      font-family: 'Manrope', sans-serif;
      font-size: 16px;
      border-radius: 9px;
-     max-width: 60%;
+     max-width: 70%;
      margin-left: 12px;
-     height: 30px;
+     /* height: 30px; */
      text-align: center;
      min-width: 150px;
      padding-top: 7px;
 }
 .card_text{
-    width: 80%;
+    width: 100%;
     /* padding: 8px; */
     min-height: 180px;
     border-bottom-left-radius: 21px;

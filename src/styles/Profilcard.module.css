@@ -1,14 +1,21 @@
-.cards{
+/* .cards{
 margin: auto;
 display: flex;
 justify-content: center;
-}
+} */
 .card{
 width: 320px;
-min-height: 450px;
+min-height: 400px;
 border-radius: 18px;
 padding: 1%;
+display: flex !important;
+justify-content: space-between !important;
+flex-direction: column !important;
 transition: .3s;
+}
+.image12{
+    background-size: cover !important;
+    background-position: center !important;
 }
 .card:hover{
 box-shadow: 0px 0px 5px gray;
@@ -36,7 +43,7 @@ scale: 1.01;
 
 
 .bal{
-width: 80%;
+width: 60%;
 }
 
 .p1 span{
@@ -107,18 +114,20 @@ background-color: #009749;
 }
 
 .p_b{
-width: 90%;
-height: 220px;
-display: flex;
-justify-content: left;
-align-items: end;
-margin: auto;
+/* width: 90%; */
+/* height: 220px; */
+/* display: flex; */
+/* justify-content: center; */
+/* justify-content: left; */
+/* align-items: end; */
+/* margin: auto; */
 }
 
 .p_b button{
-width: 100%;
+width: 90%;
 height: 50px;
 border: none;
+margin-bottom: 20px;
 border-radius: 8px;
 background-color: #06c160;
 color: white;
@@ -126,7 +135,7 @@ font-size: 18px;
 font-weight: 500;
 transition: .3s;
 cursor: pointer;
-margin-bottom: 20px;
+
 }
 .p_b button:hover{
 background-color: white;

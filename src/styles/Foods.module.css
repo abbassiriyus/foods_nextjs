@@ -94,11 +94,22 @@ margin-bottom: 30px;
     border: 1px solid #06c160;
 }
 .cards{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 10px;
-    justify-content: space-around;
+   grid-template-columns: auto  auto auto;
 }
+@media(max-width:1300px){
+   .cards{
+    display: grid;
+    grid-template-columns: auto auto;
+   } 
+}
+@media(max-width:620px){
+    .cards{
+     display: grid;
+     grid-template-columns: auto;
+    } 
+ }
 .link{
     display: flex;
     justify-content:space-around ;

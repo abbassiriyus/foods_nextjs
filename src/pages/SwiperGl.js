@@ -17,17 +17,7 @@ slidesPerView: 1,
 spaceBetween: 0,
 slideToClickedSlide: true,
 },
-920: {
-slidesPerView: 1,
-spaceBetween: 0,
-slideToClickedSlide: true,
-},
-921: {
-slidesPerView: 1,
-spaceBetween: 0,
-slideToClickedSlide: true,
-},
-1362: {
+662: {
 slidesPerView: 2,
 spaceBetween: 0,
 slideToClickedSlide: true,
@@ -37,11 +27,6 @@ slidesPerView: 3,
 spaceBetween: 0,
 slideToClickedSlide: true,
 },
-2000: {
-slidesPerView: 3,
-spaceBetween: 0,
-slideToClickedSlide: true,
-}
 };
 
 
@@ -85,14 +70,13 @@ breakpoints={breakpoints}
 mousewheel={true}
 keyboard={true}
 id={s.slidder}
-slidesPerView={3}
 modules={[Navigation,Pagination,Mousewheel,Keyboard]}
 className="mySwiper"
 loop={true}
 >
 
 {glFoods.map((item,key)=>{
-return <SwiperSlide className={s.slide12}> <Card data={item} key={key} /> </SwiperSlide>
+return <SwiperSlide className={s.slide12}> <Card style={{width:'100%'}} data={item} key={key} /> </SwiperSlide>
 })}
 
 <div className={s.buttons}>

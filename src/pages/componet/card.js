@@ -44,7 +44,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
 }
   return (
   
-<div  className={s.cards}  >
+<>
   {props.data?(  <div className={s.card}> 
         <div className={s.card_img}>
     <div className={s.card}  > 
@@ -53,7 +53,8 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
         </div>
         <div className={s.card_text}>
     <div   class={s.card_text2}>
-        <img onClick={()=>senduser()} src={props.data.user_image} alt="" />
+      <div style={{width:'70px',height:'70px',background:`url(${props.data.user_image})`,backgroundSize:'cover',backgroundPosition:'center'}} className={s.card_image12}></div>
+        {/* <img onClick={()=>senduser()} src={props.data.user_image} alt="" /> */}
         <h4  onClick={()=>senduser()} >{props.data.username} {props.data.name}</h4>
      <div onClick={()=>senduser()}  class={s.comment}>
         <div class={s.star}>
@@ -91,7 +92,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
    </div>
 </div>):(<></>)}
   
-</div>
+</>
 
   )
 }
