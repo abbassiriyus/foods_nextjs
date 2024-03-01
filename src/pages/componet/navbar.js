@@ -332,7 +332,7 @@ axios.post(`${url()}/api/user_category`,yubdata).then(res=>{
 
 })}}
 setPage(6) 
-document.querySelector('#modal_gl').style = "display:block"
+document.querySelector('#modal_gl').style = "display:flex"
 document.querySelector("#modal32").style="display:none;"
 })
 
@@ -612,7 +612,8 @@ function sellectdatachange(key,check) {
                   <button onClick={() => { document.querySelector('#modal_gl').style = "display:none" }} style={{ marginTop: '10px', width: '30%', height: '45px' }}>Ок</button></center>
 
               </div>
-            ) : (page==5?(
+            ) : (
+              page==5?(
               <div className={s.form_body_gl}>
                 <h3>Вход на сайт</h3>
                 <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
@@ -629,16 +630,16 @@ function sellectdatachange(key,check) {
                 <button onClick={() => { openPageCheck() }} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
                 <span>Отправить СМС на указанный номер</span>
 
-              </div>):(<div id='akk' className={s.akkaunt}>
+              </div>):(
+              <div id='akk' className={s.akkaunt}>
   <div className={s.wht}>
     <h3>Заявка принята</h3>
     <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
 Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
-<button>Продолжить</button>
-  <GrClose onClick={()=>{
+<button onClick={()=>{
   document.querySelector("#modal32").style="display:none;"
   window.location="/profile" 
-}}  className={s.whtclose} />
+}} >Продолжить</button>
   </div>
 </div>)
             )

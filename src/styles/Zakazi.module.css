@@ -54,6 +54,11 @@ padding-left: 6px;
 .profil{
 display: flex;
 align-items: center;
+justify-content: center;
+}
+
+.table1 th{
+    text-align: center;
 }
 
 
