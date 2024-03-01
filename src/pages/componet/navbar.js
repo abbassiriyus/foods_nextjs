@@ -445,23 +445,25 @@ function sellectdatachange(key,check) {
       </div>
 
       {isOpen ? (<div className={s.navbar_mobile_menu}>
-        <div onClick={() => { setIsOpen(false) }} className={s.close1}>
-          <MdClose style={{ fontSize: '35px',marginTop:'10px' }} />
-          <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
-          <span style={{fontSize:'17px',paddingRight:'30px'}}>Войти</span>
-        </div>
+        <div className={s.line1}></div>  <div onClick={() => { setIsOpen(false) }} className={s.close1}> 
+          <MdClose style={{ fontSize: '30px',marginTop:'10px' }}className={s.classclose} />
+          <img  src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
+          <span style={{fontSize:'17px',paddingRight:'50px'}}>Войти</span>
+        
+        </div> <div className={s.line1}></div>
         <div className={s.openmenu}>
           <p ><a href="/glavnstr">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
           <p  ><a style={{ color: '#06c160',marginBottom:'20px' }} href="#">Стать поваром</a></p>
-          <hr style={{color:'grey',width:'95%',marginTop:'10px'}} />
+          {/* <hr  /> */}
+          <div style={{marginTop:'10px'}} className={s.line1}></div>
       <div className={s.centre_app}>
       <div className={s.app}>
-            <div className={s.tg}>
+            {/* <div className={s.tg}>
               <a href="#"><FaTelegramPlane style={{color:'gray',fontSize:'25px'}} /></a>
               <a href="#"><SiVk style={{color:'gray',fontSize:'25px'}} /></a>
             </div>
-        
+         */}
 <div className={s.reklama}>
 <div className={s.app_store}>
 <div className={s.ap_i}>

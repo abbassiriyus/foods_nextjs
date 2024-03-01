@@ -8,7 +8,9 @@
     width: 90%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    /* padding-right: 10px; */
+    /* padding-left: 20px; */
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -321,8 +323,33 @@ justify-content: space-between;
 align-items: center;
 margin: auto;
 }
+.close1 span{
+    color: grey;
+    font-weight: 600;
+    transition: .3s;
+}
+.close1 span:hover{
+    color: #06c160;
+}
+.line1{
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.153);
+    width: 90%;
+}
+.classclose{
+    transition: .3s;
+    width: 30px;
+    height: 30px;
+    color: grey;
+}
+.classclose:hover{
+    background-color: #06c160;
+    width: 30px;
+    color: white;
+    height: 30px;
+}
 .close1 img{
-width: 150px;
+width: 100px;
 }
 .onmous{
     width: 260px;
@@ -1245,25 +1272,27 @@ opacity: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 8px;
     transition: .3s;
     cursor: pointer;
+    line-height: 20px;
+
     }
-    .app_store:hover{
-    color: #06c160;
-    border: #06c160 1px solid;
-    }
+
     .ap_i{
     width: 30%;
     text-align: center;
     }
     .apple{
     font-size: 33px;
+    color:grey;
     }
+    
     .ap_soz{
     width: 80%;
     text-align: left;
+    color: grey;
     }
     .ap_p1{
     font-size: 12px;
@@ -1282,14 +1311,11 @@ opacity: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 8px;
     transition: .3s;
     cursor: pointer;
-    }
-    .google_play:hover{
-    color:#06c160;
-    border: 1px solid #00db6aeb;
+    line-height: 20px;
     }
     .gp_i{
     width: 32%;
@@ -1298,9 +1324,11 @@ opacity: 0;
     }
     .google{
     font-size: 28px;
+    color: grey;
     }
     .gp_soz{
     width: 74%;
+    color: grey;
     text-align: left;
     }
     .gp_p1{
