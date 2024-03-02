@@ -259,7 +259,7 @@ document.querySelector('#filter').style="left:0px"
 </div>
 </div>
 <div className={s.actoon_page}>
-<ul id='filter'  className={s.actiocheck}>
+<ul id='filter' style={{left:'-130%'}} className={s.actiocheck}>
 <div className={s.close} onClick={()=>{
 document.querySelector('#filter').style="left:-130%"
 }}><IoMdClose /></div>

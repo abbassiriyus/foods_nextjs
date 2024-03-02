@@ -800,16 +800,41 @@ function sellectdatachange(key,check) {
 <div className={s.n_1}>
 <div className={s.n_t2}>
 <div className={s.blyuda}>
-<p><LuChefHat className={s.b_i} /> <br /> <span>Все блюда</span></p>
+<a href='/foods' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> <span>Все блюда</span></a>
 </div>
 <div className={s.blyuda}>
-<p><IoBagHandleOutline className={s.b_i} /> <br /> <span>Мои заказы</span></p>
+{user?((JSON.parse(user))[0].pover?
+    ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
+      <IoBagHandleOutline className={s.b_i} /><br />
+      Мои заказы</a>):( 
+      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
+        <IoBagHandleOutline className={s.b_i} /><br />Стать поваром</a>)
+       ):(
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}><IoBagHandleOutline className={s.b_i} /><br />Стать поваром</a>
+       )}
+
 </div>
 <div className={s.blyuda}>
-<p><CiUser className={s.b_i} /> <br /> <span>Профил</span></p>
+{user?((JSON.parse(user))[0].pover?
+    ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
+      <CiUser className={s.b_i} /><br />
+      Профил</a>):( 
+      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
+        <CiUser className={s.b_i} /><br />Профил</a>)
+       ):(
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}><CiUser className={s.b_i} /><br />Профил</a>
+       )}
 </div>
 <div className={s.blyuda}>
-<p><PiChatsDuotone className={s.b_i} /> <br /> <span>Чаты</span></p>
+{user?((JSON.parse(user))[0].pover?
+    ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
+      <PiChatsDuotone className={s.b_i} /><br />
+      Чаты</a>):( 
+      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
+        <PiChatsDuotone className={s.b_i} /><br />Чаты</a>)
+       ):(
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}><PiChatsDuotone className={s.b_i} /><br />Чаты</a>
+       )}
 </div>
 </div>
 </div>

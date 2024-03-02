@@ -92,7 +92,7 @@ return (
 </div>
 <div className={s.head} >
 <div className={s.h_soz} >
-<h1 className={s.h_h2} style={{paddingTop:'30px'}}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
+<h1 className={s.h_h2} style={{ paddingTop:'30px' }}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
 <p className={s.h_p1}>Тебе не нужно покупать продукты, готовить и мыть посуду. Наслаждайся вкусной едой без лишних забот!
 </p>
 <a href="/foods"><button className={s.h_button}>Выбрать блюда</button></a>
