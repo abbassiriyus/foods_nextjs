@@ -66,7 +66,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
          }
           })}  
         </div>
-        <p>{(props.data.mark).toFixed(1)}</p>
+        <p>{props.data.mark && (props.data.mark).toFixed(1)}</p>
         <div class={s.message}>
         <RiMessage2Line />
             <p>{props.data.mark_org}</p>
@@ -83,7 +83,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
 
         <div class={s.star2}>
             <PiStarFill />
-            <p>{(props.data.mark).toFixed(1)}</p>
+            <p>{props.data.mark && (props.data.mark).toFixed(1)}</p>
         </div>
     </div>
         </div>

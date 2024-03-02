@@ -7,7 +7,7 @@ export default function profilcard({data}) {
 
 return (
 <div>
-<div className={pc.cards}>
+ {data?(<div className={pc.cards}>
 <div className={pc.card}>
     <div>
 <div className={pc.profil}>
@@ -48,7 +48,7 @@ return (
 <center><button>Написать сообщение</button></center>
 </div>
 </div>
-</div>
+ </div>):(<></>)}
 </div>
 )
 }

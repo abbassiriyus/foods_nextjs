@@ -134,7 +134,7 @@ return (
 }
 
 
-<p>{(user.mark).toFixed(1)}</p>
+<p>{user.mark && (user.mark).toFixed(1)}</p>
 </div>
 <div className={c.otzv}>
 <p><BiCommentDetail /> {user.mark_org} отзыва</p>
@@ -196,7 +196,7 @@ return (
   }
  })
 }
-<p>{(user.mark).toFixed(1)}</p>
+<p>{user.mark && (user.mark).toFixed(1)}</p>
 </div>
 <div className={c.otzv}>
 <p className={c.s_p12}><BiCommentDetail /> {user.mark_org} отзыва</p>
