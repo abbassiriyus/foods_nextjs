@@ -355,7 +355,7 @@ function sellectdatachange(key,check) {
         <div className={s.navbar}>
 
           <div id='menu' className={s.navbar_menu}>
-            <FaArrowLeft />
+            <FaArrowLeft onClick={() => setIsOpen(true)} />
              <SlMenu onClick={() => setIsOpen(true)} />
           </div>
 
@@ -448,13 +448,33 @@ function sellectdatachange(key,check) {
         <div className={s.line1}></div>  <div onClick={() => { setIsOpen(false) }} className={s.close1}> 
           <MdClose style={{ fontSize: '30px',marginTop:'10px' }}className={s.classclose} />
           <img  src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
-          <span style={{fontSize:'17px',paddingRight:'50px'}}>Войти</span>
+          <span style={{fontSize:'17px',paddingRight:'50px'}}>    {user?(
+            <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
+            style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
+              <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
+              <a href="/profile">  <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3></a>
+                <div className={s.line2}></div>
+                <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
+              </div>
+            </div>
+            ):(
+              <span onClick={() => { document.querySelector("#modal_gl").style = "display:flex"; setPage(0) }}><IoMdExit style={{ fontSize: '25px' }} />Войти</span> 
+            )}</span>
         
         </div> <div className={s.line1}></div>
         <div className={s.openmenu}>
-          <p ><a href="/glavnstr">Все блюда</a></p>
+          <p ><a href="/foods">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
-          <p  ><a style={{ color: '#06c160',marginBottom:'20px' }} href="#">Стать поваром</a></p>
+         {user?((JSON.parse(user))[0].pover?
+    ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
+      
+      Мои заказы</a>):( 
+      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
+        Стать поваром</a>)
+       ):(
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>
+       )}
+
           {/* <hr  /> */}
           <div style={{marginTop:'10px'}} className={s.line1}></div>
       <div className={s.centre_app}>

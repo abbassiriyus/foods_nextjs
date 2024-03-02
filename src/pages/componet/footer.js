@@ -5,8 +5,9 @@ import { IoLogoVk } from "react-icons/io";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa6";
 export default function footer() {
-return (
-<div style={{marginBottom:'60px'}}>
+return (<>
+<br /><br />
+<div style={{marginBottom:'60px',marginTop:'20px'}}>
 <div className={f.footer}>
 <div className={f.f_gap}>
 <h1>Повар на связи <span>— это сервис заказа блюд от проверенных домашних поваров и кондитеров.</span></h1><br />
@@ -53,6 +54,6 @@ return (
 </div>
 </div>
 </div>
-)
+</>)
 }
 
