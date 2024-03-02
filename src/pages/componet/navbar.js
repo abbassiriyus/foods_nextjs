@@ -800,7 +800,7 @@ function sellectdatachange(key,check) {
 <div className={s.n_1}>
 <div className={s.n_t2}>
 <div className={s.blyuda}>
-<a href='/foods' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> <span>Все блюда</span></a>
+<a href='/foods' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> Все блюда</a>
 </div>
 <div className={s.blyuda}>
 {user?((JSON.parse(user))[0].pover?
