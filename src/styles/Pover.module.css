@@ -289,9 +289,12 @@ margin-bottom: 20px;
 
 
 .qidr{
-    width: 850px;
+    width: 100%;
     height: 80px;
 
+}
+.shef{
+width: 100%;
 }
 .b_hov{
     width: 100%;
@@ -300,7 +303,7 @@ margin-bottom: 20px;
     align-items: center;
 }
 .hover{
-    width: 87%;
+    width: 80%;
     height: 45px;
     display: flex;
     justify-content: space-between;
@@ -331,8 +334,8 @@ width: 50px;
 height: 40px;
 }
 .hover2{
-    width: 80px;
-    height: 42px;
+    width: 13%;
+    height: 40px;
     background-color: #06c160;
     display: flex;
     justify-content: center;
@@ -480,18 +483,24 @@ border-radius: 50%;
         left: -300px;
     } */
     .shef{
-        width: 80%;
+        width: 100%;
     }
     .qidr{
-        width: 760px;
+        width: 100%;
         margin: auto;
     }
     .b_hov{
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .hover{
-        width: 87%;
+        width: 85%;
     }
+    .hover2{
+        width: 10%;
+        }
     .povara{
         width: 850px;
         height: 400px;
@@ -514,6 +523,7 @@ border-radius: 50%;
     .kota_kategoriya2{
         width: 82%;
     }
+
 }
 @media(max-width:1225px){
     .kategoriya{
@@ -528,7 +538,7 @@ border-radius: 50%;
         width: 95%;
     }
     .qidr{
-        width: 95%;
+        width: 100%;
     }
     .povara{
         height: 330px;
@@ -543,7 +553,11 @@ border-radius: 50%;
         width: 110px;
         margin-left: -20px;
     }
-}   
+}
+@media(max-width:1085px){
+.hover2{
+}
+}
 @media(max-width:1060px){
     .primen{
         display: block;
@@ -571,16 +585,14 @@ border-radius: 50%;
     }
     .bld_img{
         width: 15%;
-        
     }
 .a_hov{
-    display: block;
-    display: flex ;
+    display: flex;
 }
 .kota_kategoriya{
     width: 95%;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .kota_kategoriya2{
     width: 95%;
@@ -614,6 +626,16 @@ border-radius: 50%;
     top: 880px;
     background-color: #fff;
 }
+.cards3{
+    background-color: white;
+    width: 100%;
+    min-height: 200px;
+    border-radius: 20px;
+    min-width: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 70px !important;
+}
 }
 @media(max-width:840px){
         .ovqat_img{
@@ -641,7 +663,11 @@ height: 200px;
 }
 @media(max-width:730px){
     .hover{
-        width: 82%;
+        width: 78%;
+    
+    }
+    .hover2{
+    width: 13%;
     }
 }
 @media(max-width:715px){
@@ -677,6 +703,14 @@ height: 200px;
                 height: 470px;
             }
 }
+@media(max-width:542px){
+.hover2{
+width: 14%;
+}
+.hover{
+width: 82%;
+}
+}
 @media(max-width:520px){
     .card3{
 margin-top: 140px;
@@ -700,10 +734,16 @@ margin-left: -40%;
                 height: 430px;
             }
 }
-@media(max-width:440px){
+@media(max-width:433px){
     .hover{
-        width: 70%;
+        width: 76%;
     }
+.hover2{
+width: 15%;
+height: 40px;
+font-size: 16px;
+font-weight: 500;
+}
     .loko{
         margin-left: 5px;
     }
@@ -740,7 +780,7 @@ margin-left: -40%;
                 margin-left: 20px;
                 margin-top: 20px;
             }
-}
+}/*  */
 .cards1{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -776,6 +816,7 @@ margin-left: -40%;
     min-width: 300px;
     margin-bottom: 20px;
     overflow: hidden;
+    margin-top: 0px;
 }
 .about_p{
     display: flex;
