@@ -101,10 +101,10 @@ return (
 <span className={s.h_span2}>Регистрация займет всего 3 минуты</span>
 </div>
 <div className={s.h_swip_img}>
-<div className={s.swiper}>
+    {data[0] && data[swiper]?(<div className={s.swiper}>
 <img
 className={s.swiper_img}
-src={data[swiper].image}
+// src={data[0] && data[swiper].image?(data[swiper].image):("")}
 alt=""
 />
 <div className={s.s_i}>
@@ -124,7 +124,7 @@ plus();
 <div className={s.s_profil}>
 <img
 className={s.prifil_foto}
-src={data[swiper].user_image}
+src={data[swiper] && data[swiper].user_image ? (data[swiper].user_image):("")}
 alt=""
 />
 <div className={s.s_p_g_s}>
@@ -155,7 +155,8 @@ return <FaStar className={s.star1} />
 </div>
 </div>
 </div>
-</div>
+</div>):(<></>)}
+
 </div>
 </div>
 </div>
