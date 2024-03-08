@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import f from "../../styles/Footer.module.css";
 import { BiLogoTelegram } from "react-icons/bi";
 import { IoLogoVk } from "react-icons/io";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa6";
+import axios from 'axios';
+import url from "../host/config"
+
 export default function footer() {
+var [company,setCompany]=useState({
+    "email":'support@povarnasvyazi.ru',
+    "app_store": "#",
+    "playmarket":'#',
+    "telegram":"#",
+    "vkantakt":"#",
+    "okru":'#',
+    "whatsapp":"#"
+})
+
+
+
+function getCom() {
+    axios.get(`${url()}/api/company`).then(Res=>{
+        if(Res.data.length>0){
+        setCompany(Res.data[0])
+        }
+    })
+}
+useEffect(()=>{
+    getCom()
+},[])
+
 return (<>
 <br /><br />
 <div style={{marginBottom:'100px',marginTop:'20px'}}>
@@ -18,7 +44,7 @@ return (<>
 <p className={f.pol}>Cкачай мобильное приложение <br />
 <span className={f.vp}>Повар на связи</span></p>
 <div className={f.reklama}>
-<div className={f.app_store}>
+<a href={company.app_store} style={{textDecoration:'none',color:'black'}} className={f.app_store}>
 <div className={f.ap_i}>
 <FaApple className={f.apple}/>
 </div>
@@ -26,8 +52,8 @@ return (<>
 <p className={f.ap_p1}>Download on the</p>
 <p className={f.ap_p2}>App Store</p>
 </div>
-</div>
-<div className={f.google_play}>
+</a>
+<a style={{textDecoration:'none',color:'black'}}  href={company.playmarket} className={f.google_play}>
 <div className={f.gp_i}>
 <FaGooglePlay className={f.google}/>
 
@@ -36,11 +62,11 @@ return (<>
 <p className={f.gp_p1}>GET IT ON</p>
 <p className={f.gp_p2}>Google Play</p>
 </div>
-</div>
+</a>
 </div>
 <div className={f.prilojenie}>
-<div><BiLogoTelegram className={f.f_i} /></div>
-<IoLogoVk className={f.f_i} />
+<a style={{textDecoration:'none',color:'black'}}  href={company.telegram}><BiLogoTelegram className={f.f_i} /></a>
+<a style={{textDecoration:'none',color:'black'}}  href={company.vkantakt}><IoLogoVk className={f.f_i} /></a>
 </div>
 </div>
 </div>
@@ -49,7 +75,7 @@ return (<>
 <p className={f.f2_ps}>©2024 <span className={f.p_spani}>Повар на связи</span></p>
 </div>
 <div className={f.f2_a}>
-<a className={f.a_href1} href="#">support@povarnasvyazi.ru</a> <br /> <br />
+<a className={f.a_href1} href="#">{company.email}</a> <br /> <br />
 <a className={f.a_href2} href="#">Условия использования сервиса и информация о компании</a>
 </div>
 </div>

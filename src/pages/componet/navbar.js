@@ -53,6 +53,7 @@ export default function Navbar() {
 
   useEffect(() => {
     getData()
+    getComany()
   setUser(localStorage.getItem("user"))
   }, [])
 
@@ -76,6 +77,16 @@ useEffect(()=>{
     Aos.init();
   })
 
+var [company,SetCompany]=useState({
+  image:'https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg'
+})
+ var getComany=()=>{
+  axios.get(`${url()}/api/company`).then(res=>{
+    if(res.data.length>0){
+      SetCompany(res.data[0])
+    }
+  })
+ }
 
   function onmousenter1() {
     document.querySelector('#onmouse').style = `display:block;`
@@ -361,7 +372,7 @@ function sellectdatachange(key,check) {
 
           <div className={s.navbar_logo}>
             <a href="/">
-              <img src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="img" /></a>
+              <img src={company.image} alt="img" /></a>
           </div>
           <div className={s.navbar_line}>
             <span id='aaa'><a href="/foods" onMouseEnter={() => onmousenter1()}>Все блюда</a>
