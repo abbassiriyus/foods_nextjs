@@ -104,7 +104,7 @@ return (
     {data[0] && data[swiper]?(<div className={s.swiper}>
 <img
 className={s.swiper_img}
-// src={data[0] && data[swiper].image?(data[swiper].image):("")}
+src={data[swiper].image}
 alt=""
 />
 <div className={s.s_i}>
@@ -124,7 +124,7 @@ plus();
 <div className={s.s_profil}>
 <img
 className={s.prifil_foto}
-src={data[swiper] && data[swiper].user_image ? (data[swiper].user_image):("")}
+src={(data[swiper].user_image)}
 alt=""
 />
 <div className={s.s_p_g_s}>
