@@ -56,13 +56,13 @@ const formattedDate = new Date(dateTime).toLocaleString('ru-RU', options);
 return formattedDate;
 }
 const sendMessage = () => {
-var chat = (JSON.parse(localStorage.getItem("user")))
+var chat1 = (JSON.parse(localStorage.getItem("user")))
 var message = document.querySelector("#chatsend_inp").value
 if(message!=''){
  socket.emit("send_message", {
 message,
 room,
-chat: chat[0].id
+chat: chat1[0].id
 });
 document.querySelector("#chatsend_inp").value = ""
 }
@@ -110,7 +110,7 @@ behavior: 'smooth'
 
 return (
 <div>
-{chat.length != 0 ? (<>
+{(chat.length != 0)  ? (<>
 <div className={s.chatting}>
 <div className={s.anna_chat}>
 {chat.map((item, key) => {

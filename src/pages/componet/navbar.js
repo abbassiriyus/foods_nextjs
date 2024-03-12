@@ -38,7 +38,9 @@ export default function Navbar() {
   var [page, setPage] = useState(0)
  var [user,setUser]=useState(null)
   function getData() {
+  
     axios.get(`${url()}/api/category`).then(res => {
+      
       for (let i = 0; i < res.data.length; i++) {
       res.data[i].push=false
       }
@@ -54,7 +56,9 @@ export default function Navbar() {
   useEffect(() => {
     getData()
     getComany()
-  setUser(localStorage.getItem("user"))
+    setTimeout(() => {
+      setUser(JSON.parse(localStorage.getItem("user")))
+    }, 1000);
   }, [])
 
 var [count,setCount]=useState(0)
@@ -62,7 +66,7 @@ function getshopcar(){
   var user=localStorage.getItem('user')
   var user1=localStorage.getItem('karzinka')
   if(user1){
-axios.get(`${url()}/api/karzinka/${(JSON.parse(user))[0].id}`).then(res=>{
+axios.get(`${url()}/api/karzinka/${user[0].id}`).then(res=>{
   setCount(res.data.count)
 })
   }
@@ -292,8 +296,6 @@ window.location="/profile"
   }
 
 function sendpover() {
-// document.querySelector("#auto").style="display:none"
-// document.quaerySelector("#akk").style="display:flex"
   var user_me=JSON.parse(localStorage.getItem("user"))
 var send_data=new FormData()
 send_data.append('user_id',user_me[0].id)
@@ -379,7 +381,7 @@ function sellectdatachange(key,check) {
               <HiChevronDown style={{ fontSize: '14px' }} /></span>
             <a href="/pover">Все повара</a>
             {/* <a href="/forCooks">Регистрация поваров</a> */}
-    {user?((JSON.parse(user))[0].pover?
+    {user?(user[0].pover?
     ( <a href='/zakazi' style={{ color: '#06c160' }}>Мои заказы</a>):( 
       <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>Стать поваром</a>)
        ):(
@@ -394,9 +396,9 @@ function sellectdatachange(key,check) {
          
             {user?(
             <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
-            style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
+            style={{background:`url(${user[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
               <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
-              <a href="/profile">  <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3></a>
+              <a href="/profile">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
                 <div className={s.line2}></div>
                 <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
               </div>
@@ -461,9 +463,9 @@ function sellectdatachange(key,check) {
           <img  src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
           <span style={{fontSize:'17px',paddingRight:'50px'}}>    {user?(
             <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
-            style={{background:`url(${(JSON.parse(user))[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
+            style={{background:`url(${user[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
               <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
-              <a href="/profile">  <h3>{(JSON.parse(user))[0].name?((JSON.parse(user))[0].name):((JSON.parse(user))[0].email)}</h3></a>
+              <a href="/profile">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
                 <div className={s.line2}></div>
                 <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
               </div>
@@ -476,7 +478,7 @@ function sellectdatachange(key,check) {
         <div className={s.openmenu}>
           <p ><a href="/foods">Все блюда</a></p>
           <p><a href="/pover">Все повара</a></p>
-         {user?((JSON.parse(user))[0].pover?
+         {user?(user[0].pover?
     ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
       
       Мои заказы</a>):( 
@@ -834,7 +836,7 @@ function sellectdatachange(key,check) {
 <a href='/foods' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> Все блюда</a>
 </div>
 <div className={s.blyuda}>
-{user?((JSON.parse(user))[0].pover?
+{user?(user[0].pover?
     ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
       <IoBagHandleOutline className={s.b_i} /><br />
       Мои заказы</a>):( 
@@ -846,7 +848,7 @@ function sellectdatachange(key,check) {
 
 </div>
 <div className={s.blyuda}>
-{user?((JSON.parse(user))[0].pover?
+{user?(user[0].pover?
     ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
       <CiUser className={s.b_i} /><br />
       Профил</a>):( 
@@ -857,7 +859,7 @@ function sellectdatachange(key,check) {
        )}
 </div>
 <div className={s.blyuda}>
-{user?((JSON.parse(user))[0].pover?
+{user?(user[0].pover?
     ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
       <PiChatsDuotone className={s.b_i} /><br />
       Чаты</a>):( 

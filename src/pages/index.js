@@ -36,7 +36,6 @@ setSwipper(data.length - 1);
 setSwipper(swiper - 1);
 }
 }
-
 function getSizUchun() {
 axios.get(`${url()}/api/siz_uchun`).then(res=>{
 setSizUchun(res.data)
@@ -53,7 +52,7 @@ setSoglom(res3.data)
 
 })
 }
-function getheaderCarousel(params) {
+function getheaderCarousel() {
 axios.get(`${url()}/api/userprog/header`).then(res=>{
 setData(res.data)
 

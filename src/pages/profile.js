@@ -32,7 +32,7 @@ import url from './host/config';
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
-var [user,setUser]=useState({})
+var [user,setUser]=useState(null)
 var [ish,setIsh]=useState([])
 
 function jin1(){
@@ -58,12 +58,12 @@ function ikkj1(){
 
 function putUserInfo() {
   var send_data=new FormData()
-  send_data.append("image",document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user.image)
+  send_data.append("image",document.querySelector('#file_image').files[0]?document.querySelector('#file_image').files[0]:user[0].image)
   send_data.append("name",document.querySelector('#name_1').value)
   send_data.append("phone",document.querySelector('#phone_1').value)
   send_data.append("email",document.querySelector('#email_1').value)
-  send_data.append("password",user.password)
-  axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
+  send_data.append("password",user[0].password)
+  axios.put(`${url()}/api/users/${user[0].id}`,send_data).then(res=>{
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     getUsers()
   })
@@ -71,13 +71,13 @@ function putUserInfo() {
 
 function putUserphone() {
   var send_data={
-   image:user.image,
-   name:user.name,
+   image:user[0].image,
+   name:user[0].name,
    phone:document.querySelector('#phone_2').value,
-   email:user.email,
-   password:user.password
+   email:user[0].email,
+   password:user[0].password
   }
-  axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
+  axios.put(`${url()}/api/users/${user[0].id}`,send_data).then(res=>{
    
     document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
     document.querySelector("#modal_page").style="display:none"
@@ -89,15 +89,15 @@ function resetPasword() {
   var tpassword=document.querySelector('#password2')
   var npassword=document.querySelector('#password1')
 
-  if(user.password==tpassword.value){
+  if(user[0].password==tpassword.value){
     var send_data={
-      image:user.image,
-      name:user.name,
-      phone:user.phone,
-      email:user.email,
+      image:user[0].image,
+      name:user[0].name,
+      phone:user[0].phone,
+      email:user[0].email,
       password:npassword.value
      }
-     axios.put(`${url()}/api/users/${user.id}`,send_data).then(res=>{
+     axios.put(`${url()}/api/users/${user[0].id}`,send_data).then(res=>{
       getUsers()
      
        document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`
@@ -114,7 +114,8 @@ if(a){
   var date = new Date(res.data.time_update)
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
   res.data.date=formattedDate
-  setUser(res.data)
+  console.log(res.data);
+  setUser([res.data]  )
   localStorage.setItem("user",JSON.stringify([res.data]))
   document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`
   }).catch(err=>{
@@ -130,16 +131,17 @@ if(a){
 function getIshYonalishi() {
  axios.get(`${url()}/api/ishyonalishi`).then(res=>{
   setIsh(res.data)
+  getUsers()
  })
 }
 
 function UpdateData() {
   var data_all=document.querySelectorAll('#chackbox1')
-  var category=user.category
+  var category=user[0].category
 for (let i = 0; i < data_all.length; i++) {
 if(data_all[i].checked){
 if(!category[i].category_id){
-  axios.post(`${url()}/api/user_category`,{user_id:user.id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
+  axios.post(`${url()}/api/user_category`,{user_id:user[0].id,category_id:category[i].id}).then(res=>{}).catch(err=>{})
   }
 }else{
   if(category[i].category_id){
@@ -148,14 +150,14 @@ if(!category[i].category_id){
 }
 }
 var sends=new FormData()
-sends.append('user_id',user.pover.user_id)
+sends.append('user_id',user[0].pover.user_id)
 sends.append('deskription',document.querySelector('#deskription').value)
 sends.append('expertise',document.querySelector('#expertise').value)
 sends.append('place',document.querySelector('#place').value)
 sends.append('is_prepared',document.querySelector('#is_prepared').value)
 
 sends.append('ish_yonalishi',document.querySelector('#ish_yonalishi').value)
-axios.put(`${url()}/api/user_povar/${user.pover.id}`,sends).then(res=>{
+axios.put(`${url()}/api/user_povar/${user[0].pover.id}`,sends).then(res=>{
   getUsers()
 })
 
@@ -211,8 +213,9 @@ function deleteDiplom(id){
           }
     
 useEffect(()=>{
-  getUsers()
+  
   getIshYonalishi()
+
 },[])
   return (
   <>
@@ -230,7 +233,7 @@ useEffect(()=>{
         <div onClick={() => setPage(1)} className={s.line1}>
           <a style={page == 1 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Чаты</a>
         </div>
-        {user.pover?(<>    <div onClick={() => setPage(2)} className={s.line1}>
+        {(user && user[0].pover)?(<>    <div onClick={() => setPage(2)} className={s.line1}>
           <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Мои блюди</a>
         </div>
         <div onClick={() => setPage(3)} className={s.line1}>
@@ -244,32 +247,31 @@ useEffect(()=>{
 </div>
     
 {page==0?(
-<>
-<div className={s.main_profil}>
+<>{user?(<div className={s.main_profil}>
         <div id='id1' className={s.li}>
         <div className={s.storage_user}>
           <div onClick={() => ikkj1()} className={s.edit_account}><FaPen /> 
            <span>Редактировать</span></div>
           <div className={s.image_profil} >
       <div className={s.account_img}  id='userimage'
-            style={{background:`url(${user.image})`,backgroundSize:'100% 100%',
+            style={{background:`url(${user[0].image})`,backgroundSize:'100% 100%',
                   backgroundPosition:'center !important'}} />
             <div className={s.p_user}><span>Дата регистрации</span>
-              <div>{user.date}</div></div>
+              <div>{user[0].date}</div></div>
           </div>
           <h1 className={s.ht}>
-            {user.name?(user.name):(user.email)}</h1>
+            {user[0].name?(user[0].name):(user[0].email)}</h1>
         </div>
         <div className={s.danix_contact}>
           <h1>ДАННЫЕ ДЛЯ ВХОДА</h1>
          <div className={s.conntact_input}>
          <div className={s.pageinput}>
          <p>Телефон</p>
-            <input type="text" value={user.phone} disabled /><MdErrorOutline className={s.icon_error} />
+            <input type="text" value={user[0].phone} disabled /><MdErrorOutline className={s.icon_error} />
           </div>
           <div className={s.pageinput}>
             <p>Email</p>
-            <input disabled value={user.email} type="text" />
+            <input disabled value={user[0].email} type="text" />
             
             <MdErrorOutline title='' className={s.icon_error} />
           </div>
@@ -291,14 +293,14 @@ useEffect(()=>{
 <div className={s.hom1}>
   <div style={{position:'relative'}}>
     <input type="file" name="" className={s.profil_img} id="file_image" />
-  <img src={user.image} alt="" />
+  <img src={user[0].image} alt="" />
 </div><div className={s.sora}><span>Рекомендуем форматы: jpeg, png, не более 10 MB</span></div> 
 </div>
 <div className={s.hom2}>
   <h2>Как вас зовут ?</h2>
   <div className={s.moi}>
     <input className={s.in} 
-     defaultValue={user.name} id='name_1' type="text" placeholder='Фамилия и имя' />
+     defaultValue={user[0].name} id='name_1' type="text" placeholder='Фамилия и имя' />
   </div>
 </div>
 <div  onClick={()=>{ document.querySelector('#id2').style = `display: none;`; document.querySelector('#id1').style = `display: block;`}}  className={s.hom3}>
@@ -311,11 +313,11 @@ useEffect(()=>{
 <div className={s.registe_post}>
 <div className={s.profile_input1}>
 <h3>Телефон</h3>
-<input type="text" id='phone_1' defaultValue={user.phone} />
+<input type="text" id='phone_1' defaultValue={user[0].phone} />
 </div>
 <div className={s.profile_input1}>
 <h3>email</h3>
-<input placeholder='email' id='email_1' defaultValue={user.email} type="text" />
+<input placeholder='email' id='email_1' defaultValue={user[0].email} type="text" />
 </div>
 </div>
 <div className={s.line2}></div>
@@ -324,7 +326,8 @@ useEffect(()=>{
 </div>
 </div>
 
-      </div>
+      </div>):(<></>)}
+
 <div className={s.modal_page} id='modal_page' >
 <div className={s.modal_form}>
   <div className={s.close_x}
@@ -413,7 +416,7 @@ document.querySelector("#eyes1").style="display:block"
 </div>
 
 
-{user.pover?(
+{(user && user[0].pover)?(
   <div className={s.o_povere}>
  
  <div id='korm' className={s.kok1}>
@@ -430,7 +433,7 @@ document.querySelector("#eyes1").style="display:block"
  
   <span>На компанию</span>
    </div>
-   {user.category.map((item,key)=>{
+   {user[0].category.map((item,key)=>{
 if(item.in_user){
   return <div key={key} className={s.ovqat}>
   <span>{item.title}</span>
@@ -443,28 +446,28 @@ if(item.in_user){
  <div className={s.daniy2}>
    <div className={s.keof}>
      <span className={s.ad}>Адрес</span>
-     <span> <TbLocation className={s.location}/>{user.address}</span>
+     <span> <TbLocation className={s.location}/>{user[0].address}</span>
    </div>
    <div className={s.keof}>
      <span className={s.ad}>Специализация</span>
      <span> 
-         {user.pover.ish_yonalishi}
+         {user[0].pover.ish_yonalishi}
      </span>
    </div>
    <div className={s.keof}>
      <span className={s.ad}>Сколько лет в деле</span>
-     <span>{user.pover.expertise} лет</span>
+     <span>{user[0].pover.expertise} лет</span>
    </div>
    <div className={s.keof}>
      <span className={s.ad}>Дата регистрации</span>
-     <span>{user.time_create.slice(0,10)}</span>
+     <span>{user[0].time_create.slice(0,10)}</span>
    </div>
  </div>
    </div>
    <div className={s.daniy3}>
      <h1 className={s.g1}>О СЕБЕ</h1>
      <div className={s.g2}>
-                   <span>{user.pover.deskription}</span>
+                   <span>{user[0].pover.deskription}</span>
      </div>
      <div onClick={() => jin1()} className={s.g3}>
      <CiShare2 className={s.share}/>
@@ -481,7 +484,7 @@ if(item.in_user){
    </div>
  </div>
  <div className={s.poni2}>
-   <select name="" id="ish_yonalishi" defaultValue={user.pover.ish_yonalishi} className={s.select_data}>
+   <select name="" id="ish_yonalishi" defaultValue={user[0].pover.ish_yonalishi} className={s.select_data}>
     {ish.map(item=>{
     return  <option value={item.title}>{item.title}</option>
     })} 
@@ -493,7 +496,7 @@ if(item.in_user){
    </div>
    <div className={s.miya2}>
      <div className={s.jin1}>
-    {user.category.map((item,key)=>{
+    {user[0].category.map((item,key)=>{
       return <div key={key} className={s.kateg}>
          <input type="checkbox" id='chackbox1' defaultChecked={item.in_user} className={s.talan}/> 
          <span className={s.ssss}>{item.title}</span>
@@ -509,7 +512,7 @@ if(item.in_user){
    О СЕБЕ
    </h1>
    <div className={s.inp_osebe} style={{overflow:'hidden'}} >
-     <textarea id='deskription' defaultValue={user.pover.deskription} className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
+     <textarea id='deskription' defaultValue={user[0].pover.deskription} className={s.inp} placeholder='Расскажите о себе*' cols="30" rows="10"></textarea>
    </div>
    <div className={s.bus1}>
      <div className={s.ponit}>
@@ -527,20 +530,20 @@ if(item.in_user){
    <div className={s.bus2}>
      <div className={s.lime1}>
      <CiLocationArrow1  className={s.arrow}/>
-     <input id='is_prepared' className={s.jiy} type="text" defaultValue={user.pover.is_prepared} placeholder='Где Вы готовите*' />
+     <input id='is_prepared' className={s.jiy} type="text" defaultValue={user[0].pover.is_prepared} placeholder='Где Вы готовите*' />
      <CiCircleInfo className={s.info}/>
  
      </div>
    </div>
    <div className={s.bus3}>
      <div className={s.nome}>
-       <input defaultValue={user.pover.expertise}  className={s.nome2} type="number" id='expertise' placeholder='Сколько лет в деле' />
+       <input defaultValue={user[0].pover.expertise}  className={s.nome2} type="number" id='expertise' placeholder='Сколько лет в деле' />
      </div>
    </div>
    <div className={s.bus4}>
      <div className={s.car1}>
        <p>Дата регистрации</p>
-       <p>{user.pover.time_create.slice(0,10)}</p>
+       <p>{user[0].pover.time_create.slice(0,10)}</p>
        <button onClick={()=>{UpdateData()}}>Сохранить данные</button>
      </div>
    </div>
@@ -577,14 +580,14 @@ if(item.in_user){
   </div>
   
 </div>
-{user.pover?(<div className={s.moya_kuxnya}>
+{(user && user[0].pover)?(<div className={s.moya_kuxnya}>
 <h1 className={s.moy}>МОЯ КУХНЯ</h1>
 <div className={s.ramka}>
  
    
   
   
-   {user.kitchen.map((item,key)=>{
+   {user[0].kitchen.map((item,key)=>{
      return  <div key={key} className={s.mens}  style={{background:`url(${item.image})`,backgroundSize:'100% 100%'}}>
     <div className={s.musr}><RiDeleteBin6Line onClick={()=>{deleteKichen(item.id)}} className={s.mus}/></div>
     </div>
@@ -603,12 +606,12 @@ if(item.in_user){
 </div>):(<></>)}
 
 
-{user.pover?(<div className={s.obshiy}>
+{(user && user[0].pover)?(<div className={s.obshiy}>
 <div className={s.document}>
   <h1 className={s.dock}>ДОКУМЕНТЫ</h1>
   <div className={s.rem}>
    
-{user.document.map((item,key)=>{
+{user[0].document.map((item,key)=>{
   return  <div key={key} className={s.ram}>
     <IoMdClose onClick={()=>{deleteDocument(item.id)}} className={s.close}/> <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}>{item.file}</span>
@@ -631,7 +634,7 @@ if(item.in_user){
   <h1 className={s.dock}>ДИПЛОМЫ И СЕРТИФИКАТЫ</h1>
   <div className={s.rem}>
 
-  {user.diploma.map((item,key)=>{
+  {user[0].diploma.map((item,key)=>{
 return  <div key={key} className={s.ram}>
     <IoMdClose onClick={()=>{deleteDiplom(item.id)}} className={s.close}/>   <IoDocumentOutline className={s.out}/>
       <span className={s.lorem}> {item.file}</span>
