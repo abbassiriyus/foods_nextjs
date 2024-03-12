@@ -892,7 +892,7 @@ border-radius: 60px;
 margin: auto;
 display: flex;
 justify-content: space-around;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 .q_soz{
 width: 40%;
@@ -949,7 +949,7 @@ border-radius: 60px;
 margin: auto;
 display: flex;
 justify-content: space-around;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 .q_soz h1{
 font-size: 43px;
@@ -1149,7 +1149,7 @@ border-radius: 60px;
 margin: auto;
 display: flex;
 justify-content: space-between;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 .q_soz h1{
 font-size: 23px;
@@ -1178,7 +1178,7 @@ border-radius: 45px;
 margin: auto;
 display: flex;
 justify-content: space-between;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 .q_soz{
 width: 90%;
@@ -1234,7 +1234,7 @@ border-radius: 45px;
 margin: auto;
 display: flex;
 justify-content: space-between;
-margin-bottom: 300px;
+/* margin-bottom: 300px; */
 }
 }
 
