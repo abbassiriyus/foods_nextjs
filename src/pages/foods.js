@@ -82,7 +82,7 @@ tayyor=res.data
 }else{
    for (let i = 0; i < res.data.length; i++) {
  res.data[i].qosh=false
- console.log(res.data[i]);
+
    for (let j = 0; j < ney.length; j++) {
 if(ney[j].food_id==res.data[i].id){
 res.data[i].qosh=true
@@ -114,7 +114,7 @@ tayyor=res.data
 }else{
    for (let i = 0; i < res.data.length; i++) {
  res.data[i].qosh=false
- console.log(res.data[i]);
+ 
    for (let j = 0; j < bosilgan.length; j++) {
 if(bosilgan[j].id==res.data[i].category_id){
 res.data[i].qosh=true
@@ -135,7 +135,7 @@ setGlFoods(tayyor)
 }
 
 function sortReting() {
-console.log("Salom");
+
 var a=[...glFoods]
 a.sort(function(a, b){
 return b.mark-a.mark;
@@ -151,12 +151,12 @@ document.querySelector("#reiting3").style = "color: #06c160"
 document.querySelector("#reiting4").style = "color: #06c160"
 }
 function sortSena() {
-console.log("Salom");
+
 var a=[...glFoods]
 a.sort(function(a, b){
 return a.price-b.price;
 });
-console.log(a);
+
   setTimeout(() => {
 setGlFoods(a)
   }, 10);
@@ -171,7 +171,7 @@ setGlFoods(a)
 }
 
 function sortSenaRever() {
-console.log("Salom");
+
 var a=[...glFoods]
 a.sort(function(a, b){
 return b.price-a.price;
@@ -188,9 +188,9 @@ document.querySelector("#reiting4").style = "color: #06c160"
 }
 
 function sorttime() {
-console.log("Salom");
+
 var a=[...glFoods]
-console.log(new Date('2024-02-21T06:05:13.724Z'));
+
 a.sort(function(a, b){
 return new Date(b.time_update) - new Date(a.time_update);
 });
@@ -213,11 +213,11 @@ getgeFoods()
 
 function getgeFoods(){
 var logd=localStorage.getItem('category')
-console.log(logd);
+
 if(logd){
 
 axios.get(`${url()}/api/foods`).then(res=>{
-console.log(res.data,"asdasd");
+
 
 setGlFoods(res.data.filter(item=>item.category_id==logd))
 

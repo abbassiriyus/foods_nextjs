@@ -114,7 +114,7 @@ if(a){
   var date = new Date(res.data.time_update)
   var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'long', year: 'numeric' });
   res.data.date=formattedDate
-  console.log(res.data);
+  
   setUser([res.data]  )
   localStorage.setItem("user",JSON.stringify([res.data]))
   document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`

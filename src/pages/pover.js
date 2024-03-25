@@ -129,7 +129,7 @@ senddata=data
   for (let i = 0; i < data.length; i++) {
   var qosh=false
     for (let j = 0; j < gotov.length; j++) {
-      console.log(data[i].ish_yonalishi,gotov[j].title);
+      
       if(data[i].ish_yonalishi==gotov[j].title){
 qosh=true
       }

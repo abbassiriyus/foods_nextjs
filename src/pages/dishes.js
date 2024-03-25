@@ -113,7 +113,7 @@ export default function dishes() {
     }
 
     function getkey(key) {
-        console.log(key);
+        
         var dat = [...advantages]
         if (dat[key].yes) {
             dat[key].yes = false
@@ -135,17 +135,14 @@ export default function dishes() {
     }
 
     function getAdvantagesUser(foodid) {
-    console.log(foodid);
+   
     axios.get(`${url()}/api/food_advantages`).then(res1 => {
        var a=res1.data.filter(item=>item.food_id==foodid)
-    axios.get(`${url()}/api/advantages`).then(res2 => {
-        console.log(res2.data);
-        console.log(a);
+    axios.get(`${url()}/api/advantages`).then(res2 => {;
     for (let i = 0; i < res2.data.length; i++) {
         res2.data[i].food_id=0
         res2.data[i].yes=false
        for (let j = 0; j < a.length; j++) {
-        console.log(res2.data[i].id,a[j].advantages_id);
       if(res2.data[i].id===a[j].advantages_id){
         res2.data[i].food_id=a[j].food_id
         res2.data[i].yes=true

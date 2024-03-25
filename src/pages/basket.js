@@ -15,7 +15,7 @@ function getData() {
   var user=localStorage.getItem('user')
   if(user){ 
    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
- console.log(res.data);
+
  var a=res.data.filternew.filter(item=>item.food)
     setData(a)
    })
@@ -50,7 +50,7 @@ function deleteData(id) {
     })
 }
 function deleteAll(params) {
-  console.log(params);
+
   for (let i = 0; i < params.length; i++) {
    axios.delete(`${url()}/api/karzinka/${params[i].shopid}`).then(res=>{
     getData()

@@ -35,7 +35,7 @@ res.data.comment[i].date=formattedDate
 }
 setCommnet(res.data.comment)
 
- console.log(res.data);
+ 
   }).catch(err=>{
     alert(err)
   })
@@ -43,7 +43,7 @@ setCommnet(res.data.comment)
 
 function buyOne(food_id) {
   var user=localStorage.getItem('user')
-  console.log(user);
+  
 if(user){
 var send_data=new FormData()
 send_data.append("user_ca_id",JSON.parse(user)[0].id)

@@ -58,7 +58,7 @@ var [allprice,setAllPrice]=useState(0)
     a=a+((JSON.parse(oneproduct).food[i]).count*(JSON.parse(oneproduct).food[i]).price)
     }
     setAllPrice(a)
-    console.log(JSON.parse(oneproduct));
+    
     setData(JSON.parse(oneproduct))
   },[])
   function postdata(){
@@ -94,9 +94,9 @@ var [allprice,setAllPrice]=useState(0)
   data1.append('date',document.querySelector("#input_day").value)
     
 
-  console.log(data1);
+  
 axios.post(`${url()}/api/food_seller`,data1).then(res=>{
-  console.log("o`xshadi");
+ 
 var my_data=JSON.parse(localStorage.getItem("user"))
 var sendmessage=`sender:${my_data[0].name}, phone:${my_data[0].phone}.
 name: ${data1.get('fullname')}  ${data1.get('phone')}.
@@ -134,7 +134,7 @@ console.log(err);
   sendroom.append("user2",data.user_id)
 axios.post(`${url()}/api/room`,sendroom ).then(res=>{
   var senddata=new FormData()
-  console.log(my_data[0]);
+ 
   senddata.append("user_id",my_data[0].id)
   senddata.append("room_id",res.data.id)
   senddata.append("message",sendmessage)

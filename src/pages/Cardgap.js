@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import c from "../styles/Cardgap.module.css"
 export default function Cardgap({data1}) {
 useEffect(()=>{
-console.log(data1);
+
 })
 return (
 <div>

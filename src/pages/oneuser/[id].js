@@ -28,7 +28,7 @@ export default function first() {
       setCategory(res.data.category)
       setCommnet(res.data.commnet)
       setFoods(res.data.foods)
-      console.log(res.data);
+    
       }).catch(err=>{
         alert(err)
       })

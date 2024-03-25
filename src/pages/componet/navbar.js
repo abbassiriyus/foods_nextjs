@@ -26,6 +26,7 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
+import { GeolocationControl, Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
@@ -172,6 +173,16 @@ var [company,SetCompany]=useState({
     })
 
   }
+  useEffect(() => {
+    setTimeout(() => {
+      ymaps.geocode({ center: [55.751244, 37.618423], zoom: 10 }).then((res) => {
+        const firstGeoObject = res.geoObjects.get(0);
+        const addressLine = firstGeoObject.getAddressLine(); // addressLine ni olish
+        setSelectedPlace(addressLine.slice(20));
+      });
+  
+    }, 1000);
+  }, []);
 
 var [resgister,setRegister]=useState(0)
   function sendMessage() {
@@ -183,6 +194,11 @@ var [resgister,setRegister]=useState(0)
     var password_input=document.querySelector("#password_input")
 
   if((phone_input.value).length>7 && (password_input.value).length>7 && (email_input.value).includes('@gmail.com')){
+    
+    var data1=new FormData()
+    
+    data1.append("email", email_input.value )
+  axios.post(`${url()}/api/verify`,data1).then(res=>{
     phone_input.disabled=true
     email_input.disabled=true
     password_input.disabled=true
@@ -190,9 +206,6 @@ var [resgister,setRegister]=useState(0)
     email_div.style="border:1px solid grey"
     password_div.style="border:1px solid grey"
     setRegister(1)
-    var data=new FormData()
-    data.append("phone", email_input.value )
-  axios.post(`${url()}/api/verify`,data).then(res=>{
     document.querySelector('#phone_code').style="display:block"
   })
   }else{
@@ -243,25 +256,17 @@ window.location="/profile/"
     const coordinates = e.get('coords');
   
     // Geocode using Yandex Maps API
-    window.ymaps.geocode(coordinates).then((res) => {
+    ymaps.geocode(coordinates).then((res) => {
       const firstGeoObject = res.geoObjects.get(0);
       const addressLine = firstGeoObject.getAddressLine(); // addressLine ni olish
       setSelectedPlace(addressLine.slice(20));
     });
   }
   useEffect(() => {
-    if (window.ymaps && !mapRef.current) {
-      mapRef.current = new window.ymaps.Map('map', {
-        center: [55.751244, 37.618423], // Initial center coordinates
-        zoom: 15
-      });
-      mapRef.current.events.add('click', handleMapClick);
-    }
-if(localStorage.getItem('localmap')){
-   setSelectedPlace(localStorage.getItem('localmap'))
-}
    
-  
+   if(localStorage.getItem('localmap')){
+   setSelectedPlace(localStorage.getItem('localmap'))
+   }
   }, []);
   var [errorPassword, setErrorpassword] = useState('')
   function loginPage() {
@@ -296,7 +301,7 @@ if(localStorage.getItem('localmap')){
     } else {
       axios.post(`${url()}/api/login`, send_data).then(res => {
         localStorage.setItem('token',res.data.token)
-        console.log(res.data.user);
+        
         localStorage.setItem('user',JSON.stringify(res.data.user))
         setTimeout(() => {
           window.location='/profile/'
@@ -379,11 +384,14 @@ document.querySelector("#modal32").style="display:none;"
 function sellectdatachange(key,check) {
   var a=[...data]
   a[key].push=check
-  console.log(a);
+ 
   setData(a)
 }
   return (
-    <div>
+    <div>  
+      <Head>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
+      </Head>
       <div className={s.navbar_big}>
         <div className={s.navbar}>
 
@@ -463,10 +471,16 @@ function sellectdatachange(key,check) {
               {selectedPlace?(<button onClick={()=>{inpoch()}} style={{backgroundColor:'#06c160'}} id='inpoch_btn' >Ок</button>):(   <button onClick={()=>{inpoch()}} style={{backgroundColor:'#efefef'}} id='inpoch_btn' >Ок</button>)}           
             </div>
             <div className={s.openbtn_map3_map}>
-            <Head>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
-      </Head>
-           <div id="map" style={{ width: '100%', height: '400px' }}></div>
+        
+        
+           <YMaps   query={{
+    apikey: "49b66546-e562-4119-b7ba-9adcce7e49a0",
+  }}>
+        <Map onClick={(e)=>{handleMapClick(e)}} defaultState={{ center: [55.751244, 37.618423], zoom: 10 }} style={{ width: '100%', height: '400px' }}>
+          <GeolocationControl options={{ float: 'left' }} />
+          {/* {placemarkCoordinates && <Placemark geometry={placemarkCoordinates} />} */}
+        </Map>
+      </YMaps>
               {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5994.922998991916!2d69.35282709072807!3d41.29882294560782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef594c08ad48d%3A0xb08a62f6608102ad!2z0KLRg9C30LXQu9GMLTEsINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1707746865702!5m2!1sru!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
             </div>
 

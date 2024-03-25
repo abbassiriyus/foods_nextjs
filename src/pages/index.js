@@ -13,6 +13,7 @@ import url from "./host/config";
 import Swiper from "../pages/SwiperGl.js";
 import Slidder from "../pages/slidder.js"
 import Swiperprofil from "../pages/Profilswiper.js"
+import Head from "next/head";
 export default function index() {
 var [data, setData] = useState([{}]);
 var [sizUchun,setSizUchun]=useState([])
@@ -84,6 +85,9 @@ getSizUchun();
 
 return (
 <div onClick={svgxclose}>
+<Head>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
+      </Head>
 <Navbar/>
 <div className={s.header} >
 <div className={s.h_h1} >
@@ -303,6 +307,9 @@ return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);win
 <div className={s.footer}>
 <Footer/>
 </div>
+<Head>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
+      </Head>
 </div>
 );
 }
