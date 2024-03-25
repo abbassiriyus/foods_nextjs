@@ -41,6 +41,22 @@ setCommnet(res.data.comment)
   })
 }
 
+function buyOne(food_id) {
+  var user=localStorage.getItem('user')
+  console.log(user);
+if(user){
+var send_data=new FormData()
+send_data.append("user_ca_id",JSON.parse(user)[0].id)
+send_data.append("food_id",food_id)
+send_data.append("count",1)
+localStorage.setItem("karzinka",1)
+axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+  }).catch(err=>{
+  })
+}else{
+  alert('Вы не зарегистрированы')
+}
+}
 
 function sendMessage() {
   
@@ -52,7 +68,7 @@ var usertwo=(JSON.parse(twouser))[0].id
 var test=false
 for (let i = 0; i < res.data.length; i++) {
   if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
-window.location="/profile"
+window.location="/profile/"
 test=true
   }
 }
@@ -62,7 +78,7 @@ if(!test){
   data1.append('user2',usertwo)
 axios.post(`${url()}/api/room`,data1).then(res=>{
   alert('Проверьте окно чата')
-window.location="/profile"
+window.location="/profile/"
 })
 }
   })
@@ -135,7 +151,7 @@ if(router.query.id){
 <h3>{food.price} ₽</h3>
 <p>{food.weight}</p>
 </div>
-<button>В корзину</button>
+<button onClick={()=>buyOne(food.id)}>В корзину</button>
 </div>
     </div>
     <div className={s.about_cook}>
@@ -171,7 +187,7 @@ if(router.query.id){
   return <p onClick={()=>{
     localStorage.setItem("category", item.id)
     setTimeout(() => {
-      window.location="/foods"
+      window.location="/foods/"
     }, 100);
   }} key={key} >{item.title}</p>
 })}

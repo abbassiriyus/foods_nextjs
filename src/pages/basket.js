@@ -15,7 +15,9 @@ function getData() {
   var user=localStorage.getItem('user')
   if(user){ 
    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
-  setData(res.data.filternew)
+ console.log(res.data);
+ var a=res.data.filternew.filter(item=>item.food)
+    setData(a)
    })
   }
 }
@@ -59,7 +61,7 @@ function deleteAll(params) {
 function offerZakaz(data) {
 localStorage.setItem("zakazall",JSON.stringify(data))
 setTimeout(() => {
-  window.location="/OformleniaZakaza"
+  window.location="/OformleniaZakaza/"
 }, 100);
 }
 
@@ -73,7 +75,7 @@ getData()
         {data==0?(<></>):(data.length==0?(<Found/>):(<>
        <div className={s.zakaz}>
     <div className={s.a_basket}>
-<a href="">Главная</a><span>Корзина</span>
+<a href="/">Главная</a><span>Корзина</span>
     </div>
     <h3 className={s.h3}>ВАШ ЗАКАЗ</h3>
 

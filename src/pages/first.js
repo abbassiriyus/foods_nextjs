@@ -14,8 +14,8 @@ return (
 
 <div className={c.slka}>
 <div className={c.s_p}>
-<a href="#" className={c.a1}>Главная <MdKeyboardArrowRight /></a>
-<a href="#" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
+<a href="/" className={c.a1}>Главная <MdKeyboardArrowRight /></a>
+<a href="/pover/" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
 <p>Чмиль Софья Сергеевна</p>
 </div>
 <p className={c.s_p1}><FiShare2 /> Поделиться</p>

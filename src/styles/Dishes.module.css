@@ -177,7 +177,7 @@ font-weight: 900;
 margin-bottom: 30px;
 }
 .dishes_inp{
-width: 65%;
+width: 100%;
 height: max-content;
 display: flex;
 justify-content: space-between;
@@ -314,6 +314,10 @@ width: 50%;
 display: flex;
 gap: 15px;
 flex-wrap: wrap;
+}
+.d_i{
+    width: 100%;
+    max-width: 900px;
 }
 .inp2_s_p12{
 width: max-content;

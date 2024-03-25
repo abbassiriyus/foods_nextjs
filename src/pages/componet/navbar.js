@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import s from '../../styles/Navbar.module.css'
 import { VscDeviceCamera } from "react-icons/vsc";
-import { GrClose } from "react-icons/gr";
 import { LuUnlink } from "react-icons/lu";
 import { SlMenu } from "react-icons/sl";
 import { FaLocationArrow } from "react-icons/fa";
-import { CiLocationArrow1 } from "react-icons/ci";
 import { FaArrowLeft } from "react-icons/fa6";
 import Input_error from './input_error';
 import Input_error2 from './input_error2';
-import { FaTelegramPlane, FaWeight } from "react-icons/fa";
-import { SiVk } from "react-icons/si";
 import { HiChevronDown } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
 import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
@@ -23,13 +19,13 @@ import axios from 'axios';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import url from '../host/config';
 import { AiOutlineClose } from "react-icons/ai";
-import { RiKey2Fill } from "react-icons/ri";
 import Aos from 'aos';
 import { FaCartShopping } from "react-icons/fa6";
 import { LuChefHat } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
+import Head from 'next/head';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
@@ -63,11 +59,13 @@ export default function Navbar() {
 
 var [count,setCount]=useState(0)
 function getshopcar(){
-  var user=localStorage.getItem('user')
+  var user2=JSON.parse(localStorage.getItem('user'))
+
   var user1=localStorage.getItem('karzinka')
   if(user1){
-axios.get(`${url()}/api/karzinka/${user[0].id}`).then(res=>{
-  setCount(res.data.count)
+axios.get(`${url()}/api/karzinka/${user2[0].id}`).then(res=>{
+  var a=res.data.filternew.filter(item=>item.food)
+  setCount(a.length)
 })
   }
 }
@@ -118,12 +116,8 @@ var [company,SetCompany]=useState({
     document.querySelector('#openbtn2_big').style = `display:none`
   }
   function inpoch() {
-    const a = document.querySelector('#inpoch').value
-    if (a.length > 0) {
-      document.querySelector('#inpoch_btn').style = `background-color:#06c160`
-    } else {
-      document.querySelector('#inpoch_btn').style = `background-color:#efefef;`
-    }
+    document.querySelector('#openbtn_map').style = `display:none`
+    localStorage.setItem("localmap",selectedPlace)
   }
 
   
@@ -142,7 +136,7 @@ var [company,SetCompany]=useState({
       setErrorphone("номер телефона слишком маленький")
     } else {
       var data_send = {
-        phone: phone.value
+        email: phone.value
       }
       axios.post(`${url()}/api/verify2`, data_send).then(res => {
         axios.post(`${url()}/api/verify`, data_send).then(res => {
@@ -167,7 +161,7 @@ var [company,SetCompany]=useState({
 
     var send_data = {
       code: code.value,
-      phone: phone2
+      email: phone2
     }
     axios.post(`${url()}/api/verify/check`, send_data).then(res => {
       localStorage.setItem('token', res.data.token)
@@ -197,7 +191,7 @@ var [resgister,setRegister]=useState(0)
     password_div.style="border:1px solid grey"
     setRegister(1)
     var data=new FormData()
-    data.append("phone", phone_input.value )
+    data.append("phone", email_input.value )
   axios.post(`${url()}/api/verify`,data).then(res=>{
     document.querySelector('#phone_code').style="display:block"
   })
@@ -219,20 +213,20 @@ function sendMessage2() {
   var password_input=document.querySelector("#password_input")
   var code=document.querySelector('#verify_code')
   var seb=new FormData()
-  seb.append("phone",phone_input.value)
+  seb.append("email",email_input.value)
   seb.append("code",code.value)
 axios.post(`${url()}/api/verify/check`,seb).then(res=>{
 if(res.data.user){
 localStorage.setItem("user",JSON.stringify(res.data.user))
-window.location="/profile"
+window.location="/profile/"
 }else{
-seb.append("email",email_input.value)
+seb.append("phone",phone_input.value)
 seb.append("password",password_input.value)
 axios.post(`${url()}/api/register`,seb, { headers: {
   Authorization: `${res.data.token}`}
 }).then(res=>{
   localStorage.setItem("user",JSON.stringify(res.data.data))
-window.location="/profile"
+window.location="/profile/"
 })
 
 }
@@ -242,7 +236,33 @@ window.location="/profile"
 })
 
   }
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const mapRef = useRef(null);
 
+  function handleMapClick(e) {
+    const coordinates = e.get('coords');
+  
+    // Geocode using Yandex Maps API
+    window.ymaps.geocode(coordinates).then((res) => {
+      const firstGeoObject = res.geoObjects.get(0);
+      const addressLine = firstGeoObject.getAddressLine(); // addressLine ni olish
+      setSelectedPlace(addressLine.slice(20));
+    });
+  }
+  useEffect(() => {
+    if (window.ymaps && !mapRef.current) {
+      mapRef.current = new window.ymaps.Map('map', {
+        center: [55.751244, 37.618423], // Initial center coordinates
+        zoom: 15
+      });
+      mapRef.current.events.add('click', handleMapClick);
+    }
+if(localStorage.getItem('localmap')){
+   setSelectedPlace(localStorage.getItem('localmap'))
+}
+   
+  
+  }, []);
   var [errorPassword, setErrorpassword] = useState('')
   function loginPage() {
     var phone = document.querySelector('#pp_phone')
@@ -252,7 +272,7 @@ window.location="/profile"
     var password_in = document.querySelector('#pp_parol_big')
     var password_error = document.querySelector('#error_password1')
     var send_data = {
-      phone: phone.value,
+      email: phone.value,
       password: password.value
     }
     if ((phone.value).length < 3) {
@@ -279,7 +299,7 @@ window.location="/profile"
         console.log(res.data.user);
         localStorage.setItem('user',JSON.stringify(res.data.user))
         setTimeout(() => {
-          window.location='/profile'
+          window.location='/profile/'
         }, 100);
       }).catch(err => {
         phone_in.style = "border:1px solid red"
@@ -377,12 +397,12 @@ function sellectdatachange(key,check) {
               <img src={company.image} alt="img" /></a>
           </div>
           <div className={s.navbar_line}>
-            <span id='aaa'><a href="/foods" onMouseEnter={() => onmousenter1()}>Все блюда</a>
+            <span id='aaa'><a href="/foods/" onMouseEnter={() => onmousenter1()}>Все блюда</a>
               <HiChevronDown style={{ fontSize: '14px' }} /></span>
-            <a href="/pover">Все повара</a>
+            <a href="/pover/">Все повара</a>
             {/* <a href="/forCooks">Регистрация поваров</a> */}
     {user?(user[0].pover?
-    ( <a href='/zakazi' style={{ color: '#06c160' }}>Мои заказы</a>):( 
+    ( <a href='/zakazi/' style={{ color: '#06c160' }}>Мои заказы</a>):( 
       <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>Стать поваром</a>)
        ):(
        <a style={{  color: '#06c160' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>
@@ -391,14 +411,14 @@ function sellectdatachange(key,check) {
           <div className={s.navbar_btn}>
             <button onClick={() => openbtn()}><FiSend />Укажите адрес доставки<HiChevronDown /></button>
           </div> 
-          {count==0?(<></>):(<a href='/basket' className={s.shopcar}><FaCartShopping className={s.shopcaricons} /><sup>{count}</sup></a>)} 
+          {count==0?(<></>):(<a href='/basket/' className={s.shopcar}><FaCartShopping className={s.shopcaricons} /><sup>{count}</sup></a>)} 
           <div className={s.navbar_vxod}>
          
             {user?(
             <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
             style={{background:`url(${user[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
               <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
-              <a href="/profile">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
+              <a href="/profile/">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
                 <div className={s.line2}></div>
                 <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
               </div>
@@ -418,8 +438,10 @@ function sellectdatachange(key,check) {
             document.querySelector('#openbtn1').style = "display:none"
 
           }} ><MdClose style={{ fontSize: '30px' }} /></div>
-          <div className={s.obtn}>
-            <h3 onClick={() => close_modal()}>Укажите адрес доставки</h3>
+          <div className={s.obtn} style={{paddingTop:'20px'}}>
+            {selectedPlace?(<p style={{padding:'0px',margin:'0px',lineHeight:'30px',width:'90%',margin:'auto',marginBottom:'20px',fontSize:'19px',background:'#00db6a1a'}}>{selectedPlace}</p>):(<h3 onClick={() => close_modal()}>Укажите адрес доставки</h3>)}
+           
+            
             <button onClick={() => adres()}>Выбрать дом и улицу</button>
           </div>
         </div>
@@ -436,11 +458,16 @@ function sellectdatachange(key,check) {
               }} /></span>
             </div>
             <div className={s.openbtn_map3_df2}>
-              <input id='inpoch' placeholder='Введите адрес' type="text" onKeyUp={() => inpoch()} />
-              <button id='inpoch_btn'>Ок</button>
+              {/* <textarea id='inpoch' value={selectedPlace} placeholder='Введите адрес' type="text" onKeyUp={() => inpoch()} /> */}
+              <p style={{maxWidth:'400px'}}>{selectedPlace}</p>
+              {selectedPlace?(<button onClick={()=>{inpoch()}} style={{backgroundColor:'#06c160'}} id='inpoch_btn' >Ок</button>):(   <button onClick={()=>{inpoch()}} style={{backgroundColor:'#efefef'}} id='inpoch_btn' >Ок</button>)}           
             </div>
             <div className={s.openbtn_map3_map}>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5994.922998991916!2d69.35282709072807!3d41.29882294560782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef594c08ad48d%3A0xb08a62f6608102ad!2z0KLRg9C30LXQu9GMLTEsINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1707746865702!5m2!1sru!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <Head>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
+      </Head>
+           <div id="map" style={{ width: '100%', height: '400px' }}></div>
+              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5994.922998991916!2d69.35282709072807!3d41.29882294560782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef594c08ad48d%3A0xb08a62f6608102ad!2z0KLRg9C30LXQu9GMLTEsINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1707746865702!5m2!1sru!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
             </div>
 
           </div>
@@ -452,7 +479,7 @@ function sellectdatachange(key,check) {
       <div id='onmouse' className={s.onmous} onMouseLeave={() => NavbarDropdavnButton()} >
         <ul>
           {data.map((item, key) => {
-            return <li onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}} key={key}><a href="#">{item.title}</a></li>
+            return <li onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}} key={key}><a href="#">{item.title}</a></li>
           })}
         </ul>
       </div>
@@ -465,7 +492,7 @@ function sellectdatachange(key,check) {
             <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
             style={{background:`url(${user[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
               <div id='modal_chiqish' style={{display:'none'}} onMouseLeave={()=>{document.querySelector('#modal_chiqish').style="display:none"}} className={s.modal_chiqish}>
-              <a href="/profile">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
+              <a href="/profile/">  <h3>{user[0].name?(user[0].name):(user[0].email)}</h3></a>
                 <div className={s.line2}></div>
                 <h4 onClick={()=>{document.querySelector('#modal_chiqish').style="display:none"; localStorage.clear("user");window.location.reload()}}><IoExitOutline/>Выйти</h4>
               </div>
@@ -476,10 +503,10 @@ function sellectdatachange(key,check) {
         
         </div> <div className={s.line1}></div>
         <div className={s.openmenu}>
-          <p ><a href="/foods">Все блюда</a></p>
-          <p><a href="/pover">Все повара</a></p>
+          <p ><a href="/foods/">Все блюда</a></p>
+          <p><a href="/pover/">Все повара</a></p>
          {user?(user[0].pover?
-    ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
+    ( <a href='/zakazi/' style={{ color: 'black',textDecoration:'none' }}>
       
       Мои заказы</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
@@ -544,7 +571,7 @@ function sellectdatachange(key,check) {
               <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
               <br />
               <div id='openUserpage_phone1' className={s.input_phone_gl}>
-                <input id='openUserpage_phone' defaultValue="+7" type="text" />
+                <input id='openUserpage_phone' placeholder="your email" defaultValue={""} type="email" />
                 <div id='error_phone' style={{ position: "relative", zIndex: -1 }}>
                   <Input_error message={error_phone} />
                   <IoIosInformationCircleOutline />
@@ -560,7 +587,7 @@ function sellectdatachange(key,check) {
                 <div className={s.back_gl1}><span onClick={() => setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
                 <br />
                 <div className={s.input_phone_gl} id='pp_phone_big' >
-                  <input type="text" id='pp_phone' defaultValue="+7" />
+                  <input placeholder="your email" defaultValue={""} type="email" id='pp_phone' />
                   <div id='error_phone1' style={{ position: "relative", zIndex: -1, color: "red" }}>
                     <Input_error message={error_phone} />
                     <IoIosInformationCircleOutline style={{ color: "red" }} /></div>
@@ -573,9 +600,9 @@ function sellectdatachange(key,check) {
                 </div>
                 <div className={s.key_btn}>
                   <button style={{ width: '30%' }} onClick={() => { loginPage() }} >Войти</button>
-                  <div onClick={() => setPage(3)} className={s.rikey}>
+                  {/* <div onClick={() => setPage(3)} className={s.rikey}>
                     <RiKey2Fill className={s.fill_key} /><span style={{ cursor: 'pointer' }} >Напомнить пароль</span>
-                  </div>
+                  </div> */}
                 </div> 
 
                 
@@ -653,14 +680,11 @@ function sellectdatachange(key,check) {
                   <input value={phone2} disabled type="text" />
                 </div>
 
-                <p style={{ color: 'black', width: '100%' }} className={s.strong_p}>На указанный номер поступит звонок. Введите последние <strong style={{ color: 'black' }}>4 цифры номера телефона</strong> , с которого был звонок</p>
+                <p style={{ color: 'black', width: '100%' }} className={s.strong_p}>Код подтверждения был отправлен на вашу <strong style={{ color: 'black' }}>электронную почту </strong></p>
                 <div className={s.input_phone_gl} id='code13'>
                   <input placeholder='Код подтверждения' id='code12' type="number" />
                 </div>
-                ashed changes
                 <button onClick={() => { openPageCheck() }} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
-                <span>Отправить СМС на указанный номер</span>
-
               </div>):(
               <div id='akk' className={s.akkaunt}>
   <div className={s.wht}>
@@ -669,7 +693,7 @@ function sellectdatachange(key,check) {
 Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
 <button onClick={()=>{
   document.querySelector("#modal32").style="display:none;"
-  window.location="/profile" 
+  window.location="/profile/" 
 }} >Продолжить</button>
   </div>
 </div>)
@@ -833,11 +857,11 @@ function sellectdatachange(key,check) {
 <div className={s.n_1}>
 <div className={s.n_t2}>
 <div className={s.blyuda}>
-<a href='/foods' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> Все блюда</a>
+<a href='/foods/' style={{ color: 'black',textDecoration:'none' }}><LuChefHat className={s.b_i} /> <br /> Все блюда</a>
 </div>
 <div className={s.blyuda}>
 {user?(user[0].pover?
-    ( <a href='/zakazi' style={{ color: 'black',textDecoration:'none' }}>
+    ( <a href='/zakazi/' style={{ color: 'black',textDecoration:'none' }}>
       <IoBagHandleOutline className={s.b_i} /><br />
       Мои заказы</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
@@ -849,7 +873,7 @@ function sellectdatachange(key,check) {
 </div>
 <div className={s.blyuda}>
 {user?(user[0].pover?
-    ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
+    ( <a href='/profile/' style={{ color: 'black',textDecoration:'none' }}>
       <CiUser className={s.b_i} /><br />
       Профил</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
@@ -860,7 +884,7 @@ function sellectdatachange(key,check) {
 </div>
 <div className={s.blyuda}>
 {user?(user[0].pover?
-    ( <a href='/profile' style={{ color: 'black',textDecoration:'none' }}>
+    ( <a href='/profile/' style={{ color: 'black',textDecoration:'none' }}>
       <PiChatsDuotone className={s.b_i} /><br />
       Чаты</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>

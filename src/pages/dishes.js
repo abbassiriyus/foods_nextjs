@@ -93,9 +93,10 @@ export default function dishes() {
         if(advantages[i].yes){
              var send12=new FormData()
              send12.append("food_id",res.data.id)
-             send12.append("advantages_id",advantages[i].id)
+             send12.append("advantages_id",advantages[i].id) 
+             setPage(0)
      axios.post(`${url()}/api/food_advantages`, send12 ).then(res=>{
-       setPage(0)
+      
        getData()
        }).catch(err=>{
         setPage(0)

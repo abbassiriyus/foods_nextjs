@@ -124,10 +124,7 @@ if(room_yes){
   senddata.append("message",sendmessage)
 axios.post(`${url()}/api/messages`,senddata).then(res=>{
 alert("сообщение отправлено")
-window.location="/profile"
-window.location="/profile"
-
-
+window.location="/profile/"
 }).catch(err=>{
 console.log(err);
 })
@@ -143,7 +140,7 @@ axios.post(`${url()}/api/room`,sendroom ).then(res=>{
   senddata.append("message",sendmessage)
 axios.post(`${url()}/api/messages`,senddata).then(res=>{
 alert("сообщение отправлено")
-window.location="/profile"
+window.location="/profile/"
 }).catch(err=>{
 console.log(err);
 })
@@ -159,7 +156,7 @@ console.log(err);
 
 
 
-  // window.location='/profile'
+  // window.location='/profile/'
 }).catch(err=>{
   console.log("xato");
 })

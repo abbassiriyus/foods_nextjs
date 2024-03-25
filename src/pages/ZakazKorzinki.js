@@ -8,7 +8,7 @@ function App() {
 return (
 <div className={d.App_korzinka}>
 <div className={d.where_korzinka}>
-<a href="#">Главная<span><IoIosArrowForward /></span></a>
+<a href="/">Главная<span><IoIosArrowForward /></span></a>
 <p>Корзина</p>
 </div>
 <div className={d.My_goods}>

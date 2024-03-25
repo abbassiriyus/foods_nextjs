@@ -20,15 +20,16 @@ const tiltRef = useRef(null);
       }
     }, []);
 function sendcard() {
-   window.location=`/menudetail/${props.data.id}` 
+   window.location=`/menudetail/${props.data.id}/` 
 }
 
 function senduser() {
-  window.location=`/oneuser/${props.data.user_povar_id}`
+  window.location=`/oneuser/${props.data.user_povar_id}/`
 }
 
 function buyOne(food_id) {
   var user=localStorage.getItem('user')
+  console.log(user);
 if(user){
 var send_data=new FormData()
 send_data.append("user_ca_id",JSON.parse(user)[0].id)

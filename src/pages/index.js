@@ -94,7 +94,7 @@ return (
 <h1 className={s.h_h2} style={{ paddingTop:'30px' }}>У НАС ЕСТЬ <br /> ЧТО ПОЕСТЬ!</h1>
 <p className={s.h_p1}>Тебе не нужно покупать продукты, готовить и мыть посуду. Наслаждайся вкусной едой без лишних забот!
 </p>
-<a href="/foods"><button className={s.h_button}>Выбрать блюда</button></a>
+<a href="/foods/"><button className={s.h_button}>Выбрать блюда</button></a>
 <p className={s.h_p2}>Вы повар? — <span className={s.h_span1}>давайте с нами!</span>
 </p>
 <span className={s.h_span2}>Регистрация займет всего 3 минуты</span>
@@ -132,7 +132,7 @@ alt=""
 <p className={s.stoimost}>{data[swiper].price} ₽</p>
 </div>
 <div className={s.s_p_i_s1}>
-<div onClick={()=>{window.location=`/oneuser/${data[swiper].user_id}`}} className={s.s_infa}>
+<div onClick={()=>{window.location=`/oneuser/${data[swiper].user_id}/`}} className={s.s_infa}>
 <p className={s.sotuvchi}>{data[swiper].name}</p>
 <div className={s.bal}>
 {['','','','',''].map((item,key)=>{
@@ -149,7 +149,7 @@ return <FaStar className={s.star1} />
 <p className={s.kakoypovar}>{data[swiper].ish_yonalishi_title}</p>
 </div>
 <div className={s.s_button}>
-<button onClick={()=>{window.location=`/menudetail/${data[swiper].food_id}`}} >Заказать</button>
+<button onClick={()=>{window.location=`/menudetail/${data[swiper].food_id}/`}} >Заказать</button>
 </div>
 </div>
 </div>
@@ -176,7 +176,7 @@ return <FaStar className={s.star1} />
 <div></div>
 )}
 </div>
-<button className={s.m_button}>Найти</button>
+<button className={s.m_button} onClick={()=>{ window.location="/foods/" }}>Найти</button>
 </div>
 </div>
 
@@ -184,7 +184,7 @@ return <FaStar className={s.star1} />
 <h1 className={s.jison}>Подборки для тебя</h1>
 <div className={s.cards}>
 {sizUchun.map((item,key)=>{
-return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p >{item.title}</p>
@@ -199,7 +199,7 @@ return <div  onClick={()=>{localStorage.setItem('category',item.id);window.locat
 <h1 className={s.jison}>Блюда от поваров</h1>
 <div className={s.cards}>
 {oshpazdanTaom.map((item,key)=>{
-return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -214,7 +214,7 @@ return <div  onClick={()=>{localStorage.setItem('category',item.id);window.locat
 <h1 className={s.jison}>Десерты от кондитеров</h1>
 <div className={s.cards}>
 {shirinliklar.map((item,key)=>{
-return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}}  key={key} className={s.c}>
+return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}}  key={key} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>
@@ -229,7 +229,7 @@ return <div  onClick={()=>{localStorage.setItem('category',item.id);window.locat
 <h1 className={s.jison}>Полезные продукты</h1>
 <div className={s.cards}>
 {soglom.map((item,key)=>{
-return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods"}} className={s.c}>
+return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}} className={s.c}>
 <img className={s.card_img} src={item.image} alt="" />
 <div className={s.c_soz}>
 <p>{item.title}</p>

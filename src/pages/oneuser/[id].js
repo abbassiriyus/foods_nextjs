@@ -42,7 +42,7 @@ export default function first() {
     var test=false
     for (let i = 0; i < res.data.length; i++) {
       if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
-       window.location="/profile"
+       window.location="/profile/"
        test=true
       }
     }
@@ -52,7 +52,7 @@ export default function first() {
       data1.append('user2',usertwo)
     axios.post(`${url()}/api/room`,data1).then(res=>{
       alert('Проверьте окно чата')
-    window.location="/profile"
+    window.location="/profile/"
     })
     }
       })
@@ -62,11 +62,11 @@ export default function first() {
 
     }
     function sendcard(id) {
-      window.location=`/menudetail/${id}` 
+      window.location=`/menudetail/${id}/` 
    }
    
    function senduser(id) {
-     window.location=`/oneuser/${id}`
+     window.location=`/oneuser/${id}/`
    }
    function buyOne(food_id) {
     var user=localStorage.getItem('user')
@@ -109,7 +109,7 @@ return (
 <div className={c.slka}>
 <div className={c.s_p}>
 <a href="/" className={c.a1}>Главная <MdKeyboardArrowRight /></a>
-<a href="/pover" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
+<a href="/pover/" className={c.a1}>Все повора <MdKeyboardArrowRight /></a>
 <p>{user.name} {user.lastname} {user.username}</p>
 </div>
 <p className={c.s_p1}><FiShare2 /> Поделиться</p>
@@ -140,7 +140,7 @@ return (
 <p><BiCommentDetail /> {user.mark_org} отзыва</p>
 </div>
 </div>
-<button>Написать</button>
+<button onClick={()=>{sendMessage()}}>Написать</button>
 </div>
 <div className={c.p2}>
 <div className={c.block0}>

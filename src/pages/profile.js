@@ -119,7 +119,7 @@ if(a){
   localStorage.setItem("user",JSON.stringify([res.data]))
   document.querySelector('#userimage').style=` background: url(${res.data.image}); background-size: cover;background-position: center;  background-repeat: no-repeat;`
   }).catch(err=>{
-    // window.location='/'
+    
   })
 }else{
   window.location='/'
@@ -228,16 +228,16 @@ useEffect(()=>{
   <div className={s.lines}>
 <div className={s.line}>
         <div onClick={() => setPage(0)} className={s.line1}>
-          <a style={page == 0 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Профиль</a>
+          <a style={page == 0 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }}>Профиль</a>
         </div>
         <div onClick={() => setPage(1)} className={s.line1}>
-          <a style={page == 1 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Чаты</a>
+          <a style={page == 1 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} >Чаты</a>
         </div>
         {(user && user[0].pover)?(<>    <div onClick={() => setPage(2)} className={s.line1}>
-          <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Мои блюди</a>
+          <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }}>Мои блюди</a>
         </div>
         <div onClick={() => setPage(3)} className={s.line1}>
-          <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} href="#">Полезные материалы</a>
+          <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} >Полезные материалы</a>
         </div></>):(<></>)}
     
       </div>
