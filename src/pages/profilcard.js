@@ -3,8 +3,37 @@ import pc from "../styles/Profilcard.module.css"
 import { BiCommentDetail } from "react-icons/bi";
 import { FaStar } from "react-icons/fa";
 import url from "./host/config";
+import axios from 'axios';
 export default function profilcard({data}) {
-
+    function sendMessage(id) { 
+       
+        var twouser=localStorage.getItem('user')
+      if(twouser){
+      axios.get(`${(url())}/api/room`).then(res=>{
+      var usertwo=(JSON.parse(twouser))[0].id
+      var test=false
+      for (let i = 0; i < res.data.length; i++) {
+        if((res.data[i].user1==id && res.data[i].user2==usertwo) || (res.data[i].user2==id && res.data[i].user1==usertwo) ){
+         window.location="/profile/"
+         test=true
+        }
+      }
+      if(!test){
+        var data1=new FormData()
+        data1.append('user1',id)
+        data1.append('user2',usertwo)
+      axios.post(`${url()}/api/room`,data1).then(res=>{
+        alert('Проверьте окно чата')
+      window.location="/profile/"
+      })
+      }
+        })
+      }else{
+        alert('Вы не зарегистрированы')
+      }
+  
+      }
+    
 return (
 <div>
  {data?(<div className={pc.cards}>
@@ -45,7 +74,7 @@ return (
 </div>
 <div className={pc.p_b}>
     
-<center><button>Написать сообщение</button></center>
+<center><button onClick={()=>{sendMessage(data.id)}}>Написать сообщение</button></center>
 </div>
 </div>
  </div>):(<></>)}
