@@ -17,6 +17,7 @@ import Slidder from "../pages/slidder.js"
 import Swiperprofil from "../pages/Profilswiper.js"
 import Head from "next/head";
 import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
+import Glavniy_registr from "./Glavniy_registr";
 export default function index() {
 var [data, setData] = useState([{}]);
 var [sizUchun,setSizUchun]=useState([])
@@ -278,175 +279,13 @@ return <div key={key} onClick={()=>{localStorage.setItem('category',item.id);win
 <Swiperprofil/>
 </div>
 
+<Glavniy_registr/>
 
-
-
-<div className={s.qoshilish}>
-<div className={s.q_soz}>
-<h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
-<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
-<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
-— регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
-<button>Зарегистрироватся</button>
-</div>
-<div className={s.q_img}>
-<Image src={img1} alt="" />
-</div>
-</div>
-
-<div className={s.qoshilish2}>
-<div className={s.q_soz}>
-<h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
-<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
-<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
-— регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
-<div className={s.q_soz_b}>
-<button onClick={() => { document.querySelector("#modal_gl").style = "display:flex"; setPage(0) }}>Зарегистрироватся</button>
-</div>
-</div>
-<div className={s.q_img}>
-<Image src={img1} alt="" />
-</div>
-</div>
 
 <div className={s.footer}>
 <Footer/>
 </div>
-{page == 0 ? (
-            <div className={s.form_body_gl}>
-              <h3>Вход на сайт</h3>
-              <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
-              <br />
-              <div id='openUserpage_phone1' className={s.input_phone_gl}>
-                <input id='openUserpage_phone' placeholder="your email" defaultValue={""} type="email" />
-                <div id='error_phone' style={{ position: "relative", zIndex: -1 }}>
-                  <Input_error message={error_phone} />
-                  <IoIosInformationCircleOutline />
-                </div>
-              </div>
-
-
-              <button onClick={() => openPagePhone()} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
-            </div>) : (
-              page == 1 ? (
-              <div className={s.form_body_gl}>
-                <h3>Вход на сайт</h3>
-                <div className={s.back_gl1}><span onClick={() => setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
-                <br />
-                <div className={s.input_phone_gl} id='pp_phone_big' >
-                  <input placeholder="your email" defaultValue={""} type="email" id='pp_phone' />
-                  <div id='error_phone1' style={{ position: "relative", zIndex: -1, color: "red" }}>
-                    <Input_error message={error_phone} />
-                    <IoIosInformationCircleOutline style={{ color: "red" }} /></div>
-                </div>
-                <div className={s.input_phone_gl} id='pp_parol_big' >
-                  <input placeholder='Пароль' id='pp_parol' type="password" />
-                  <div id="error_password1" style={{ position: "relative", zIndex: -1, color: "red" }}>
-                    <Input_error2 message={errorPassword} />
-                    <IoIosInformationCircleOutline style={{ color: "red" }} /></div>
-                </div>
-                <div className={s.key_btn}>
-                  <button style={{ width: '30%' }} onClick={() => { loginPage() }} >Войти</button>
-                  {/* <div onClick={() => setPage(3)} className={s.rikey}>
-                    <RiKey2Fill className={s.fill_key} /><span style={{ cursor: 'pointer' }} >Напомнить пароль</span>
-                  </div> */}
-                </div> 
-
-                
-              </div> 
-            ) : (
-              page == 2 ? (
-              <div className={s.form_body_gl}>
-                <h3 >Регистрация</h3>
-                <div className={s.back_gl} onClick={() => setPage(0)}><FaArrowLeftLong /><span> Я уже зарегистрирован</span></div>
-                <br />
-                <div className={s.input_phone_gl} id='phone_div'>
-                  <input type="text" defaultValue={'+7'}  id='phone_input' />
-                  <IoIosInformationCircleOutline />
-                </div>
-                <div id='email_div' className={s.input_phone_gl}>
-                  <input placeholder='Email' id='email_input' type="text" />
-                  <IoIosInformationCircleOutline />
-                </div>
-                <div id='password_div' className={s.input_phone_gl}>
-                  <input placeholder='Пароль' id='password_input' type="password" /><IoIosInformationCircleOutline />
-                </div>
-
-            <div className={s.kod_2} style={{display:'none'}} id='phone_code'>
-            {/* <p>На указанный номер поступит звонок. <a href="#">Введите последние 4 цифры номера телефона</a> , с которого был звонок.</p> */}
-            <br /><br />
-          <input type="text" name="" placeholder='Код подтверждения' id="verify_code" />
-         <p>
-          <a onClick={()=>{sendMessage()}} href="#">Отправить СМС</a> на указанный номер</p>
-        </div>
-                <div className={s.line_gl}></div>
-
-
-
-                <p>
-                  Нажимая на кнопку «Зарегистрироваться», я даю согласие на обработку моих персональных данных в соответствии с <a href="https://drive.google.com/file/d/1RlOINff9vQf9p1mgHgXrz1ExtXf0ZcJM/view">политикой информационной безопасности</a>. Мы не используем данные и не присылаем рассылки
-                </p>
-{resgister==0?( <button onClick={()=>sendMessage()} >Зарегистрироваться</button>
-              ):(<button onClick={()=>sendMessage2()} >Зарегистрироваться</button>)}
-               
-              </div>
-
-            ) : (
-              page == 3 ? (
-              <div className={s.form_body_gl2}>
-                <h3>Напомнить пароль</h3>
-                <div onClick={() => setPage(1)} style={{ marginTop: '40px', marginBottom: '30px' }} className={s.back_gl}><FaArrowLeftLong /><span>Вернуться к авторизации</span> </div>
-                <p style={{ textAlign: 'center', textDecoration: 'none', }}> Введите email, указанный при регистрации. Мы пришлем ссылку на изменение пароля</p>
-                <br />
-                <div className={s.input_phone_gl2}>
-                  <input placeholder='Email' type="text" /><IoIosInformationCircleOutline />
-                </div>
-
-
-
-                <button className={s.kod_o} onClick={() => setPage(4)} >Отправить код</button>
-              </div>
-            ) : (
-              page == 4 ? (
-              <div className={s.form_body_gl}>
-                <h3 style={{ textAlign: 'center' }}>Письмо отправлено</h3>
-                <div style={{ marginTop: '10px', textAlign: 'center' }} className={s.back_gl2}> На указанный email было отправлено письмо со ссылкой для смены пароля. </div>
-                <br />
-                <center>  
-                  <input type="" />
-                  <button onClick={() => { document.querySelector('#modal_gl').style = "display:none" }} style={{ marginTop: '10px', width: '30%', height: '45px' }}>Ок</button></center>
-
-              </div>
-            ) : (
-              page==5?(
-              <div className={s.form_body_gl}>
-                <h3>Вход на сайт</h3>
-                <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
-                <br />
-                <div className={s.input_phone_gl}>
-                  <input value={phone2} disabled type="text" />
-                </div>
-
-                <p style={{ color: 'black', width: '100%' }} className={s.strong_p}>Код подтверждения был отправлен на вашу <strong style={{ color: 'black' }}>электронную почту </strong></p>
-                <div className={s.input_phone_gl} id='code13'>
-                  <input placeholder='Код подтверждения' id='code12' type="number" />
-                </div>
-                <button onClick={() => { openPageCheck() }} style={{ marginTop: '40px', width: '40%', height: '45px' }}>Отправить код</button>
-              </div>):(
-              <div id='akk' className={s.akkaunt}>
-  <div className={s.wht}>
-    <h3>Заявка принята</h3>
-    <p>Отлично, аккаунт изготовителя успешно <br /> создан! <br/>
-Скорее добавляйте свои блюда, чтобы <br/> пользователи могли их заказать!</p>
-<button onClick={()=>{
-  document.querySelector("#modal32").style="display:none;"
-  window.location="/profile/" 
-}} >Продолжить</button>
-  </div>
-</div>)
-            )
-
-            ))))}
+{/*  */}
 <Head>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
       </Head>

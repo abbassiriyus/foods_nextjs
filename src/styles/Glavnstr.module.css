@@ -927,7 +927,7 @@ cursor: pointer;
 transition: .3s;
 }
 .q_soz button:hover{
-background-color: white;
+background-color: rgba(255, 255, 255, 0);
 border: 1px solid #06c160;
 color: #06c160;
 }
@@ -1240,5 +1240,5 @@ justify-content: space-between;
 
 .footer{
 width: 100%;
-margin-top: 100px;
+/* margin-top: 100px; */
 }

@@ -25,6 +25,9 @@
 .card_text2{
     padding: 20px;
 }
+.card_img h3{
+    padding-bottom: 4px;
+}
 .card_text2 .card_image12{
     /* width: 300px; */
     height: 50px;
@@ -100,6 +103,9 @@
     font-family: 'Manrope', sans-serif;
     font-size: 13px;
 }
+.card_text a h2{
+    height: 40px;
+}
 .korzina{
     display: flex;
     align-items: center;
@@ -108,11 +114,11 @@
 }
 .korzina button{
     background-color: #06c160;
-    border: none;
+    border: 1px solid;
     color: white;
     font-family: 'Manrope', sans-serif;
     font-weight: 900;
-    padding: 15px 35px;
+    padding: 15px;
     border-radius: 8px;
     transition: 1s;
 }

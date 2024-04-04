@@ -234,7 +234,7 @@ useEffect(()=>{
           <a style={page == 1 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} >Чаты</a>
         </div>
         {(user && user[0].pover)?(<>    <div onClick={() => setPage(2)} className={s.line1}>
-          <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }}>Мои блюди</a>
+          <a style={page == 2 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }}> Блюдa</a>
         </div>
         <div onClick={() => setPage(3)} className={s.line1}>
           <a style={page == 3 ? { background: '#06c160', color: 'white' } : { background: 'rgb(224, 224, 224)', color: 'black' }} >Полезные материалы</a>

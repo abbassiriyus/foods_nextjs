@@ -8,6 +8,7 @@ import img1 from "../images/woman.png"
 import Image from "next/image";
 import Footer from "../pages/componet/footer"
 import Navbar from "../pages/componet/navbar";
+import Glavniy_registr from "./Glavniy_registr";
 export default function glavnstr() {
 var [data, setData] = useState([
 {
@@ -327,34 +328,7 @@ alt=""
 
 
 
-<div className={s.qoshilish}>
-<div className={s.q_soz}>
-<h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
-<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
-<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
-— регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
-<button>Зарегистрироватся</button>
-</div>
-<div className={s.q_img}>
-<Image src={img1} alt="" />
-</div>
-</div>
-
-<div className={s.qoshilish2}>
-<div className={s.q_soz}>
-<h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
-<p className={s.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
-<p className={s.qoshish_p2}>Вы повар, кондитер или фермер? <br />
-— регистрируйтесь в сервисе, публикуйте свои замечательные блюда или продукты, откликайтесь на заказы. Профит!</p>
-<div className={s.q_soz_b}>
-<button>Зарегистрироватся</button>
-</div>
-</div>
-<div className={s.q_img}>
-<Image src={img1} alt="" />
-</div>
-</div>
-
+<Glavniy_registr/>
 <Footer />
 
 </div>

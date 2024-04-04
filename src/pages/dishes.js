@@ -191,7 +191,7 @@ setAdvantages(res2.data)
 
                         <div onClick={() => { setPage(1);setOneFood({}) }} className={s.dishes_button} id='plus'>
                             <div className={s.circle}><FiPlus /></div>
-                            <h5>Добавить блюдо</h5>
+                            <h5>Добавить блюдa</h5>
                         </div>
                     </div>
                 ) : (
