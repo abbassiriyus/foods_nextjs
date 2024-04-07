@@ -23,6 +23,7 @@ import Aos from 'aos';
 import { FaCartShopping } from "react-icons/fa6";
 import { LuChefHat } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
+import Loading from "../loading.js"
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
@@ -31,7 +32,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   var [data, setData] = useState([])
   var [ish_yonalishi, setishYonalishi] = useState([])
-
+var [loading,setLoading]=useState(true)
   var [page, setPage] = useState(0)
  var [user,setUser]=useState(null)
   function getData() {
@@ -55,7 +56,11 @@ export default function Navbar() {
     getComany()
     setTimeout(() => {
       setUser(JSON.parse(localStorage.getItem("user")))
-    }, 1000);
+    
+    }, 1000); 
+     setTimeout(() => {
+        setLoading(false)
+      }, 1000);
   }, [])
 
 var [count,setCount]=useState(0)
@@ -388,10 +393,10 @@ function sellectdatachange(key,check) {
   setData(a)
 }
   return (
-    <div>  
-      <Head>
+    <div>  <Head>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
       </Head>
+  {loading?(<><Loading/></>):(<>
       <div className={s.navbar_big}>
         <div className={s.navbar}>
 
@@ -913,7 +918,7 @@ function sellectdatachange(key,check) {
 
 
 
-
+</>)}
 
     </div>
   )

@@ -4,10 +4,7 @@ import { BiCommentDetail } from "react-icons/bi";
 import s from "../styles/Glavnstr.module.css";
 import { IoIosSearch } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
-import Input_error from './componet/input_error';
-import Input_error2 from './componet/input_error2';
-import img1 from "../images/woman.png"
-import Image from "next/image";
+import Loading from "./loading"
 import Footer from "./componet/footer.js"
 import Navbar from "./componet/navbar";
 import axios from "axios";
@@ -16,7 +13,6 @@ import Swiper from "../pages/SwiperGl.js";
 import Slidder from "../pages/slidder.js"
 import Swiperprofil from "../pages/Profilswiper.js"
 import Head from "next/head";
-import { IoIosInformationCircleOutline, IoMdExit } from "react-icons/io";
 import Glavniy_registr from "./Glavniy_registr";
 export default function index() {
 var [data, setData] = useState([{}]);
@@ -25,8 +21,7 @@ var [swiper, setSwipper] = useState(0);
 var [oshpazdanTaom,setOshpazdanTaom]=useState([])
 var [shirinliklar,setShirinliklar]=useState([])
 var [soglom,setSoglom]=useState([])
-var [page, setPage] = useState(0)
-var [error_phone, setErrorphone] = useState("")
+
 
 
 function plus() {
