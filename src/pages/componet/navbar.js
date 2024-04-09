@@ -506,7 +506,7 @@ function sellectdatachange(key,check) {
       {isOpen ? (<div className={s.navbar_mobile_menu}>
         <div className={s.line1}></div>  <div onClick={() => { setIsOpen(false) }} className={s.close1}> 
           <MdClose style={{ fontSize: '30px',marginTop:'10px' }}className={s.classclose} />
-          <img  src="https://img.freepik.com/free-vector/creative-chef-logo-template_23-2148980377.jpg" alt="" />
+          <img  src={company.image} alt="" />
           <span style={{fontSize:'17px',paddingRight:'50px'}}>    {user?(
             <div  className={s.account_img} onMouseEnter={()=>{document.querySelector('#modal_chiqish').style="display:block"}} 
             style={{background:`url(${user[0].image})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',backgroundPosition:'center'}}>
@@ -903,7 +903,7 @@ function sellectdatachange(key,check) {
 </div>
 <div className={s.blyuda}>
 {user?(user[0].pover?
-    ( <a href='/profile/' style={{ color: 'black',textDecoration:'none' }}>
+    ( <a href='/profile/1/' style={{ color: 'black',textDecoration:'none' }}>
       <PiChatsDuotone className={s.b_i} /><br />
       Чаты</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>

@@ -68,7 +68,7 @@ var usertwo=(JSON.parse(twouser))[0].id
 var test=false
 for (let i = 0; i < res.data.length; i++) {
   if((res.data[i].user1==userone && res.data[i].user2==usertwo) || (res.data[i].user2==userone && res.data[i].user1==usertwo) ){
-window.location="/profile/"
+window.location="/profile/1/"
 test=true
   }
 }

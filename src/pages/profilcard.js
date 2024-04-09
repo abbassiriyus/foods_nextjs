@@ -14,7 +14,7 @@ export default function profilcard({data}) {
       var test=false
       for (let i = 0; i < res.data.length; i++) {
         if((res.data[i].user1==id && res.data[i].user2==usertwo) || (res.data[i].user2==id && res.data[i].user1==usertwo) ){
-         window.location="/profile/"
+         window.location="/profile/1/"
          test=true
         }
       }
@@ -24,7 +24,7 @@ export default function profilcard({data}) {
         data1.append('user2',usertwo)
       axios.post(`${url()}/api/room`,data1).then(res=>{
         alert('Проверьте окно чата')
-      window.location="/profile/"
+      window.location="/profile/1/"
       })
       }
         })

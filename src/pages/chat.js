@@ -78,7 +78,7 @@ if(res.data[i].user){
 res.data[i].date=formatDate(res.data[i].user.online)
  }
 }
-setChat(res.data)
+setChat(res.data.filter(item=>item.user))
 }).catch(err => {
 })
 }
