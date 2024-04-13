@@ -211,26 +211,30 @@ getData()
 getgeFoods()
 },[])
 
+function seachData(params) {
+  console.log(params.target.value);
+  var logd=localStorage.getItem('category')
+if(logd){
+axios.get(`${url()}/api/foods`).then(res=>{
+setGlFoods(res.data.filter(item=>(item.category_id==logd && item.foods_name.includes(params.target.value))))
+}).catch(err=>{
+})
+}else{
+axios.get(`${url()}/api/foods`).then(res=>{
+setGlFoods(res.data.filter(item=>item.foods_name.includes(params.target.value))) })
+}  
+}
 function getgeFoods(){
 var logd=localStorage.getItem('category')
-
 if(logd){
-
 axios.get(`${url()}/api/foods`).then(res=>{
-
-
 setGlFoods(res.data.filter(item=>item.category_id==logd))
-
-
 }).catch(err=>{
-
 })
 }else{
 axios.get(`${url()}/api/foods`).then(res=>{
 setGlFoods(res.data) })
-}
-
-   
+}  
 }
 
 
@@ -291,7 +295,7 @@ return <li key={key}><input  onChange={()=>{filterData2()}} type="checkbox" name
   <div className={s.primen}>
 <span>Применить</span>
   </div>
-  <div  className={s.kategoriya_button}>
+  <div onClick={()=>{localStorage.clear('category');getgeFoods()}}  className={s.kategoriya_button}>
 <div  className={s.perevarot}><GrUpdate /></div>
 <span>Сбросить фильтр</span>
   </div>
@@ -301,7 +305,7 @@ return <li key={key}><input  onChange={()=>{filterData2()}} type="checkbox" name
 <div className={s.action_search}>
 <div className={s.card_input}>
  <CiSearch />
-<input placeholder="Поиск по названию блюда" type="text" />
+<input onKeyUp={(e)=>seachData(e)} placeholder="Поиск по названию блюда" type="text" />
 </div>
 <button>Найти</button>
 </div>

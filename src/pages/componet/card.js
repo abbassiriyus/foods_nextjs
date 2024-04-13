@@ -77,7 +77,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
         <div class={s.korzina}>
             <div class={s.price}>
                 <span>{props.data.price} ₽</span>
-                <p>{props.data.portion} кг.</p>
+                <p>{props.data.portion} </p>
             </div>
             <button onClick={()=>buyOne(props.data.id)} >В корзину</button>
         </div>

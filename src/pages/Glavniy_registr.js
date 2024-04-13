@@ -245,7 +245,28 @@ window.location="/profile/"
   return (
     <div>
 
-        {user?(<></>):(<>  <div className={n.qoshilish}>
+        {user?(<> <div className={n.qoshilish}>
+<div className={n.q_soz}>
+<h1 style={{fontSize:'23px'}}>НАЧНИ ГОТОВИТЬ  ВМЕСТЕ С НАМИ!</h1>
+<p className={n.qoshish_p2}>Мы объединяем всех, кто любит готовить, чтобы каждый мог разместить свою продукцию и зарабатывать больше!</p>
+
+</div>
+<div className={n.q_img}>
+<Image src={img1} alt="" />
+</div>
+</div>
+
+<div className={n.qoshilish2}>
+<div className={n.q_soz}>
+<h1 style={{fontSize:'30px'}}>НАЧНИ ГОТОВИТЬ  ВМЕСТЕ С НАМИ!</h1>
+<p className={n.qoshish_p2}>Мы объединяем всех, кто любит готовить, чтобы каждый мог разместить свою продукцию и зарабатывать больше!</p>
+
+</div>
+<div className={n.q_img}>
+<Image src={img1} alt="" />
+</div>
+</div>
+</>):(<>  <div className={n.qoshilish}>
 <div className={n.q_soz}>
 <h1>ПРИСОЕДИНЯЙТЕСЬ!</h1>
 <p className={n.qoshish_p1}>— Максимально просто и прозрачно, честное слово!</p>
