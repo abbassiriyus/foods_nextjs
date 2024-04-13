@@ -2,25 +2,12 @@ import React from 'react'
 
 export default function loading() {
   return (
-    <div><div className='body_lodaing'>
-    <h1>Cooking in progress</h1>
-    <div id="cooking">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div id="area">
-            <div id="sides">
-                <div id="pan"></div>
-                <div id="handle"></div>
-            </div>
-            <div id="pancake">
-                <div id="pastry"></div>
-            </div>
-        </div>
+    <div className='bigmain'><div class="dl">
+    <div class="dl__container">
+      <div class="dl__corner--top"></div>
+      <div class="dl__corner--bottom"></div>
     </div>
-    
-</div></div>
+    <div class="dl__square"></div>
+  </div></div>
   )
 }

@@ -178,7 +178,7 @@ return <FaStar className={s.star1} />
 <IoCloseOutline />
 </div>
 ) : (
-<div></div>
+<></>
 )}
 </div>
 <button className={s.m_button} onClick={()=>{ window.location="/foods/" }}>Найти</button>
@@ -190,7 +190,7 @@ return <FaStar className={s.star1} />
 <div className={s.cards}>
 {sizUchun.map((item,key)=>{
 return <div  onClick={()=>{localStorage.setItem('category',item.id);window.location="/foods/"}}  key={key} className={s.c}>
-<img className={s.card_img} src={item.image} alt="" />
+<div className={s.card_img} style={{background:`url(${item.image})`}} alt="" />
 <div className={s.c_soz}>
 <p >{item.title}</p>
 </div>

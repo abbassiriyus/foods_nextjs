@@ -1,6 +1,7 @@
 .footer{
-width: 1380px;
+max-width: 1156px;
 display: flex;
+width: 90%;
 justify-content: space-between;
 align-items: center;
 margin: auto;
@@ -427,7 +428,7 @@ font-style: normal;
 }
 
 .footer2{
-width: 1380px;
+width: 1156px;
 display: flex;
 align-items: center;
 margin: auto;

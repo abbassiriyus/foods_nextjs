@@ -1,11 +1,13 @@
 .header{
-width: 1380px;
+max-width: 1156px;
 margin: auto;
+width: 90%;
 /* margin-top: 200px; */
 }
 .head{
 width: 100%;
 display: flex;
+max-width: 1156px;
 justify-content: space-between;
 margin: auto;
 }
@@ -20,8 +22,8 @@ font-weight: 400;
 .h_h2{
 width: 150%;
 font-weight: 900;
-font-size: 7.3vw;
-line-height: 140px;
+font-size: 6.3vw;
+line-height: 120px;
 position: relative;
 z-index: 12;
 }
@@ -308,6 +310,8 @@ display: flex;
 width: 470px;
 font-size: 20px;
 margin-top: 30px;
+position: relative;
+z-index: 12;
 }
 .h_h2{
 width: 150%;
@@ -357,7 +361,7 @@ display: none;
 }
 
 .main{
-width: 1380px;
+max-width: 1156px;
 margin: auto;
 }
 .main h1{
@@ -367,21 +371,22 @@ font-weight: 900;
 }
 .inp{
 width: 100%;
-display: flex;
-gap: 70px;
-align-items: center;
+display: grid;
+gap: 10px;
+grid-template-columns: auto 100px;
 margin-top: 30px;
 }
 .inpu{
 width: 100%;
-display: flex;
+display: grid;
 align-items: center;
+grid-template-columns: 50px auto;
 border: 1px solid gray;
 border-radius: 8px;
 background-color: white;
 }
 .m_search{
-width: 4%;
+width: 100%;
 height: 40px;
 display: flex;
 justify-content: center;
@@ -408,7 +413,7 @@ background-color: #06c16000;
 font-size: 18px;
 }
 .m_button{
-width: 100px;
+width: 100%;
 height: 43px;
 border: none;
 border-radius: 9px;
@@ -614,26 +619,50 @@ display: none;
 } */
 
 .cardlar{
-width: 1380px;
+max-width: 1156px;
+width: 90%;
 margin: auto;
 }
 .cards{
 width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-/* margin: auto; */
-/* gap: 30px; */
-flex-wrap: wrap;
+display: grid;
+align-items: stretch;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+gap: 10px;
+
+}
+@media(max-width:1100px){
+    .cards{
+        width: 100%;
+        display: grid;
+        align-items: stretch;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        }
+}
+@media(max-width:700px){
+    .cards{
+        width: 100%;
+        display: grid;
+        align-items: stretch;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        }
 }
 .c{
-width: 190px;
-height:280px;
+width: 100%;
 transition: 0.6s;
 border-radius: 20px;
 background-color: #e6f9ef;
 cursor: pointer;
 margin-bottom: 20px;
+display: flex;
+/* margin:auto; */
+max-width:220px;
+
+flex-direction: column;
+justify-content: space-between;
+padding-bottom: 20px;
 }
 .c:hover{
 background-color: #06c160;
@@ -642,11 +671,11 @@ color: white;
 .card_img{
 width: 100%;
 height: 190px;
+background-size: cover !important;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
 }
 .c_soz{
-
 font-size: 17px;
 font-weight: 600;
 width: 85%;
@@ -667,21 +696,13 @@ justify-content: space-between;
 align-items:center;
 }
 
-@media(max-width:1510px){
-.cardlar{
-width: 90%;
-}
-}
+
 @media(max-width:1000px){
 .jison{
 font-size: 35px;
 }
 }
 @media(max-width:450px){
-.c{
-width: 47%;
-height: 67vw;
-}
 .c_soz{
 font-size: 17px;
 font-weight: 600;
@@ -711,20 +732,17 @@ width: 100%;
 font-size: 25px;
 }
 }
-/* .cardlar_katta{
-width: 1450px;
-margin: auto;
-}
+
 
 .c_k{
 width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
-} */
+} 
 
 .swiper1{
-max-width: 1380px;
+max-width:1156px;
 width: 90%;
 margin: auto;
 margin-top: 40px;
@@ -736,7 +754,7 @@ margin-bottom: 30px;
 }
 
 .swiper2{
-max-width: 1380px;
+max-width: 1156px;
 width: 90%;
 margin: auto;
 margin-top: 40px;
@@ -748,7 +766,7 @@ margin-bottom: 30px;
 }
 
 .swiper3{
-max-width: 1380px;
+max-width: 1156px;
 width: 90%;
 margin: auto;
 margin-top: 40px;
@@ -761,7 +779,7 @@ margin-bottom: 30px;
 
 
 .swipergap{
-max-width: 1380px;
+max-width: 1156px;
 width: 90%;
 margin: auto;
 margin-top: 40px;
@@ -774,7 +792,7 @@ margin-bottom: 30px;
 
 
 .swiperprofil{
-max-width: 1380px;
+max-width: 1156px;
 width: 90%;
 margin: auto;
 margin-top: 40px;
@@ -885,7 +903,7 @@ font-weight: 900;
 
 
 .qoshilish{
-width: 1380px;
+width: 1156px;
 height: 410px;
 background-color: #e6f9ef;
 border-radius: 60px;
