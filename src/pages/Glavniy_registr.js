@@ -37,11 +37,7 @@ axios.get(`${url()}/api/karzinka/${user2[0].id}`).then(res=>{
 })
   }
 }
-useEffect(()=>{
-    setInterval(() => {
-      getshopcar()
-    }, 1000);
-})
+
 
   useEffect(() => {
     Aos.init();

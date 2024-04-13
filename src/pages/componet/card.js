@@ -4,8 +4,9 @@ import { PiStarFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import VanillaTilt from 'vanilla-tilt';
 import url from "../host/config"
-import axios from 'axios';
 
+import axios from 'axios';
+import GlobalStore from '../file1';
 export default function card(props){
     
 const tiltRef = useRef(null);
@@ -18,6 +19,15 @@ const tiltRef = useRef(null);
           'max-glare': 0.5,
         });
       }
+      var user=localStorage.getItem('user')
+  if(user){
+    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+      var a=res.data.filternew.filter(item=>item.food)
+      GlobalStore.GLOBAL_VAR=(a.length)
+      console.log(GlobalStore.GLOBAL_VAR,"Asd");
+    })
+
+  }
     }, []);
 function sendcard() {
    window.location=`/menudetail/${props.data.id}/` 
@@ -29,15 +39,23 @@ function senduser() {
 
 function buyOne(food_id) {
   var user=localStorage.getItem('user')
- 
 if(user){
 var send_data=new FormData()
 send_data.append("user_ca_id",JSON.parse(user)[0].id)
 send_data.append("food_id",food_id)
 send_data.append("count",1)
+
 localStorage.setItem("karzinka",1)
 axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+  axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+    var a=res.data.filternew.filter(item=>item.food)
+    
+       GlobalStore.GLOBAL_VAR=a.length
+  console.log(GlobalStore.GLOBAL_VAR,"Asd");
+
+  })
   }).catch(err=>{
+ 
   })
 }else{
   alert('Вы не зарегистрированы')

@@ -27,6 +27,7 @@ import Loading from "../loading.js"
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
+import GlobalStore from '../file1';
 import { GeolocationControl, Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -50,36 +51,26 @@ var [loading,setLoading]=useState(true)
     }).catch(err => {
     })
   }
-
-  useEffect(() => {
+  var [count,setCount]=useState(0)
+useEffect(()=>{
+  setInterval(() => {
+   setCount(GlobalStore.GLOBAL_VAR)
+  }, 100);
+  
+})
+  useEffect(() => { 
+    
     getData()
     getComany()
     setTimeout(() => {
       setUser(JSON.parse(localStorage.getItem("user")))
-    
     }, 1000); 
      setTimeout(() => {
         setLoading(false)
       }, 1000);
   }, [])
 
-var [count,setCount]=useState(0)
-function getshopcar(){
-  var user2=JSON.parse(localStorage.getItem('user'))
 
-  var user1=localStorage.getItem('karzinka')
-  if(user1){
-axios.get(`${url()}/api/karzinka/${user2[0].id}`).then(res=>{
-  var a=res.data.filternew.filter(item=>item.food)
-  setCount(a.length)
-})
-  }
-}
-useEffect(()=>{
-    setInterval(() => {
-      getshopcar()
-    }, 1000);
-})
 
   useEffect(() => {
     Aos.init();
@@ -268,6 +259,14 @@ window.location="/profile/"
     });
   }
   useEffect(() => {
+    var user=localStorage.getItem('user')
+    if(user){
+      axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+      var a=res.data.filternew.filter(item=>item.food)
+     console.log(a);
+     GlobalStore.GLOBAL_VAR=a.length
+    }) 
+    }
    
    if(localStorage.getItem('localmap')){
    setSelectedPlace(localStorage.getItem('localmap'))
@@ -389,13 +388,16 @@ document.querySelector("#modal32").style="display:none;"
 function sellectdatachange(key,check) {
   var a=[...data]
   a[key].push=check
- 
+
   setData(a)
 }
   return (
-    <div>  <Head>
+    <div> 
+       <Head>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
       </Head>
+    
+
   {loading?(<><Loading/></>):(<>
       <div className={s.navbar_big}>
         <div className={s.navbar}>
@@ -869,7 +871,6 @@ function sellectdatachange(key,check) {
 
 </div>
   
-
 
 
 <div className={s.navbar_tegi}>

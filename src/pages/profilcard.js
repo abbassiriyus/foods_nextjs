@@ -69,7 +69,10 @@ return (
 <div className={pc.vbr_blyud}>
 <p>Все блюда</p>
 {data.category.map(item=>{
+  if(item.title){
     return <p>{item.title}</p>
+  }
+    
 })}
 </div>
 <div className={pc.p_b}>

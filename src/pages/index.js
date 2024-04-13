@@ -89,7 +89,7 @@ return (
 <Head>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
       </Head>
-<Navbar/>
+<Navbar  />
 <div className={s.header} >
 <div className={s.h_h1} >
 <h1>Привет!</h1>

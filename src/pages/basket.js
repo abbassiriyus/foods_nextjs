@@ -6,6 +6,7 @@ import { LuMinusCircle } from "react-icons/lu";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import s from "../styles/basket.module.css"
 import axios from 'axios';
+import GlobalStore from './file1';
 import url from "./host/config.js"
 export default function basket() {
 
@@ -15,8 +16,8 @@ function getData() {
   var user=localStorage.getItem('user')
   if(user){ 
    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
-
  var a=res.data.filternew.filter(item=>item.food)
+ GlobalStore.GLOBAL_VAR=a.length
     setData(a)
    })
   }
@@ -27,6 +28,7 @@ function minusData(id,count) {
     axios.delete(`${url()}/api/karzinka/${id}`).then(res=>{
     getData()
     }).catch(err=>{
+
 
     })
   }else{

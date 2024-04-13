@@ -15,12 +15,13 @@ function getData(){
   var  my=JSON.parse(localStorage.getItem('user'))
 axios.get(`${url()}/api/food_seller/${my[0].id}`).then(res=>{
     setZakaz(res.data.zakaz)
+    console.log(res.data);
     setCook(res.data.pover)
 })
 }
 useEffect(()=>{
 getData()
-})
+},[])
 return (
 <div>
 <Navbar/>
@@ -52,7 +53,7 @@ return <tbody style={{width:'100%'}}>
 <td style={{textAlign:'center'}}>
     <p style={{margin:'10px'}}>{(item.time_create).slice(0,10)}</p></td>
 <td style={{textAlign:'center'}} ><div className={z.profil} style={{marginLeft:'30px',gap:'10px'}}>
-<img src={item.creator.image} alt="" />
+<img src={item.pover && item.pover.image} alt="" />
 <p>{item.fullname}</p>
 </div></td>
 
@@ -66,9 +67,9 @@ return <tbody style={{width:'100%'}}>
 </div></td>
 <td><p style={{textAlign:'center'}}>{item.food.price} ₽</p></td>
 <td style={{textAlign:'center'}}>
-    <button className={z.btnt2}>Отменен</button>
+    <button className={z.btnt2}>создано</button>
     </td>
-<td><p style={{marginLeft:'20px',cursor:'pointer'}}><TbMessage2 /></p></td>
+<td><p style={{marginLeft:'20px',cursor:'pointer'}} onClick={()=>{window.location="/profile/1/"}} ><TbMessage2 /></p></td>
 </tr>
 </tbody>  
 })} 
@@ -84,7 +85,7 @@ return <div className={z.table2}>
 </div>
 <div className={z.card_table1}>
 <div className={z.img_t}>
-<img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/3f90752ef464162ca8d883022a73c13d03a3c077/3f90752ef464162ca8d883022a73c13d03a3c077-wc200.jpeg" alt="" />
+<img  src={item2.pover && item2.pover.image} alt="" />
 <p>{item2.fullname}</p>
 </div>
 <TbMessage2 style={{color:'#06c160',fontSize:'22px'}} />
@@ -95,7 +96,7 @@ return <div className={z.table2}>
 </div>
 <div className={z.btn_price}>
 
-<button className={z.btnt3}>Отменен</button>
+<button className={z.btnt3}>создано</button>
 
 <span>{item2.price} ₽</span>
 </div>
@@ -131,7 +132,7 @@ return <tbody style={{width:'100%'}}>
 <td><p style={{marginLeft:'10px',color:'#06c160',fontWeight:300}}>{item.id}</p></td>
 <td><p style={{margin:'10px'}}>{(item.time_create).slice(0,10)}</p></td>
 <td><div className={z.profil} style={{marginLeft:'30px',gap:'10px'}}>
-<img src={item.crator} alt="" />
+<img src={item.pover && item.pover.image} alt="" />
 <p>{item.fullname}</p>
 </div></td>
 
@@ -143,8 +144,8 @@ return <tbody style={{width:'100%'}}>
 <p className={z.mesto}>{item.the_city}, {item.village}, {item.home}, {item.office}, {item.building}, {item.convex}</p>
 </div></td>
 <td><p >{item.food.price} ₽</p></td>
-<td><button className={z.btnt2}>Отменен</button></td>
-<td><p style={{marginLeft:'20px',cursor:'pointer'}}><TbMessage2 /></p></td>
+<td><button className={z.btnt2}>создано</button></td>
+<td><p style={{marginLeft:'20px',cursor:'pointer'}} onClick={()=>{window.location="/profile/1/"}} ><TbMessage2 /></p></td>
 </tr>
 </tbody>  
 })} 
@@ -170,7 +171,7 @@ return <div className={z.table2}>
 <span style={{color:'grey'}}>{(item2.date).slice(0,10)} {item2.time}</span>
 </div>
 <div className={z.btn_price}>
-<button className={z.btnt3}>Отменен</button>
+<button className={z.btnt3}>создано</button>
 <span>{item2.price} ₽</span>
 </div>
 </div>

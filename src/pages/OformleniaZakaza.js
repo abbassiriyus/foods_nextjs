@@ -6,6 +6,7 @@ import Navbar from "./componet/navbar";
 import Footer from "./componet/footer";
 import axios from "axios";
 import url from "./host/config"
+import { message } from "antd";
 export default function Oformlenia_zakaz() {
   
   var [radio,setRadio]=useState(true)
@@ -14,14 +15,11 @@ export default function Oformlenia_zakaz() {
 
 
   const Openanotherperson = (ches) => {
-
     if(ches){
     document.querySelector("#gets_person2_zakaz1").style = "display:flex";
     }else{
       document.querySelector("#gets_person2_zakaz1").style = "display:none";
     }
-
-  
   };
   const Openanotherperson2 = () => {
     document.querySelector("#gets_person2_zakaz2").style = "display:block";
@@ -66,7 +64,16 @@ var [allprice,setAllPrice]=useState(0)
     var user=JSON.parse(localStorage.getItem("user"))
     data1.append('creator',user[0].id) 
     data1.append('food_id',data.food_id)
+    var error_message=true
     if(document.querySelector('#checkbox-zakaz').checked){
+      if ((document.querySelector('#fullname12').value).length==0) {
+        message.error("Вы не ввели имя")
+        error_message=false
+      }
+      if ((document.querySelector('#phone12').value).length==0) {
+        message.error("Не указан номер телефона")
+        error_message=false
+      }
         data1.append('fullname',document.querySelector('#fullname12').value)
        data1.append('phone',document.querySelector('#phone12').value)
        data1.append('to_my_friend',true) 
@@ -74,9 +81,21 @@ var [allprice,setAllPrice]=useState(0)
     data1.append('fullname',user[0].name)
     data1.append('phone',user[0].phone)
     data1.append('to_my_friend',false)
+    if(!user[0].name){
+      message.error("Вы не ввели имя")
+      error_message=false
+    }
+    if(!user[0].phone){
+      message.error("Не указан номер телефона")
+      error_message=false
+    }
   }
   if(radio){
     data1.append('the_city',data.place)
+    if(!data.place){
+      message.error("Адрес не введен")
+      error_message=false
+    }
     data1.append('village','0')
     data1.append('home','0')
     data1.append('office','0')
@@ -89,77 +108,87 @@ var [allprice,setAllPrice]=useState(0)
     data1.append('office',document.querySelector("#input3").value)
     data1.append('building',document.querySelector("#input4").value)
     data1.append('convex',document.querySelector("#input5").value)
+    if((document.querySelector("#input1").value).length==0 && (document.querySelector("#input2").value).length==0 && (document.querySelector("#input3").value).length==0 && (document.querySelector("#input4").value).length==0 && (document.querySelector("#input5").value).length==0){
+      message.error("Полный адрес не введен")
+      error_message=false
+    }
   }
   data1.append('time',document.querySelector("#input_time").value)
   data1.append('date',document.querySelector("#input_day").value)
-    
+  if((document.querySelector("#input_time").value).length==0 && (document.querySelector("#input_time").value).length==0){
+    message.error("Время введено неверно")
+    error_message=false
+  }  
 
   
-axios.post(`${url()}/api/food_seller`,data1).then(res=>{
+if(error_message){
+  axios.post(`${url()}/api/food_seller`,data1).then(res=>{
  
-var my_data=JSON.parse(localStorage.getItem("user"))
-var sendmessage=`sender:${my_data[0].name}, phone:${my_data[0].phone}.
-name: ${data1.get('fullname')}  ${data1.get('phone')}.
-time:${data1.get("date")} ${data1.get("time")}. 
-address:${data1.get('the_city')+" "+data1.get('village')+" "+data1.get('home')+" "+data1.get('office')+" "+data1.get('building')}. 
-food:
-`
-for (let i = 0; i < data.food.length; i++) {
-  sendmessage+=`${i+1}) name:"${data.food[i].foods_name}" count:${data.food[i].count} price:${data.food[i].price}`
+    var my_data=JSON.parse(localStorage.getItem("user"))
+    var sendmessage=`sender:${my_data[0].name}, phone:${my_data[0].phone}.
+    name: ${data1.get('fullname')}  ${data1.get('phone')}.
+    time:${data1.get("date")} ${data1.get("time")}. 
+    address:${data1.get('the_city')+" "+data1.get('village')+" "+data1.get('home')+" "+data1.get('office')+" "+data1.get('building')}. 
+    food:
+    `
+    for (let i = 0; i < data.food.length; i++) {
+      sendmessage+=`${i+1}) name:"${data.food[i].foods_name}" count:${data.food[i].count} price:${data.food[i].price}`
+    }
+    sendmessage+=". message:"
+    sendmessage+=document.querySelector('#menasa').value
+    axios.get(`${url()}/api/room`).then(res=>{
+      var room_yes=false
+    for (let i = 0; i < res.data.length; i++) {
+     if((res.data[i].user1==data.user_id && res.data[i].user2==my_data[0].id) || (res.data[i].user2==data.user_id && res.data[i].user1==my_data[0].id)){
+    room_yes=res.data[i].id
+     }
+    }
+    
+    if(room_yes){
+      var senddata=new FormData()
+      senddata.append("user_id",my_data[0].id)
+      senddata.append("room_id",room_yes)
+      senddata.append("message",sendmessage)
+    axios.post(`${url()}/api/messages`,senddata).then(res=>{
+    alert("сообщение отправлено")
+    window.location="/profile/1/"
+    }).catch(err=>{
+    console.log(err);
+    })
+    }else{
+      var sendroom=new FormData()
+      sendroom.append("user1",my_data[0].id)
+      sendroom.append("user2",data.user_id)
+    axios.post(`${url()}/api/room`,sendroom ).then(res=>{
+      var senddata=new FormData()
+     
+      senddata.append("user_id",my_data[0].id)
+      senddata.append("room_id",res.data.id)
+      senddata.append("message",sendmessage)
+    axios.post(`${url()}/api/messages`,senddata).then(res=>{
+    alert("сообщение отправлено")
+    window.location="/profile/"
+    }).catch(err=>{
+    console.log(err);
+    })
+    })
+    
+    
+    }
+    
+    })
+    
+    
+    
+    
+    
+    
+      // window.location='/profile/'
+    }).catch(err=>{
+      console.log("xato");
+    })
+    1
 }
-sendmessage+=". message:"
-sendmessage+=document.querySelector('#menasa').value
-axios.get(`${url()}/api/room`).then(res=>{
-  var room_yes=false
-for (let i = 0; i < res.data.length; i++) {
- if((res.data[i].user1==data.user_id && res.data[i].user2==my_data[0].id) || (res.data[i].user2==data.user_id && res.data[i].user1==my_data[0].id)){
-room_yes=res.data[i].id
- }
-}
-
-if(room_yes){
-  var senddata=new FormData()
-  senddata.append("user_id",my_data[0].id)
-  senddata.append("room_id",room_yes)
-  senddata.append("message",sendmessage)
-axios.post(`${url()}/api/messages`,senddata).then(res=>{
-alert("сообщение отправлено")
-window.location="/profile/"
-}).catch(err=>{
-console.log(err);
-})
-}else{
-  var sendroom=new FormData()
-  sendroom.append("user1",my_data[0].id)
-  sendroom.append("user2",data.user_id)
-axios.post(`${url()}/api/room`,sendroom ).then(res=>{
-  var senddata=new FormData()
- 
-  senddata.append("user_id",my_data[0].id)
-  senddata.append("room_id",res.data.id)
-  senddata.append("message",sendmessage)
-axios.post(`${url()}/api/messages`,senddata).then(res=>{
-alert("сообщение отправлено")
-window.location="/profile/"
-}).catch(err=>{
-console.log(err);
-})
-})
-
-
-}
-
-})
-
-
-
-
-
-
-  // window.location='/profile/'
-}).catch(err=>{
-  console.log("xato");
-})
 
   }
 

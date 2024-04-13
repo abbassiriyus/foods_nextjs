@@ -280,7 +280,7 @@ getPover()
                           </div>
                           <div className={ss.zakaz_p}>
                             {item.category.map((item, key) => {
-                              if (key < 3) {
+                              if (key < 3 && item.title) {
                                 return <p>{item.title}</p>
                               }
                             })}

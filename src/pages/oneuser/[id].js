@@ -24,6 +24,7 @@ export default function first() {
       axios.get(`${url()}/api/getpovar/${router.query.id}`).then(res=>{
       setData(res.data)
       setUser(res.data.user)
+      console.log(res.data);
       setKitchen(res.data.kitchen)
       setCategory(res.data.category)
       setCommnet(res.data.commnet)
