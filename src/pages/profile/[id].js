@@ -22,6 +22,8 @@ import { CiCircleInfo } from "react-icons/ci";
 import Footer from './../componet/footer';
 import Chat from '../chat';
 import Dishes from '../dishes'; 
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Useful from '../useful';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
@@ -200,19 +202,46 @@ function sendcChefImage(file1) {
   }
   function deleteKichen(id){
 axios.delete(`${url()}/api/my_kitchen/${id}`).then(res=>{
-  alert("delete data")
+    toast.error("Удалено", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
   getUsers()
 })
   }
   function deleteDocument(id){
     axios.delete(`${url()}/api/document/${id}`).then(res=>{
-      alert("delete data")
+        toast.error("Удалено", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
       getUsers()
     })
       }
 function deleteDiplom(id){
         axios.delete(`${url()}/api/diploma/${id}`).then(res=>{
-          alert("delete data")
+            toast.error("Удалено", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
           getUsers()
         })
           }
@@ -224,6 +253,7 @@ useEffect(()=>{
 },[])
   return (
   <>
+   <ToastContainer />
   <Navbar/>
     <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>  
 <div className={s.image_prosta}>

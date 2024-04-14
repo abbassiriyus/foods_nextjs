@@ -16,6 +16,9 @@ import url from "../host/config"
 import { useRouter } from 'next/router'
 import GlobalStore from '../GlobalStore';
 import axios from 'axios';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function menu_detail() {
 var [accor,setAccor]=useState(1)
 var [data,setData]=useState([])
@@ -59,7 +62,16 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   }).catch(err=>{
   })
 }else{
-  alert('Вы не зарегистрированы')
+  toast.warning("Вы не зарегистрированы", {
+    position: "top-right",
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+    })
 }
 }
 
@@ -82,13 +94,32 @@ if(!test){
   data1.append('user1',userone)
   data1.append('user2',usertwo)
 axios.post(`${url()}/api/room`,data1).then(res=>{
-  alert('Проверьте окно чата')
+
+  toast.success("Проверьте окно чата", {
+    position: "top-right",
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+    })
 window.location="/profile/"
 })
 }
   })
 }else{
-  alert('Вы не зарегистрированы')
+  toast.success("Проверьте окно чата", {
+    position: "top-right",
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+    })
 }
 
   

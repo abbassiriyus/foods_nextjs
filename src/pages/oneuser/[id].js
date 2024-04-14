@@ -10,6 +10,8 @@ import GlobalStore from '../GlobalStore';
 import Footer from "../componet/footer"
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import url from "../host/config"
 export default function first() {
   var [user,setUser]=useState({})
@@ -53,13 +55,32 @@ export default function first() {
       data1.append('user1',userone)
       data1.append('user2',usertwo)
     axios.post(`${url()}/api/room`,data1).then(res=>{
-      alert('Проверьте окно чата')
+      toast.success("Проверьте окно чата", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
     window.location="/profile/"
     })
     }
       })
     }else{
-      alert('Вы не зарегистрированы')
+      toast.warning("Вы не зарегистрированы", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
+     
     }
 
     }
@@ -87,7 +108,16 @@ export default function first() {
     }).catch(err=>{
     })
   }else{
-    alert('Вы не зарегистрированы')
+    toast.warning("Вы не зарегистрированы", {
+      position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+      })
   }
   }
       useEffect(()=>{
@@ -111,6 +141,8 @@ return formattedDate;
 }
 return (
 <div>
+<ToastContainer />
+
 <Navbar/>
 
 <div className={c.slka}>

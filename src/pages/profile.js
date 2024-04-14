@@ -23,12 +23,15 @@ import { CiCircleInfo } from "react-icons/ci";
 import Footer from './componet/footer';
 import Chat from './chat';
 import Dishes from './dishes'; 
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Useful from './useful';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoExitOutline,IoCloseOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import Navbar from './componet/navbar';
 import axios from 'axios';
 import url from './host/config';
+
 export default function profil() {
   var [page, setPage] = useState(0)
   var [formc,setFormc]=useState(0)
@@ -195,19 +198,46 @@ function sendcChefImage(file1) {
   }
   function deleteKichen(id){
 axios.delete(`${url()}/api/my_kitchen/${id}`).then(res=>{
-  alert("delete data")
+  toast.warning("Удалено", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
   getUsers()
 })
   }
   function deleteDocument(id){
     axios.delete(`${url()}/api/document/${id}`).then(res=>{
-      alert("delete data")
+     toast.warning("Удалено", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
       getUsers()
     })
       }
 function deleteDiplom(id){
         axios.delete(`${url()}/api/diploma/${id}`).then(res=>{
-          alert("delete data")
+         toast.warning("Удалено", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
           getUsers()
         })
           }
@@ -220,6 +250,8 @@ useEffect(()=>{
   return (
   <>
   <Navbar/>
+  <ToastContainer />
+
     <div className={s.kota} style={{marginTop:'40px',marginBottom:'50px'}}>  
 <div className={s.image_prosta}>
   <Image src={img} alt="" />
@@ -288,6 +320,7 @@ useEffect(()=>{
 <div className={s.chiqish_gap} onClick={()=>{localStorage.clear('user');localStorage.clear('token');window.location.reload()}} >Выйти</div>
 </div>
 </div>
+
 <div id='id2' className={s.li2}>
 <div className={s.hj}>
 <div className={s.hom1}>

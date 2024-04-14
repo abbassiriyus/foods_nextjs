@@ -7,6 +7,8 @@ import url from "../host/config"
 
 import axios from 'axios';
 import GlobalStore from '../GlobalStore';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function card(props){
     
 const tiltRef = useRef(null);
@@ -59,13 +61,26 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
  
   })
 }else{
-  alert('Вы не зарегистрированы') 
+  toast.warning("Вы не зарегистрированы", {
+    position: "top-right",
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+    })
+  
 }
 }
   return (
   
 <>
-  {props.data?(  <div className={s.card}> 
+
+
+  {props.data?(  <div className={s.card}>
+    <ToastContainer /> 
         <div className={s.card_img}>
     <div className={s.card}  > 
         <div onClick={()=>sendcard()} style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>

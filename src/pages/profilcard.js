@@ -4,6 +4,7 @@ import { BiCommentDetail } from "react-icons/bi";
 import { FaStar } from "react-icons/fa";
 import url from "./host/config";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 export default function profilcard({data}) {
     function sendMessage(id) { 
        
@@ -23,13 +24,33 @@ export default function profilcard({data}) {
         data1.append('user1',id)
         data1.append('user2',usertwo)
       axios.post(`${url()}/api/room`,data1).then(res=>{
-        alert('Проверьте окно чата')
+        // alert('')
+        toast.success("Проверьте окно чата", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          })
       window.location="/profile/1/"
       })
       }
         })
       }else{
-        alert('Вы не зарегистрированы')
+        // alert()
+        toast.success('Вы не зарегистрированы', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          })
       }
   
       }
