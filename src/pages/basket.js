@@ -6,7 +6,7 @@ import { LuMinusCircle } from "react-icons/lu";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import s from "../styles/basket.module.css"
 import axios from 'axios';
-import GlobalStore from './file1';
+import GlobalStore from './GlobalStore';
 import url from "./host/config.js"
 export default function basket() {
 

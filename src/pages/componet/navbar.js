@@ -27,7 +27,7 @@ import Loading from "../loading.js"
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
-import GlobalStore from '../file1';
+import GlobalStore from '../GlobalStore';
 import { GeolocationControl, Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -59,7 +59,17 @@ useEffect(()=>{
   
 })
   useEffect(() => { 
-    
+    var user=localStorage.getItem('user')
+    if(user){
+      axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+        var a=res.data.filternew.filter(item=>item.food)
+        GlobalStore.GLOBAL_VAR=(a.length)
+        console.log(GlobalStore.GLOBAL_VAR,"Asd");
+      })
+  
+    }else{
+      GlobalStore.GLOBAL_VAR=0
+    }
     getData()
     getComany()
     setTimeout(() => {
@@ -592,7 +602,7 @@ function sellectdatachange(key,check) {
               <div className={s.back_gl1}><span id={s.phone_1}> По телефону</span><span onClick={() => setPage(1)}>По паролю</span> </div>
               <br />
               <div id='openUserpage_phone1' className={s.input_phone_gl}>
-                <input id='openUserpage_phone' placeholder="your email" defaultValue={""} type="email" />
+                <input id='openUserpage_phone' placeholder="Введите почты" defaultValue={""} type="email" />
                 <div id='error_phone' style={{ position: "relative", zIndex: -1 }}>
                   <Input_error message={error_phone} />
                   <IoIosInformationCircleOutline />
@@ -608,7 +618,7 @@ function sellectdatachange(key,check) {
                 <div className={s.back_gl1}><span onClick={() => setPage(0)} id={s.phone_1}> По телефону</span><span>По паролю</span> </div>
                 <br />
                 <div className={s.input_phone_gl} id='pp_phone_big' >
-                  <input placeholder="your email" defaultValue={""} type="email" id='pp_phone' />
+                  <input placeholder="Введите почты" defaultValue={""} type="email" id='pp_phone' />
                   <div id='error_phone1' style={{ position: "relative", zIndex: -1, color: "red" }}>
                     <Input_error message={error_phone} />
                     <IoIosInformationCircleOutline style={{ color: "red" }} /></div>

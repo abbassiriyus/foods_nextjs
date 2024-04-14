@@ -14,6 +14,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import s from "../../styles/menuDetail.module.css"
 import url from "../host/config"
 import { useRouter } from 'next/router'
+import GlobalStore from '../GlobalStore';
 import axios from 'axios';
 export default function menu_detail() {
 var [accor,setAccor]=useState(1)
@@ -51,6 +52,10 @@ send_data.append("food_id",food_id)
 send_data.append("count",1)
 localStorage.setItem("karzinka",1)
 axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+  axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+    var a=res.data.filternew.filter(item=>item.food) 
+       GlobalStore.GLOBAL_VAR=a.length
+  })
   }).catch(err=>{
   })
 }else{
@@ -184,12 +189,15 @@ if(router.query.id){
 <div className={s.vbr_blyud}>
 <p onClick={()=>{window.location="/foods"}} >Все блюда</p>
 {user.category.map((item,key)=>{
-  return <p onClick={()=>{
-    localStorage.setItem("category", item.id)
+  if(item.title){
+   return <p onClick={()=>{
+    localStorage.setItem("category",item.id)
     setTimeout(() => {
       window.location="/foods/"
     }, 100);
-  }} key={key} >{item.title}</p>
+  }} key={key} >{item.title}</p> 
+  }
+  
 })}
 </div>
 

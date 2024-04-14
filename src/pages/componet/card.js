@@ -6,7 +6,7 @@ import VanillaTilt from 'vanilla-tilt';
 import url from "../host/config"
 
 import axios from 'axios';
-import GlobalStore from '../file1';
+import GlobalStore from '../GlobalStore';
 export default function card(props){
     
 const tiltRef = useRef(null);
@@ -27,6 +27,8 @@ const tiltRef = useRef(null);
       console.log(GlobalStore.GLOBAL_VAR,"Asd");
     })
 
+  }else{
+    GlobalStore.GLOBAL_VAR=0
   }
     }, []);
 function sendcard() {
@@ -51,14 +53,13 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
     var a=res.data.filternew.filter(item=>item.food)
     
        GlobalStore.GLOBAL_VAR=a.length
-  console.log(GlobalStore.GLOBAL_VAR,"Asd");
 
   })
   }).catch(err=>{
  
   })
 }else{
-  alert('Вы не зарегистрированы')
+  alert('Вы не зарегистрированы') 
 }
 }
   return (

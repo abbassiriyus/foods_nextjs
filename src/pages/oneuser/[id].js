@@ -6,6 +6,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { FiShare2 } from "react-icons/fi";
 import Navbar from "../componet/navbar";
+import GlobalStore from '../GlobalStore';
 import Footer from "../componet/footer"
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -78,6 +79,11 @@ export default function first() {
   send_data.append("count",1)
   localStorage.setItem("karzinka",1)
   axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
+    axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
+      var a=res.data.filternew.filter(item=>item.food)
+         GlobalStore.GLOBAL_VAR=a.length
+    })
+  
     }).catch(err=>{
     })
   }else{

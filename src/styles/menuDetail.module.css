@@ -467,8 +467,9 @@ background-position: center !important;
         gap:10px;
     }
 .star_buyers img{
-    width: 7%;
+    width: 50px;
     min-width: 50px;
+    border-radius: 50%;
 }
 .bento{
     font-weight: 300;

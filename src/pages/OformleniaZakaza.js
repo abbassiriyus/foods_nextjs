@@ -6,7 +6,9 @@ import Navbar from "./componet/navbar";
 import Footer from "./componet/footer";
 import axios from "axios";
 import url from "./host/config"
-import { message } from "antd";
+import { toast,Bounce } from 'react-toastify';
+
+// import { message } from "antd";
 export default function Oformlenia_zakaz() {
   
   var [radio,setRadio]=useState(true)
@@ -67,11 +69,31 @@ var [allprice,setAllPrice]=useState(0)
     var error_message=true
     if(document.querySelector('#checkbox-zakaz').checked){
       if ((document.querySelector('#fullname12').value).length==0) {
-        message.error("Вы не ввели имя")
+       toast.error("Вы не ввели имя", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        })
         error_message=false
       }
       if ((document.querySelector('#phone12').value).length==0) {
-        message.error("Не указан номер телефона")
+       toast.error("Не указан номер телефона", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        })
         error_message=false
       }
         data1.append('fullname',document.querySelector('#fullname12').value)
@@ -82,18 +104,48 @@ var [allprice,setAllPrice]=useState(0)
     data1.append('phone',user[0].phone)
     data1.append('to_my_friend',false)
     if(!user[0].name){
-      message.error("Вы не ввели имя")
+     toast.error("Вы не ввели имя", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      })
       error_message=false
     }
     if(!user[0].phone){
-      message.error("Не указан номер телефона")
+     toast.error("Не указан номер телефона", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      })
       error_message=false
     }
   }
   if(radio){
     data1.append('the_city',data.place)
     if(!data.place){
-      message.error("Адрес не введен")
+     toast.error("Адрес не введен", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      })
       error_message=false
     }
     data1.append('village','0')
@@ -109,14 +161,34 @@ var [allprice,setAllPrice]=useState(0)
     data1.append('building',document.querySelector("#input4").value)
     data1.append('convex',document.querySelector("#input5").value)
     if((document.querySelector("#input1").value).length==0 && (document.querySelector("#input2").value).length==0 && (document.querySelector("#input3").value).length==0 && (document.querySelector("#input4").value).length==0 && (document.querySelector("#input5").value).length==0){
-      message.error("Полный адрес не введен")
+     toast.error("Полный адрес не введен", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      })
       error_message=false
     }
   }
   data1.append('time',document.querySelector("#input_time").value)
   data1.append('date',document.querySelector("#input_day").value)
   if((document.querySelector("#input_time").value).length==0 && (document.querySelector("#input_time").value).length==0){
-    message.error("Время введено неверно")
+   toast.error("Время введено неверно", {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+    })
     error_message=false
   }  
 
@@ -150,7 +222,7 @@ if(error_message){
       senddata.append("room_id",room_yes)
       senddata.append("message",sendmessage)
     axios.post(`${url()}/api/messages`,senddata).then(res=>{
-    alert("сообщение отправлено")
+    toast.error("сообщение отправлено")
     window.location="/profile/1/"
     }).catch(err=>{
     console.log(err);
@@ -166,7 +238,7 @@ if(error_message){
       senddata.append("room_id",res.data.id)
       senddata.append("message",sendmessage)
     axios.post(`${url()}/api/messages`,senddata).then(res=>{
-    alert("сообщение отправлено")
+    toast.error("сообщение отправлено")
     window.location="/profile/"
     }).catch(err=>{
     console.log(err);
