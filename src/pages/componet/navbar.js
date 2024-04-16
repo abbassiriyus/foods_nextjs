@@ -28,7 +28,7 @@ import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
 import { toast,ToastContainer } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css';
 import GlobalStore from '../GlobalStore';
 import { GeolocationControl, Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 export default function Navbar() {
@@ -363,7 +363,7 @@ send_data.append('is_prepared',document.querySelector('#is_prepared123').value)
 var document1= new FormData()
 document1.append('user_povar_id',user_me[0].id)
 document1.append('file', document.querySelector("#document123").files[0])
-if(document.querySelector("#document123").files[0]){
+if(!document.querySelector("#document123").files[0]){
   toast.error("Для документа не было добавлено ни изображения, ни файла.", {
     position: "top-right",
     autoClose: 2000,
@@ -379,7 +379,7 @@ if(document.querySelector("#document123").files[0]){
 var document2= new FormData()
 document2.append('user_povar_id',user_me[0].id)
 document2.append('file', document.querySelector("#document1232").files[0])
-if(document.querySelector("#document1232").files[0]){
+if(!document.querySelector("#document1232").files[0]){
   toast.error("Для документа не было добавлено ни изображения, ни файла.", {
     position: "top-right",
     autoClose: 2000,
@@ -395,7 +395,7 @@ if(document.querySelector("#document1232").files[0]){
 var diploma= new FormData()
 diploma.append('user_povar_id',user_me[0].id)
 diploma.append('file', document.querySelector("#diploma123").files[0])
-if(document.querySelector("#diploma123").files[0]){
+if(!document.querySelector("#diploma123").files[0]){
   toast.error("Для диплома не было загружено ни фото, ни файла.", {
     position: "top-right",
     autoClose: 2000,
@@ -433,7 +433,7 @@ if ((document.querySelector("#imayyefamiliya").value).length==0 || (document.que
     })
     send_dorup=false
 }
-if(document.querySelector("#send_prefil_image").files[0]){
+if(!document.querySelector("#send_prefil_image").files[0]){
   toast.error("Изображение пользователя не отправлено.", {
     position: "top-right",
     autoClose: 2000,
@@ -833,8 +833,8 @@ function sellectdatachange(key,check) {
 <h3 className={s.form_h3}>Расскажите о себе*</h3>
 
 <div className={s.input}>
-<input placeholder='Фамилия и имя' id='imayyefamiliya' type="text" />
-<input placeholder='Email' id='email_put_profle' type="text" />
+<input placeholder='Фамилия и имя' id='email_put_profle' type="text" />
+<input placeholder='Email' id='imayyefamiliya' type="text" />
 <textarea placeholder='О себе' name="" id="ocebya" cols="30" rows="10"></textarea>
 
 <select name="" id="ish_yonalishi123">

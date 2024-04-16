@@ -469,7 +469,7 @@ cursor: pointer;
 .how_it_cook_zakaz p {
   font-size: 13px;
   font-weight: 650;
-  line-height: 0;
+  /* line-height: 0; */
 }
 
 .how_it_cook_zakaz span {

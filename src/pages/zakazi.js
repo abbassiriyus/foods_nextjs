@@ -9,6 +9,7 @@ import url from './host/config.js'
 import axios from 'axios';
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function zakazi() {
   var [zakaz, setZakaz] = useState([])
   var [cook, setCook] = useState([])
@@ -17,11 +18,31 @@ export default function zakazi() {
     axios.put(`${url()}/api/food_seller/status/${id}`, { status }).then(res => {
       getData()
       if(status==4){
-toast.error("Заказ отменен")
+      toast.error("Заказ отменен", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
       }else{
-      toast.success("Заказ отправлен подождите, пока клиент получит")  
+      toast.success("Заказ отправлен подождите, пока клиент получит", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })  
       }
       
+    }).catch(err=>{
+
     })
   }
 
@@ -30,7 +51,6 @@ toast.error("Заказ отменен")
     axios.get(`${url()}/api/food_seller/${my[0].id}`).then(res => {
       var b = res.data.zakaz.filter(item => item.pover.id != my[0].id)
       setZakaz(b)
-      console.log(b);
       var d = res.data.pover.filter(item => item.creator.id != my[0].id)
       setCook(d)
     })
@@ -40,7 +60,7 @@ toast.error("Заказ отменен")
   }, [])
   return (
     <div>
-       <ToastContainer />
+       
       <Head>
         <title>Мои заказы</title>
         <meta name="description" content="Мои заказы" />
@@ -48,6 +68,7 @@ toast.error("Заказ отменен")
         <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/5370/5370178.png" />
         {/* <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" /> */}
       </Head>
+      {/* <ToastContainer /> */}
       <Navbar />
 
       <div className={z.a_div}>
@@ -93,7 +114,7 @@ toast.error("Заказ отменен")
                   <td style={{ textAlign: 'center' }}>
                   {item.status==2?(<button onClick={() => putStatus(item.id, 4)} className={z.keyingi_bosqich1} >Отмена заказа</button>):(<></>)}
                   {item.status==2?(
-                    <button onClick={()=>putStatus(item.id,3)}>qabul qildim</button>
+                    <button className={z.keyingi_bosqich} onClick={()=>putStatus(item.id,3)}>qabul qildim</button>
                   ):(<></>)}
                     {item.status == 1 ? (<button className={z.btnt2}>создано</button>) : (item.status == 2 ? (<button className={z.btnt2}>Отправлено</button>) : (item.status == 3 ? (<button className={z.btnt2}>Сделано</button>) : (<button className={z.btnt2} style={{background:'rgba(255, 0, 0, 0.199)'}}>Отменено</button>)))}
 
@@ -128,7 +149,7 @@ toast.error("Заказ отменен")
               <div>
               {item2.status==2?(<button onClick={() => putStatus(item2.id, 4)} className={z.keyingi_bosqich1} >Отмена заказа</button>):(<></>)}
               {item2.status==2?(
-                    <button className={s.keyingi_bosqich} onClick={()=>putStatus(item2.id,3)}>qabul qildim</button>
+                    <button className={z.keyingi_bosqich} onClick={()=>putStatus(item2.id,3)}>qabul qildim</button>
                   ):(<></>)}
                 {item2.status == 1 ? (<button className={z.btnt2}>создано</button>) : (item2.status == 2 ? (<button className={z.btnt2}>Отправлено</button>) : (item2.status == 3 ? (<button className={z.btnt2}>Сделано</button>) : (<button className={z.btnt2} style={{background:'rgba(255, 0, 0, 0.199)'}} >Отменено</button>)))}  </div>
 
