@@ -9,7 +9,7 @@ min-height: 400px;
 border-radius: 18px;
 padding: 1%;
 margin-top: 20px;
-box-shadow:  0px 0px 12px grey;
+box-shadow:  0px 0px 12px rgba(128, 128, 128, 0.185);
 display: flex !important;
 justify-content: space-between !important;
 flex-direction: column !important;
@@ -20,7 +20,7 @@ transition: .3s;
     background-position: center !important;
 }
 .card:hover{
-box-shadow: 0px 0px 5px gray;
+box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.492);
 }
 .profil{
 width: 90%;

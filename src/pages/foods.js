@@ -14,6 +14,7 @@ import url from './host/config';
 import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
 import { BsSliders2 } from "react-icons/bs";
+import Head from 'next/head';
 export default function foods() {
 var [data,setData]=useState([])
 var [glFoods,setGlFoods]=useState([])
@@ -242,6 +243,12 @@ setGlFoods(res.data) })
   return (
   
 <div>
+<Head>
+        <title>Продукты Edablizko</title>
+        <meta name="description" content="This is the description for my page" />
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5370/5370178.png" />
+        <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/5370/5370178.png" />
+      </Head>
 <Navbar/>
 <div className={s.router}><a href="/">Главная <IoIosArrowForward className={s.arrow} /></a>Все блюда</div>
    <div className={s.food_body}>

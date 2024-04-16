@@ -27,6 +27,8 @@ import Loading from "../loading.js"
 import { CiUser } from "react-icons/ci";
 import { PiChatsDuotone } from "react-icons/pi";
 import Head from 'next/head';
+import { toast,ToastContainer } from 'react-toastify';
+
 import GlobalStore from '../GlobalStore';
 import { GeolocationControl, Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 export default function Navbar() {
@@ -337,8 +339,22 @@ window.location="/profile/"
 function sendpover() {
   var user_me=JSON.parse(localStorage.getItem("user"))
 var send_data=new FormData()
+var send_dorup=true
 send_data.append('user_id',user_me[0].id)
 send_data.append('deskription',document.querySelector('#ocebya').value)
+if((document.querySelector('#ocebya').value).length==0 || (document.querySelector('#expertise123').value).length==0 || (document.querySelector('#place123').value).length==0 || (document.querySelector('#is_prepared123').value).length==0 ){
+  toast.error("Недостаточные данные", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
 send_data.append('expertise',document.querySelector('#expertise123').value)
 send_data.append('place',document.querySelector('#place123').value)
 send_data.append('ish_yonalishi',document.querySelector('#ish_yonalishi123').value)
@@ -347,15 +363,51 @@ send_data.append('is_prepared',document.querySelector('#is_prepared123').value)
 var document1= new FormData()
 document1.append('user_povar_id',user_me[0].id)
 document1.append('file', document.querySelector("#document123").files[0])
-
+if(document.querySelector("#document123").files[0]){
+  toast.error("Для документа не было добавлено ни изображения, ни файла.", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
 var document2= new FormData()
 document2.append('user_povar_id',user_me[0].id)
 document2.append('file', document.querySelector("#document1232").files[0])
-
+if(document.querySelector("#document1232").files[0]){
+  toast.error("Для документа не было добавлено ни изображения, ни файла.", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
 var diploma= new FormData()
 diploma.append('user_povar_id',user_me[0].id)
 diploma.append('file', document.querySelector("#diploma123").files[0])
-
+if(document.querySelector("#diploma123").files[0]){
+  toast.error("Для диплома не было загружено ни фото, ни файла.", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
 var user =new FormData()
 
 if(document.querySelector("#send_prefil_image").files[0]){
@@ -367,7 +419,36 @@ user.append("phone",user_me[0].phone)
 user.append("password",user_me[0].password)
 user.append("email",document.querySelector("#imayyefamiliya").value)
 user.append("name",document.querySelector("#email_put_profle").value)
-axios.post(`${url()}/api/user_povar`,send_data).then(res=>{
+
+if ((document.querySelector("#imayyefamiliya").value).length==0 || (document.querySelector("#email_put_profle").value).length==0) {
+  toast.error("Информация о пользователе неполная.", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
+if(document.querySelector("#send_prefil_image").files[0]){
+  toast.error("Изображение пользователя не отправлено.", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    })
+    send_dorup=false
+}
+
+if(send_dorup){
+ axios.post(`${url()}/api/user_povar`,send_data).then(res=>{
 axios.post(`${url()}/api/document`,document1).then(res2=>{
   axios.post(`${url()}/api/document`,document2).then(res3=>{
     axios.post(`${url()}/api/diploma`,diploma).then(res4=>{
@@ -391,7 +472,9 @@ document.querySelector("#modal32").style="display:none;"
     })
   })
 })
-})
+}) 
+}
+
 
 }
 
@@ -406,6 +489,7 @@ function sellectdatachange(key,check) {
        <Head>
         <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" />
       </Head>
+      <ToastContainer />
     
 
   {loading?(<><Loading/></>):(<>
@@ -498,7 +582,7 @@ function sellectdatachange(key,check) {
           {/* {placemarkCoordinates && <Placemark geometry={placemarkCoordinates} />} */}
         </Map>
       </YMaps>
-              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5994.922998991916!2d69.35282709072807!3d41.29882294560782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef594c08ad48d%3A0xb08a62f6608102ad!2z0KLRg9C30LXQu9GMLTEsINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1707746865702!5m2!1sru!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+            
             </div>
 
           </div>

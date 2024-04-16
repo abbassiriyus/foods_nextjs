@@ -55,6 +55,16 @@
      text-align: center;
      min-width: 150px;
      padding-top: 7px;
+} 
+.card{
+    transition: 1s;
+}
+.card a h2{
+    transition: .3s;
+
+} 
+.card:hover a h2 {
+color: #06c160;
 }
 .card_text{
     width: 100%;

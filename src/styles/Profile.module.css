@@ -23,6 +23,7 @@
     border-radius: 10px;
     font-size: 20px;
     text-wrap: nowrap;
+    cursor: pointer;
 }
 .line1 a:hover{
     background-color: #06c160;

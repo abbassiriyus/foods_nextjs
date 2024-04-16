@@ -114,11 +114,11 @@ cursor: pointer;
     width: 130px;
 height: 25px;
 border: none;
+margin-top: 4px;
 border-radius: 8px;
 color:#06c160;
-
 background-color:#06c16048;
-margin-left: 90px; 
+margin-left: 20px; 
 cursor: pointer;
 } 
 /* table2 */
@@ -172,15 +172,37 @@ cursor: pointer;
     border-radius: 50%;
 }
 .btnt3{
+
     width: 130px;
 height: 25px;
 border: none;
 border-radius: 8px;
 color:#06c160;
-margin-left: 20px;
-background-color:#06c16048;
 cursor: pointer;
+margin-left: 20px;
 } 
+.keyingi_bosqich{
+    width: 130px;
+height: 25px;
+margin-left: 20px;
+border: none;
+border-radius: 8px;
+color:#06c160;
+border:1px solid #06c16048;
+cursor: pointer;
+margin-top: 3px;
+}
+.keyingi_bosqich1{
+    width: 130px;
+height: 25px;
+margin-left: 20px;
+border: none;
+border-radius: 8px;
+color:#c10606;
+border:1px solid #c1060648;
+cursor: pointer;
+margin-top: 3px;
+}
 @media (max-width:1330px) {
     .zkz{
         margin-left: 30px;

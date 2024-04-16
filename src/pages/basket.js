@@ -8,6 +8,7 @@ import s from "../styles/basket.module.css"
 import axios from 'axios';
 import GlobalStore from './GlobalStore';
 import url from "./host/config.js"
+import Head from 'next/head';
 export default function basket() {
 
   var [data,setData]=useState(0)
@@ -73,6 +74,13 @@ getData()
 
   return (
     <div>
+        <Head>
+<title>Карзинка</title>
+        <meta name="description" content="Карзинка" />
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5370/5370178.png" />
+        <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/5370/5370178.png" />
+        {/* <script src="https://api-maps.yandex.ru/2.1/?apikey=49b66546-e562-4119-b7ba-9adcce7e49a0&lang=en_US" /> */}
+      </Head>
         <Navbar/>
         {data==0?(<></>):(data.length==0?(<Found/>):(<>
        <div className={s.zakaz}>
