@@ -410,7 +410,7 @@ if(error_message){
                     </div>
                     <div className={o.middle_dostavka_div}>
                       <div className={o.another_info_zakaz}>
-                        <input type="text" placeholder="Дом" name="" id="input2" />
+                        <input type="number" placeholder="Дом" name="" id="input2" />
                         <input
                           type="text"
                           placeholder="Квартира офис"
@@ -420,12 +420,12 @@ if(error_message){
                       </div>
                       <div className={o.another_info_zakaz}>
                         <input
-                          type="text"
+                          type="number"
                           placeholder="Подъезд"
                           name=""
                           id="input4"
                         />
-                        <input type="text" placeholder="Этаж" name="" id="input5" />
+                        <input type="number" placeholder="Этаж" name="" id="input5" />
                       </div>
                     </div>
                   </div>
