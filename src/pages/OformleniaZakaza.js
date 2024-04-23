@@ -230,7 +230,7 @@ if(error_message){
       progress: undefined,
       theme: "colored",
       })
-    window.location="/profile/1/"
+    window.location=`/profile/1/?profile=${data.user_id}`
     }).catch(err=>{
     console.log(err);
     })
@@ -240,7 +240,6 @@ if(error_message){
       sendroom.append("user2",data.user_id)
     axios.post(`${url()}/api/room`,sendroom ).then(res=>{
       var senddata=new FormData()
-     
       senddata.append("user_id",my_data[0].id)
       senddata.append("room_id",res.data.id)
       senddata.append("message",sendmessage)
@@ -255,7 +254,7 @@ if(error_message){
       progress: undefined,
       theme: "colored",
       })
-    window.location="/profile/"
+    window.location=`/profile/1/?profile=${data.user_id}`
     }).catch(err=>{
     console.log(err);
     })

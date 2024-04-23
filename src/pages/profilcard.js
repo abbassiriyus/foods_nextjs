@@ -15,7 +15,7 @@ export default function profilcard({data}) {
       var test=false
       for (let i = 0; i < res.data.length; i++) {
         if((res.data[i].user1==id && res.data[i].user2==usertwo) || (res.data[i].user2==id && res.data[i].user1==usertwo) ){
-         window.location="/profile/1/"
+          window.location=`/profile/1/?profile=${id}`
          test=true
         }
       }
@@ -35,7 +35,7 @@ export default function profilcard({data}) {
           progress: undefined,
           theme: "colored",
           })
-      window.location="/profile/1/"
+          window.location=`/profile/1/?profile=${usertwo}`
       })
       }
         })

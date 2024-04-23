@@ -119,7 +119,7 @@ export default function zakazi() {
                     {item.status == 1 ? (<button className={z.btnt2}>создано</button>) : (item.status == 2 ? (<button className={z.btnt2}>Отправлено</button>) : (item.status == 3 ? (<button className={z.btnt2}>Сделано</button>) : (<button className={z.btnt2} style={{background:'rgba(255, 0, 0, 0.199)'}}>Отменено</button>)))}
 
                   </td>
-                  <td><p style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={() => { window.location = "/profile/1/" }} ><TbMessage2 /></p></td>
+                  <td><p style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={() => { window.location = `/profile/1/?profile=${item.pover.id}` }} ><TbMessage2 /></p></td>
                 </tr>
               </tbody>
             })}
@@ -138,7 +138,7 @@ export default function zakazi() {
                 <img src={item2.pover && item2.pover.image} alt="" />
                 <p>{item2.pover.name}</p>
               </div>
-              <TbMessage2 style={{ color: '#06c160', fontSize: '22px' }} />
+              <TbMessage2 onClick={() => { window.location = `/profile/1/?profile=${item2.pover.id}` }} style={{ color: '#06c160', fontSize: '22px' }} />
             </div>
             <div className={z.adress}>
               <p>{item2.the_city},
@@ -205,7 +205,7 @@ export default function zakazi() {
                 
                     {item.status == 1 ? (<button className={z.btnt2}>создано</button>) : (item.status == 2 ? (<button className={z.btnt2}>Отправлено</button>) : (item.status==3?(<button className={z.btnt2}>Сделано</button>) : (<button className={z.btnt2} style={{background:'rgba(255, 0, 0, 0.199)'}} >Отменено</button>)))}
                   </td>
-                  <td><p style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={() => { window.location = "/profile/1/" }} ><TbMessage2 /></p></td>
+                  <td><p style={{ marginLeft: '20px', cursor: 'pointer' }} onClick={() => { window.location = `/profile/1/?profile=${item.creator}` }} ><TbMessage2 onClick={() => { window.location = `/profile/1/?profile=${item.creator.id}` }} /></p></td>
                 </tr>
               </tbody>
             })}
@@ -221,10 +221,10 @@ export default function zakazi() {
             </div>
             <div className={z.card_table1}>
               <div className={z.img_t}>
-                <img src="https://s3.timeweb.com/3c054d59-37319911-7058-4007-b6f4-e93899e36aed/3f90752ef464162ca8d883022a73c13d03a3c077/3f90752ef464162ca8d883022a73c13d03a3c077-wc200.jpeg" alt="" />
+                <img src={item2.creator && item2.creator.image} alt="" />
                 <p>{item2.fullname}</p>
               </div>
-              <TbMessage2 style={{ color: '#06c160', fontSize: '22px' }} />
+              <TbMessage2 onClick={() => { window.location = `/profile/1/?profile=${item2.creator.id}` }}  style={{ color: '#06c160', fontSize: '22px' }} />
             </div>
             <div className={z.adress}>
               <p>{item2.the_city},

@@ -1027,6 +1027,11 @@ display: none;
     /* min-height: min-content; */
     /* height: auto !important; */
 }
+@media(max-width:1025px){
+    .form_stat{
+        padding-bottom: 100px;
+    }
+}
 .df_form{
     background-color: #fff;
     padding: 2%;

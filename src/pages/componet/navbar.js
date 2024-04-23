@@ -624,10 +624,10 @@ function sellectdatachange(key,check) {
     ( <a href='/zakazi/' style={{ color: 'black',textDecoration:'none' }}>
       
       Мои заказы</a>):( 
-      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
+      <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex";  setIsOpen(false)}}>
         Стать поваром</a>)
        ):(
-       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}>Стать поваром</a>
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2); setIsOpen(false) }}>Стать поваром</a>
        )}
 
           {/* <hr  /> */}
@@ -989,11 +989,11 @@ function sellectdatachange(key,check) {
 {user?(user[0].pover?
     ( <a href='/profile/' style={{ color: 'black',textDecoration:'none' }}>
       <CiUser className={s.b_i} /><br />
-      Профил</a>):( 
+      Профиль</a>):( 
       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal32").style = "display:flex"; }}>
-        <CiUser className={s.b_i} /><br />Профил</a>)
+        <CiUser className={s.b_i} /><br />Профиль</a>)
        ):(
-       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}><CiUser className={s.b_i} /><br />Профил</a>
+       <a style={{  color: 'black',textDecoration:'none' }} onClick={() => { document.   querySelector("#modal_gl").style = "display:flex"; setPage(2) }}><CiUser className={s.b_i} /><br />Профиль</a>
        )}
 </div>
 <div className={s.blyuda}>

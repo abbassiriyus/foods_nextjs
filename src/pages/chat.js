@@ -5,9 +5,13 @@ import { useState } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 import url from "./host/config"
+import { useRouter } from 'next/router';
 const socket = io.connect(url());
 export default function chat() {
 const [room, setRoom] = useState("");
+var router=useRouter()
+
+
 // Messages States
 const [message, setMessage] = useState([]);
 const [profilimg, setProfilImg] = useState('');
@@ -22,7 +26,6 @@ a[i].style = "background:#06c160;color:white"
 } else {
 a[i].style = "background:white;color:black"
 }
-
 }
 
 setRoom(id)
@@ -38,7 +41,7 @@ s.scrollTo({
 top: document.documentElement.scrollHeight*99999,
 behavior: 'smooth'
 });
- }, 1000);
+ }, 1500);
 })
 };
 function formatDate(dateTime) {
@@ -78,13 +81,29 @@ if(res.data[i].user){
 res.data[i].date=formatDate(res.data[i].user.online)
  }
 }
-setChat(res.data.filter(item=>item.user))
+var dd=res.data.filter(item=>item.user)
+setChat(dd)
+setTimeout(()=>{
+    if(router.query.profile){
+        for (let i = 0; i < dd.length; i++) {
+      if(router.query.profile==dd[i].user.id){
+        joinRoom(i,dd[i].id,dd[i].user.image)
+        
+       }   
+        }
+    }
+},1000)
 }).catch(err => {
 })
 }
 useEffect(() => {
 getChat()
 }, [])
+useEffect(()=>{
+setTimeout(() => {
+  
+}, 1000);
+},[router])
 useEffect(() => {
 var chat = (JSON.parse(localStorage.getItem("user")))
 socket.on("receive_message", (data) => {
