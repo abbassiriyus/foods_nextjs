@@ -53,9 +53,17 @@ localStorage.setItem("karzinka",1)
 axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
     var a=res.data.filternew.filter(item=>item.food)
-    
        GlobalStore.GLOBAL_VAR=a.length
-
+       toast.success("Отправлено в Карзинку", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
   })
   }).catch(err=>{
  
@@ -80,7 +88,7 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
 
 
   {props.data?(  <div className={s.card}>
-    <ToastContainer /> 
+    {/* <ToastContainer />  */}
         <div className={s.card_img}>
     <div className={s.card}  > 
         <div onClick={()=>sendcard()} style={{background:`url(${props.data.image})`,backgroundSize:'cover',  backgroundSize: '100% 100%',backgroundRepeat: 'no-repeat',paddingTop:'8px'}}  className={s.card_img}>

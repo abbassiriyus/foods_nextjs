@@ -443,6 +443,17 @@ cursor: pointer;
     flex-wrap: wrap;
     width: 90%;
     margin-right: 200px;
+    justify-content: center;
+  }
+  @media(max-width:991px){
+    .big_oformlinia_zaka {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+      margin-top: 20px;
+    }
   }
   .second_oformlenia_zakaz button {
     width: 90%;

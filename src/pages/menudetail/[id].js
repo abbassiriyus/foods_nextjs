@@ -38,8 +38,6 @@ var formattedDate = date.toLocaleDateString("ru-RU", { day: '2-digit', month: 'l
 res.data.comment[i].date=formattedDate
 }
 setCommnet(res.data.comment)
-
- 
   }).catch(err=>{
     alert(err)
   })
@@ -58,6 +56,16 @@ axios.post(`${url()}/api/karzinka`,send_data).then(res=>{
   axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
     var a=res.data.filternew.filter(item=>item.food) 
        GlobalStore.GLOBAL_VAR=a.length
+       toast.success("Отправлено в Карзинку", {
+        position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+        })
   })
   }).catch(err=>{
   })
