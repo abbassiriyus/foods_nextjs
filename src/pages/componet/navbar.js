@@ -62,11 +62,11 @@ useEffect(()=>{
 })
   useEffect(() => { 
     var user=localStorage.getItem('user')
+    
     if(user){
       axios.get(`${url()}/api/karzinka/${JSON.parse(user)[0].id}`).then(res=>{
         var a=res.data.filternew.filter(item=>item.food)
-        GlobalStore.GLOBAL_VAR=(a.length)
-        console.log(GlobalStore.GLOBAL_VAR,"Asd");
+        GlobalStore.GLOBAL_VAR=a.length
       })
   
     }else{
