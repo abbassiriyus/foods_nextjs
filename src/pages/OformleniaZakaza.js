@@ -20,7 +20,7 @@ export default function Oformlenia_zakaz() {
 
   const Openanotherperson = (ches) => {
     if(ches){
-    document.querySelector("#gets_person2_zakaz1").style = "display:flex";
+    document.querySelector("#gets_person2_zakaz1").style = "display:flex,gap:20px";
     }else{
       document.querySelector("#gets_person2_zakaz1").style = "display:none";
     }
@@ -346,22 +346,22 @@ if(error_message){
                   <input type="text" name="" id="phone12" placeholder="Телефон" />
                 </div>
               </div>
-              <div className={o.get_another_person_zakaz2}>
+              {/* <div className={o.get_another_person_zakaz2}>
                 <input
                   type="checkbox"
                   id="checkbox-zakaz"
                   onChange={Openanotherperson2}
                 />
                 <h4>Другой получатель</h4>
-              </div>
-              <div className={o.gets_person3_zakaz} id="gets_person2_zakaz2">
+              </div> */}
+              {/* <div className={o.gets_person3_zakaz} id="gets_person2_zakaz2">
                 <div className={o.name_person_zakaz}>
                   <input type="text" name="" id="" placeholder="Имя" />
                 </div>
                 <div className={o.phone_number_zakaz}>
                   <input type="text" name="" id="" placeholder="Телефон" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <hr className={o.hr_for_dostavka_or_zaka} />  
@@ -438,6 +438,12 @@ if(error_message){
                   <div className={o.inp_time_data_dostavka}>
                     <input type="date" name="" id="input_day" />
                     <select name="" id="input_time">
+                    <option value="09:00 - 09:30">09:00 - 09:30</option>
+                      <option value="09:30 - 10:00">09:30 - 10:00</option>
+                      <option value="10:00 - 10:30">10:00 - 10:30</option>
+                      <option value="10:30 - 11:00">10:30 - 11:00</option>
+                      <option value="11:00 - 11:30">11:00 - 11:30</option>
+                      <option value="11:30 - 12:00">11:30 - 12:00</option>
                       <option value="21:00 - 21:30">21:00 - 21:30</option>
                       <option value="21:30 - 22:00">21:30 - 22:00</option>
                       <option value="22:00 - 22:30">22:00 - 22:30</option>
