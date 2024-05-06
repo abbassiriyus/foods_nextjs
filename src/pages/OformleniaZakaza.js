@@ -20,7 +20,7 @@ export default function Oformlenia_zakaz() {
 
   const Openanotherperson = (ches) => {
     if(ches){
-    document.querySelector("#gets_person2_zakaz1").style = "display:flex,gap:20px";
+    document.querySelector("#gets_person2_zakaz1").style = "display:flex;gap:20px";
     }else{
       document.querySelector("#gets_person2_zakaz1").style = "display:none";
     }
